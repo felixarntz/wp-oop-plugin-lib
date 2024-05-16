@@ -1,0 +1,11 @@
+includes:
+	- phar://phpstan.phar/conf/bleedingEdge.neon
+parameters:
+	bootstrapFiles:
+		- build-cs/phpstan-bootstrap.php
+	ignoreErrors:
+		- identifier: missingType.generics
+	level: 6
+	paths:
+		- includes/
+	treatPhpDocTypesAsCertain: false

@@ -1,0 +1,50 @@
+{
+  "name": "felixarntz/wp-oop-plugin-lib",
+  "description": "A library providing classes around WordPress APIs, to be used for example in object oriented WordPress plugins.",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Felix Arntz",
+      "email": "hello@felix-arntz.me",
+      "homepage": "https://felix-arntz.me",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.2"
+  },
+  "require-dev": {
+    "wp-phpunit/wp-phpunit": "^6.2",
+    "yoast/phpunit-polyfills": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Felix_Arntz\\WP_OOP_Plugin_Lib\\": "includes/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Felix_Arntz\\WP_OOP_Plugin_Lib\\PHPUnit\\Includes\\": "tests/phpunit/includes"
+    }
+  },
+  "scripts": {
+    "format": [
+      "composer --working-dir=build-cs install",
+      "build-cs/vendor/bin/phpcbf --standard=phpcs.xml.dist"
+    ],
+    "lint": [
+      "composer --working-dir=build-cs install",
+      "build-cs/vendor/bin/phpcs --standard=phpcs.xml.dist"
+    ],
+    "phpmd": [
+      "composer --working-dir=build-cs install",
+      "build-cs/vendor/bin/phpmd . text phpmd.xml"
+    ],
+    "phpstan": [
+      "composer --working-dir=build-cs install",
+      "build-cs/vendor/bin/phpstan analyse --memory-limit=2048M"
+    ],
+    "test": "phpunit -c phpunit.xml.dist --verbose",
+    "test-multisite": "WP_MULTISITE=1 phpunit -c tests/phpunit/multisite.xml --verbose"
+  }
+}
