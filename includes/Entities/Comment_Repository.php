@@ -119,13 +119,15 @@ class Comment_Repository implements Entity_Repository, Cache_Aware_Entity_Reposi
 	/**
 	 * Updates the entity caches for the given comment IDs that do not already exist in cache.
 	 *
+	 * Does not update any meta caches.
+	 *
 	 * @since n.e.x.t
 	 *
 	 * @param int[] $ids Comment IDs.
 	 * @return bool True on success, or false on failure.
 	 */
 	public function prime_caches( array $ids ): bool {
-		_prime_comment_caches( $ids );
+		_prime_comment_caches( $ids, false );
 		return true;
 	}
 

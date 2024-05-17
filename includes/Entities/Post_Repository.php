@@ -128,13 +128,15 @@ class Post_Repository implements Entity_Repository, Cache_Aware_Entity_Repositor
 	/**
 	 * Updates the entity caches for the given post IDs that do not already exist in cache.
 	 *
+	 * Does not update any meta caches.
+	 *
 	 * @since n.e.x.t
 	 *
 	 * @param int[] $ids Post IDs.
 	 * @return bool True on success, or false on failure.
 	 */
 	public function prime_caches( array $ids ): bool {
-		_prime_post_caches( $ids );
+		_prime_post_caches( $ids, true, false );
 		return true;
 	}
 
