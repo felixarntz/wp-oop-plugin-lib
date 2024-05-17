@@ -10,7 +10,7 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Entities;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_Query;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_Repository;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Trash_Aware;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Trash_Aware_Entity_Repository;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Invalid_Entity_Data_Exception;
 use WP_Post;
 
@@ -19,7 +19,7 @@ use WP_Post;
  *
  * @since n.e.x.t
  */
-class Post_Repository implements Entity_Repository, Trash_Aware {
+class Post_Repository implements Entity_Repository, Trash_Aware_Entity_Repository {
 
 	/**
 	 * Checks whether a post for the given ID exists in the repository.

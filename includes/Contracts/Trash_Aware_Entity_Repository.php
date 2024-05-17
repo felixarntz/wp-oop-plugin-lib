@@ -1,6 +1,6 @@
 <?php
 /**
- * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Trash_Aware
+ * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Trash_Aware_Entity_Repository
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
@@ -13,7 +13,7 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Contracts;
  *
  * @since n.e.x.t
  */
-interface Trash_Aware {
+interface Trash_Aware_Entity_Repository {
 
 	/**
 	 * Moves the entity for a given ID to the trash.
