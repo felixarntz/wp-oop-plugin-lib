@@ -137,7 +137,7 @@ class Meta_Repository implements Entity_Key_Value_Repository, With_Single {
 	 * @param int[] $entity_ids Entity IDs.
 	 * @return bool True on success, or false on failure.
 	 */
-	public function update_caches( array $entity_ids ): bool {
+	public function prime_caches( array $entity_ids ): bool {
 		return (bool) update_meta_cache( $this->object_type, $entity_ids );
 	}
 

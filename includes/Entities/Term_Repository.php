@@ -165,14 +165,14 @@ class Term_Repository implements Entity_Repository, Cache_Aware_Entity_Repositor
 	}
 
 	/**
-	 * Updates the entity caches for the given term IDs.
+	 * Updates the entity caches for the given term IDs that do not already exist in cache.
 	 *
 	 * @since n.e.x.t
 	 *
 	 * @param int[] $ids Term IDs.
 	 * @return bool True on success, or false on failure.
 	 */
-	public function update_caches( array $ids ): bool {
+	public function prime_caches( array $ids ): bool {
 		_prime_term_caches( $ids );
 		return true;
 	}
