@@ -8,6 +8,7 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Entities;
 
+use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Cache_Aware_Entity_Repository;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_Query;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_Repository;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Trash_Aware_Entity_Repository;
@@ -19,7 +20,7 @@ use WP_Post;
  *
  * @since n.e.x.t
  */
-class Post_Repository implements Entity_Repository, Trash_Aware_Entity_Repository {
+class Post_Repository implements Entity_Repository, Cache_Aware_Entity_Repository, Trash_Aware_Entity_Repository {
 
 	/**
 	 * Checks whether a post for the given ID exists in the repository.
@@ -122,6 +123,19 @@ class Post_Repository implements Entity_Repository, Trash_Aware_Entity_Repositor
 	 */
 	public function query( array $query_args ): Entity_Query {
 		return new Post_Query( $query_args );
+	}
+
+	/**
+	 * Updates the entity caches for the given post IDs.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param int[] $ids Post IDs.
+	 * @return bool True on success, or false on failure.
+	 */
+	public function update_caches( array $ids ): bool {
+		_prime_post_caches( $ids );
+		return true;
 	}
 
 	/**

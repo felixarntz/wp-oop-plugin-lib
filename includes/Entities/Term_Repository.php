@@ -8,6 +8,7 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Entities;
 
+use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Cache_Aware_Entity_Repository;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_Query;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_Repository;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Invalid_Entity_Data_Exception;
@@ -18,7 +19,7 @@ use WP_Term;
  *
  * @since n.e.x.t
  */
-class Term_Repository implements Entity_Repository {
+class Term_Repository implements Entity_Repository, Cache_Aware_Entity_Repository {
 
 	/**
 	 * Checks whether a term for the given ID exists in the repository.
@@ -161,5 +162,18 @@ class Term_Repository implements Entity_Repository {
 	 */
 	public function query( array $query_args ): Entity_Query {
 		return new Term_Query( $query_args );
+	}
+
+	/**
+	 * Updates the entity caches for the given term IDs.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param int[] $ids Term IDs.
+	 * @return bool True on success, or false on failure.
+	 */
+	public function update_caches( array $ids ): bool {
+		_prime_term_caches( $ids );
+		return true;
 	}
 }

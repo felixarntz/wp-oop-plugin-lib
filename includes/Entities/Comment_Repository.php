@@ -8,6 +8,7 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Entities;
 
+use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Cache_Aware_Entity_Repository;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_Query;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_Repository;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Trash_Aware_Entity_Repository;
@@ -19,7 +20,7 @@ use WP_Comment;
  *
  * @since n.e.x.t
  */
-class Comment_Repository implements Entity_Repository, Trash_Aware_Entity_Repository {
+class Comment_Repository implements Entity_Repository, Cache_Aware_Entity_Repository, Trash_Aware_Entity_Repository {
 
 	/**
 	 * Checks whether a comment for the given ID exists in the repository.
@@ -113,6 +114,19 @@ class Comment_Repository implements Entity_Repository, Trash_Aware_Entity_Reposi
 	 */
 	public function query( array $query_args ): Entity_Query {
 		return new Comment_Query( $query_args );
+	}
+
+	/**
+	 * Updates the entity caches for the given comment IDs.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param int[] $ids Comment IDs.
+	 * @return bool True on success, or false on failure.
+	 */
+	public function update_caches( array $ids ): bool {
+		_prime_comment_caches( $ids );
+		return true;
 	}
 
 	/**
