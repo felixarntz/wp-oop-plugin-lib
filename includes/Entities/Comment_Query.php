@@ -10,6 +10,7 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Entities;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_Query;
 use WP_Comment_Query;
+use WP_Comment;
 
 /**
  * Class for a query for WordPress comments.
@@ -52,13 +53,16 @@ class Comment_Query implements Entity_Query {
 	 *
 	 * @since n.e.x.t
 	 * f
-	 * @return \WP_Comment[] List of comments.
+	 * @return Comment[] List of comment entities.
 	 */
 	public function get_entities(): array {
 		$query_args           = $this->query_args;
 		$query_args['fields'] = 'all';
 
-		return $this->wp_obj->query( $query_args );
+		return array_map(
+			array( $this, 'wrap_comment' ),
+			$this->wp_obj->query( $query_args )
+		);
 	}
 
 	/**
@@ -89,5 +93,17 @@ class Comment_Query implements Entity_Query {
 		$query_args['number']                    = 0;
 
 		return (int) $this->wp_obj->query( $query_args );
+	}
+
+	/**
+	 * Wraps a WordPress comment object into a corresponding entity instance.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param WP_Comment $comment WordPress comment object.
+	 * @return Comment Comment entity.
+	 */
+	private function wrap_comment( WP_Comment $comment ): Comment {
+		return new Comment( $comment );
 	}
 }

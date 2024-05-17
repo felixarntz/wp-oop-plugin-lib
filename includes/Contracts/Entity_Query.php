@@ -20,7 +20,7 @@ interface Entity_Query {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return mixed[] List of entities.
+	 * @return Entity[] List of entities.
 	 */
 	public function get_entities(): array;
 

@@ -10,6 +10,7 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Entities;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_Query;
 use WP_User_Query;
+use WP_User;
 
 /**
  * Class for a query for WordPress users.
@@ -52,7 +53,7 @@ class User_Query implements Entity_Query {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return \WP_User[] List of users.
+	 * @return User[] List of user entities.
 	 */
 	public function get_entities(): array {
 		$query_args           = $this->query_args;
@@ -60,7 +61,10 @@ class User_Query implements Entity_Query {
 
 		$this->wp_obj->prepare_query( $query_args );
 		$this->wp_obj->query();
-		return $this->wp_obj->get_results();
+		return array_map(
+			array( $this, 'wrap_user' ),
+			$this->wp_obj->get_results()
+		);
 	}
 
 	/**
@@ -113,5 +117,17 @@ class User_Query implements Entity_Query {
 				'count_total' => false,
 			)
 		);
+	}
+
+	/**
+	 * Wraps a WordPress user object into a corresponding entity instance.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param WP_User $user WordPress user object.
+	 * @return User User entity.
+	 */
+	private function wrap_user( WP_User $user ): User {
+		return new User( $user );
 	}
 }

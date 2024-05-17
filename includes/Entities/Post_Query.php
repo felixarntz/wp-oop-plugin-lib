@@ -9,6 +9,7 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Entities;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_Query;
+use WP_Post;
 use WP_Query;
 
 /**
@@ -52,13 +53,16 @@ class Post_Query implements Entity_Query {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return \WP_Post[] List of posts.
+	 * @return Post[] List of post entities.
 	 */
 	public function get_entities(): array {
 		$query_args           = $this->query_args;
 		$query_args['fields'] = '';
 
-		return $this->wp_obj->query( $query_args );
+		return array_map(
+			array( $this, 'wrap_post' ),
+			$this->wp_obj->query( $query_args )
+		);
 	}
 
 	/**
@@ -110,5 +114,17 @@ class Post_Query implements Entity_Query {
 				'suppress_filters' => true,
 			)
 		);
+	}
+
+	/**
+	 * Wraps a WordPress post object into a corresponding entity instance.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param WP_Post $post WordPress post object.
+	 * @return Post Post entity.
+	 */
+	private function wrap_post( WP_Post $post ): Post {
+		return new Post( $post );
 	}
 }

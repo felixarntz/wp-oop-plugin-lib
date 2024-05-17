@@ -10,6 +10,7 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Entities;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_Query;
 use WP_Term_Query;
+use WP_Term;
 
 /**
  * Class for a query for WordPress terms.
@@ -52,13 +53,16 @@ class Term_Query implements Entity_Query {
 	 *
 	 * @since n.e.x.t
 	 * f
-	 * @return \WP_Term[] List of terms.
+	 * @return Term[] List of term entities.
 	 */
 	public function get_entities(): array {
 		$query_args           = $this->query_args;
 		$query_args['fields'] = 'all';
 
-		return $this->wp_obj->query( $query_args );
+		return array_map(
+			array( $this, 'wrap_term' ),
+			$this->wp_obj->query( $query_args )
+		);
 	}
 
 	/**
@@ -89,5 +93,17 @@ class Term_Query implements Entity_Query {
 		$query_args['number']                 = 0;
 
 		return (int) $this->wp_obj->query( $query_args );
+	}
+
+	/**
+	 * Wraps a WordPress term object into a corresponding entity instance.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param WP_Term $term WordPress term object.
+	 * @return Term Term entity.
+	 */
+	private function wrap_term( WP_Term $term ): Term {
+		return new Term( $term );
 	}
 }
