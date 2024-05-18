@@ -11,7 +11,7 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Registry;
 
 /**
- * Class for a registry of WordPress REST routes.
+ * Class for a registry of WordPress REST routes within a given namespace.
  *
  * @since n.e.x.t
  */

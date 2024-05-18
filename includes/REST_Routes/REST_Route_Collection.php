@@ -22,7 +22,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\Contracts\REST_Route;
 class REST_Route_Collection implements Collection {
 
 	/**
-	 * REST routes stored in the container.
+	 * REST routes stored in the collection.
 	 *
 	 * @since n.e.x.t
 	 * @var REST_Route[]
