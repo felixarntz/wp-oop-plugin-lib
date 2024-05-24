@@ -19,7 +19,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Felix_Arntz\\WP_OOP_Plugin_Lib\\": "includes/"
+      "Felix_Arntz\\WP_OOP_Plugin_Lib\\": "src/"
     }
   },
   "autoload-dev": {

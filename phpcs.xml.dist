@@ -22,7 +22,7 @@
 	<arg value="ps"/>
 	<arg name="extensions" value="php"/>
 
-	<file>./includes</file>
+	<file>./src</file>
 	<file>./tests</file>
 
 	<!--
