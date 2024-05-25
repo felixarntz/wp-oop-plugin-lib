@@ -111,6 +111,8 @@ abstract class Installer_Base implements Installer {
 	/**
 	 * Uninstalls data for the plugin as necessary.
 	 *
+	 * On a multisite network, this will attempt to uninstall the data for all relevant sites.
+	 *
 	 * @since n.e.x.t
 	 *
 	 * @return bool True on success, false on failure.
