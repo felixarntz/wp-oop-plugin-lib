@@ -6,6 +6,15 @@
 
 A library providing classes around WordPress APIs, to be used for example in object oriented WordPress plugins.
 
+## Minimum requirements
+
+* WordPress >= 6.0
+* PHP >= 7.2
+
+## Development Stage
+
+This library is currently in early development. While new versions should be released regularly, as long as the library is in a `0.*` version, there may be occasional breaking changes with minor version bumps, as the foundation is being polished. Despite that, or rather, particularly because of that, early usage and feedback is much appreciated. See the [CONTRIBUTING.md file](/CONTRIBUTING.md) for further information on how to contribute and provide feedback.
+
 ## License
 
 This library is free software, and is released under the terms of the GNU General Public License version 2 or (at your option) any later version. See [LICENSE](/LICENSE) for complete license.
