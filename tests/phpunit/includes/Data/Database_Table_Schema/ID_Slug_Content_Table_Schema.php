@@ -7,7 +7,7 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Data\Database_Table_Schema;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Database_Table_Schema;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Database\Contracts\Database_Table_Schema;
 
 class ID_Slug_Content_Table_Schema implements Database_Table_Schema {
 

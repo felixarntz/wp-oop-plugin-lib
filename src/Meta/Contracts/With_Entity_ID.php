@@ -1,19 +1,19 @@
 <?php
 /**
- * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_ID_Aware
+ * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\With_Entity_ID
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Contracts;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts;
 
 /**
  * Interface for a class that is aware of a specific entity ID.
  *
  * @since n.e.x.t
  */
-interface Entity_ID_Aware {
+interface With_Entity_ID {
 
 	/**
 	 * Gets the entity ID.

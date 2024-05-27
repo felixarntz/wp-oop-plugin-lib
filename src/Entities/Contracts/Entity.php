@@ -1,12 +1,12 @@
 <?php
 /**
- * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity
+ * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts\Entity
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Contracts;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts;
 
 /**
  * Interface for an entity.

@@ -8,7 +8,7 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Meta;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_Key_Value_Repository;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\Entity_Key_Value_Repository;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\With_Single;
 
 /**

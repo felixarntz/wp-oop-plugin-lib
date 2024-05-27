@@ -1,12 +1,12 @@
 <?php
 /**
- * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Installer
+ * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Installation\Contracts\Installer
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Contracts;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\Installation\Contracts;
 
 /**
  * Interface for a plugin installer (and uninstaller).

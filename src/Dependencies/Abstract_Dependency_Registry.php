@@ -8,7 +8,7 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Dependencies;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Dependency_Registry;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Dependencies\Contracts\Dependency_Registry;
 
 /**
  * Base class for a registry of dependencies, including support for providing manifest files.

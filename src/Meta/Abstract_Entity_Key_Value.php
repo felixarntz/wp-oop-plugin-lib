@@ -1,15 +1,15 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Base\Abstract_Entity_Key_Value
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Abstract_Entity_Key_Value
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Base;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\Meta;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_Key_Value_Repository;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_Key_Value;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\Entity_Key_Value_Repository;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\Entity_Key_Value;
 
 /**
  * Base class representing an key-value pair that is connected to an entity.

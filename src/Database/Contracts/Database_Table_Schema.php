@@ -1,12 +1,12 @@
 <?php
 /**
- * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Database_Table_Schema
+ * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Database\Contracts\Database_Table_Schema
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Contracts;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\Database\Contracts;
 
 /**
  * Interface for a custom database table schema class.

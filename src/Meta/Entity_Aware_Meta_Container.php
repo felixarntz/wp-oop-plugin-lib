@@ -11,7 +11,7 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Meta;
 use ArrayAccess;
 use Closure;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Container_Readonly;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_ID_Aware;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\With_Entity_ID;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Not_Found_Exception;
 
 /**
@@ -19,7 +19,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Not_Found_Exception;
  *
  * @since n.e.x.t
  */
-class Entity_Aware_Meta_Container implements Container_Readonly, ArrayAccess, Entity_ID_Aware {
+class Entity_Aware_Meta_Container implements Container_Readonly, ArrayAccess, With_Entity_ID {
 
 	/**
 	 * The original meta container.

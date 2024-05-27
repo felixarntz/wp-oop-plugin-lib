@@ -1,12 +1,12 @@
 <?php
 /**
- * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_Key_Value
+ * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\Entity_Key_Value
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Contracts;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts;
 
 /**
  * Interface for a key-value pair that is connected to an entity.

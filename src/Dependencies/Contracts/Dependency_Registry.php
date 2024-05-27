@@ -1,12 +1,14 @@
 <?php
 /**
- * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Dependency_Registry
+ * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Dependencies\Contracts\Dependency_Registry
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Contracts;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\Dependencies\Contracts;
+
+use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Registry;
 
 /**
  * Interface for a registry of dependencies which allow enqueuing.

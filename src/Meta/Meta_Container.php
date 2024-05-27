@@ -11,7 +11,7 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Meta;
 use ArrayAccess;
 use Closure;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Container;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_Key_Value_Repository;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\Entity_Key_Value_Repository;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Invalid_Type_Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Not_Found_Exception;
 

@@ -8,8 +8,8 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_Query;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts\Entity;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts\Entity_Query;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\REST_Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\Contracts\REST_Resource_Schema;
 use WP_REST_Controller;

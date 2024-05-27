@@ -8,15 +8,15 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Meta;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_ID_Aware;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Key_Value;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Key_Value\Contracts\Key_Value;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\With_Entity_ID;
 
 /**
  * Wrapper representing a WordPress meta key scoped to a specific entity.
  *
  * @since n.e.x.t
  */
-class Entity_Aware_Meta_Key implements Entity_ID_Aware, Key_Value {
+class Entity_Aware_Meta_Key implements With_Entity_ID, Key_Value {
 
 	/**
 	 * Underlying, general entity aware instance.

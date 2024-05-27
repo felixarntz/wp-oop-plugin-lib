@@ -8,7 +8,7 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Database;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Database_Table_Schema;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Database\Contracts\Database_Table_Schema;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Database_Exception;
 
 /**

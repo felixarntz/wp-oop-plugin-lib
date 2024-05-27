@@ -1,15 +1,15 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Base\Abstract_Installer
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\Installation\Contracts\Abstract_Installer
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Base;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\Installation\Contracts;
 
 use Exception;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Installer;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Installation\Contracts\Installer;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Options\Option;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Plugin_Env;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Traits\Maybe_Throw;
