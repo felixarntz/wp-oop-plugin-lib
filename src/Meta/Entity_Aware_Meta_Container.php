@@ -9,10 +9,9 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Meta;
 
 use ArrayAccess;
-use Closure;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Container_Readonly;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\With_Entity_ID;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Not_Found_Exception;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\With_Entity_ID;
 
 /**
  * Class for a meta container scoped to a specific entity.

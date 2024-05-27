@@ -8,9 +8,9 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Tests\Capabilities;
 
+use Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Capability;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Capability_Container;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Capability_Controller;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Capability;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Not_Found_Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Test_Case;
 

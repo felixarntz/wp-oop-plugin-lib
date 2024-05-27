@@ -9,7 +9,6 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities;
 
 use ArrayAccess;
-use Closure;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Container;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Invalid_Type_Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Not_Found_Exception;

@@ -13,7 +13,6 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts\Entity_Query;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts\Entity_Repository;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts\Trash_Aware_Entity_Repository;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Invalid_Entity_Data_Exception;
-use WP_Comment;
 
 /**
  * Class for a repository of WordPress comments.

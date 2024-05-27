@@ -9,10 +9,10 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes;
 
 use ArrayIterator;
-use InvalidArgumentException;
-use Traversable;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Collection;
 use Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\Contracts\REST_Route;
+use InvalidArgumentException;
+use Traversable;
 
 /**
  * Class for a collection of REST routes.

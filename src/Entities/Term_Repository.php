@@ -12,7 +12,6 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts\Cache_Aware_Entity_Reposito
 use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts\Entity_Query;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts\Entity_Repository;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Invalid_Entity_Data_Exception;
-use WP_Term;
 
 /**
  * Class for a repository of WordPress terms.

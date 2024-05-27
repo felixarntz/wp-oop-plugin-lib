@@ -12,7 +12,6 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts\Entity;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts\Entity_Query;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\REST_Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\Contracts\REST_Resource_Schema;
-use WP_REST_Controller;
 use WP_REST_Request;
 use WP_REST_Response;
 use WP_REST_Server;

@@ -8,8 +8,8 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Meta;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\Entity_Key_Value_Repository;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\Entity_Key_Value;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\Entity_Key_Value_Repository;
 
 /**
  * Base class representing an key-value pair that is connected to an entity.

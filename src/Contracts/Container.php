@@ -8,8 +8,6 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Contracts;
 
-use Closure;
-
 /**
  * Interface for a container with read and write access.
  *

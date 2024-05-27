@@ -9,7 +9,6 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Installation\Contracts;
 
 use Exception;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Installation\Contracts\Installer;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Options\Option;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Plugin_Env;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Traits\Maybe_Throw;

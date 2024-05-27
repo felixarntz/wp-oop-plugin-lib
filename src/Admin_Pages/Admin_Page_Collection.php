@@ -9,10 +9,10 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pages;
 
 use ArrayIterator;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pages\Contracts\Admin_Page;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Collection;
 use InvalidArgumentException;
 use Traversable;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Collection;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pages\Contracts\Admin_Page;
 
 /**
  * Class for a collection of admin pages.

@@ -9,8 +9,8 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Entities;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts\Entity_Query;
-use WP_User_Query;
 use WP_User;
+use WP_User_Query;
 
 /**
  * Class for a query for WordPress users.

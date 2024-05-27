@@ -8,8 +8,8 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Key_Value;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Key_Value\Contracts\Key_Value_Repository;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Key_Value\Contracts\Key_Value;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Key_Value\Contracts\Key_Value_Repository;
 
 /**
  * Base class representing a key-value pair.

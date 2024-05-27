@@ -8,8 +8,8 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes;
 
-use InvalidArgumentException;
 use Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\Contracts\REST_Route;
+use InvalidArgumentException;
 
 /**
  * Class representing a WordPress REST API route supporting multiple route handlers.

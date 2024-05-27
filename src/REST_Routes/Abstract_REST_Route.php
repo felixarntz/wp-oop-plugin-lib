@@ -11,7 +11,6 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\REST_Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\Contracts\REST_Route;
 use WP_Error;
-use WP_REST_Controller;
 use WP_REST_Request;
 use WP_REST_Response;
 
