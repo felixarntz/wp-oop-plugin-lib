@@ -10,8 +10,8 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Tests\Database;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\Database\Custom_Table;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Database\Custom_Table_Container;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Invalid_Type_Exception;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Not_Found_Exception;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Invalid_Type_Exception;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Not_Found_Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Data\Database_Table_Schema\ID_Slug_Content_Table_Schema;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Test_Case;
 

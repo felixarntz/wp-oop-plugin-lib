@@ -10,7 +10,7 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Entities;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts\Entity_Query;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts\Entity_Repository;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Invalid_Entity_Data_Exception;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Exception\Invalid_Entity_Data_Exception;
 
 /**
  * Class for a repository of WordPress users.

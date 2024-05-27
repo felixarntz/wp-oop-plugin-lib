@@ -1,12 +1,12 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Plugin_Env
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Plugin_Env
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\General;
 
 /**
  * Read-only class containing utilities for the plugin environment.

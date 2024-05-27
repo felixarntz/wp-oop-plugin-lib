@@ -1,14 +1,14 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Current_User
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Current_User
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\General;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\With_Capabilities;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\With_Capabilities;
 use WP_User;
 
 /**

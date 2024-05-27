@@ -8,8 +8,8 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Entities;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\With_Capabilities;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts\Entity;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\With_Capabilities;
 use WP_User;
 
 /**

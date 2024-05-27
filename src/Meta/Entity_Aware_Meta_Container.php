@@ -9,8 +9,8 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Meta;
 
 use ArrayAccess;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Container_Readonly;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Not_Found_Exception;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Container_Readonly;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Not_Found_Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\With_Entity_ID;
 
 /**

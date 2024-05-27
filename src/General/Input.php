@@ -1,12 +1,12 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Input
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Input
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\General;
 
 /**
  * Read-only class for filtering input, effectively for superglobal access.

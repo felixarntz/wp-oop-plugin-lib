@@ -8,7 +8,7 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Entities;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Registry;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Registry;
 use WP_Post_Type;
 
 /**

@@ -1,12 +1,12 @@
 <?php
 /**
- * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Collection
+ * Interface Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Collection
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Contracts;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts;
 
 use Countable;
 use IteratorAggregate;

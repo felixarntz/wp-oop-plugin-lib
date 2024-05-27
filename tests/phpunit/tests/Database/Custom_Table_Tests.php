@@ -9,7 +9,7 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Tests\Database;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\Database\Custom_Table;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Database_Exception;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Database\Exception\Database_Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Data\Database_Table_Schema\Generic_Table_Schema;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Data\Database_Table_Schema\ID_Slug_Content_Table_Schema;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Test_Case;

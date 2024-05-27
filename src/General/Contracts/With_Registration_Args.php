@@ -1,12 +1,12 @@
 <?php
 /**
- * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\With_Registration_Args
+ * Interface Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\With_Registration_Args
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Contracts;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts;
 
 /**
  * Interface for an item with registration arguments.

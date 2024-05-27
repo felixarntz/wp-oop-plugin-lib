@@ -1,12 +1,12 @@
 <?php
 /**
- * Trait Felix_Arntz\WP_OOP_Plugin_Lib\Traits\Cast_Value_By_Type
+ * Trait Felix_Arntz\WP_OOP_Plugin_Lib\General\Traits\Cast_Value_By_Type
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Traits;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\General\Traits;
 
 /**
  * Trait with a function to cast a value by a type.

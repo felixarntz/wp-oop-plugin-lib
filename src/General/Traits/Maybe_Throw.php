@@ -1,12 +1,12 @@
 <?php
 /**
- * Trait Felix_Arntz\WP_OOP_Plugin_Lib\Traits\Maybe_Throw
+ * Trait Felix_Arntz\WP_OOP_Plugin_Lib\General\Traits\Maybe_Throw
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Traits;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\General\Traits;
 
 use Exception;
 

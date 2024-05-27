@@ -1,14 +1,12 @@
 <?php
 /**
- * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Key_Value\Contracts\Key_Value
+ * Interface Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Key_Value
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Key_Value\Contracts;
-
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\With_Key;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts;
 
 /**
  * Interface for a key-value pair.

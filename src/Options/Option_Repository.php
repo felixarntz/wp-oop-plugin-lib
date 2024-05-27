@@ -8,7 +8,7 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Options;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Key_Value\Contracts\Key_Value_Repository;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Key_Value_Repository;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Options\Contracts\With_Autoload;
 
 /**

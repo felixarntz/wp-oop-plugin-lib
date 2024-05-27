@@ -1,14 +1,14 @@
 <?php
 /**
- * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Container_Readonly
+ * Interface Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Container_Readonly
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Contracts;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Not_Found_Exception;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Not_Found_Exception;
 
 /**
  * Interface for a container with readonly access.

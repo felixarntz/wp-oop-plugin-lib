@@ -8,7 +8,7 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\Contracts;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\With_Registration_Args;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\With_Registration_Args;
 
 /**
  * Interface for a REST route.

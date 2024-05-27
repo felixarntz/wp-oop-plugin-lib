@@ -1,15 +1,15 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Key_Value\Abstract_Key_Value
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Abstract_Key_Value
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Key_Value;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\General;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Key_Value\Contracts\Key_Value;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Key_Value\Contracts\Key_Value_Repository;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Key_Value;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Key_Value_Repository;
 
 /**
  * Base class representing a key-value pair.

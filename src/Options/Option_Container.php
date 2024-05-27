@@ -9,10 +9,10 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Options;
 
 use ArrayAccess;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Container;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Invalid_Type_Exception;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Not_Found_Exception;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Key_Value\Contracts\Key_Value_Repository;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Container;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Key_Value_Repository;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Invalid_Type_Exception;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Not_Found_Exception;
 
 /**
  * Class for an option container.

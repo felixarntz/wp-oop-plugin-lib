@@ -1,12 +1,12 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Invalid_Type_Exception
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Invalid_Type_Exception
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Exception;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception;
 
 use RuntimeException;
 

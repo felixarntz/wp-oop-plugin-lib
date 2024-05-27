@@ -8,7 +8,7 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Dependencies\Contracts;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Registry;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Registry;
 
 /**
  * Interface for a registry of dependencies which allow enqueuing.

@@ -8,7 +8,7 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\With_Key;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\With_Key;
 
 /**
  * Class representing a WordPress capability.

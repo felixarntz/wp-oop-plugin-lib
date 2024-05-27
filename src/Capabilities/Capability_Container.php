@@ -9,9 +9,9 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities;
 
 use ArrayAccess;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Container;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Invalid_Type_Exception;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Not_Found_Exception;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Container;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Invalid_Type_Exception;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Not_Found_Exception;
 
 /**
  * Class for a capability container.

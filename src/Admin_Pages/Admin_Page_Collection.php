@@ -10,7 +10,7 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pages;
 
 use ArrayIterator;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pages\Contracts\Admin_Page;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Collection;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Collection;
 use InvalidArgumentException;
 use Traversable;
 

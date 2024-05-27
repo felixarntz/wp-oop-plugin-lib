@@ -8,7 +8,7 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Meta;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Registry;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Registry;
 
 /**
  * Class for a registry of WordPress metadata.

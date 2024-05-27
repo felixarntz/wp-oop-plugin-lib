@@ -9,9 +9,9 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Installation\Contracts;
 
 use Exception;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Plugin_Env;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Traits\Maybe_Throw;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Options\Option;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Plugin_Env;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Traits\Maybe_Throw;
 
 /**
  * Base class for a plugin installer (and uninstaller).

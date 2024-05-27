@@ -1,17 +1,17 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Service_Container
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Service_Container
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\General;
 
 use ArrayAccess;
 use Closure;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Container;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Not_Found_Exception;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Container;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Not_Found_Exception;
 
 /**
  * Class for a service container.

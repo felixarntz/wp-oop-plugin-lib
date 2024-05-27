@@ -9,7 +9,7 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes;
 
 use ArrayIterator;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Collection;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Collection;
 use Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\Contracts\REST_Route;
 use InvalidArgumentException;
 use Traversable;
