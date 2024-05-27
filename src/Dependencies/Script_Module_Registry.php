@@ -24,8 +24,7 @@ class Script_Module_Registry extends Abstract_Dependency_Registry {
 	 * @param array<string, mixed> $args {
 	 *     Script module registration arguments.
 	 *
-	 *     @type string|false      $src       Full URL of the script module, or false if it is an alias or it is used
-	 *                                        purely for inline script modules. Default false.
+	 *     @type string|false      $src       Full URL of the script module. Providing one is required. Default false.
 	 *     @type array             $deps      An array of registered script module handles this module depends on.
 	 *                                        Default empty array.
 	 *     @type string|false|null $ver       String specifying module version number, if it has one, which is added
