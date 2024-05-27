@@ -95,11 +95,7 @@ class Comment implements Entity {
 			case 'comment_status':
 				return wp_get_comment_status( $this->wp_obj );
 			default:
-				if ( isset( $this->wp_obj->$field ) ) {
-					return $this->wp_obj->$field;
-				}
+				return $this->wp_obj->$field ?? null;
 		}
-
-		return null;
 	}
 }

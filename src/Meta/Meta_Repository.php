@@ -150,12 +150,8 @@ class Meta_Repository implements Entity_Key_Value_Repository, With_Single {
 	 * @return bool Whether or not the item has a single value.
 	 */
 	public function get_single( string $key ): bool {
-		if ( isset( $this->single_config[ $key ] ) ) {
-			return $this->single_config[ $key ];
-		}
-
 		// The default value is true.
-		return true;
+		return $this->single_config[ $key ] ?? true;
 	}
 
 	/**

@@ -41,10 +41,7 @@ class Option extends Abstract_Key_Value implements With_Registration_Args {
 	 */
 	public function __construct( Key_Value_Repository $repository, string $key, array $registration_args = array() ) {
 		// Extract default value from registration arguments if passed.
-		$default = null;
-		if ( isset( $registration_args['default'] ) ) {
-			$default = $registration_args['default'];
-		}
+		$default = $registration_args['default'] ?? null;
 
 		// Set autoload value from registration arguments if passed.
 		if ( $repository instanceof With_Autoload && isset( $registration_args['autoload'] ) ) {

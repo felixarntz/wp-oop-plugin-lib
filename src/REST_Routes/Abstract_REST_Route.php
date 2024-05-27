@@ -141,8 +141,8 @@ abstract class Abstract_REST_Route implements REST_Route {
 	 * @return array<string, mixed> Associative array with 'number' and 'offset' keys.
 	 */
 	final protected function request_pagination_to_query_args( WP_REST_Request $request ): array {
-		$page     = isset( $request['page'] ) ? $request['page'] : 1;
-		$per_page = isset( $request['per_page'] ) ? $request['per_page'] : 10;
+		$page     = $request['page'] ?? 1;
+		$per_page = $request['per_page'] ?? 10;
 
 		return array(
 			'number' => $per_page,

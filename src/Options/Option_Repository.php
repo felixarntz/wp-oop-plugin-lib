@@ -91,12 +91,8 @@ class Option_Repository implements Key_Value_Repository, With_Autoload {
 	 * @return bool Whether or not the item should be autoloaded.
 	 */
 	public function get_autoload( string $key ): bool {
-		if ( isset( $this->autoload_config[ $key ] ) ) {
-			return $this->autoload_config[ $key ];
-		}
-
-		// The default value is 'yes'.
-		return true;
+		// The default value is true.
+		return $this->autoload_config[ $key ] ?? true;
 	}
 
 	/**

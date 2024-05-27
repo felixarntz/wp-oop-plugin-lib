@@ -50,10 +50,7 @@ class Option_Registry implements Registry {
 	 */
 	public function register( string $key, array $args ): bool {
 		// Use provided group, or default group otherwise.
-		$group = $this->default_group;
-		if ( isset( $args['group'] ) ) {
-			$group = $args['group'];
-		}
+		$group = $args['group'] ?? $this->default_group;
 
 		register_setting( $group, $key, $args );
 		return true;
@@ -82,10 +79,7 @@ class Option_Registry implements Registry {
 	 */
 	public function get_registered( string $key ) {
 		$registered = get_registered_settings();
-		if ( ! isset( $registered[ $key ] ) ) {
-			return null;
-		}
-		return $registered[ $key ];
+		return $registered[ $key ] ?? null;
 	}
 
 	/**

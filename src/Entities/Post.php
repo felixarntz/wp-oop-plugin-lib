@@ -95,11 +95,7 @@ class Post implements Entity {
 			case 'post_status':
 				return get_post_status( $this->wp_obj );
 			default:
-				if ( isset( $this->wp_obj->$field ) ) {
-					return $this->wp_obj->$field;
-				}
+				return $this->wp_obj->$field ?? null;
 		}
-
-		return null;
 	}
 }

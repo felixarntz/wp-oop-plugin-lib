@@ -94,8 +94,8 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 			$resources[]     = rest_get_server()->response_to_data( $entity_response, false );
 		}
 
-		$page     = isset( $request['page'] ) ? $request['page'] : 1;
-		$per_page = isset( $request['per_page'] ) ? $request['per_page'] : 10;
+		$page     = $request['page'] ?? 1;
+		$per_page = $request['per_page'] ?? 10;
 
 		$total_entities = $query->get_count();
 		$max_pages      = (int) ceil( $total_entities / $per_page );
@@ -195,7 +195,7 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 	 * @return string[] Fields to be included in the response.
 	 */
 	final protected function get_fields_to_include( WP_REST_Request $request ): array {
-		$properties = isset( $this->schema['properties'] ) ? $this->schema['properties'] : array();
+		$properties = $this->schema['properties'] ?? array();
 
 		// Exclude fields that specify a different context than the request context.
 		$context = $request['context'];

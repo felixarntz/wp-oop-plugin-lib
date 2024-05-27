@@ -91,11 +91,7 @@ class User implements Entity, With_Capabilities {
 	 * @return mixed Value for the field, `null` if not set.
 	 */
 	public function get_field_value( string $field ) {
-		if ( isset( $this->wp_obj->$field ) ) {
-			return $this->wp_obj->$field;
-		}
-
-		return null;
+		return $this->wp_obj->$field ?? null;
 	}
 
 	/**
