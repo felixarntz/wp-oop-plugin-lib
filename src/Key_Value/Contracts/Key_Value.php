@@ -8,12 +8,14 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Key_Value\Contracts;
 
+use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\With_Key;
+
 /**
  * Interface for a key-value pair.
  *
  * @since n.e.x.t
  */
-interface Key_Value {
+interface Key_Value extends With_Key {
 
 	/**
 	 * Checks whether the item has a value set.
@@ -51,13 +53,4 @@ interface Key_Value {
 	 * @return bool True on success, false on failure.
 	 */
 	public function delete_value(): bool;
-
-	/**
-	 * Gets the key of the item.
-	 *
-	 * @since n.e.x.t
-	 *
-	 * @return string Item key.
-	 */
-	public function get_key(): string;
 }

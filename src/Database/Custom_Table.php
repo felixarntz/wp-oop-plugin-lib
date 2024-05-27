@@ -8,6 +8,7 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Database;
 
+use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\With_Key;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Database\Contracts\Database_Table_Schema;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Database_Exception;
 
@@ -16,7 +17,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Exception\Database_Exception;
  *
  * @since n.e.x.t
  */
-class Custom_Table {
+class Custom_Table implements With_Key {
 
 	/**
 	 * The database table key.
