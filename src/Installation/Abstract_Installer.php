@@ -1,12 +1,12 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Installation\Contracts\Abstract_Installer
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\Installation\Abstract_Installer
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Installation\Contracts;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\Installation;
 
 use Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\General\Plugin_Env;
