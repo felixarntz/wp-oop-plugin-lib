@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Base\Installer_Base
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Base\Abstract_Installer
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
@@ -19,7 +19,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Traits\Maybe_Throw;
  *
  * @since n.e.x.t
  */
-abstract class Installer_Base implements Installer {
+abstract class Abstract_Installer implements Installer {
 	use Maybe_Throw;
 
 	/**

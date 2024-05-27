@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\REST_Route_Base
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\Abstract_REST_Route
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
@@ -20,7 +20,7 @@ use WP_REST_Response;
  *
  * @since n.e.x.t
  */
-abstract class REST_Route_Base implements REST_Route {
+abstract class Abstract_REST_Route implements REST_Route {
 
 	/**
 	 * Route base.

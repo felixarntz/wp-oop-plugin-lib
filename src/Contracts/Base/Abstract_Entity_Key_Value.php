@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Base\Entity_Key_Value_Base
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Base\Abstract_Entity_Key_Value
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
@@ -18,7 +18,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Entity_Key_Value;
  *
  * @since n.e.x.t
  */
-class Entity_Key_Value_Base implements Entity_Key_Value {
+class Abstract_Entity_Key_Value implements Entity_Key_Value {
 
 	/**
 	 * Repository used for the item.

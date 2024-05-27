@@ -8,7 +8,7 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Options;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Base\Key_Value_Base;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Base\Abstract_Key_Value;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Key_Value_Repository;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\With_Registration_Args;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Options\Contracts\With_Autoload;
@@ -19,7 +19,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Traits\Cast_Value_By_Type;
  *
  * @since n.e.x.t
  */
-class Option extends Key_Value_Base implements With_Registration_Args {
+class Option extends Abstract_Key_Value implements With_Registration_Args {
 	use Cast_Value_By_Type;
 
 	/**

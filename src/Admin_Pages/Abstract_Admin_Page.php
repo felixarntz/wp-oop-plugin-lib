@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pages\Admin_Page_Base
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pages\Abstract_Admin_Page
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
@@ -15,7 +15,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pages\Contracts\Admin_Page;
  *
  * @since n.e.x.t
  */
-abstract class Admin_Page_Base implements Admin_Page {
+abstract class Abstract_Admin_Page implements Admin_Page {
 
 	/**
 	 * Admin page slug.

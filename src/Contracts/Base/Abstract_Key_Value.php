@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Base\Key_Value_Base
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Base\Abstract_Key_Value
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
@@ -18,7 +18,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Contracts\Key_Value;
  *
  * @since n.e.x.t
  */
-class Key_Value_Base implements Key_Value {
+class Abstract_Key_Value implements Key_Value {
 
 	/**
 	 * Repository used for the item.

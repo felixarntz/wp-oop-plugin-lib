@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\REST_Resource_Schema_Base
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\Abstract_REST_Resource_Schema
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
@@ -22,7 +22,7 @@ use WP_REST_Server;
  *
  * @since n.e.x.t
  */
-abstract class REST_Resource_Schema_Base implements REST_Resource_Schema {
+abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 
 	/**
 	 * Namespace to use for all routes.
