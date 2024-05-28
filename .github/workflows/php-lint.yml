@@ -55,7 +55,7 @@ jobs:
         run: composer lint
 
       - name: Check PSR-4 mapping
-        run: composer dump-autoload --working-dir=build-cs --dev --optimize --strict-psr
+        run: composer dump-autoload --dev --optimize --strict-psr
 
       - name: PHPStan
         run: composer phpstan
