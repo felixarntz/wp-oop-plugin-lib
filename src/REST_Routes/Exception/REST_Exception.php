@@ -8,22 +8,15 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\Exception;
 
-use RuntimeException;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\WP_Error_Exception;
+use WP_Error;
 
 /**
  * Exception class for when a REST route error occurs.
  *
  * @since n.e.x.t
  */
-class REST_Exception extends RuntimeException {
-
-	/**
-	 * REST error code.
-	 *
-	 * @since n.e.x.t
-	 * @var string
-	 */
-	private $error_code = '';
+class REST_Exception extends WP_Error_Exception {
 
 	/**
 	 * HTTP response code.
@@ -34,26 +27,6 @@ class REST_Exception extends RuntimeException {
 	private $response_code = 500;
 
 	/**
-	 * Gets the REST error code.
-	 *
-	 * @since n.e.x.t
-	 *
-	 * @return string REST error code.
-	 */
-	public function get_error_code(): string {
-		if ( ! $this->error_code ) {
-			// Fall back to using error message as error code.
-			return preg_replace(
-				'/[^a-z0-9_]+/',
-				'',
-				str_replace( array( ' ', '-' ), '_', strtolower( $this->getMessage() ) )
-			);
-		}
-
-		return $this->error_code;
-	}
-
-	/**
 	 * Gets the HTTP response code.
 	 *
 	 * @since n.e.x.t
@@ -62,17 +35,6 @@ class REST_Exception extends RuntimeException {
 	 */
 	public function get_response_code(): int {
 		return $this->response_code;
-	}
-
-	/**
-	 * Sets the REST error code.
-	 *
-	 * @since n.e.x.t
-	 *
-	 * @param string $error_code REST error code.
-	 */
-	public function set_error_code( string $error_code ): void {
-		$this->error_code = $error_code;
 	}
 
 	/**
@@ -104,5 +66,19 @@ class REST_Exception extends RuntimeException {
 		$instance->set_error_code( $error_code );
 		$instance->set_response_code( $response_code );
 		return $instance;
+	}
+
+	/**
+	 * Creates a new REST exception from the given WP_Error object.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param WP_Error $error WP_Error object.
+	 * @return REST_Exception New exception instance.
+	 */
+	public static function from_wp_error( WP_Error $error ): REST_Exception {
+		$error_data    = $error->get_error_data();
+		$response_code = $error_data['status'] ?? 500;
+		return self::create( $error->get_error_code(), $error->get_error_message(), $response_code );
 	}
 }
