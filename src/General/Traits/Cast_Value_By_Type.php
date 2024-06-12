@@ -33,6 +33,7 @@ trait Cast_Value_By_Type {
 			case 'int':
 			case 'integer':
 				return (int) $value;
+			case 'double':
 			case 'float':
 				return (float) $value;
 			case 'string':
