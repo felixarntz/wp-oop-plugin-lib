@@ -17,6 +17,8 @@ use WP_Error;
  * Class providing a convenience layer to easily compose an aggregate validation rule out of multiple rules.
  *
  * @since n.e.x.t
+ *
+ * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 final class Validation_Rule_Builder {
 
@@ -129,6 +131,28 @@ final class Validation_Rule_Builder {
 	}
 
 	/**
+	 * Adds a email validation rule.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @return self Builder instance for chaining.
+	 */
+	public function format_email(): self {
+		return $this->with_rule( new Email_Validation_Rule() );
+	}
+
+	/**
+	 * Adds a hex color validation rule.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @return self Builder instance for chaining.
+	 */
+	public function format_hex_color(): self {
+		return $this->with_rule( new Hex_Color_Validation_Rule() );
+	}
+
+	/**
 	 * Adds a regular expression validation rule.
 	 *
 	 * @since n.e.x.t
@@ -138,6 +162,17 @@ final class Validation_Rule_Builder {
 	 */
 	public function format_regexp( string $regexp ): self {
 		return $this->with_rule( new Regexp_Validation_Rule( $regexp ) );
+	}
+
+	/**
+	 * Adds a URL validation rule.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @return self Builder instance for chaining.
+	 */
+	public function format_url(): self {
+		return $this->with_rule( new URL_Validation_Rule() );
 	}
 
 	/**
