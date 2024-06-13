@@ -333,6 +333,9 @@ final class Validation_Rule_Builder {
 			case String_Validation_Rule::class:
 			case Date_Validation_Rule::class:
 			case Datetime_Validation_Rule::class:
+			case Email_Validation_Rule::class:
+			case Hex_Color_Validation_Rule::class:
+			case URL_Validation_Rule::class:
 				$this->update_denylist(
 					array(
 						Boolean_Validation_Rule::class,
