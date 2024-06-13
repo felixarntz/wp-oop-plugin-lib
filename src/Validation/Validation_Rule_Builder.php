@@ -354,6 +354,9 @@ final class Validation_Rule_Builder {
 					String_Validation_Rule::class,
 					Date_Validation_Rule::class,
 					Datetime_Validation_Rule::class,
+					Email_Validation_Rule::class,
+					Hex_Color_Validation_Rule::class,
+					URL_Validation_Rule::class,
 				);
 				array_splice(
 					$new_denylist_classnames,
