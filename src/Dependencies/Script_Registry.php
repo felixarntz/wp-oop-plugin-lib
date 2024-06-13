@@ -9,13 +9,14 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Dependencies;
 
 use _WP_Dependency;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Dependencies\Contracts\With_Inline_Code;
 
 /**
  * Class for a registry of scripts.
  *
  * @since n.e.x.t
  */
-class Script_Registry extends Abstract_Dependency_Registry {
+class Script_Registry extends Abstract_Dependency_Registry implements With_Inline_Code {
 
 	/**
 	 * Registers a script with the given handle and arguments.
@@ -135,6 +136,19 @@ class Script_Registry extends Abstract_Dependency_Registry {
 	 */
 	public function is_enqueued( string $key ): bool {
 		return wp_script_is( $key, 'enqueued' );
+	}
+
+	/**
+	 * Adds inline code to the script with the given handle.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param string $key  Script handle.
+	 * @param string $code JavaScript code to inline after the script output.
+	 * @return bool True on success, false on failure.
+	 */
+	public function add_inline_code( string $key, string $code ): bool {
+		return wp_add_inline_script( $key, $code, 'after' );
 	}
 
 	/**

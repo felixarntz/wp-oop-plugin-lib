@@ -9,13 +9,14 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Dependencies;
 
 use _WP_Dependency;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Dependencies\Contracts\With_Inline_Code;
 
 /**
  * Class for a registry of stylesheets.
  *
  * @since n.e.x.t
  */
-class Style_Registry extends Abstract_Dependency_Registry {
+class Style_Registry extends Abstract_Dependency_Registry implements With_Inline_Code {
 
 	/**
 	 * Registers a stylesheet with the given handle and arguments.
@@ -141,6 +142,19 @@ class Style_Registry extends Abstract_Dependency_Registry {
 	 */
 	public function is_enqueued( string $key ): bool {
 		return wp_style_is( $key, 'enqueued' );
+	}
+
+	/**
+	 * Adds inline code to the stylesheet with the given handle.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param string $key  Stylesheet handle.
+	 * @param string $code CSS code to inline after the stylesheet output.
+	 * @return bool True on success, false on failure.
+	 */
+	public function add_inline_code( string $key, string $code ): bool {
+		return wp_add_inline_style( $key, $code );
 	}
 
 	/**
