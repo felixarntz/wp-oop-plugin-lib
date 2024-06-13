@@ -1,0 +1,114 @@
+<?php
+/**
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Numeric_Range_Validation_Rule
+ *
+ * @since n.e.x.t
+ * @package wp-oop-plugin-lib
+ */
+
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation;
+
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Traits\Cast_Value_By_Type;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
+
+/**
+ * Class for a validation rule that ensures values fall within a numeric range.
+ *
+ * @since n.e.x.t
+ */
+class Numeric_Range_Validation_Rule implements Validation_Rule {
+	use Cast_Value_By_Type;
+
+	/**
+	 * Minimum value allowed.
+	 *
+	 * @since n.e.x.t
+	 * @var int|float
+	 */
+	private $min;
+
+	/**
+	 * Maximum value allowed.
+	 *
+	 * @since n.e.x.t
+	 * @var int|float
+	 */
+	private $max;
+
+	/**
+	 * Constructor.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param int|float $min Minimum value allowed.
+	 * @param int|float $max Optional. Maximum value allowed. Default no limit.
+	 */
+	public function __construct( $min, $max = null ) {
+		$this->min = is_int( $min ) ? $min : (float) $min;
+		if ( null !== $max ) {
+			$this->max = is_int( $max ) ? $max : (float) $max;
+		}
+	}
+
+	/**
+	 * Validates the given value.
+	 *
+	 * Validation will be strict and throw an exception for any unmet requirements.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param mixed $value Value to validate.
+	 *
+	 * @throws Validation_Exception Thrown when validation fails.
+	 */
+	public function validate( $value ): void {
+		if ( $value < $this->min ) {
+			throw Validation_Exception::create(
+				'out_of_bounds_min',
+				sprintf(
+					/* translators: 1: value, 2: minimum value */
+					esc_html__( '%1$s must be greater than or equal to %2$d', 'default' ),
+					esc_html( (string) $value ),
+					$this->min // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+				)
+			);
+		}
+
+		if ( null !== $this->max && $value > $this->max ) {
+			throw Validation_Exception::create(
+				'out_of_bounds_max',
+				sprintf(
+					/* translators: 1: value, 2: minimum value */
+					esc_html__( '%1$s must be less than or equal to %2$d', 'default' ),
+					esc_html( (string) $value ),
+					$this->max // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+				)
+			);
+		}
+	}
+
+	/**
+	 * Sanitizes the given value.
+	 *
+	 * This should be called before storing the value in the persistency layer (e.g. the database).
+	 * If the value does not satisfy validation requirements, it will be sanitized to a value that does, e.g. a default.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param mixed $value Value to sanitize.
+	 * @return mixed Sanitized value.
+	 */
+	public function sanitize( $value ) {
+		try {
+			$this->validate( $value );
+		} catch ( Validation_Exception $e ) {
+			$forced_value = $e->get_error_code() === 'out_of_bounds_max' ? $this->max : $this->min;
+
+			// Cast the forced value to the same type as the given value, in order to not change the value type.
+			return $this->cast_value_by_type( $forced_value, gettype( $value ) );
+		}
+
+		return $value;
+	}
+}
