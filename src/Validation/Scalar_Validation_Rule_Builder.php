@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Validation_Rule_Builder
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Scalar_Validation_Rule_Builder
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
@@ -8,6 +8,7 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation;
 
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Scalar_Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
 use InvalidArgumentException;
@@ -20,13 +21,13 @@ use WP_Error;
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
-final class Validation_Rule_Builder {
+final class Scalar_Validation_Rule_Builder {
 
 	/**
 	 * Validation rules set for this instance.
 	 *
 	 * @since n.e.x.t
-	 * @var Validation_Rule[]
+	 * @var Scalar_Validation_Rule[]
 	 */
 	private $rules = array();
 
@@ -43,7 +44,7 @@ final class Validation_Rule_Builder {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @param Validation_Rule[] $initial_rules Optional. Initial validation rules to use for the builder.
+	 * @param Scalar_Validation_Rule[] $initial_rules Optional. Initial validation rules to use for the builder.
 	 */
 	public function __construct( array $initial_rules = array() ) {
 		array_walk(
@@ -221,12 +222,12 @@ final class Validation_Rule_Builder {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @param Validation_Rule $rule Rule to add.
+	 * @param Scalar_Validation_Rule $rule Rule to add.
 	 * @return self Builder instance for chaining.
 	 *
 	 * @throws InvalidArgumentException Thrown when a forbidden rule is passed.
 	 */
-	public function with_rule( Validation_Rule $rule ): self {
+	public function with_rule( Scalar_Validation_Rule $rule ): self {
 		if ( $this->is_rule_on_denylist( $rule ) ) {
 			throw new InvalidArgumentException(
 				sprintf(
@@ -242,11 +243,11 @@ final class Validation_Rule_Builder {
 	}
 
 	/**
-	 * Gets the aggregate validation rule consisting of all rules present in the builder.
+	 * Gets the combined validation rule consisting of all rules present in the builder.
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return Validation_Rule Aggregate validation rule.
+	 * @return Validation_Rule Combined validation rule.
 	 */
 	public function get(): Validation_Rule {
 		return new Aggregate_Validation_Rule( $this->rules );

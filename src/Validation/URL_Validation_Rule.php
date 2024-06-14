@@ -8,7 +8,7 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Scalar_Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
 
 /**
@@ -16,7 +16,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
  *
  * @since n.e.x.t
  */
-class URL_Validation_Rule implements Validation_Rule {
+class URL_Validation_Rule implements Scalar_Validation_Rule {
 
 	/**
 	 * Validates the given value.

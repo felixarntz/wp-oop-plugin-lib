@@ -9,7 +9,7 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\General\Traits\Cast_Value_By_Type;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Scalar_Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
 
 /**
@@ -17,7 +17,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
  *
  * @since n.e.x.t
  */
-class Numeric_Range_Validation_Rule implements Validation_Rule {
+class Numeric_Range_Validation_Rule implements Scalar_Validation_Rule {
 	use Cast_Value_By_Type;
 
 	/**

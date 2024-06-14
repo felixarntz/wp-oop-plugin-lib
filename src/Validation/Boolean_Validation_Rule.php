@@ -8,7 +8,7 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Scalar_Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\With_Strict;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Traits\Strict_Mode;
@@ -18,7 +18,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Traits\Strict_Mode;
  *
  * @since n.e.x.t
  */
-class Boolean_Validation_Rule implements Validation_Rule, With_Strict {
+class Boolean_Validation_Rule implements Scalar_Validation_Rule, With_Strict {
 	use Strict_Mode;
 
 	/**
