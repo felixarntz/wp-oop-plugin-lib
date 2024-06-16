@@ -1,22 +1,22 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Hex_Color_Validation_Rule
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\URL_Validation_Rule
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Scalar_Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
 
 /**
- * Class for a validation rule that ensures values are valid hexadecimal color strings.
+ * Class for a validation rule that ensures values are valid URLs.
  *
  * @since n.e.x.t
  */
-class Hex_Color_Validation_Rule implements Scalar_Validation_Rule {
+class URL_Validation_Rule implements Scalar_Validation_Rule {
 
 	/**
 	 * Validates the given value.
@@ -30,12 +30,12 @@ class Hex_Color_Validation_Rule implements Scalar_Validation_Rule {
 	 * @throws Validation_Exception Thrown when validation fails.
 	 */
 	public function validate( $value ): void {
-		if ( ! rest_parse_hex_color( (string) $value ) ) {
+		if ( ! preg_match( '#http(s?)://(.+)#i', (string) $value ) ) {
 			throw Validation_Exception::create(
-				'invalid_hex_color',
+				'invalid_url',
 				sprintf(
 					/* translators: %s: value */
-					esc_html__( '%s is not a valid hex color.', 'wp-oop-plugin-lib' ),
+					esc_html__( '%s is not a valid URL.', 'wp-oop-plugin-lib' ),
 					esc_html( (string) $value )
 				)
 			);
@@ -54,6 +54,12 @@ class Hex_Color_Validation_Rule implements Scalar_Validation_Rule {
 	 * @return mixed Sanitized value.
 	 */
 	public function sanitize( $value ) {
-		return (string) sanitize_hex_color( (string) $value );
+		try {
+			$this->validate( $value );
+		} catch ( Validation_Exception $e ) {
+			return '';
+		}
+
+		return sanitize_url( $value );
 	}
 }

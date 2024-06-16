@@ -1,22 +1,38 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Email_Validation_Rule
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\String_Validation_Rule
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Scalar_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\With_Strict;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Traits\Strict_Mode;
 
 /**
- * Class for a validation rule that ensures values are valid email addresses.
+ * Class for a validation rule that ensures string values.
  *
  * @since n.e.x.t
  */
-class Email_Validation_Rule implements Scalar_Validation_Rule {
+class String_Validation_Rule implements Scalar_Validation_Rule, With_Strict {
+	use Strict_Mode;
+
+	/**
+	 * Constructor.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param bool $strict Optional. True to enable strict mode, false to disable it. Default false.
+	 *
+	 * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
+	 */
+	public function __construct( bool $strict = false ) {
+		$this->set_strict( $strict );
+	}
 
 	/**
 	 * Validates the given value.
@@ -30,13 +46,18 @@ class Email_Validation_Rule implements Scalar_Validation_Rule {
 	 * @throws Validation_Exception Thrown when validation fails.
 	 */
 	public function validate( $value ): void {
-		if ( ! is_email( (string) $value ) ) {
+		if ( is_string( $value ) ) {
+			return;
+		}
+
+		if ( $this->is_strict() || ! is_scalar( $value ) ) {
 			throw Validation_Exception::create(
-				'invalid_email',
+				'invalid_string',
 				sprintf(
-					/* translators: %s: value */
-					esc_html__( '%s is not a valid email address.', 'wp-oop-plugin-lib' ),
-					esc_html( (string) $value )
+					/* translators: 1: value, 2: type name */
+					esc_html__( '%1$s is not of type %2$s.', 'default' ),
+					esc_html( (string) $value ),
+					'string'
 				)
 			);
 		}
@@ -54,12 +75,6 @@ class Email_Validation_Rule implements Scalar_Validation_Rule {
 	 * @return mixed Sanitized value.
 	 */
 	public function sanitize( $value ) {
-		try {
-			$this->validate( $value );
-		} catch ( Validation_Exception $e ) {
-			return '';
-		}
-
-		return sanitize_email( $value );
+		return (string) $value;
 	}
 }

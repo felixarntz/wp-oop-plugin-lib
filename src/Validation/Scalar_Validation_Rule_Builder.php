@@ -10,6 +10,20 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Scalar_Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Aggregate_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Boolean_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Date_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Datetime_Range_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Datetime_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Email_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Enum_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Float_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Hex_Color_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Integer_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Numeric_Range_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Regexp_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\String_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\URL_Validation_Rule;
 use InvalidArgumentException;
 
 /**

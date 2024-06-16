@@ -1,12 +1,12 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Datetime_Range_Validation_Rule
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Datetime_Range_Validation_Rule
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\General\Traits\Cast_Value_By_Type;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Scalar_Validation_Rule;

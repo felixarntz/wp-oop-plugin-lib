@@ -1,22 +1,22 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\URL_Validation_Rule
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Email_Validation_Rule
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Scalar_Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
 
 /**
- * Class for a validation rule that ensures values are valid URLs.
+ * Class for a validation rule that ensures values are valid email addresses.
  *
  * @since n.e.x.t
  */
-class URL_Validation_Rule implements Scalar_Validation_Rule {
+class Email_Validation_Rule implements Scalar_Validation_Rule {
 
 	/**
 	 * Validates the given value.
@@ -30,12 +30,12 @@ class URL_Validation_Rule implements Scalar_Validation_Rule {
 	 * @throws Validation_Exception Thrown when validation fails.
 	 */
 	public function validate( $value ): void {
-		if ( ! preg_match( '#http(s?)://(.+)#i', (string) $value ) ) {
+		if ( ! is_email( (string) $value ) ) {
 			throw Validation_Exception::create(
-				'invalid_url',
+				'invalid_email',
 				sprintf(
 					/* translators: %s: value */
-					esc_html__( '%s is not a valid URL.', 'wp-oop-plugin-lib' ),
+					esc_html__( '%s is not a valid email address.', 'wp-oop-plugin-lib' ),
 					esc_html( (string) $value )
 				)
 			);
@@ -60,6 +60,6 @@ class URL_Validation_Rule implements Scalar_Validation_Rule {
 			return '';
 		}
 
-		return sanitize_url( $value );
+		return sanitize_email( $value );
 	}
 }

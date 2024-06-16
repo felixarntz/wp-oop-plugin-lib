@@ -10,6 +10,10 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Non_Scalar_Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Aggregate_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Array_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Item_Count_Range_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Unique_Items_Validation_Rule;
 use InvalidArgumentException;
 
 /**

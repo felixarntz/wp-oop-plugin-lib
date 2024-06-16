@@ -1,37 +1,42 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Float_Validation_Rule
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Regexp_Validation_Rule
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules;
 
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Traits\Cast_Value_By_Type;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Scalar_Validation_Rule;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\With_Strict;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Traits\Strict_Mode;
 
 /**
- * Class for a validation rule that ensures float values.
+ * Class for a validation rule that ensures values match a regular expression.
  *
  * @since n.e.x.t
  */
-class Float_Validation_Rule implements Scalar_Validation_Rule, With_Strict {
-	use Strict_Mode;
+class Regexp_Validation_Rule implements Scalar_Validation_Rule {
+	use Cast_Value_By_Type;
+
+	/**
+	 * Regular expression to match.
+	 *
+	 * @since n.e.x.t
+	 * @var string
+	 */
+	private $regexp;
 
 	/**
 	 * Constructor.
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @param bool $strict Optional. True to enable strict mode, false to disable it. Default false.
-	 *
-	 * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
+	 * @param string $regexp Regular expression to match.
 	 */
-	public function __construct( bool $strict = false ) {
-		$this->set_strict( $strict );
+	public function __construct( string $regexp ) {
+		$this->regexp = $regexp;
 	}
 
 	/**
@@ -46,18 +51,14 @@ class Float_Validation_Rule implements Scalar_Validation_Rule, With_Strict {
 	 * @throws Validation_Exception Thrown when validation fails.
 	 */
 	public function validate( $value ): void {
-		if ( is_float( $value ) ) {
-			return;
-		}
-
-		if ( $this->is_strict() || ! is_numeric( $value ) ) {
+		if ( ! preg_match( $this->regexp, (string) $value ) ) {
 			throw Validation_Exception::create(
-				'invalid_float',
+				'invalid_pattern',
 				sprintf(
-					/* translators: 1: value, 2: type name */
-					esc_html__( '%1$s is not of type %2$s.', 'default' ),
+					/* translators: 1: value, 2: regular expression */
+					esc_html__( '%1$s does not match pattern %2$s.', 'default' ),
 					esc_html( (string) $value ),
-					'float'
+					esc_html( $this->regexp )
 				)
 			);
 		}
@@ -75,6 +76,13 @@ class Float_Validation_Rule implements Scalar_Validation_Rule, With_Strict {
 	 * @return mixed Sanitized value.
 	 */
 	public function sanitize( $value ) {
-		return (float) $value;
+		try {
+			$this->validate( $value );
+		} catch ( Validation_Exception $e ) {
+			// Cast the empty value to the same type as the given value, in order to not change the value type.
+			return $this->cast_value_by_type( '', gettype( $value ) );
+		}
+
+		return $value;
 	}
 }

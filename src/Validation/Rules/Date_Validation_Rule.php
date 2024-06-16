@@ -1,43 +1,22 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Regexp_Validation_Rule
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Date_Validation_Rule
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\General\Traits\Cast_Value_By_Type;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Scalar_Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
 
 /**
- * Class for a validation rule that ensures values match a regular expression.
+ * Class for a validation rule that ensures values are valid date strings.
  *
  * @since n.e.x.t
  */
-class Regexp_Validation_Rule implements Scalar_Validation_Rule {
-	use Cast_Value_By_Type;
-
-	/**
-	 * Regular expression to match.
-	 *
-	 * @since n.e.x.t
-	 * @var string
-	 */
-	private $regexp;
-
-	/**
-	 * Constructor.
-	 *
-	 * @since n.e.x.t
-	 *
-	 * @param string $regexp Regular expression to match.
-	 */
-	public function __construct( string $regexp ) {
-		$this->regexp = $regexp;
-	}
+class Date_Validation_Rule implements Scalar_Validation_Rule {
 
 	/**
 	 * Validates the given value.
@@ -51,14 +30,13 @@ class Regexp_Validation_Rule implements Scalar_Validation_Rule {
 	 * @throws Validation_Exception Thrown when validation fails.
 	 */
 	public function validate( $value ): void {
-		if ( ! preg_match( $this->regexp, (string) $value ) ) {
+		if ( ! preg_match( '/^\d{4}-\d{2}-\d{2}$/', (string) $value ) ) {
 			throw Validation_Exception::create(
-				'invalid_pattern',
+				'invalid_datetime',
 				sprintf(
-					/* translators: 1: value, 2: regular expression */
-					esc_html__( '%1$s does not match pattern %2$s.', 'default' ),
-					esc_html( (string) $value ),
-					esc_html( $this->regexp )
+					/* translators: %s: value */
+					esc_html__( '%s is not a valid date string.', 'wp-oop-plugin-lib' ),
+					esc_html( (string) $value )
 				)
 			);
 		}
@@ -79,8 +57,7 @@ class Regexp_Validation_Rule implements Scalar_Validation_Rule {
 		try {
 			$this->validate( $value );
 		} catch ( Validation_Exception $e ) {
-			// Cast the empty value to the same type as the given value, in order to not change the value type.
-			return $this->cast_value_by_type( '', gettype( $value ) );
+			return '';
 		}
 
 		return $value;

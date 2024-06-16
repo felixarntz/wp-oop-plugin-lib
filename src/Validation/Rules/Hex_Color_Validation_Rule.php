@@ -1,22 +1,22 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Date_Validation_Rule
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Hex_Color_Validation_Rule
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Scalar_Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
 
 /**
- * Class for a validation rule that ensures values are valid date strings.
+ * Class for a validation rule that ensures values are valid hexadecimal color strings.
  *
  * @since n.e.x.t
  */
-class Date_Validation_Rule implements Scalar_Validation_Rule {
+class Hex_Color_Validation_Rule implements Scalar_Validation_Rule {
 
 	/**
 	 * Validates the given value.
@@ -30,12 +30,12 @@ class Date_Validation_Rule implements Scalar_Validation_Rule {
 	 * @throws Validation_Exception Thrown when validation fails.
 	 */
 	public function validate( $value ): void {
-		if ( ! preg_match( '/^\d{4}-\d{2}-\d{2}$/', (string) $value ) ) {
+		if ( ! rest_parse_hex_color( (string) $value ) ) {
 			throw Validation_Exception::create(
-				'invalid_datetime',
+				'invalid_hex_color',
 				sprintf(
 					/* translators: %s: value */
-					esc_html__( '%s is not a valid date string.', 'wp-oop-plugin-lib' ),
+					esc_html__( '%s is not a valid hex color.', 'wp-oop-plugin-lib' ),
 					esc_html( (string) $value )
 				)
 			);
@@ -54,12 +54,6 @@ class Date_Validation_Rule implements Scalar_Validation_Rule {
 	 * @return mixed Sanitized value.
 	 */
 	public function sanitize( $value ) {
-		try {
-			$this->validate( $value );
-		} catch ( Validation_Exception $e ) {
-			return '';
-		}
-
-		return $value;
+		return (string) sanitize_hex_color( (string) $value );
 	}
 }
