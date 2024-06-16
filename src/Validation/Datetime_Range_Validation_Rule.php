@@ -69,7 +69,7 @@ class Datetime_Range_Validation_Rule implements Scalar_Validation_Rule {
 			throw Validation_Exception::create(
 				'out_of_bounds_min',
 				sprintf(
-					/* translators: 1: value, 2: minimum value */
+					/* translators: 1: value, 2: minimum date */
 					esc_html__( '%1$s must be at or before %2$s', 'wp-oop-plugin-lib' ),
 					esc_html( (string) $value ),
 					esc_html( $this->min_datetime )
@@ -81,7 +81,7 @@ class Datetime_Range_Validation_Rule implements Scalar_Validation_Rule {
 			throw Validation_Exception::create(
 				'out_of_bounds_max',
 				sprintf(
-					/* translators: 1: value, 2: minimum value */
+					/* translators: 1: value, 2: maximum date */
 					esc_html__( '%1$s must be before or at %2$s', 'wp-oop-plugin-lib' ),
 					esc_html( (string) $value ),
 					esc_html( $this->max_datetime )

@@ -15,7 +15,7 @@ use InvalidArgumentException;
 /**
  * Class for a scalar validation rule builder.
  *
- * Validation rule builders provide a convenience layer to compose a single validation rule out of multiple rules.
+ * Validation rule builders provide a convenience layer to compose a single validation rule out of multiple scalar rules.
  *
  * @since n.e.x.t
  *
@@ -258,10 +258,10 @@ final class Scalar_Validation_Rule_Builder extends Abstract_Validation_Rule_Buil
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @param Validation_Rule $rule Rule to check denylist for.
+	 * @param Scalar_Validation_Rule $rule Rule to check denylist for.
 	 * @return bool True if the rule is on the denylist, false otherwise.
 	 */
-	private function is_rule_on_denylist( Validation_Rule $rule ): bool {
+	private function is_rule_on_denylist( Scalar_Validation_Rule $rule ): bool {
 		return isset( $this->denylist[ get_class( $rule ) ] );
 	}
 
@@ -270,9 +270,9 @@ final class Scalar_Validation_Rule_Builder extends Abstract_Validation_Rule_Buil
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @param Validation_Rule $rule Rule that is being added to the builder's set of rules.
+	 * @param Scalar_Validation_Rule $rule Rule that is being added to the builder's set of rules.
 	 */
-	private function maybe_update_denylist( Validation_Rule $rule ): void {
+	private function maybe_update_denylist( Scalar_Validation_Rule $rule ): void {
 		$rule_classname = get_class( $rule );
 		switch ( $rule_classname ) {
 			case String_Validation_Rule::class:
