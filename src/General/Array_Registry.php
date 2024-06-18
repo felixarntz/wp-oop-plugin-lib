@@ -9,6 +9,7 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\General;
 
 use ArrayAccess;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Arrayable;
 use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Registry;
 
 /**
@@ -19,7 +20,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Registry;
  *
  * @since n.e.x.t
  */
-class Array_Registry implements Registry, ArrayAccess {
+class Array_Registry implements Registry, Arrayable, ArrayAccess {
 
 	/**
 	 * The registered items.
@@ -90,6 +91,17 @@ class Array_Registry implements Registry, ArrayAccess {
 	 *                              This is effectively the array representation of the registry.
 	 */
 	public function get_all_registered(): array {
+		return $this->items;
+	}
+
+	/**
+	 * Returns the array representation of the registry.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @return array<string, mixed> Array representation.
+	 */
+	public function to_array(): array {
 		return $this->items;
 	}
 
