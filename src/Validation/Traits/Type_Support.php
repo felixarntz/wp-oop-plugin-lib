@@ -21,9 +21,9 @@ trait Type_Support {
 	 * This is any of the type constants from the Types interface, combined with a bitwise OR.
 	 *
 	 * @since n.e.x.t
-	 * @var int
+	 * @var int|null
 	 */
-	private $supported_types = 0;
+	private $supported_types;
 
 	/**
 	 * Checks whether the validation rule supports values of the given type.
