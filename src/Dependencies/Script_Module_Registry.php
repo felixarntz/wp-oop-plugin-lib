@@ -85,7 +85,8 @@ class Script_Module_Registry extends Abstract_Dependency_Registry {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return array<string, object> Associative array of handles and their module definitions, or empty array if nothing is registered.
+	 * @return array<string, object> Associative array of handles and their module definitions, or empty array if
+	 *                               nothing is registered.
 	 */
 	public function get_all_registered(): array {
 		$this->support_check( __METHOD__ );
@@ -167,7 +168,7 @@ class Script_Module_Registry extends Abstract_Dependency_Registry {
 			_doing_it_wrong(
 				// The $method parameter is safe to use as it is always __METHOD__, called internally by this class.
 				$method, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				esc_html__( 'This script module functionality is not supported by the current WordPress version. Basic script module functionality was added in WordPress 6.5.', 'wp-oop-plugin-lib' ),
+				esc_html__( 'This script module functionality is not supported by the current WordPress version. Basic script module functionality was added in WordPress 6.5.', 'wp-oop-plugin-lib' ), // phpcs:ignore Generic.Files.LineLength.TooLong
 				''
 			);
 			return false;

@@ -116,10 +116,18 @@ class Datetime_Range_Validation_Rule implements Validation_Rule, With_Type_Suppo
 				if ( ! $value ) { // No way to detect the intended format if the given value is empty.
 					return '';
 				}
-				if ( $this->is_date_string( $value ) && ! $this->is_date_string( $forced_value ) && preg_match( '/^\d{4}-\d{2}-\d{2}/', $forced_value, $matches ) ) {
+				if (
+					$this->is_date_string( $value )
+					&& ! $this->is_date_string( $forced_value )
+					&& preg_match( '/^\d{4}-\d{2}-\d{2}/', $forced_value, $matches )
+				) {
 					return $matches[0];
 				}
-				if ( ! $this->is_date_string( $value ) && $this->is_date_string( $forced_value ) ) {
+
+				if (
+					! $this->is_date_string( $value )
+					&& $this->is_date_string( $forced_value )
+				) {
 					return "{$forced_value} 00:00:00";
 				}
 				return $forced_value;

@@ -94,7 +94,10 @@ class Entity_Aware_Meta_Container implements Container_Readonly, ArrayAccess, Wi
 		}
 
 		if ( ! isset( $this->instances[ $key ] ) ) {
-			$this->instances[ $key ] = new Entity_Aware_Meta_Key( $this->wrapped_container->get( $key ), $this->entity_id );
+			$this->instances[ $key ] = new Entity_Aware_Meta_Key(
+				$this->wrapped_container->get( $key ),
+				$this->entity_id
+			);
 		}
 
 		return $this->instances[ $key ];

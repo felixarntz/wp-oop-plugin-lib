@@ -131,5 +131,5 @@ abstract class Abstract_Personal_Data_Eraser implements Personal_Data_Eraser {
 	 *                                                    the overall process requires more than one request, typically
 	 *                                                    to avoid timeouts.
 	 */
-	abstract protected function process_erase_data_request( Personal_Data_Erasure_Result $result, string $email_address, int $page = 1 ): void;
+	abstract protected function process_erase_data_request( Personal_Data_Erasure_Result $result, string $email_address, int $page = 1 ): void; // phpcs:ignore Generic.Files.LineLength.TooLong
 }

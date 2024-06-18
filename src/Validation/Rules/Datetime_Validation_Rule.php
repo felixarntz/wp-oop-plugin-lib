@@ -34,6 +34,7 @@ class Datetime_Validation_Rule implements Validation_Rule, With_Type_Support {
 	 * @throws Validation_Exception Thrown when validation fails.
 	 */
 	public function validate( $value ): void {
+		// phpcs:ignore Generic.Files.LineLength.TooLong
 		if ( ! preg_match( '/^\d{4}-\d{2}-\d{2}[Tt ]\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}(?::\d{2})?)?$/', (string) $value ) ) {
 			throw Validation_Exception::create(
 				'invalid_datetime',

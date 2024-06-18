@@ -114,7 +114,7 @@ class Option_Container implements Container, ArrayAccess {
 	 * @param Key_Value_Repository $repository        Repository used for the option.
 	 * @param array<string, mixed> $registration_args Optional. Option registration arguments. Default empty array.
 	 */
-	public function set_by_args( string $key, Key_Value_Repository $repository, array $registration_args = array() ): void {
+	public function set_by_args( string $key, Key_Value_Repository $repository, array $registration_args = array() ): void { // phpcs:ignore Generic.Files.LineLength.TooLong
 		$this->set(
 			$key,
 			function () use ( $repository, $key, $registration_args ) {

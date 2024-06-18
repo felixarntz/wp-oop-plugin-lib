@@ -64,7 +64,8 @@ class Post_Type_Registry implements Registry {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return array<string, WP_Post_Type> Associative array of keys and their post type definitions, or empty array if nothing is registered.
+	 * @return array<string, WP_Post_Type> Associative array of keys and their post type definitions, or empty array if
+	 *                                     nothing is registered.
 	 */
 	public function get_all_registered(): array {
 		return get_post_types( array(), 'objects' );

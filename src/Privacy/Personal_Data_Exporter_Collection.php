@@ -42,7 +42,7 @@ class Personal_Data_Exporter_Collection implements Collection {
 		foreach ( $exporters as $exporter ) {
 			if ( ! $exporter instanceof Personal_Data_Exporter ) {
 				throw new InvalidArgumentException(
-					esc_html__( 'Invalid exporter provided for personal data exporter collection.', 'wp-oop-plugin-lib' )
+					esc_html__( 'Invalid exporter provided for personal data exporter collection.', 'wp-oop-plugin-lib' ) // phpcs:ignore Generic.Files.LineLength.TooLong
 				);
 			}
 			$this->exporters[] = $exporter;

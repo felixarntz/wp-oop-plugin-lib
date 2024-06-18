@@ -47,12 +47,12 @@ class Capability_Controller_Tests extends Test_Case {
 	/**
 	 * @dataProvider data_grant_cap_for_base_caps
 	 */
-	public function test_grant_cap_for_base_caps( $cap, $required_caps, $expected_caps_map, $expected_exception = null ) {
+	public function test_grant_cap_for_base_caps( $cap, $required_caps, $expected_map, $expected_exception = null ) {
 		if ( $expected_exception ) {
 			$this->expectException( $expected_exception );
 		}
 		$this->controller->grant_cap_for_base_caps( $cap, $required_caps );
-		$this->assertSameSetsWithIndex( $expected_caps_map, $this->controller->get_required_caps_map() );
+		$this->assertSameSetsWithIndex( $expected_map, $this->controller->get_required_caps_map() );
 	}
 
 	public function data_grant_cap_for_base_caps() {

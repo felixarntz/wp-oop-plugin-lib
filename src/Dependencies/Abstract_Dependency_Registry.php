@@ -77,7 +77,11 @@ abstract class Abstract_Dependency_Registry implements Dependency_Registry {
 		$manifest_args = require $manifest;
 
 		if ( ! is_array( $manifest_args ) ) {
-			_doing_it_wrong( __METHOD__, esc_html__( 'Dependency manifest PHP file must return an array.', 'wp-oop-plugin-lib' ), '' );
+			_doing_it_wrong(
+				__METHOD__,
+				esc_html__( 'Dependency manifest PHP file must return an array.', 'wp-oop-plugin-lib' ),
+				''
+			);
 			return $args;
 		}
 

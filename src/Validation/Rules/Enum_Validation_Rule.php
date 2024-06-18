@@ -50,7 +50,7 @@ class Enum_Validation_Rule implements Validation_Rule, With_Type_Support {
 	public function __construct( array $allowed_values, bool $strict = false ) {
 		if ( ! $allowed_values ) {
 			throw new InvalidArgumentException(
-				esc_html__( 'At least one allowed value must be provided in enum validation rule.', 'wp-oop-plugin-lib' )
+				esc_html__( 'At least one allowed value must be provided in enum validation rule.', 'wp-oop-plugin-lib' ) // phpcs:ignore Generic.Files.LineLength.TooLong
 			);
 		}
 		$this->allowed_values = $allowed_values;

@@ -74,7 +74,8 @@ class Taxonomy_Registry implements Registry {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return array<string, WP_Taxonomy> Associative array of keys and their taxonomy definitions, or empty array if nothing is registered.
+	 * @return array<string, WP_Taxonomy> Associative array of keys and their taxonomy definitions, or empty array if
+	 *                                    nothing is registered.
 	 */
 	public function get_all_registered(): array {
 		return get_taxonomies( array(), 'objects' );

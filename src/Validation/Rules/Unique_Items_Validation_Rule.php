@@ -67,7 +67,9 @@ class Unique_Items_Validation_Rule implements Validation_Rule, With_Type_Support
 		$unique_items = array();
 		foreach ( $value as $item ) {
 			$stabilized = rest_stabilize_value( $item );
-			$key        = serialize( $stabilized ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize
+
+			// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.serialize_serialize
+			$key = serialize( $stabilized );
 
 			if ( isset( $unique_items[ $key ] ) ) {
 				continue;

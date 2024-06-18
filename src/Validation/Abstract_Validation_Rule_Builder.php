@@ -61,7 +61,7 @@ abstract class Abstract_Validation_Rule_Builder implements Validation_Rule_Build
 			throw new InvalidArgumentException(
 				sprintf(
 					/* translators: 1: rule PHP class name, 2: builder PHP class name */
-					esc_html__( 'The validation rule with class %1$s is not allowed by the builder class %2$s.', 'wp-oop-plugin-lib' ),
+					esc_html__( 'The validation rule with class %1$s is not allowed by the builder class %2$s.', 'wp-oop-plugin-lib' ), // phpcs:ignore Generic.Files.LineLength.TooLong
 					esc_html( get_class( $rule ) ),
 					esc_html( get_class( $this ) )
 				)

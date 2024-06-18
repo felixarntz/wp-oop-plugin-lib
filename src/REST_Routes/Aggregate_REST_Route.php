@@ -70,7 +70,7 @@ class Aggregate_REST_Route implements REST_Route {
 					esc_html(
 						sprintf(
 							/* translators: 1: REST base, 2: another REST base */
-							__( 'Inconsistent REST bases %1$s and %2$s in route handlers provided for REST route.', 'wp-oop-plugin-lib' ),
+							__( 'Inconsistent REST bases %1$s and %2$s in route handlers provided for REST route.', 'wp-oop-plugin-lib' ), // phpcs:ignore Generic.Files.LineLength.TooLong
 							$this->base,
 							$new_base
 						)

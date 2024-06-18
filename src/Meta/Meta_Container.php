@@ -112,9 +112,10 @@ class Meta_Container implements Container, ArrayAccess {
 	 *
 	 * @param string                      $key               Meta key.
 	 * @param Entity_Key_Value_Repository $repository        Repository used for the meta key.
-	 * @param array<string, mixed>        $registration_args Optional. Meta key registration arguments. Default empty array.
+	 * @param array<string, mixed>        $registration_args Optional. Meta key registration arguments. Default empty
+	 *                                                       array.
 	 */
-	public function set_by_args( string $key, Entity_Key_Value_Repository $repository, array $registration_args = array() ): void {
+	public function set_by_args( string $key, Entity_Key_Value_Repository $repository, array $registration_args = array() ): void { // phpcs:ignore Generic.Files.LineLength.TooLong
 		$this->set(
 			$key,
 			function () use ( $repository, $key, $registration_args ) {

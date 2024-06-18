@@ -120,7 +120,8 @@ class Custom_Table implements With_Key {
 
 		$table_name = $wpdb->{$this->key};
 
-		$query = "CREATE TABLE $table_name (\n\t" . implode( ",\n\t", $schema_arr ) . "\n) {$wpdb->get_charset_collate()};";
+		$charset = $wpdb->get_charset_collate();
+		$query   = "CREATE TABLE $table_name (\n\t" . implode( ",\n\t", $schema_arr ) . "\n) {$charset};";
 
 		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 		dbDelta( $query );

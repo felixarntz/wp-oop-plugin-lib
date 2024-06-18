@@ -129,5 +129,5 @@ abstract class Abstract_Personal_Data_Exporter implements Personal_Data_Exporter
 	 *                                                   the overall process requires more than one request, typically
 	 *                                                   to avoid timeouts.
 	 */
-	abstract protected function process_export_data_request( Personal_Data_Export_Result $result, string $email_address, int $page = 1 ): void;
+	abstract protected function process_export_data_request( Personal_Data_Export_Result $result, string $email_address, int $page = 1 ): void; // phpcs:ignore Generic.Files.LineLength.TooLong
 }

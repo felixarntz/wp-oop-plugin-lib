@@ -56,7 +56,8 @@ class Comment implements Entity {
 	 * @return bool True if the comment is public, false otherwise.
 	 */
 	public function is_public(): bool {
-		return is_post_publicly_viewable( (int) $this->wp_obj->comment_post_ID ) && wp_get_comment_status( $this->wp_obj ) === 'approved';
+		return is_post_publicly_viewable( (int) $this->wp_obj->comment_post_ID )
+			&& wp_get_comment_status( $this->wp_obj ) === 'approved';
 	}
 
 	/**

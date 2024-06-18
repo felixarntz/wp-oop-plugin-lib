@@ -39,7 +39,7 @@ class Meta_Key extends Abstract_Entity_Key_Value implements With_Registration_Ar
 	 * @param array<string, mixed>        $registration_args Optional. Meta key registration arguments. Default empty
 	 *                                                       array.
 	 */
-	public function __construct( Entity_Key_Value_Repository $repository, string $key, array $registration_args = array() ) {
+	public function __construct( Entity_Key_Value_Repository $repository, string $key, array $registration_args = array() ) { // phpcs:ignore Generic.Files.LineLength.TooLong
 		// Extract default value from registration arguments if passed.
 		$default = null;
 		if ( isset( $registration_args['default'] ) ) {

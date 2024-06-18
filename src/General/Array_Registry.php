@@ -35,7 +35,8 @@ class Array_Registry implements Registry, Arrayable, ArrayAccess {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @param array<string, array<string, mixed>> $initial_items Optional. Initial array of registered items. Default empty array.
+	 * @param array<string, array<string, mixed>> $initial_items Optional. Initial array of registered items. Default
+	 *                                                           empty array.
 	 */
 	public function __construct( array $initial_items = array() ) {
 		$this->items = $initial_items;
@@ -87,8 +88,8 @@ class Array_Registry implements Registry, Arrayable, ArrayAccess {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return array<string, mixed> Associative array of keys and their item definitions, or empty array if nothing is registered.
-	 *                              This is effectively the array representation of the registry.
+	 * @return array<string, mixed> Associative array of keys and their item definitions, or empty array if nothing is
+	 *                              registered. This is effectively the array representation of the registry.
 	 */
 	public function get_all_registered(): array {
 		return $this->items;

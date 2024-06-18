@@ -82,7 +82,8 @@ class Meta_Registry implements Registry {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return array<string, mixed> Associative array of keys and their metadata definitions, or empty array if nothing is registered.
+	 * @return array<string, mixed> Associative array of keys and their metadata definitions, or empty array if nothing
+	 *                              is registered.
 	 */
 	public function get_all_registered(): array {
 		return get_registered_meta_keys( $this->object_type );

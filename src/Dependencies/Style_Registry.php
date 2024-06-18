@@ -104,7 +104,8 @@ class Style_Registry extends Abstract_Dependency_Registry implements With_Inline
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return array<string, _WP_Dependency> Associative array of handles and their stylesheet definitions, or empty array if nothing is registered.
+	 * @return array<string, _WP_Dependency> Associative array of handles and their stylesheet definitions, or empty
+	 *                                       array if nothing is registered.
 	 */
 	public function get_all_registered(): array {
 		return wp_styles()->registered;

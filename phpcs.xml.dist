@@ -29,6 +29,13 @@
 		</properties>
 	</rule>
 
+	<rule ref="Generic.Files.LineLength">
+		<properties>
+			<property name="lineLimit" value="120"/>
+			<property name="absoluteLineLimit" value="0"/>
+		</properties>
+	</rule>
+
 	<arg value="ps"/>
 	<arg name="extensions" value="php"/>
 

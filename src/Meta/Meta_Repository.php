@@ -119,9 +119,13 @@ class Meta_Repository implements Entity_Key_Value_Repository, With_Single {
 		$table_name = $this->object_type . 'meta';
 		$table_col  = $this->object_type . '_id';
 
-		// Table names do not in fact require being prepared.
-		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
-		$meta_ids = $wpdb->get_col( $wpdb->prepare( "SELECT meta_id FROM {$wpdb->$table_name} WHERE $table_col = %d ", $entity_id ) );
+		$meta_ids = $wpdb->get_col(
+			$wpdb->prepare(
+				// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+				"SELECT meta_id FROM {$wpdb->$table_name} WHERE $table_col = %d ",
+				$entity_id
+			)
+		);
 		foreach ( $meta_ids as $mid ) {
 			delete_metadata_by_mid( $this->object_type, $mid );
 		}

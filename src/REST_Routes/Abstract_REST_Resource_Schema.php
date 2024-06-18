@@ -87,7 +87,7 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 	 *
 	 * @throws REST_Exception Thrown when a REST error occurs.
 	 */
-	final public function prepare_resources_for_query( Entity_Query $query, WP_REST_Request $request ): WP_REST_Response {
+	final public function prepare_resources_for_query( Entity_Query $query, WP_REST_Request $request ): WP_REST_Response { // phpcs:ignore Generic.Files.LineLength.TooLong
 		$resources = array();
 		foreach ( $query->get_entities() as $entity ) {
 			$entity_response = $this->prepare_resource( $entity, $request );
@@ -102,7 +102,7 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 		if ( $page > $max_pages && $total_entities > 0 ) {
 			throw REST_Exception::create(
 				'rest_invalid_page_number',
-				esc_html__( 'The page number requested is larger than the number of pages available.', 'wp-oop-plugin-lib' ),
+				esc_html__( 'The page number requested is larger than the number of pages available.', 'wp-oop-plugin-lib' ), // phpcs:ignore Generic.Files.LineLength.TooLong
 				400
 			);
 		}
@@ -268,7 +268,7 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 	 */
 	final protected function get_context_arg(): array {
 		$param_details = array(
-			'description'       => __( 'Scope under which the request is made; determines fields present in response.', 'default' ),
+			'description'       => __( 'Scope under which the request is made; determines fields present in response.', 'default' ), // phpcs:ignore Generic.Files.LineLength.TooLong
 			'type'              => 'string',
 			'sanitize_callback' => 'sanitize_key',
 			'validate_callback' => 'rest_validate_request_arg',

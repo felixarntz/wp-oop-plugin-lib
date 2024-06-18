@@ -43,7 +43,7 @@ trait Maybe_Throw {
 	}
 
 	/**
-	 * Calls a callback function that may return a `WP_Error`, and throws an exception for them only if `WP_DEBUG` is enabled.
+	 * Calls a callback function that may return a `WP_Error`, and throws an exception only if `WP_DEBUG` is enabled.
 	 *
 	 * @since n.e.x.t
 	 *
