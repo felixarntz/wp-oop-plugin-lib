@@ -20,6 +20,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Hex_Color_Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Regexp_Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\String_Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\URL_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Version_Validation_Rule;
 
 /**
  * Class for a string validation rule builder.
@@ -75,6 +76,17 @@ class String_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 */
 	public function format_email(): static {
 		return $this->with_rule( new Email_Validation_Rule() );
+	}
+
+	/**
+	 * Adds a version validation rule.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @return static Builder instance for chaining.
+	 */
+	public function format_version(): static {
+		return $this->with_rule( new Version_Validation_Rule() );
 	}
 
 	/**

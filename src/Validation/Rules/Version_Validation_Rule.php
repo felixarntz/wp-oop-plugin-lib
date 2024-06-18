@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Date_Validation_Rule
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Version_Validation_Rule
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
@@ -15,11 +15,11 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Traits\Type_Support;
 
 /**
- * Class for a validation rule that ensures values are valid date strings.
+ * Class for a validation rule that ensures values are valid version numbers.
  *
  * @since n.e.x.t
  */
-class Date_Validation_Rule implements Validation_Rule, With_Type_Support {
+class Version_Validation_Rule implements Validation_Rule, With_Type_Support {
 	use Type_Support;
 
 	/**
@@ -34,12 +34,12 @@ class Date_Validation_Rule implements Validation_Rule, With_Type_Support {
 	 * @throws Validation_Exception Thrown when validation fails.
 	 */
 	public function validate( $value ): void {
-		if ( ! preg_match( '/^\d{4}-\d{2}-\d{2}$/', (string) $value ) ) {
+		if ( ! preg_match( '/^(\d+\.\d+(?:\.\d+)?)(-[A-Za-z0-9.]+)?$/', (string) $value ) ) {
 			throw Validation_Exception::create(
-				'invalid_datetime',
+				'invalid_version',
 				sprintf(
 					/* translators: %s: value */
-					esc_html__( '%s is not a valid date string.', 'wp-oop-plugin-lib' ),
+					esc_html__( '%s is not a valid version number.', 'wp-oop-plugin-lib' ),
 					esc_html( (string) $value )
 				)
 			);
@@ -62,13 +62,13 @@ class Date_Validation_Rule implements Validation_Rule, With_Type_Support {
 			$this->validate( $value );
 		} catch ( Validation_Exception $e ) {
 			// If a valid string is contained within the overall string, extract it.
-			if ( is_string( $value ) && preg_match( '/\d{4}-\d{2}-\d{2}/', $value, $matches ) ) {
+			if ( is_string( $value ) && preg_match( '/^(\d+\.\d+(?:\.\d+)?)(-[A-Za-z0-9.]+)?$/', $value, $matches ) ) {
 				return $matches[0];
 			}
 			return '';
 		}
 
-		return $value;
+		return sanitize_url( $value );
 	}
 
 	/**

@@ -62,6 +62,17 @@ class Datetime_Validation_Rule implements Validation_Rule, With_Type_Support {
 		try {
 			$this->validate( $value );
 		} catch ( Validation_Exception $e ) {
+			// If a valid string is contained within the overall string, extract it.
+			if (
+				is_string( $value )
+				&& preg_match(
+					'/\d{4}-\d{2}-\d{2}[Tt ]\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}(?::\d{2})?)?/',
+					$value,
+					$matches
+				)
+			) {
+				return $matches[0];
+			}
 			return '';
 		}
 
