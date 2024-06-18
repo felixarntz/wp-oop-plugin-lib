@@ -139,6 +139,17 @@ abstract class Abstract_Validation_Rule_Builder implements Validation_Rule_Build
 	}
 
 	/**
+	 * Returns the array of validation rules in the builder.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @return Validation_Rule[] Validation rules for the builder instance.
+	 */
+	final protected function get_rules_array(): array {
+		return $this->rules;
+	}
+
+	/**
 	 * Checks whether the given rule is allowed by the builder.
 	 *
 	 * @since n.e.x.t
