@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Regexp_Validation_Rule
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Items_Validation_Rule
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
@@ -8,7 +8,6 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\General\Traits\Cast_Value_By_Type;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Types;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\With_Type_Support;
@@ -16,31 +15,30 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Traits\Type_Support;
 
 /**
- * Class for a validation rule that ensures values match a regular expression.
+ * Class for a validation rule that validates the individual items of an array.
  *
  * @since n.e.x.t
  */
-class Regexp_Validation_Rule implements Validation_Rule, With_Type_Support {
-	use Cast_Value_By_Type;
+class Items_Validation_Rule implements Validation_Rule, With_Type_Support, With_Type_Support {
 	use Type_Support;
 
 	/**
-	 * Regular expression to match.
+	 * Validation rule to validate all items with.
 	 *
 	 * @since n.e.x.t
-	 * @var string
+	 * @var Validation_Rule
 	 */
-	private $regexp;
+	private $item_validation_rule;
 
 	/**
 	 * Constructor.
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @param string $regexp Regular expression to match.
+	 * @param Validation_Rule $item_validation_rule Validation rule to validate all array items with.
 	 */
-	public function __construct( string $regexp ) {
-		$this->regexp = $regexp;
+	public function __construct( Validation_Rule $item_validation_rule ) {
+		$this->item_validation_rule = $item_validation_rule;
 	}
 
 	/**
@@ -55,16 +53,12 @@ class Regexp_Validation_Rule implements Validation_Rule, With_Type_Support {
 	 * @throws Validation_Exception Thrown when validation fails.
 	 */
 	public function validate( $value ): void {
-		if ( ! preg_match( $this->regexp, (string) $value ) ) {
-			throw Validation_Exception::create(
-				'invalid_pattern',
-				sprintf(
-					/* translators: 1: value, 2: regular expression */
-					esc_html__( '%1$s does not match pattern %2$s.', 'default' ),
-					esc_html( (string) $value ),
-					esc_html( $this->regexp )
-				)
-			);
+		if ( ! is_array( $value ) ) {
+			return;
+		}
+
+		foreach ( $value as $item ) {
+			$this->item_validation_rule->validate( $item );
 		}
 	}
 
@@ -80,13 +74,13 @@ class Regexp_Validation_Rule implements Validation_Rule, With_Type_Support {
 	 * @return mixed Sanitized value.
 	 */
 	public function sanitize( $value ) {
-		try {
-			$this->validate( $value );
-		} catch ( Validation_Exception $e ) {
-			// Cast the empty value to the same type as the given value, in order to not change the value type.
-			return $this->cast_value_by_type( '', gettype( $value ) );
+		if ( ! is_array( $value ) ) {
+			return;
 		}
 
+		foreach ( $value as $index => $item ) {
+			$value[ $index ] = $this->item_validation_rule->sanitize( $item );
+		}
 		return $value;
 	}
 
@@ -98,6 +92,6 @@ class Regexp_Validation_Rule implements Validation_Rule, With_Type_Support {
 	 * @return int One or more of the type constants from the Types interface, combined with a bitwise OR.
 	 */
 	protected function get_supported_types(): int {
-		return Types::TYPE_STRING | Types::TYPE_INTEGER | Types::TYPE_FLOAT;
+		return Types::TYPE_ARRAY;
 	}
 }

@@ -11,6 +11,8 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Validation_Rule_Builder;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Aggregate_Validation_Rule;
+use InvalidArgumentException;
 use WP_Error;
 
 /**
@@ -23,13 +25,62 @@ use WP_Error;
 abstract class Abstract_Validation_Rule_Builder implements Validation_Rule_Builder {
 
 	/**
+	 * Validation rules set for this instance.
+	 *
+	 * @since n.e.x.t
+	 * @var Validation_Rule[]
+	 */
+	private $rules = array();
+
+	/**
+	 * Constructor.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param Validation_Rule[] $initial_rules Optional. Initial validation rules to use for the builder.
+	 */
+	public function __construct( array $initial_rules = array() ) {
+		array_walk(
+			$initial_rules,
+			array( $this, 'with_rule' )
+		);
+	}
+
+	/**
+	 * Adds the given rule to the rules for the builder.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param Validation_Rule $rule Rule to add.
+	 * @return static Builder instance for chaining.
+	 *
+	 * @throws InvalidArgumentException Thrown when a forbidden rule is passed.
+	 */
+	final public function with_rule( Validation_Rule $rule ): static {
+		if ( ! $this->is_allowed_rule( $rule ) ) {
+			throw new InvalidArgumentException(
+				sprintf(
+					/* translators: 1: rule PHP class name, 2: builder PHP class name */
+					esc_html__( 'The validation rule with class %1$s is not allowed by the builder class %2$s.', 'wp-oop-plugin-lib' ),
+					esc_html( get_class( $rule ) ),
+					esc_html( get_class( $this ) )
+				)
+			);
+		}
+		$this->rules[] = $rule;
+		return $this;
+	}
+
+	/**
 	 * Gets the combined validation rule consisting of all rules present in the builder.
 	 *
 	 * @since n.e.x.t
 	 *
 	 * @return Validation_Rule Combined validation rule.
 	 */
-	abstract public function get(): Validation_Rule;
+	final public function get(): Validation_Rule {
+		return new Aggregate_Validation_Rule( $this->rules );
+	}
 
 	/**
 	 * Returns a WordPress option 'sanitize_callback' consisting of all rules present in the builder.
@@ -38,7 +89,7 @@ abstract class Abstract_Validation_Rule_Builder implements Validation_Rule_Build
 	 *
 	 * @return callable Callback function to register as an option 'sanitize_callback'.
 	 */
-	public function get_option_sanitize_callback(): callable {
+	final public function get_option_sanitize_callback(): callable {
 		$aggregate = $this->get();
 
 		return function ( $value ) use ( $aggregate ) {
@@ -53,7 +104,7 @@ abstract class Abstract_Validation_Rule_Builder implements Validation_Rule_Build
 	 *
 	 * @return callable Callback function to register as an REST API 'sanitize_callback'.
 	 */
-	public function get_rest_sanitize_callback(): callable {
+	final public function get_rest_sanitize_callback(): callable {
 		// For now, this callback looks the same as for sanitizing an option.
 		return $this->get_option_sanitize_callback();
 	}
@@ -65,7 +116,7 @@ abstract class Abstract_Validation_Rule_Builder implements Validation_Rule_Build
 	 *
 	 * @return callable Callback function to register as an REST API 'validate_callback'.
 	 */
-	public function get_rest_validate_callback(): callable {
+	final public function get_rest_validate_callback(): callable {
 		$aggregate = $this->get();
 
 		return function ( $value, $request, $param ) use ( $aggregate ) {
@@ -86,4 +137,14 @@ abstract class Abstract_Validation_Rule_Builder implements Validation_Rule_Build
 			return true;
 		};
 	}
+
+	/**
+	 * Checks whether the given rule is allowed by the builder.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param Validation_Rule $rule Rule to check.
+	 * @return bool True if the rule is allowed, false otherwise.
+	 */
+	abstract protected function is_allowed_rule( Validation_Rule $rule ): bool;
 }

@@ -8,7 +8,6 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Non_Scalar_Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\With_Strict;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
@@ -22,31 +21,19 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Traits\Strict_Mode;
  *
  * @since n.e.x.t
  */
-class Array_Validation_Rule implements Non_Scalar_Validation_Rule, With_Strict {
+class Array_Validation_Rule implements Validation_Rule, With_Strict {
 	use Strict_Mode;
-
-	/**
-	 * Validation rule to validate all items with, or null.
-	 *
-	 * @since n.e.x.t
-	 * @var Validation_Rule
-	 */
-	private $item_validation_rule;
 
 	/**
 	 * Constructor.
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @param Validation_Rule|null $item_validation_rule Optional. Validation rule to validate all array items with.
-	 *                                                   Default null (items can be anything).
-	 * @param bool                 $strict               Optional. True to enable strict mode, false to disable it.
-	 *                                                   Default false.
+	 * @param bool $strict Optional. True to enable strict mode, false to disable it. Default false.
 	 *
 	 * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
 	 */
-	public function __construct( Validation_Rule $item_validation_rule = null, bool $strict = false ) {
-		$this->item_validation_rule = $item_validation_rule;
+	public function __construct( bool $strict = false ) {
 		$this->set_strict( $strict );
 	}
 
@@ -63,7 +50,6 @@ class Array_Validation_Rule implements Non_Scalar_Validation_Rule, With_Strict {
 	 */
 	public function validate( $value ): void {
 		if ( wp_is_numeric_array( $value ) ) {
-			$this->validate_items( $value );
 			return;
 		}
 
@@ -78,8 +64,6 @@ class Array_Validation_Rule implements Non_Scalar_Validation_Rule, With_Strict {
 				)
 			);
 		}
-
-		$this->validate_items( rest_sanitize_array( $value ) );
 	}
 
 	/**
@@ -94,31 +78,6 @@ class Array_Validation_Rule implements Non_Scalar_Validation_Rule, With_Strict {
 	 * @return mixed Sanitized value.
 	 */
 	public function sanitize( $value ) {
-		$items = rest_sanitize_array( $value );
-		if ( ! $this->item_validation_rule ) {
-			return $items;
-		}
-
-		foreach ( $items as $index => $item ) {
-			$items[ $index ] = $this->item_validation_rule->sanitize( $item );
-		}
-		return $items;
-	}
-
-	/**
-	 * Validates the individual array items.
-	 *
-	 * @since n.e.x.t
-	 *
-	 * @param mixed[] $items Array items.
-	 */
-	private function validate_items( array $items ): void {
-		if ( ! $this->item_validation_rule ) {
-			return;
-		}
-
-		foreach ( $items as $item ) {
-			$this->item_validation_rule->validate( $item );
-		}
+		return rest_sanitize_array( $value );
 	}
 }

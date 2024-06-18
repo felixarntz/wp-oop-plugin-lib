@@ -9,16 +9,20 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\General\Traits\Cast_Value_By_Type;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Scalar_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Types;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\With_Type_Support;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Traits\Type_Support;
 
 /**
  * Class for a validation rule that ensures values fall within a date-time or date range.
  *
  * @since n.e.x.t
  */
-class Datetime_Range_Validation_Rule implements Scalar_Validation_Rule {
+class Datetime_Range_Validation_Rule implements Validation_Rule, With_Type_Support {
 	use Cast_Value_By_Type;
+	use Type_Support;
 
 	/**
 	 * Minimum date-time or date allowed.
@@ -127,6 +131,17 @@ class Datetime_Range_Validation_Rule implements Scalar_Validation_Rule {
 		}
 
 		return $value;
+	}
+
+	/**
+	 * Gets the supported types for the validation rule.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @return int One or more of the type constants from the Types interface, combined with a bitwise OR.
+	 */
+	protected function get_supported_types(): int {
+		return Types::TYPE_STRING | Types::TYPE_INTEGER | Types::TYPE_FLOAT;
 	}
 
 	/**

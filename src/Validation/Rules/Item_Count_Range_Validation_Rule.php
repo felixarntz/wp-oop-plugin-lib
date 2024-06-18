@@ -8,15 +8,19 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Non_Scalar_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Types;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\With_Type_Support;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Traits\Type_Support;
 
 /**
  * Class for a validation rule that ensures non-scalar values include a specific number of items.
  *
  * @since n.e.x.t
  */
-class Item_Count_Range_Validation_Rule implements Non_Scalar_Validation_Rule {
+class Item_Count_Range_Validation_Rule implements Validation_Rule, With_Type_Support {
+	use Type_Support;
 
 	/**
 	 * Minimum item count allowed.
@@ -127,5 +131,16 @@ class Item_Count_Range_Validation_Rule implements Non_Scalar_Validation_Rule {
 		}
 
 		return $value;
+	}
+
+	/**
+	 * Gets the supported types for the validation rule.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @return int One or more of the type constants from the Types interface, combined with a bitwise OR.
+	 */
+	protected function get_supported_types(): int {
+		return Types::TYPE_ARRAY;
 	}
 }

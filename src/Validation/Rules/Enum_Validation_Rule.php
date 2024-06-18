@@ -9,9 +9,12 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\General\Traits\Cast_Value_By_Type;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Scalar_Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Types;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\With_Type_Support;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Traits\Strict_Mode;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Traits\Type_Support;
 use InvalidArgumentException;
 
 /**
@@ -19,9 +22,10 @@ use InvalidArgumentException;
  *
  * @since n.e.x.t
  */
-class Enum_Validation_Rule implements Scalar_Validation_Rule {
+class Enum_Validation_Rule implements Validation_Rule, With_Type_Support {
 	use Cast_Value_By_Type;
 	use Strict_Mode;
+	use Type_Support;
 
 	/**
 	 * Allowed values.
@@ -155,5 +159,16 @@ class Enum_Validation_Rule implements Scalar_Validation_Rule {
 			}
 		}
 		return false;
+	}
+
+	/**
+	 * Gets the supported types for the validation rule.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @return int One or more of the type constants from the Types interface, combined with a bitwise OR.
+	 */
+	protected function get_supported_types(): int {
+		return Types::TYPE_STRING | Types::TYPE_INTEGER | Types::TYPE_FLOAT;
 	}
 }

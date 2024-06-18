@@ -8,6 +8,8 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts;
 
+use InvalidArgumentException;
+
 /**
  * Interface for a validation rule builder.
  *
@@ -16,6 +18,18 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts;
  * @since n.e.x.t
  */
 interface Validation_Rule_Builder {
+
+	/**
+	 * Adds the given rule to the rules for the builder.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param Validation_Rule $rule Rule to add.
+	 * @return static Builder instance for chaining.
+	 *
+	 * @throws InvalidArgumentException Thrown when a forbidden rule is passed.
+	 */
+	public function with_rule( Validation_Rule $rule ): static;
 
 	/**
 	 * Gets the combined validation rule consisting of all rules present in the builder.
