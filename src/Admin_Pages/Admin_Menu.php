@@ -109,7 +109,7 @@ class Admin_Menu {
 		}
 
 		$hook_suffix = (string) add_submenu_page(
-			$this->menu_slug ? $this->menu_slug : null,
+			$this->menu_slug,
 			$this->get_full_page_title( $page ),
 			$page->get_title(),
 			$page->get_capability(),
@@ -159,8 +159,8 @@ class Admin_Menu {
 	 * @return string Full page title.
 	 */
 	private function get_full_page_title( Admin_Page $page ): string {
-		// If there is a title set for this menu, prefix the page title with it.
-		if ( $this->menu_args['menu_title'] ) {
+		// If there is a title set for this menu that is not already part of the page title, prefix the page title with it.
+		if ( $this->menu_args['menu_title'] && ! str_contains( $page->get_title(), $this->menu_args['menu_title'] ) ) {
 			return $this->menu_args['menu_title'] . $page->get_title();
 		}
 
