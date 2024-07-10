@@ -159,7 +159,10 @@ class Admin_Menu {
 	 * @return string Full page title.
 	 */
 	private function get_full_page_title( Admin_Page $page ): string {
-		// If there is a title set for this menu that is not already part of the page title, prefix the page title with it.
+		/*
+		 * If there is a title set for this menu that is not already part of the page title,
+		 * prefix the page title with it.
+		 */
 		if ( $this->menu_args['menu_title'] && ! str_contains( $page->get_title(), $this->menu_args['menu_title'] ) ) {
 			return $this->menu_args['menu_title'] . $page->get_title();
 		}

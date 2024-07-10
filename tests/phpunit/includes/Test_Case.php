@@ -7,8 +7,8 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes;
 
-use ReflectionProperty;
 use ReflectionMethod;
+use ReflectionProperty;
 use WP_UnitTestCase;
 
 /**
