@@ -149,7 +149,7 @@ class Admin_Menu_Tests extends Test_Case {
 			array(
 				'slug'       => 'custom_plugin_dashboard',
 				'title'      => 'Custom Plugin Dashboard',
-				'capability' => 'activate_plugins',
+				'capability' => 'edit_theme_options',
 			)
 		);
 		$hook_suffix = $this->custom_plugin_menu->add_page( $admin_page );
@@ -159,14 +159,14 @@ class Admin_Menu_Tests extends Test_Case {
 		$this->assertFalse( $this->get_menu_item( 'custom_plugin' ) );
 		$menu_item = $this->get_menu_item( 'custom_plugin_dashboard' );
 		$this->assertSame( 'Custom Plugin', $menu_item[0] );
-		$this->assertSame( 'activate_plugins', $menu_item[1] );
+		$this->assertSame( 'edit_theme_options', $menu_item[1] );
 		$this->assertSame( 'custom_plugin_dashboard', $menu_item[2] );
 		$this->assertCount( 1, $this->get_submenu_items( 'custom_plugin_dashboard' ) ); // Just the new item.
 
 		// Assert the admin page was added correctly.
 		$submenu_item = $this->get_last_submenu_item( 'custom_plugin_dashboard' );
 		$this->assertSame( 'Custom Plugin Dashboard', $submenu_item[0] );
-		$this->assertSame( 'activate_plugins', $submenu_item[1] );
+		$this->assertSame( 'edit_theme_options', $submenu_item[1] );
 		$this->assertSame( 'custom_plugin_dashboard', $submenu_item[2] );
 
 		$this->assertSame( 10, has_action( "load-{$hook_suffix}", array( $admin_page, 'load' ) ) );
@@ -179,7 +179,7 @@ class Admin_Menu_Tests extends Test_Case {
 			array(
 				'slug'       => 'custom_plugin_dashboard',
 				'title'      => 'Custom Plugin Dashboard',
-				'capability' => 'activate_plugins',
+				'capability' => 'edit_theme_options',
 			)
 		);
 		$hook_suffix = $this->no_menu->add_page( $admin_page );
@@ -192,7 +192,7 @@ class Admin_Menu_Tests extends Test_Case {
 		// Assert the admin page was added correctly.
 		$submenu_item = $this->get_last_submenu_item( '' );
 		$this->assertSame( 'Custom Plugin Dashboard', $submenu_item[0] );
-		$this->assertSame( 'activate_plugins', $submenu_item[1] );
+		$this->assertSame( 'edit_theme_options', $submenu_item[1] );
 		$this->assertSame( 'custom_plugin_dashboard', $submenu_item[2] );
 
 		$this->assertSame( 10, has_action( "load-{$hook_suffix}", array( $admin_page, 'load' ) ) );
