@@ -26,6 +26,22 @@ class Capability_Controller {
 	private $container;
 
 	/**
+	 * Map of `$cap => $required_caps` pairs, stored here to avoid recalculation on every filter call.
+	 *
+	 * @since n.e.xt
+	 * @var array<string, string[]>|null
+	 */
+	private $required_base_caps_map;
+
+	/**
+	 * Map of `$cap => $map_callback` pairs, stored here to avoid recalculation on every filter call.
+	 *
+	 * @since n.e.xt
+	 * @var array<string, callable>|null
+	 */
+	private $meta_map_callbacks_map;
+
+	/**
 	 * Constructor.
 	 *
 	 * @since n.e.x.t
@@ -49,7 +65,8 @@ class Capability_Controller {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @param string   $cap           Base capability to grant. Must be part of the plugin capabilities in this controller.
+	 * @param string   $cap           Base capability to grant. Must be part of the plugin capabilities in this
+	 *                                controller.
 	 * @param string[] $required_caps Required capabilities needed to grant this capability. An empty array means this
 	 *                                is a base capability and must be granted directly on individual user roles.
 	 *                                Default empty array.
@@ -69,6 +86,9 @@ class Capability_Controller {
 		}
 
 		$capability->set_required_caps( $required_caps );
+
+		// Reset the required base caps map to recalculate it on the next filter call.
+		$this->required_base_caps_map = null;
 	}
 
 	/**
@@ -76,7 +96,8 @@ class Capability_Controller {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @param string   $cap          Meta capability to grant. Must be part of the plugin capabilities in this controller.
+	 * @param string   $cap          Meta capability to grant. Must be part of the plugin capabilities in this
+	 *                               controller.
 	 * @param callable $map_callback Callback function to determine the required base capabilities needed to grant this
 	 *                               meta capability. The function receives the user ID and any additional parameters
 	 *                               passed alongside the capability check and must return an array.
@@ -96,6 +117,9 @@ class Capability_Controller {
 		}
 
 		$capability->set_map_callback( $map_callback );
+
+		// Reset the meta map callbacks map to recalculate it on the next filter call.
+		$this->meta_map_callbacks_map = null;
 	}
 
 	/**
@@ -145,5 +169,66 @@ class Capability_Controller {
 			$callbacks_map[ $key ] = $capability->get_map_callback();
 		}
 		return $callbacks_map;
+	}
+
+	/**
+	 * Filters a user's capabilities, granting dynamic capabilities based on existing base capabilities.
+	 *
+	 * This should be used as a callback for the {@see 'user_has_cap'} filter.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param array<string, bool> $allcaps Array of key/value pairs where keys represent a capability name and boolean
+	 *                                     values represent whether the user has that capability.
+	 * @return array<string, bool> Filtered $allcaps, including dynamically granted custom capabilities.
+	 */
+	public function filter_user_has_cap( array $allcaps ): array {
+		if ( null === $this->required_base_caps_map ) {
+			$this->required_base_caps_map = $this->get_required_base_caps_map();
+		}
+
+		foreach ( $this->required_base_caps_map as $cap => $required_caps ) {
+			$grant = true;
+			foreach ( $required_caps as $required_cap ) {
+				if ( ! isset( $allcaps[ $required_cap ] ) || ! $allcaps[ $required_cap ] ) {
+					$grant = false;
+					break;
+				}
+			}
+
+			$allcaps[ $cap ] = $grant;
+		}
+
+		return $allcaps;
+	}
+
+	/**
+	 * Filters the mapping of a meta capability to one or more base capabilities.
+	 *
+	 * This should be used as a callback for the {@see 'map_meta_cap'} filter.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param string[] $caps    Primitive capabilities required of the user.
+	 * @param string   $cap     Capability being checked.
+	 * @param int      $user_id User ID.
+	 * @param mixed[]  $args    Additional arguments passed alongside the capability check.
+	 * @return string[] Filtered $caps, potentially altered by the relevant map callback.
+	 */
+	public function filter_map_meta_cap( array $caps, string $cap, int $user_id, array $args ): array {
+		if ( null === $this->meta_map_callbacks_map ) {
+			$this->meta_map_callbacks_map = $this->get_meta_map_callbacks_map();
+		}
+
+		if ( ! isset( $this->meta_map_callbacks_map[ $cap ] ) ) {
+			return $caps;
+		}
+
+		$map_callback  = $this->meta_map_callbacks_map[ $cap ];
+		$required_caps = $map_callback( $user_id, $args );
+		if ( ! is_array( $required_caps ) || ! $required_caps ) { // Prevent invalid return values.
+			return $caps;
+		}
+		return $required_caps;
 	}
 }
