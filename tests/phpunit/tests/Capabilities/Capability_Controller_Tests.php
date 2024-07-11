@@ -245,7 +245,7 @@ class Capability_Controller_Tests extends Test_Case {
 		$this->container->set(
 			'meta_cap_with_args',
 			static function () {
-				return new Meta_Capability( 'meta_cap', static function ( int $user_id, int $some_number = 0 ) {
+				return new Meta_Capability( 'meta_cap_with_args', static function ( int $user_id, int $some_number = 0 ) {
 					if ( 42 === $some_number ) {
 						return array( 'manage_options' );
 					}
