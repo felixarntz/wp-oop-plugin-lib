@@ -225,7 +225,7 @@ class Capability_Controller {
 		}
 
 		$map_callback  = $this->meta_map_callbacks_map[ $cap ];
-		$required_caps = $map_callback( $user_id, $args );
+		$required_caps = $map_callback( $user_id, ...$args );
 		if ( ! is_array( $required_caps ) || ! $required_caps ) { // Prevent invalid return values.
 			return $caps;
 		}
