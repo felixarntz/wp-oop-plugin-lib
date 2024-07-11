@@ -9,6 +9,7 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities;
 
 use ArrayAccess;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Contracts\Capability;
 use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Container;
 use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Invalid_Type_Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Not_Found_Exception;
@@ -109,16 +110,19 @@ class Capability_Container implements Container, ArrayAccess {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @param string   $key           Capability key.
-	 * @param string[] $required_caps Optional. Required capabilities needed to grant this capability. An empty array
-	 *                                means this is a base capability and must be granted directly on individual user
-	 *                                roles. Default empty array.
+	 * @param string            $key           Capability key.
+	 * @param string[]|callable $required_caps Array with required base capabilities if this is a base capability,
+	 *                                         or callback function to dynamically determine the required base
+	 *                                         capabilities if this is a meta capability.
 	 */
-	public function set_by_args( string $key, array $required_caps = array() ): void {
+	public function set_by_args( string $key, $required_caps ): void {
 		$this->set(
 			$key,
 			function () use ( $key, $required_caps ) {
-				return new Capability( $key, $required_caps );
+				if ( is_callable( $required_caps ) ) {
+					return new Meta_Capability( $key, $required_caps );
+				}
+				return new Base_Capability( $key, $required_caps );
 			}
 		);
 	}

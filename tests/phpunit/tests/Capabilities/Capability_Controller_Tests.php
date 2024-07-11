@@ -8,9 +8,10 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Tests\Capabilities;
 
-use Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Capability;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Base_Capability;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Capability_Container;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Capability_Controller;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Meta_Capability;
 use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Not_Found_Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Test_Case;
 
@@ -25,19 +26,27 @@ class Capability_Controller_Tests extends Test_Case {
 		$container->set(
 			'with_one_required_cap',
 			static function () {
-				return new Capability( 'with_one_required_cap', array( 'manage_options' ) );
+				return new Base_Capability( 'with_one_required_cap', array( 'manage_options' ) );
 			}
 		);
 		$container->set(
 			'with_multiple_required_caps',
 			static function () {
-				return new Capability( 'with_multiple_required_caps', array( 'edit_posts', 'upload_files' ) );
+				return new Base_Capability( 'with_multiple_required_caps', array( 'edit_posts', 'upload_files' ) );
 			}
 		);
 		$container->set(
 			'without_required_caps',
 			static function () {
-				return new Capability( 'without_required_caps', array() );
+				return new Base_Capability( 'without_required_caps', array() );
+			}
+		);
+		$container->set(
+			'meta_cap',
+			static function () {
+				return new Meta_Capability( 'meta_cap', static function () {
+					return array( 'with_multiple_required_caps' );
+				} );
 			}
 		);
 
@@ -52,7 +61,7 @@ class Capability_Controller_Tests extends Test_Case {
 			$this->expectException( $expected_exception );
 		}
 		$this->controller->grant_cap_for_base_caps( $cap, $required_caps );
-		$this->assertSameSetsWithIndex( $expected_map, $this->controller->get_required_caps_map() );
+		$this->assertSameSetsWithIndex( $expected_map, $this->controller->get_required_base_caps_map() );
 	}
 
 	public function data_grant_cap_for_base_caps() {
@@ -105,33 +114,97 @@ class Capability_Controller_Tests extends Test_Case {
 			'access non existent cap'        => array(
 				'non_existent_cap',
 				array( 'manage_options' ),
-				array(
-					'with_one_required_cap'       => array( 'manage_options' ),
-					'with_multiple_required_caps' => array( 'edit_posts', 'upload_files' ),
-				),
+				array(),
+				Not_Found_Exception::class,
+			),
+			'access meta cap'                => array(
+				'meta_cap',
+				array( 'manage_options' ),
+				array(),
 				Not_Found_Exception::class,
 			),
 		);
 	}
 
-	public function test_get_controlled_caps() {
-		$this->assertSameSets(
-			array(
-				'with_one_required_cap',
-				'with_multiple_required_caps',
-				'without_required_caps',
+	/**
+	 * @dataProvider data_set_meta_map_callback
+	 */
+	public function test_set_meta_map_callback( $cap, $map_callback, $expected_map, $expected_exception = null ) {
+		if ( $expected_exception ) {
+			$this->expectException( $expected_exception );
+		}
+		$this->controller->set_meta_map_callback( $cap, $map_callback );
+
+		$callbacks_map = $this->controller->get_meta_map_callbacks_map();
+		$resolved_map  = array();
+		foreach ( $callbacks_map as $cap => $map_callback ) {
+			$resolved_map[ $cap ] = $map_callback();
+		}
+		$this->assertSameSetsWithIndex( $expected_map, $resolved_map );
+	}
+
+	public function data_set_meta_map_callback() {
+		return array(
+			'update map callback'              => array(
+				'meta_cap',
+				static function () {
+					return array( 'edit_theme_options' );
+				},
+				array(
+					'meta_cap' => array( 'edit_theme_options' ),
+				),
+				null,
 			),
-			$this->controller->get_controlled_caps()
+			'update map callback empty'       => array(
+				'meta_cap',
+				static function () {
+					return array();
+				},
+				array(
+					'meta_cap' => array(),
+				),
+				null,
+			),
+			'access non existent cap'        => array(
+				'non_existent_cap',
+				static function () {
+					return array( 'manage_options' );
+				},
+				array(),
+				Not_Found_Exception::class,
+			),
+			'access base cap'                => array(
+				'with_one_required_cap',
+				static function () {
+					return array( 'manage_options' );
+				},
+				array(),
+				Not_Found_Exception::class,
+			),
 		);
 	}
 
-	public function test_get_required_caps_map() {
+	public function test_get_required_base_caps_map() {
 		$this->assertSameSetsWithIndex(
 			array(
 				'with_one_required_cap'       => array( 'manage_options' ),
 				'with_multiple_required_caps' => array( 'edit_posts', 'upload_files' ),
 			),
-			$this->controller->get_required_caps_map()
+			$this->controller->get_required_base_caps_map()
+		);
+	}
+
+	public function test_get_meta_map_callbacks_map() {
+		$callbacks_map = $this->controller->get_meta_map_callbacks_map();
+		$resolved_map  = array();
+		foreach ( $callbacks_map as $cap => $map_callback ) {
+			$resolved_map[ $cap ] = $map_callback();
+		}
+		$this->assertSameSetsWithIndex(
+			array(
+				'meta_cap' => array( 'with_multiple_required_caps' ),
+			),
+			$resolved_map
 		);
 	}
 }
