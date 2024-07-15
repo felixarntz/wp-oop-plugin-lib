@@ -69,6 +69,62 @@ abstract class Test_Case extends WP_UnitTestCase {
 	}
 
 	/**
+	 * Asserts that the given hook has one or more actions added.
+	 *
+	 * @param string   $hook_name Action hook name.
+	 * @param callable $callback  Hook callback to check for.
+	 * @param string   $message   Optional. Message to display when the assertion fails.
+	 */
+	public function assertHasActionCallback( $hook_name, $callback, $message = '' ) {
+		if ( ! $message ) {
+			$message = sprintf( 'Failed asserting that %s is added to the %s action hook.', $this->get_callback_name( $callback ), $hook_name );
+		}
+		$this->assertTrue( (bool) has_action( $hook_name, $callback ), $message );
+	}
+
+	/**
+	 * Asserts that the given hook has no actions added.
+	 *
+	 * @param string   $hook_name Action hook name.
+	 * @param callable $callback  Hook callback to check for.
+	 * @param string   $message   Optional. Message to display when the assertion fails.
+	 */
+	public function assertNotHasActionCallback( $hook_name, $callback, $message = '' ) {
+		if ( ! $message ) {
+			$message = sprintf( 'Failed asserting that %s is not added to the %s action hook.', $this->get_callback_name( $callback ), $hook_name );
+		}
+		$this->assertFalse( has_action( $hook_name, $callback ), $message );
+	}
+
+	/**
+	 * Asserts that the given hook has one or more filters added.
+	 *
+	 * @param string   $hook_name Filter hook name.
+	 * @param callable $callback  Hook callback to check for.
+	 * @param string   $message   Optional. Message to display when the assertion fails.
+	 */
+	public function assertHasFilterCallback( $hook_name, $callback, $message = '' ) {
+		if ( ! $message ) {
+			$message = sprintf( 'Failed asserting that %s is added to the %s filter hook.', $this->get_callback_name( $callback ), $hook_name );
+		}
+		$this->assertTrue( (bool) has_filter( $hook_name, $callback ), $message );
+	}
+
+	/**
+	 * Asserts that the given hook has no filters added.
+	 *
+	 * @param string   $hook_name Filter hook name.
+	 * @param callable $callback  Hook callback to check for.
+	 * @param string   $message   Optional. Message to display when the assertion fails.
+	 */
+	public function assertNotHasFilterCallback( $hook_name, $callback, $message = '' ) {
+		if ( ! $message ) {
+			$message = sprintf( 'Failed asserting that %s is not added to the %s filter hook.', $this->get_callback_name( $callback ), $hook_name );
+		}
+		$this->assertFalse( has_filter( $hook_name, $callback ), $message );
+	}
+
+	/**
 	 * Gets a value of a class instance property that is protected or private.
 	 *
 	 * @param object $instance      Class instance.
@@ -116,5 +172,21 @@ abstract class Test_Case extends WP_UnitTestCase {
 		$method->setAccessible( false );
 
 		return $result;
+	}
+
+	private function get_callback_name( callable $callback ): string {
+		if ( is_string( $callback ) ) {
+			return $callback;
+		}
+
+		if ( is_array( $callback ) ) {
+			if ( is_object( $callback[0] ) ) {
+				return get_class( $callback[0] ) . '::' . $callback[1];
+			}
+
+			return $callback[0] . '::' . $callback[1];
+		}
+
+		return 'anonymous function';
 	}
 }
