@@ -26,6 +26,11 @@ abstract class Abstract_Dependency_Registry implements Dependency_Registry {
 	 * @return array<string, mixed> Parsed dependency registration arguments.
 	 */
 	final protected function parse_args( array $args ): array {
+		if ( isset( $args['manifest'] ) ) {
+			$args = $this->parse_manifest_args( $args['manifest'], $args );
+			unset( $args['manifest'] );
+		}
+
 		// Support more verbose 'dependencies' and 'version' keys as an alternative.
 		if ( isset( $args['dependencies'] ) && ! isset( $args['deps'] ) ) {
 			$args['deps'] = $args['dependencies'];
@@ -34,11 +39,6 @@ abstract class Abstract_Dependency_Registry implements Dependency_Registry {
 		if ( isset( $args['version'] ) && ! isset( $args['ver'] ) ) {
 			$args['ver'] = $args['version'];
 			unset( $args['version'] );
-		}
-
-		if ( isset( $args['manifest'] ) ) {
-			$args = $this->parse_manifest_args( $args['manifest'], $args );
-			unset( $args['manifest'] );
 		}
 
 		return wp_parse_args(

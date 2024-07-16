@@ -125,6 +125,15 @@ abstract class Test_Case extends WP_UnitTestCase {
 	}
 
 	/**
+	 * Expects a function to trigger a _doing_it_wrong() notice.
+	 *
+	 * @param string $function_name Function or method name expected to trigger the notice.
+	 */
+	public function expectDoingItWrong( string $function_name ) {
+		$this->expected_doing_it_wrong[] = $function_name;
+	}
+
+	/**
 	 * Gets a value of a class instance property that is protected or private.
 	 *
 	 * @param object $instance      Class instance.
