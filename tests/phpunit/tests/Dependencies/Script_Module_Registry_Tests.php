@@ -150,6 +150,13 @@ class Script_Module_Registry_Tests extends Test_Case {
 	}
 
 	public function test_enqueue() {
+		// Script modules are only supported in WordPress 6.5 and later.
+		if ( version_compare( $GLOBALS['wp_version'], '6.5', '<' ) ) {
+			$this->expectDoingItWrong( Script_Module_Registry::class . '::enqueue' );
+			$this->assertFalse( $this->registry->enqueue( 'test_script_module' ) );
+			return;
+		}
+
 		wp_register_script_module( 'test_script_module', 'test-script-module.js' );
 
 		$registered = $this->get_hidden_property_value( wp_script_modules(), 'registered' );
@@ -162,6 +169,13 @@ class Script_Module_Registry_Tests extends Test_Case {
 	}
 
 	public function test_dequeue() {
+		// Script modules are only supported in WordPress 6.5 and later.
+		if ( version_compare( $GLOBALS['wp_version'], '6.5', '<' ) ) {
+			$this->expectDoingItWrong( Script_Module_Registry::class . '::dequeue' );
+			$this->assertFalse( $this->registry->dequeue( 'test_script_module' ) );
+			return;
+		}
+
 		wp_enqueue_script_module( 'test_script_module', 'test-script-module.js' );
 
 		$registered = $this->get_hidden_property_value( wp_script_modules(), 'registered' );

@@ -203,6 +203,10 @@ class Script_Registry_Tests extends Test_Case {
 		wp_enqueue_script( 'test_script', 'test-script.js' );
 		$this->registry->add_inline_code( 'test_script', $js );
 
-		$this->assertSame( $js, wp_scripts()->get_inline_script_data( 'test_script' ) );
+		if ( ! method_exists( wp_scripts(), 'get_inline_script_data' ) ) {
+			$this->assertSame( array( $js ), wp_scripts()->get_data( 'test_script', 'after' ) );
+		} else {
+			$this->assertSame( $js, wp_scripts()->get_inline_script_data( 'test_script' ) );
+		}
 	}
 }
