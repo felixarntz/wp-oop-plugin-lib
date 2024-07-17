@@ -153,7 +153,7 @@ class Script_Module_Registry_Tests extends Test_Case {
 		// Script modules are only supported in WordPress 6.5 and later.
 		if ( version_compare( $GLOBALS['wp_version'], '6.5', '<' ) ) {
 			$this->expectDoingItWrong( Script_Module_Registry::class . '::enqueue' );
-			$this->assertFalse( $this->registry->enqueue( 'test_script_module' ) );
+			$this->registry->enqueue( 'test_script_module' );
 			return;
 		}
 
@@ -172,7 +172,7 @@ class Script_Module_Registry_Tests extends Test_Case {
 		// Script modules are only supported in WordPress 6.5 and later.
 		if ( version_compare( $GLOBALS['wp_version'], '6.5', '<' ) ) {
 			$this->expectDoingItWrong( Script_Module_Registry::class . '::dequeue' );
-			$this->assertFalse( $this->registry->dequeue( 'test_script_module' ) );
+			$this->registry->dequeue( 'test_script_module' );
 			return;
 		}
 

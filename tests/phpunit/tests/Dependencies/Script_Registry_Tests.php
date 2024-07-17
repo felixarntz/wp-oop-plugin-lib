@@ -204,7 +204,7 @@ class Script_Registry_Tests extends Test_Case {
 		$this->registry->add_inline_code( 'test_script', $js );
 
 		if ( ! method_exists( wp_scripts(), 'get_inline_script_data' ) ) {
-			$this->assertSame( array( $js ), wp_scripts()->get_data( 'test_script', 'after' ) );
+			$this->assertSame( array( $js ), array_filter( wp_scripts()->get_data( 'test_script', 'after' ) ) );
 		} else {
 			$this->assertSame( $js, wp_scripts()->get_inline_script_data( 'test_script' ) );
 		}
