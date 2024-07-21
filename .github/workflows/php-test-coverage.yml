@@ -1,0 +1,99 @@
+name: PHP Unit Test Coverage
+
+on:
+  push:
+    branches:
+      - main
+    # Only run if PHP-related files changed.
+    paths:
+      - '.github/workflows/php-test-coverage.yml'
+      - '**.php'
+      - '.wp-env.json'
+      - '**/package.json'
+      - 'package-lock.json'
+      - 'phpunit.xml.dist'
+      - 'composer.json'
+      - 'composer.lock'
+  pull_request:
+    branches:
+      - main
+    # Only run if PHP-related files changed.
+    paths:
+      - '.github/workflows/php-test-coverage.yml'
+      - '**.php'
+      - '.wp-env.json'
+      - '**/package.json'
+      - 'package-lock.json'
+      - 'phpunit.xml.dist'
+      - 'composer.json'
+      - 'composer.lock'
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  php-test-coverage:
+    name: ${{ matrix.multisite && 'Multisite' || 'Single site' }} report (${{ matrix.format }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: true
+      matrix:
+        multisite: [ false, true ]
+        format: [ 'clover', 'html' ]
+        php: [ '8.2' ]
+        wordpress: [ 'latest' ]
+    env:
+      WP_ENV_PHP_VERSION: ${{ matrix.php }}
+      WP_ENV_CORE: ${{ matrix.wordpress == 'trunk' && 'WordPress/WordPress' || format( 'https://wordpress.org/wordpress-{0}.zip', matrix.wordpress ) }}
+    continue-on-error: ${{ matrix.experimental == true }}
+    steps:
+      - uses: styfle/cancel-workflow-action@0.12.1
+
+      - uses: actions/checkout@v3
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+
+      - name: Setup Node.js (.nvmrc)
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: npm
+
+      - name: npm install
+        run: npm ci
+
+      - name: Install WordPress
+        run: npm run wp-env start -- --xdebug=coverage
+
+      - name: Running single site unit tests
+        if: ${{ ! matrix.multisite }}
+        run: npm run test-php -- --coverage-${{ 'html' == matrix.format && 'html' || 'clover' }} wp-code-coverage-single-${{ github.sha }}${{ 'clover' == matrix.format && '.xml' || '' }}
+
+      - name: Running multisite unit tests
+        if: ${{ matrix.multisite }}
+        run: npm run test-php-multisite -- --coverage-${{ 'html' == matrix.format && 'html' || 'clover' }} wp-code-coverage-multisite-${{ github.sha }}${{ 'clover' == matrix.format && '.xml' || '' }}
+
+      - name: Upload ${{ matrix.multisite && 'multisite' || 'single site' }} report to Codecov
+        if: ${{ matrix.format == 'clover' && github.event_name != 'pull_request' }}
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: wp-code-coverage-${{ matrix.multisite && 'multisite' || 'single' }}-${{ github.sha }}.xml
+          flags: ${{ matrix.multisite && 'multisite' || 'single' }},php
+          fail_ci_if_error: true
+
+      - name: Upload ${{ matrix.multisite && 'multisite' || 'single site' }} HTML report as artifact
+        if: ${{ matrix.format == 'html' }}
+        uses: actions/upload-artifact@4.3.4
+        with:
+          name: wp-code-coverage-${{ matrix.multisite && 'multisite' || 'single' }}-${{ github.sha }}
+          path: wp-code-coverage-${{ matrix.multisite && 'multisite' || 'single' }}-${{ github.sha }}
+          overwrite: true
