@@ -83,7 +83,7 @@ jobs:
 
       - name: Upload ${{ matrix.multisite && 'multisite' || 'single site' }} report to Codecov
         if: ${{ matrix.format == 'clover' && github.event_name != 'pull_request' }}
-        uses: codecov/codecov-action@v4.0.1
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: wp-code-coverage-${{ matrix.multisite && 'multisite' || 'single' }}-${{ github.sha }}.xml
@@ -92,7 +92,7 @@ jobs:
 
       - name: Upload ${{ matrix.multisite && 'multisite' || 'single site' }} HTML report as artifact
         if: ${{ matrix.format == 'html' }}
-        uses: actions/upload-artifact@v4.3.4
+        uses: actions/upload-artifact@v4
         with:
           name: wp-code-coverage-${{ matrix.multisite && 'multisite' || 'single' }}-${{ github.sha }}
           path: wp-code-coverage-${{ matrix.multisite && 'multisite' || 'single' }}-${{ github.sha }}
