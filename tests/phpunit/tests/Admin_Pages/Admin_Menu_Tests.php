@@ -13,6 +13,9 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Data\Admin_Page\Generic_Admin
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Test_Case;
 use WP_UnitTest_Factory;
 
+/**
+ * @group admin-pages
+ */
 class Admin_Menu_Tests extends Test_Case {
 
 	private static $admin_id;

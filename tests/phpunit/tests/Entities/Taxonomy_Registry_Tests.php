@@ -12,6 +12,9 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Taxonomy_Registry;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Test_Case;
 use WP_Taxonomy;
 
+/**
+ * @group entities
+ */
 class Taxonomy_Registry_Tests extends Test_Case {
 
 	private $registry;

@@ -13,6 +13,9 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Comment_Query;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Test_Case;
 use WP_UnitTest_Factory;
 
+/**
+ * @group entities
+ */
 class Comment_Query_Tests extends Test_Case {
 
 	private static $comments;

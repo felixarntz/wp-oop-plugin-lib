@@ -11,6 +11,9 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Tests\Admin_Pages;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Data\Admin_Page\Abstract_Admin_Page_Implementation_With_Args;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Test_Case;
 
+/**
+ * @group admin-pages
+ */
 class Abstract_Admin_Page_Tests extends Test_Case {
 
 	public function test_constructor() {

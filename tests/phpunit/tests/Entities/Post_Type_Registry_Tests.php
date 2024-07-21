@@ -12,6 +12,9 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Post_Type_Registry;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Test_Case;
 use WP_Post_Type;
 
+/**
+ * @group entities
+ */
 class Post_Type_Registry_Tests extends Test_Case {
 
 	private $registry;

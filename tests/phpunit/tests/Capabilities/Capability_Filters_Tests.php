@@ -15,6 +15,9 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Meta_Capability;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Test_Case;
 use WP_UnitTest_Factory;
 
+/**
+ * @group capabilities
+ */
 class Capability_Filters_Tests extends Test_Case {
 
 	private static $admin_id;

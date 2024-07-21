@@ -11,6 +11,9 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Tests\Capabilities;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Meta_Capability;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Test_Case;
 
+/**
+ * @group capabilities
+ */
 class Meta_Capability_Tests extends Test_Case {
 
 	public function test_set_map_callback() {

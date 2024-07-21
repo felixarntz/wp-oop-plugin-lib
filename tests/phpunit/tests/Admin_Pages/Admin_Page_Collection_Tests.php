@@ -13,6 +13,9 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pages\Admin_Page_Collection;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Data\Admin_Page\Generic_Admin_Page;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Test_Case;
 
+/**
+ * @group admin-pages
+ */
 class Admin_Page_Collection_Tests extends Test_Case {
 
 	public function test_getIterator() {

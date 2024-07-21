@@ -15,6 +15,9 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Invalid_Type_Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Not_Found_Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Test_Case;
 
+/**
+ * @group capabilities
+ */
 class Capability_Container_Tests extends Test_Case {
 
 	private $container;

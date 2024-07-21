@@ -11,6 +11,9 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Tests\Capabilities;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Base_Capability;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Test_Case;
 
+/**
+ * @group capabilities
+ */
 class Base_Capability_Tests extends Test_Case {
 
 	public function test_set_required_caps() {

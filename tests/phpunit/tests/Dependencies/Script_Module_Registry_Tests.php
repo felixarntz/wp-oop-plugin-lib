@@ -11,6 +11,9 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Tests\Dependencies;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Dependencies\Script_Module_Registry;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Test_Case;
 
+/**
+ * @group dependencies
+ */
 class Script_Module_Registry_Tests extends Test_Case {
 
 	private $registry;

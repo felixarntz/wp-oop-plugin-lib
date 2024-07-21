@@ -14,6 +14,9 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Data\Database_Table_Schema\Ge
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Data\Database_Table_Schema\ID_Slug_Content_Table_Schema;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Test_Case;
 
+/**
+ * @group database
+ */
 class Custom_Table_Tests extends Test_Case {
 
 	private $new_wpdb_tables = array();

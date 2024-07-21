@@ -12,6 +12,9 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\User;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Test_Case;
 use WP_UnitTest_Factory;
 
+/**
+ * @group entities
+ */
 class User_Tests extends Test_Case {
 
 	private static $user_id;
