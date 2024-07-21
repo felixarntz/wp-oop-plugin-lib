@@ -72,11 +72,11 @@ class Comment implements Entity {
 	}
 
 	/**
-	 * Gets the comment's edit URL.
+	 * Gets the comment's edit URL, if the current user is able to edit it.
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return string URL to edit the comment, or empty string if none.
+	 * @return string URL to edit the comment, or empty string if unable to edit.
 	 */
 	public function get_edit_url(): string {
 		return str_replace( '&amp;', '&', (string) get_edit_comment_link( $this->wp_obj ) );

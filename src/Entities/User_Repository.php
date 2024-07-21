@@ -86,6 +86,13 @@ class User_Repository implements Entity_Repository {
 	 * @throws Invalid_Entity_Data_Exception Thrown when adding the user fails and `WP_DEBUG` is enabled.
 	 */
 	public function add( array $data ): int {
+		// Not providing a password would otherwise result in a PHP notice and makes no sense in the first place.
+		if ( ! isset( $data['user_pass'] ) ) {
+			throw new Invalid_Entity_Data_Exception(
+				esc_html__( 'A password is required to create a user.', 'wp-oop-plugin-lib' )
+			);
+		}
+
 		$result = wp_insert_user( $data );
 
 		if ( is_wp_error( $result ) ) {

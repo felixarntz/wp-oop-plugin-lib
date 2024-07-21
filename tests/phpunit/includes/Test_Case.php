@@ -183,6 +183,38 @@ abstract class Test_Case extends WP_UnitTestCase {
 		return $result;
 	}
 
+	/**
+	 * Populates the given arguments with IDs from the given ID lists.
+	 *
+	 * This is useful to handle arguments from data provider methods as they evaluated before the dynamic test data is
+	 * generated. The method will replace placeholders like 'posts::0' with the actual post ID in an ID list with the
+	 * key 'posts'.
+	 *
+	 * @param array                $args     Arguments to populate.
+	 * @param array<string, int[]> $id_lists ID lists to use for populating. Each list must be an associative array
+	 *                                       with keys being the placeholder prefix and values being associative arrays
+	 *                                       with the placeholder as key and the actual ID as value.
+	 * @return array Populated arguments.
+	 */
+	protected function populate_with_ids( array $args, array $id_lists ) {
+		$populated_args = array();
+		foreach ( $args as $key => $value ) {
+			if ( is_string( $value ) && str_contains( $value, '::' ) ) {
+				list( $id_list_key, $id ) = explode( '::', $value, 2 );
+				if ( isset( $id_lists[ $id_list_key ][ $id ] ) ) {
+					$populated_args[ $key ] = $id_lists[ $id_list_key ][ $id ];
+				} else {
+					$populated_args[ $key ] = $value;
+				}
+			} elseif ( is_array( $value ) ) {
+				$populated_args[ $key ] = $this->populate_with_ids( $value, $id_lists );
+			} else {
+				$populated_args[ $key ] = $value;
+			}
+		}
+		return $populated_args;
+	}
+
 	private function get_callback_name( callable $callback ): string {
 		if ( is_string( $callback ) ) {
 			return $callback;

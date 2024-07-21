@@ -43,11 +43,11 @@ interface Entity {
 	public function get_url(): string;
 
 	/**
-	 * Gets the entity's edit URL.
+	 * Gets the entity's edit URL, if the current user is able to edit it.
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return string URL to edit the entity, or empty string if none.
+	 * @return string URL to edit the entity, or empty string if unable to edit.
 	 */
 	public function get_edit_url(): string;
 

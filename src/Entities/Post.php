@@ -71,11 +71,11 @@ class Post implements Entity {
 	}
 
 	/**
-	 * Gets the post's edit URL.
+	 * Gets the post's edit URL, if the current user is able to edit it.
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return string URL to edit the post, or empty string if none.
+	 * @return string URL to edit the post, or empty string if unable to edit.
 	 */
 	public function get_edit_url(): string {
 		return (string) get_edit_post_link( $this->wp_obj, 'raw' );

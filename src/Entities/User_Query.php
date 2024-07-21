@@ -76,11 +76,11 @@ class User_Query implements Entity_Query {
 	 */
 	public function get_ids(): array {
 		$query_args           = $this->query_args;
-		$query_args['fields'] = 'ids';
+		$query_args['fields'] = 'id';
 
 		$this->wp_obj->prepare_query( $query_args );
 		$this->wp_obj->query();
-		return $this->wp_obj->get_results();
+		return array_map( 'absint', $this->wp_obj->get_results() );
 	}
 
 	/**

@@ -88,6 +88,14 @@ class Comment_Repository implements Entity_Repository, Cache_Aware_Entity_Reposi
 	 * @throws Invalid_Entity_Data_Exception Thrown when adding the comment fails and `WP_DEBUG` is enabled.
 	 */
 	public function add( array $data ): int {
+		// This check is present in wp_update_comment() and makes sense to be checked for a new comment as well.
+		if ( ! empty( $data['comment_post_ID'] ) && ! get_post( $data['comment_post_ID'] ) ) {
+			if ( WP_DEBUG ) {
+				throw new Invalid_Entity_Data_Exception( esc_html__( 'Invalid post ID.', 'default' ) );
+			}
+			return 0;
+		}
+
 		return (int) wp_insert_comment( $data );
 	}
 

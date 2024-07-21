@@ -88,7 +88,7 @@ class Term_Query implements Entity_Query {
 	 */
 	public function get_count(): int {
 		$query_args                           = $this->query_args;
-		$query_args['count']                  = true;
+		$query_args['fields']                 = 'count';
 		$query_args['update_term_meta_cache'] = false;
 		$query_args['number']                 = 0;
 

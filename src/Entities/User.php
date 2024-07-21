@@ -72,11 +72,11 @@ class User implements Entity, With_Capabilities {
 	}
 
 	/**
-	 * Gets the user's edit URL.
+	 * Gets the user's edit URL, if the current user is able to edit them.
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return string URL to edit the user, or empty string if none.
+	 * @return string URL to edit the user, or empty string if unable to edit.
 	 */
 	public function get_edit_url(): string {
 		return (string) get_edit_user_link( $this->wp_obj->ID );

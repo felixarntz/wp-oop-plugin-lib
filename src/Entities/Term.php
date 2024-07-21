@@ -67,18 +67,23 @@ class Term implements Entity {
 	 * @return string Term link, or empty string if none.
 	 */
 	public function get_url(): string {
-		return (string) get_term_link( $this->wp_obj );
+		$url = get_term_link( $this->wp_obj );
+		if ( is_wp_error( $url ) ) {
+			return '';
+		}
+		return (string) $url;
 	}
 
 	/**
-	 * Gets the term's edit URL.
+	 * Gets the term's edit URL, if the current user is able to edit it.
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return string URL to edit the term, or empty string if none.
+	 * @return string URL to edit the term, or empty string if unable to edit.
 	 */
 	public function get_edit_url(): string {
-		return (string) get_edit_term_link( $this->wp_obj );
+		// Despite the second parameter being optional, it is required to get the correct URL.
+		return (string) get_edit_term_link( $this->wp_obj, $this->wp_obj->taxonomy );
 	}
 
 	/**
