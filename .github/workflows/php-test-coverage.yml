@@ -73,13 +73,8 @@ jobs:
       - name: Install WordPress
         run: npm run wp-env start -- --xdebug=coverage
 
-      - name: Running single site unit tests
-        if: ${{ ! matrix.multisite }}
-        run: npm run test-php -- --coverage-${{ 'html' == matrix.format && 'html' || 'clover' }} wp-code-coverage-single-${{ github.sha }}${{ 'clover' == matrix.format && '.xml' || '' }}
-
-      - name: Running multisite unit tests
-        if: ${{ matrix.multisite }}
-        run: npm run test-php-multisite -- --coverage-${{ 'html' == matrix.format && 'html' || 'clover' }} wp-code-coverage-multisite-${{ github.sha }}${{ 'clover' == matrix.format && '.xml' || '' }}
+      - name: Running ${{ matrix.multisite && 'multisite' || 'single site' }} unit tests
+        run: npm run test-php${{ matrix.multisite && '-multisite' || '' }} -- --coverage-${{ 'html' == matrix.format && 'html' || 'clover' }} wp-code-coverage-single-${{ github.sha }}${{ 'clover' == matrix.format && '.xml' || '' }}
 
       - name: Upload ${{ matrix.multisite && 'multisite' || 'single site' }} report to Codecov
         if: ${{ matrix.format == 'clover' && github.event_name != 'pull_request' }}
