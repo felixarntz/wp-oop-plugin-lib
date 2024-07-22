@@ -97,6 +97,6 @@ class Current_User implements With_Capabilities {
 	 * @return bool True if the nonce is valid, false otherwise.
 	 */
 	public function verify_nonce( string $nonce, string $action ): bool {
-		return wp_verify_nonce( $nonce, $action );
+		return (bool) wp_verify_nonce( $nonce, $action );
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Input
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Mutable_Input
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
@@ -9,34 +9,14 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\General;
 
 /**
- * Read-only class for filtering input, effectively for access of immutable input data.
+ * Read-only class for filtering mutable input, effectively for superglobal access.
+ *
+ * It is recommended to use the regular Input class for most input handling, while this class is useful for e.g. unit
+ * tests where you want to mock input values.
  *
  * @since n.e.x.t
  */
-class Input {
-
-	/**
-	 * Map of input type to superglobal array.
-	 *
-	 * For use as fallback only.
-	 *
-	 * @since n.e.x.t
-	 * @var array<int, array<string, mixed>>
-	 */
-	private $fallback_map;
-
-	/**
-	 * Constructor.
-	 *
-	 * @since n.e.x.t
-	 */
-	public function __construct() {
-		// Fallback map for environments where filter_input may not work with ENV or SERVER types.
-		$this->fallback_map = array(
-			INPUT_ENV    => $_ENV,
-			INPUT_SERVER => $_SERVER, // phpcs:ignore WordPress.VIP.SuperGlobalInputUsage
-		);
-	}
+class Mutable_Input extends Input {
 
 	/**
 	 * Gets a specific external variable by name and optionally filters it.
@@ -56,21 +36,30 @@ class Input {
 	 *               is not set and null if the filter fails.
 	 */
 	public function filter( $type, $variable_name, $filter = FILTER_DEFAULT, $options = 0 ) {
-		/* @phpstan-ignore-next-line */
-		$value = filter_input( $type, $variable_name, $filter, $options );
-
-		/*
-		 * Fallback for environments where filter_input may not work with specific types.
-		 * This is only used for affected input types and if the value is not set.
-		 */
-		if (
-			isset( $this->fallback_map[ $type ] )
-			&& in_array( $value, array( null, false ), true )
-			&& array_key_exists( $variable_name, $this->fallback_map[ $type ] )
-		) {
-			return filter_var( $this->fallback_map[ $type ][ $variable_name ], $filter, $options );
+		switch ( $type ) {
+			case INPUT_GET:
+				$superglobal = $_GET; // phpcs:ignore WordPress.Security.NonceVerification
+				break;
+			case INPUT_POST:
+				$superglobal = $_POST; // phpcs:ignore WordPress.Security.NonceVerification
+				break;
+			case INPUT_SERVER:
+				$superglobal = $_SERVER;
+				break;
+			case INPUT_COOKIE:
+				$superglobal = $_COOKIE;
+				break;
+			case INPUT_ENV:
+				$superglobal = $_ENV;
+				break;
+			default:
+				return null;
 		}
 
-		return $value;
+		if ( ! isset( $superglobal[ $variable_name ] ) ) {
+			return null;
+		}
+
+		return filter_var( $superglobal[ $variable_name ], $filter, $options );
 	}
 }

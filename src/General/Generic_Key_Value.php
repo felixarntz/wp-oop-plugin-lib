@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Abstract_Key_Value
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Generic_Key_Value
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
@@ -12,13 +12,13 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Key_Value;
 use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Key_Value_Repository;
 
 /**
- * Base class representing a key-value pair.
+ * Class representing a generic key-value pair.
  *
  * Should typically not be used directly, but rather through a more specific class extending it.
  *
  * @since n.e.x.t
  */
-class Abstract_Key_Value implements Key_Value {
+class Generic_Key_Value implements Key_Value {
 
 	/**
 	 * Repository used for the item.

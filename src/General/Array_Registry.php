@@ -26,7 +26,7 @@ class Array_Registry implements Registry, Arrayable, ArrayAccess {
 	 * The registered items.
 	 *
 	 * @since n.e.x.t
-	 * @var array<string, array<string, mixed>>
+	 * @var array<string, object>
 	 */
 	private $items = array();
 
@@ -39,7 +39,12 @@ class Array_Registry implements Registry, Arrayable, ArrayAccess {
 	 *                                                           empty array.
 	 */
 	public function __construct( array $initial_items = array() ) {
-		$this->items = $initial_items;
+		$this->items = array_map(
+			static function ( $item ) {
+				return (object) $item;
+			},
+			$initial_items
+		);
 	}
 
 	/**
@@ -52,7 +57,7 @@ class Array_Registry implements Registry, Arrayable, ArrayAccess {
 	 * @return bool True on success, false on failure.
 	 */
 	public function register( string $key, array $args ): bool {
-		$this->items[ $key ] = $args;
+		$this->items[ $key ] = (object) $args;
 		return true;
 	}
 
@@ -80,7 +85,7 @@ class Array_Registry implements Registry, Arrayable, ArrayAccess {
 		if ( ! isset( $this->items[ $key ] ) ) {
 			return null;
 		}
-		return (object) $this->items[ $key ];
+		return $this->items[ $key ];
 	}
 
 	/**
@@ -88,7 +93,7 @@ class Array_Registry implements Registry, Arrayable, ArrayAccess {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return array<string, mixed> Associative array of keys and their item definitions, or empty array if nothing is
+	 * @return array<string, object> Associative array of keys and their item definitions, or empty array if nothing is
 	 *                              registered. This is effectively the array representation of the registry.
 	 */
 	public function get_all_registered(): array {
@@ -103,7 +108,7 @@ class Array_Registry implements Registry, Arrayable, ArrayAccess {
 	 * @return array<string, mixed> Array representation.
 	 */
 	public function to_array(): array {
-		return $this->items;
+		return $this->get_all_registered();
 	}
 
 	/**
