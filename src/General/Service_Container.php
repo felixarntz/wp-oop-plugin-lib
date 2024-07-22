@@ -222,7 +222,7 @@ class Service_Container implements Container, ArrayAccess {
 	 * @param string $key Service key.
 	 * @return object Service resolved for the given key.
 	 */
-	private function resolve( string $key ): object {
+	private function resolve( string $key ) {
 		if ( isset( $this->instances[ $key ] ) ) {
 			return $this->instances[ $key ];
 		}
