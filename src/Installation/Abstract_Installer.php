@@ -142,8 +142,14 @@ abstract class Abstract_Installer implements Installer {
 		foreach ( $site_ids as $site_id ) {
 			switch_to_blog( $site_id );
 			if ( $this->uninstall_single() ) {
-				// TODO: Use a meta repository for this.
-				delete_site_meta( $site_id, $this->version_option->get_key() );
+				/*
+				 * Delete the site metadata only if uninstallation was actually performed.
+				 * This is indicated by the version option no longer being present.
+				 */
+				if ( ! $this->version_option->get_value() ) {
+					// TODO: Use a meta repository for this.
+					delete_site_meta( $site_id, $this->version_option->get_key() );
+				}
 				$success_ids[] = $site_id;
 			}
 			restore_current_blog();
