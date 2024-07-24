@@ -82,8 +82,18 @@ class Term implements Entity {
 	 * @return string URL to edit the term, or empty string if unable to edit.
 	 */
 	public function get_edit_url(): string {
-		// Despite the second parameter being optional, it is required to get the correct URL.
-		return (string) get_edit_term_link( $this->wp_obj, $this->wp_obj->taxonomy );
+		global $wp_version;
+
+		/*
+		 * Prior to WordPress 6.7, the function get_edit_term_link() produced an incorrect result when called without
+		 * the second parameter, despite it being indicated as optional.
+		 * See https://core.trac.wordpress.org/ticket/61726, where this was fixed.
+		 */
+		if ( version_compare( $wp_version, '6.7', '<' ) ) {
+			(string) get_edit_term_link( $this->wp_obj, $this->wp_obj->taxonomy );
+		}
+
+		return (string) get_edit_term_link( $this->wp_obj );
 	}
 
 	/**
