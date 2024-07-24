@@ -72,6 +72,13 @@ class Meta_Repository implements Entity_Key_Value_Repository, With_Single {
 	 */
 	public function get( int $entity_id, string $key, $default = null ) {
 		if ( ! metadata_exists( $this->object_type, $entity_id, $key ) ) {
+			// If not single, ensure the default is within an array.
+			if ( ! $this->get_single( $key ) ) {
+				if ( null !== $default ) {
+					return array( $default );
+				}
+				return array();
+			}
 			return $default;
 		}
 
@@ -89,6 +96,21 @@ class Meta_Repository implements Entity_Key_Value_Repository, With_Single {
 	 * @return bool True on success, false on failure.
 	 */
 	public function update( int $entity_id, string $key, $value ): bool {
+		/*
+		 * If multiple values, delete the original ones first and then add the new ones individually, but only if the
+		 * passed value is an indexed (not associative) array.
+		 * There is only one caveat with this, but that is an edge-case: If the individual values of a multi-value meta
+		 * key are themselves indexed arrays, this can lead to unexpected behavior with this implementation. A
+		 * workaround would be to wrap them in another array before passing them to this method.
+		 */
+		if ( ! $this->get_single( $key ) && wp_is_numeric_array( $value ) ) {
+			delete_metadata( $this->object_type, $entity_id, $key );
+			foreach ( $value as $single_value ) {
+				add_metadata( $this->object_type, $entity_id, $key, $single_value );
+			}
+			return true;
+		}
+
 		return (bool) update_metadata( $this->object_type, $entity_id, $key, $value );
 	}
 
