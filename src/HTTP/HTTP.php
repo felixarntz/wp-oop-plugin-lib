@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\Request_Controller
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\HTTP
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
@@ -24,7 +24,7 @@ use WpOrg\Requests\Utility\CaseInsensitiveDictionary;
  *
  * @since n.e.x.t
  */
-class Request_Controller {
+class HTTP {
 	use Sanitize_Headers;
 
 	/**
