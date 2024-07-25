@@ -30,6 +30,13 @@ class JSON_Request extends Generic_Request {
 		// Do not allow passing a body manually, as it will be the JSON-encoded data.
 		unset( $args['body'] );
 
+		// Ensure the Content-Type header is set to application/json, unless otherwise specified.
+		if ( ! isset( $args['headers'] ) ) {
+			$args['headers'] = array( 'Content-Type' => 'application/json' );
+		} elseif ( ! isset( $args['headers']['Content-Type'] ) && ! isset( $args['headers']['content-type'] ) ) {
+			$args['headers']['Content-Type'] = 'application/json';
+		}
+
 		parent::__construct( $url, $data, $args );
 	}
 
