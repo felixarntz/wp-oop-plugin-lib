@@ -56,7 +56,7 @@ abstract class Abstract_Validation_Rule_Builder implements Validation_Rule_Build
 	 *
 	 * @throws InvalidArgumentException Thrown when a forbidden rule is passed.
 	 */
-	final public function with_rule( Validation_Rule $rule ): static {
+	final public function with_rule( Validation_Rule $rule ): Validation_Rule_Builder {
 		if ( ! $this->is_allowed_rule( $rule ) ) {
 			throw new InvalidArgumentException(
 				sprintf(

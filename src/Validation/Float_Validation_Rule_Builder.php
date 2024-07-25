@@ -10,6 +10,7 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Types;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Validation_Rule_Builder;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\With_Type_Support;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Datetime_Range_Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Enum_Validation_Rule;
@@ -48,7 +49,7 @@ class Float_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 * @param string $regexp Regular expression to match.
 	 * @return static Builder instance for chaining.
 	 */
-	public function format_regexp( string $regexp ): static {
+	public function format_regexp( string $regexp ): Validation_Rule_Builder {
 		return $this->with_rule( new Regexp_Validation_Rule( $regexp ) );
 	}
 
@@ -61,7 +62,7 @@ class Float_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 * @param string $max_datetime Optional. Maximum date-time or date allowed. Default no limit.
 	 * @return static Builder instance for chaining.
 	 */
-	public function with_datetime_range( string $min_datetime, string $max_datetime = null ): static {
+	public function with_datetime_range( string $min_datetime, string $max_datetime = null ): Validation_Rule_Builder {
 		return $this->with_rule( new Datetime_Range_Validation_Rule( $min_datetime, $max_datetime ) );
 	}
 
@@ -74,7 +75,7 @@ class Float_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 * @param int|float $max Optional. Maximum value allowed. Default no limit.
 	 * @return static Builder instance for chaining.
 	 */
-	public function with_numeric_range( $min, $max = null ): static {
+	public function with_numeric_range( $min, $max = null ): Validation_Rule_Builder {
 		return $this->with_rule( new Numeric_Range_Validation_Rule( $min, $max ) );
 	}
 
@@ -89,7 +90,7 @@ class Float_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 *
 	 * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
 	 */
-	public function with_enum( array $allowed_values, bool $strict = false ): static {
+	public function with_enum( array $allowed_values, bool $strict = false ): Validation_Rule_Builder {
 		return $this->with_rule( new Enum_Validation_Rule( $allowed_values, $strict ) );
 	}
 

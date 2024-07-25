@@ -29,7 +29,7 @@ interface Validation_Rule_Builder {
 	 *
 	 * @throws InvalidArgumentException Thrown when a forbidden rule is passed.
 	 */
-	public function with_rule( Validation_Rule $rule ): static;
+	public function with_rule( Validation_Rule $rule ): Validation_Rule_Builder;
 
 	/**
 	 * Gets the combined validation rule consisting of all rules present in the builder.

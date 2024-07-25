@@ -10,6 +10,7 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Types;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Validation_Rule;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Validation_Rule_Builder;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\With_Type_Support;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Array_Validation_Rule;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Item_Count_Range_Validation_Rule;
@@ -49,7 +50,7 @@ class Array_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 *
 	 * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
 	 */
-	public function with_items( Validation_Rule $item_validation_rule ): static {
+	public function with_items( Validation_Rule $item_validation_rule ): Validation_Rule_Builder {
 		return $this->with_rule( new Items_Validation_Rule( $item_validation_rule ) );
 	}
 
@@ -62,7 +63,7 @@ class Array_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 * @param int $max_count Optional. Maximum count allowed. Default 0 (no limit).
 	 * @return static Builder instance for chaining.
 	 */
-	public function with_item_count_range( int $min_count = 0, int $max_count = 0 ): static {
+	public function with_item_count_range( int $min_count = 0, int $max_count = 0 ): Validation_Rule_Builder {
 		return $this->with_rule( new Item_Count_Range_Validation_Rule( $min_count, $max_count ) );
 	}
 
@@ -73,7 +74,7 @@ class Array_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 *
 	 * @return static Builder instance for chaining.
 	 */
-	public function with_unique_items(): static {
+	public function with_unique_items(): Validation_Rule_Builder {
 		return $this->with_rule( new Unique_Items_Validation_Rule() );
 	}
 
