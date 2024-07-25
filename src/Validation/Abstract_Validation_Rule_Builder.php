@@ -52,7 +52,7 @@ abstract class Abstract_Validation_Rule_Builder implements Validation_Rule_Build
 	 * @since n.e.x.t
 	 *
 	 * @param Validation_Rule $rule Rule to add.
-	 * @return static Builder instance for chaining.
+	 * @return Validation_Rule_Builder Builder instance for chaining.
 	 *
 	 * @throws InvalidArgumentException Thrown when a forbidden rule is passed.
 	 */

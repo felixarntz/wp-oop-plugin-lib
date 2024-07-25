@@ -46,7 +46,7 @@ class Array_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 * @since n.e.x.t
 	 *
 	 * @param Validation_Rule $item_validation_rule Validation rule to validate all array items with.
-	 * @return static Builder instance for chaining.
+	 * @return Validation_Rule_Builder Builder instance for chaining.
 	 *
 	 * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
 	 */
@@ -61,7 +61,7 @@ class Array_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 *
 	 * @param int $min_count Optional. Minimum count allowed. Default 0 (no limit).
 	 * @param int $max_count Optional. Maximum count allowed. Default 0 (no limit).
-	 * @return static Builder instance for chaining.
+	 * @return Validation_Rule_Builder Builder instance for chaining.
 	 */
 	public function with_item_count_range( int $min_count = 0, int $max_count = 0 ): Validation_Rule_Builder {
 		return $this->with_rule( new Item_Count_Range_Validation_Rule( $min_count, $max_count ) );
@@ -72,7 +72,7 @@ class Array_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return static Builder instance for chaining.
+	 * @return Validation_Rule_Builder Builder instance for chaining.
 	 */
 	public function with_unique_items(): Validation_Rule_Builder {
 		return $this->with_rule( new Unique_Items_Validation_Rule() );

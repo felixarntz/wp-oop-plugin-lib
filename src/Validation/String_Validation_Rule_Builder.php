@@ -51,7 +51,7 @@ class String_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return static Builder instance for chaining.
+	 * @return Validation_Rule_Builder Builder instance for chaining.
 	 */
 	public function format_date(): Validation_Rule_Builder {
 		return $this->with_rule( new Date_Validation_Rule() );
@@ -62,7 +62,7 @@ class String_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return static Builder instance for chaining.
+	 * @return Validation_Rule_Builder Builder instance for chaining.
 	 */
 	public function format_datetime(): Validation_Rule_Builder {
 		return $this->with_rule( new Datetime_Validation_Rule() );
@@ -73,7 +73,7 @@ class String_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return static Builder instance for chaining.
+	 * @return Validation_Rule_Builder Builder instance for chaining.
 	 */
 	public function format_email(): Validation_Rule_Builder {
 		return $this->with_rule( new Email_Validation_Rule() );
@@ -84,7 +84,7 @@ class String_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return static Builder instance for chaining.
+	 * @return Validation_Rule_Builder Builder instance for chaining.
 	 */
 	public function format_version(): Validation_Rule_Builder {
 		return $this->with_rule( new Version_Validation_Rule() );
@@ -95,7 +95,7 @@ class String_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return static Builder instance for chaining.
+	 * @return Validation_Rule_Builder Builder instance for chaining.
 	 */
 	public function format_hex_color(): Validation_Rule_Builder {
 		return $this->with_rule( new Hex_Color_Validation_Rule() );
@@ -107,7 +107,7 @@ class String_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 * @since n.e.x.t
 	 *
 	 * @param string $regexp Regular expression to match.
-	 * @return static Builder instance for chaining.
+	 * @return Validation_Rule_Builder Builder instance for chaining.
 	 */
 	public function format_regexp( string $regexp ): Validation_Rule_Builder {
 		return $this->with_rule( new Regexp_Validation_Rule( $regexp ) );
@@ -118,7 +118,7 @@ class String_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return static Builder instance for chaining.
+	 * @return Validation_Rule_Builder Builder instance for chaining.
 	 */
 	public function format_url(): Validation_Rule_Builder {
 		return $this->with_rule( new URL_Validation_Rule() );
@@ -131,7 +131,7 @@ class String_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 *
 	 * @param string $min_datetime Minimum date-time or date allowed.
 	 * @param string $max_datetime Optional. Maximum date-time or date allowed. Default no limit.
-	 * @return static Builder instance for chaining.
+	 * @return Validation_Rule_Builder Builder instance for chaining.
 	 */
 	public function with_datetime_range( string $min_datetime, string $max_datetime = null ): Validation_Rule_Builder {
 		return $this->with_rule( new Datetime_Range_Validation_Rule( $min_datetime, $max_datetime ) );
@@ -144,7 +144,7 @@ class String_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 *
 	 * @param mixed[] $allowed_values List of values to allow.
 	 * @param bool    $strict         Optional. True to enable strict mode, false to disable it. Default false.
-	 * @return static Builder instance for chaining.
+	 * @return Validation_Rule_Builder Builder instance for chaining.
 	 *
 	 * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
 	 */
