@@ -90,7 +90,7 @@ class Term implements Entity {
 		 * See https://core.trac.wordpress.org/ticket/61726, where this was fixed.
 		 */
 		if ( version_compare( $wp_version, '6.7', '<' ) ) {
-			(string) get_edit_term_link( $this->wp_obj, $this->wp_obj->taxonomy );
+			return (string) get_edit_term_link( $this->wp_obj, $this->wp_obj->taxonomy );
 		}
 
 		return (string) get_edit_term_link( $this->wp_obj );
