@@ -192,7 +192,13 @@ class HTTP {
 	 * @return Response The response object.
 	 */
 	private function create_response( int $status, string $body, array $headers ): Response {
-		if ( isset( $headers['content-type'] ) && 'application/json' === $headers['content-type'] ) {
+		if (
+			isset( $headers['content-type'] ) && (
+				'application/json' === $headers['content-type'] ||
+				str_starts_with( $headers['content-type'], 'application/json;' ) ||
+				str_starts_with( $headers['content-type'], 'application/json,' )
+			)
+		) {
 			return new JSON_Response( $status, $body, $headers );
 		}
 
