@@ -184,6 +184,8 @@ class HTTP {
 	/**
 	 * Creates a response object based on the response data.
 	 *
+	 * @see https://www.rfc-editor.org/rfc/rfc1341.html#page-7
+	 *
 	 * @since n.e.x.t
 	 *
 	 * @param int                   $status  The HTTP status code received with the response.
@@ -193,11 +195,8 @@ class HTTP {
 	 */
 	private function create_response( int $status, string $body, array $headers ): Response {
 		if (
-			isset( $headers['content-type'] ) && (
-				'application/json' === $headers['content-type'] ||
-				str_starts_with( $headers['content-type'], 'application/json;' ) ||
-				str_starts_with( $headers['content-type'], 'application/json,' )
-			)
+			isset( $headers['content-type'] )
+				&& in_array( 'application/json', array_map( 'trim', explode( ';', $headers['content-type'] ) ) )
 		) {
 			return new JSON_Response( $status, $body, $headers );
 		}
