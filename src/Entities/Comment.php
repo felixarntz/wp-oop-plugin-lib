@@ -79,7 +79,17 @@ class Comment implements Entity {
 	 * @return string URL to edit the comment, or empty string if unable to edit.
 	 */
 	public function get_edit_url(): string {
-		return str_replace( '&amp;', '&', (string) get_edit_comment_link( $this->wp_obj ) );
+		global $wp_version;
+
+		/*
+		 * Prior to WordPress 6.7, the function get_edit_comment_link() would always include HTML entities in the URL.
+		 * See https://core.trac.wordpress.org/ticket/61727, where this was improved.
+		 */
+		if ( version_compare( $wp_version, '6.7', '<' ) ) {
+			return str_replace( '&amp;', '&', (string) get_edit_comment_link( $this->wp_obj ) );
+		}
+
+		return (string) get_edit_comment_link( $this->wp_obj, 'url' );
 	}
 
 	/**
