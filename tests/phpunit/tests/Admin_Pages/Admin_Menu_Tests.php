@@ -30,11 +30,7 @@ class Admin_Menu_Tests extends Test_Case {
 	}
 
 	public static function wpTearDownAfterClass() {
-		if ( is_multisite() ) {
-			wpmu_delete_user( self::$admin_id );
-		} else {
-			wp_delete_user( self::$admin_id );
-		}
+		self::delete_user( self::$admin_id );
 	}
 
 	public function set_up() {

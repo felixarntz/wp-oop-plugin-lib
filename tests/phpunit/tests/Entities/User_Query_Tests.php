@@ -30,11 +30,7 @@ class User_Query_Tests extends Test_Case {
 
 	public static function wpTearDownAfterClass() {
 		foreach ( self::$users as $user_id ) {
-			if ( is_multisite() ) {
-				wpmu_delete_user( $user_id );
-			} else {
-				wp_delete_user( $user_id );
-			}
+			self::delete_user( $user_id );
 		}
 	}
 
