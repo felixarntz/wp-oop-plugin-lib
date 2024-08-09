@@ -89,6 +89,7 @@ class Comment implements Entity {
 			return str_replace( '&amp;', '&', (string) get_edit_comment_link( $this->wp_obj ) );
 		}
 
+		// @phpstan-ignore arguments.count
 		return (string) get_edit_comment_link( $this->wp_obj, 'url' );
 	}
 
