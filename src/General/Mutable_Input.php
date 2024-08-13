@@ -38,10 +38,12 @@ class Mutable_Input extends Input {
 	public function filter( $type, $variable_name, $filter = FILTER_DEFAULT, $options = 0 ) {
 		switch ( $type ) {
 			case INPUT_GET:
-				$superglobal = $_GET; // phpcs:ignore WordPress.Security.NonceVerification
+				// phpcs:ignore WordPress.Security.NonceVerification
+				$superglobal = $_GET;
 				break;
 			case INPUT_POST:
-				$superglobal = $_POST; // phpcs:ignore WordPress.Security.NonceVerification
+				// phpcs:ignore WordPress.Security.NonceVerification
+				$superglobal = $_POST;
 				break;
 			case INPUT_SERVER:
 				$superglobal = $_SERVER;
