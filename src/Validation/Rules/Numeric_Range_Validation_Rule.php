@@ -74,7 +74,8 @@ class Numeric_Range_Validation_Rule implements Validation_Rule, With_Type_Suppor
 					/* translators: 1: value, 2: minimum number */
 					esc_html__( '%1$s must be greater than or equal to %2$d', 'default' ),
 					esc_html( (string) $value ),
-					$this->min // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+					// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+					$this->min
 				)
 			);
 		}
@@ -86,7 +87,8 @@ class Numeric_Range_Validation_Rule implements Validation_Rule, With_Type_Suppor
 					/* translators: 1: value, 2: maximum number */
 					esc_html__( '%1$s must be less than or equal to %2$d', 'default' ),
 					esc_html( (string) $value ),
-					$this->max // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+					// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+					$this->max
 				)
 			);
 		}
