@@ -1,6 +1,6 @@
 <?php
 /**
- * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Options\Contracts\With_Autoload
+ * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Options\Contracts\With_Autoload_Config
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
@@ -13,7 +13,7 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Options\Contracts;
  *
  * @since n.e.x.t
  */
-interface With_Autoload {
+interface With_Autoload_Config {
 
 	/**
 	 * Gets the autoload config for a given key in the repository.
@@ -21,9 +21,9 @@ interface With_Autoload {
 	 * @since n.e.x.t
 	 *
 	 * @param string $key Item key.
-	 * @return bool Whether or not the item should be autoloaded.
+	 * @return bool|null Whether or not the item should be autoloaded, or null if not specified.
 	 */
-	public function get_autoload( string $key ): bool;
+	public function get_autoload_config( string $key );
 
 	/**
 	 * Sets the autoload config for a given key in the repository.
@@ -33,5 +33,5 @@ interface With_Autoload {
 	 * @param string $key      Item key.
 	 * @param bool   $autoload Item autoload config.
 	 */
-	public function set_autoload( string $key, bool $autoload ): void;
+	public function set_autoload_config( string $key, bool $autoload ): void;
 }

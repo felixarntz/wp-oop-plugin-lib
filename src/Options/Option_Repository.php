@@ -9,14 +9,14 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Options;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Key_Value_Repository;
-use Felix_Arntz\WP_OOP_Plugin_Lib\Options\Contracts\With_Autoload;
+use Felix_Arntz\WP_OOP_Plugin_Lib\Options\Contracts\With_Autoload_Config;
 
 /**
  * Class for a repository of WordPress options.
  *
  * @since n.e.x.t
  */
-class Option_Repository implements Key_Value_Repository, With_Autoload {
+class Option_Repository implements Key_Value_Repository, With_Autoload_Config {
 
 	/**
 	 * Autoload config as $key => $autoload pairs.
@@ -62,12 +62,26 @@ class Option_Repository implements Key_Value_Repository, With_Autoload {
 	 * @return bool True on success, false on failure.
 	 */
 	public function update( string $key, $value ): bool {
-		// Consider autoload config if set.
-		if ( isset( $this->autoload_config[ $key ] ) ) {
-			return (bool) update_option( $key, $value, $this->autoload_config[ $key ] );
+		$autoload = $this->get_autoload_config( $key );
+
+		// Warn if no autoload config is set.
+		if ( null === $autoload ) {
+			$message  = __( 'Updating an option without having an autoload value specified is discouraged.', 'wp-oop-plugin-lib' ); // phpcs:ignore Generic.Files.LineLength.TooLong
+			$message .= ' ' . sprintf(
+				/* translators: 1: Method name, 2: Argument name, 3: Method name */
+				__( 'Use the %1$s method or pass the "%2$s" argument to the %3$s to specify an autoload value.', 'wp-oop-plugin-lib' ), // phpcs:ignore Generic.Files.LineLength.TooLong
+				__CLASS__ . '::set_autoload_config()',
+				'autoload',
+				Option::class . '::__construct()'
+			);
+			_doing_it_wrong(
+				__METHOD__,
+				esc_html( $message ),
+				''
+			);
 		}
 
-		return (bool) update_option( $key, $value );
+		return (bool) update_option( $key, $value, $autoload );
 	}
 
 	/**
@@ -88,11 +102,11 @@ class Option_Repository implements Key_Value_Repository, With_Autoload {
 	 * @since n.e.x.t
 	 *
 	 * @param string $key Option key.
-	 * @return bool Whether or not the item should be autoloaded.
+	 * @return bool|null Whether or not the item should be autoloaded, or null if not specified.
 	 */
-	public function get_autoload( string $key ): bool {
+	public function get_autoload_config( string $key ) {
 		// The default value is true.
-		return $this->autoload_config[ $key ] ?? true;
+		return $this->autoload_config[ $key ] ?? null;
 	}
 
 	/**
@@ -103,7 +117,7 @@ class Option_Repository implements Key_Value_Repository, With_Autoload {
 	 * @param string $key      Option key.
 	 * @param bool   $autoload Option autoload config.
 	 */
-	public function set_autoload( string $key, bool $autoload ): void {
+	public function set_autoload_config( string $key, bool $autoload ): void {
 		$this->autoload_config[ $key ] = $autoload;
 	}
 }
