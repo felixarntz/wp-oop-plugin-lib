@@ -54,9 +54,9 @@ class REST_Route_Collection implements Collection {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return Traversable Collection iterator.
+	 * @return ArrayIterator<int, REST_Route> Collection iterator.
 	 */
-	public function getIterator(): Traversable /* @phpstan-ignore-line */ {
+	public function getIterator(): Traversable {
 		return new ArrayIterator( $this->routes );
 	}
 

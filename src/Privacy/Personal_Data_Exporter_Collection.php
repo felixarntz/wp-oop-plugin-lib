@@ -54,9 +54,9 @@ class Personal_Data_Exporter_Collection implements Collection {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return Traversable Collection iterator.
+	 * @return ArrayIterator<int, Personal_Data_Exporter> Collection iterator.
 	 */
-	public function getIterator(): Traversable /* @phpstan-ignore-line */ {
+	public function getIterator(): Traversable {
 		return new ArrayIterator( $this->exporters );
 	}
 

@@ -54,9 +54,9 @@ class Admin_Page_Collection implements Collection {
 	 *
 	 * @since n.e.x.t
 	 *
-	 * @return Traversable Collection iterator.
+	 * @return ArrayIterator<int, Admin_Page> Collection iterator.
 	 */
-	public function getIterator(): Traversable /* @phpstan-ignore-line */ {
+	public function getIterator(): Traversable {
 		return new ArrayIterator( $this->admin_pages );
 	}
 
