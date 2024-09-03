@@ -16,6 +16,17 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\General;
 class Site_Env {
 
 	/**
+	 * Gets the site ID.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @return int The site ID.
+	 */
+	public function get_id(): int {
+		return get_current_blog_id();
+	}
+
+	/**
 	 * Returns information about the site.
 	 *
 	 * @since n.e.x.t
@@ -29,7 +40,7 @@ class Site_Env {
 	}
 
 	/**
-	 * Returns the site URL, relative to the home page.
+	 * Returns the site URL, i.e. relative to the home page.
 	 *
 	 * @since n.e.x.t
 	 *
@@ -41,7 +52,7 @@ class Site_Env {
 	}
 
 	/**
-	 * Returns the WordPress URL, in which WordPress core is installed.
+	 * Returns the site's WordPress URL, in which WordPress core is installed.
 	 *
 	 * @since n.e.x.t
 	 *
@@ -53,19 +64,7 @@ class Site_Env {
 	}
 
 	/**
-	 * Returns the content URL (typically the 'wp-content' directory within the WordPress URL).
-	 *
-	 * @since n.e.x.t
-	 *
-	 * @param string $relative_path Optional. Relative path. Default '/'.
-	 * @return string The content URL.
-	 */
-	public function content_url( string $relative_path = '/' ): string {
-		return content_url( $relative_path );
-	}
-
-	/**
-	 * Returns the admin URL (typically the 'wp-admin' directory within the WordPress URL).
+	 * Returns the site admin URL (typically the 'wp-admin' directory within the WordPress URL).
 	 *
 	 * @since n.e.x.t
 	 *
@@ -77,18 +76,28 @@ class Site_Env {
 	}
 
 	/**
-	 * Returns the active plugins.
+	 * Returns the active plugins for the site.
+	 *
+	 * Does not include network-activated plugins (relevant for multisite installations).
 	 *
 	 * @since n.e.x.t
 	 *
 	 * @return string[] List of plugin basenames, relative to the plugins directory.
 	 */
 	public function get_active_plugins(): array {
-		return wp_get_active_and_valid_plugins();
+		$active_plugins = (array) get_option( 'active_plugins', array() );
+
+		$network_env = new Network_Env();
+		if ( ! $network_env->is_multisite() ) {
+			return $active_plugins;
+		}
+		return array_diff( $active_plugins, $network_env->get_active_plugins() );
 	}
 
 	/**
-	 * Returns the active themes.
+	 * Returns the active themes for the site.
+	 *
+	 * This is either just the active theme, or the active theme and the child theme if a child theme is active.
 	 *
 	 * @since n.e.x.t
 	 *
