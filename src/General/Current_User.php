@@ -99,4 +99,28 @@ class Current_User implements With_Capabilities {
 	public function verify_nonce( string $nonce, string $action ): bool {
 		return (bool) wp_verify_nonce( $nonce, $action );
 	}
+
+	/**
+	 * Retrieves the current user's display name.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @return string The current user's display name.
+	 */
+	public function display_name(): string {
+		return wp_get_current_user()->display_name;
+	}
+
+	/**
+	 * Checks whether the current user is a super admin.
+	 *
+	 * By default, super admins have access to all capabilities, unless explicitly denied to everyone.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @return bool True if the user is a super admin, false otherwise.
+	 */
+	public function is_super_admin(): bool {
+		return is_super_admin();
+	}
 }
