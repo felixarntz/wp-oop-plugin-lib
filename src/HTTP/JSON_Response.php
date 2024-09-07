@@ -19,23 +19,9 @@ class JSON_Response extends Generic_Response {
 	 * Data decoded from the JSON response body.
 	 *
 	 * @since n.e.x.t
-	 * @var array<string, mixed>
+	 * @var array<string, mixed>|null
 	 */
 	private $data;
-
-	/**
-	 * Constructor.
-	 *
-	 * @since n.e.x.t
-	 *
-	 * @param int                   $status  The HTTP status code received with the response.
-	 * @param string                $body    The body received with the response.
-	 * @param array<string, string> $headers The headers received with the response.
-	 */
-	public function __construct( int $status, string $body, array $headers ) {
-		$this->data = json_decode( $body, true );
-		parent::__construct( $status, '', $headers );
-	}
 
 	/**
 	 * Retrieves the data received with the response.
@@ -46,6 +32,12 @@ class JSON_Response extends Generic_Response {
 	 *                              this case, the raw response body should be used.
 	 */
 	public function get_data(): array {
+		if ( ! isset( $this->data ) ) {
+			$this->data = json_decode( $this->get_body(), true );
+			if ( null === $this->data ) {
+				$this->data = array();
+			}
+		}
 		return $this->data;
 	}
 }

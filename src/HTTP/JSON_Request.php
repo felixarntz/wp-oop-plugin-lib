@@ -27,8 +27,19 @@ class JSON_Request extends Generic_Request {
 	 *                                   parameter is empty, and only as a string. Default empty array.
 	 */
 	public function __construct( string $url, array $data = array(), array $args = array() ) {
-		// Do not allow passing a body manually, as it will be the JSON-encoded data.
-		unset( $args['body'] );
+		// If the body is provided directly, it must be JSON-encoded data.
+		if ( isset( $args['body'] ) && is_string( $args['body'] ) && $args['body'] ) {
+			json_decode( $args['body'], true );
+			if ( json_last_error() !== JSON_ERROR_NONE ) {
+				_doing_it_wrong(
+					__METHOD__,
+					// phpcs:ignore Generic.Files.LineLength.TooLong
+					esc_html__( 'When providing the JSON request body directly, it must be a valid JSON string.', 'wp-oop-plugin-lib' ),
+					''
+				);
+				unset( $args['body'] );
+			}
+		}
 
 		// Ensure the Content-Type header is set to application/json, unless otherwise specified.
 		if ( ! isset( $args['headers'] ) ) {
@@ -64,6 +75,14 @@ class JSON_Request extends Generic_Request {
 	 *                case of an empty string, the request data should be used instead.
 	 */
 	public function get_body(): string {
-		return wp_json_encode( parent::get_data() );
+		$body = parent::get_body();
+		if ( $body ) {
+			return $body;
+		}
+		$data = parent::get_data();
+		if ( ! $data ) {
+			return '';
+		}
+		return wp_json_encode( $data );
 	}
 }

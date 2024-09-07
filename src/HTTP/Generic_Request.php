@@ -10,7 +10,6 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\HTTP;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\Contracts\Request;
 use Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\Traits\Sanitize_Headers;
-use RuntimeException;
 
 /**
  * Class for a generic HTTP request to another URL.
@@ -86,10 +85,55 @@ class Generic_Request implements Request {
 	 *                                   parameter is empty, and only as a string. Default empty array.
 	 */
 	public function __construct( string $url, array $data = array(), array $args = array() ) {
+		if ( isset( $args['method'] ) && ! $this->is_valid_method( $args['method'] ) ) {
+			_doing_it_wrong(
+				__METHOD__,
+				esc_html(
+					sprintf(
+						/* translators: %s: invalid method string */
+						__( 'The value %s is not a valid HTTP request method.', 'wp-oop-plugin-lib' ),
+						(string) $args['method']
+					)
+				),
+				''
+			);
+			unset( $args['method'] );
+		}
+
+		if ( $data && isset( $args['body'] ) && $args['body'] ) {
+			_doing_it_wrong(
+				__METHOD__,
+				// phpcs:ignore Generic.Files.LineLength.TooLong
+				esc_html__( 'Both a request data array and a request body were provided, but only one of them is allowed.', 'wp-oop-plugin-lib' ),
+				''
+			);
+			unset( $args['body'] );
+		}
+		if ( isset( $args['body'] ) && ! is_string( $args['body'] ) ) {
+			_doing_it_wrong(
+				__METHOD__,
+				esc_html__( 'The request body must be a string.', 'wp-oop-plugin-lib' ),
+				''
+			);
+			unset( $args['body'] );
+		}
+
+		if (
+			isset( $args['headers'] ) &&
+			( ! is_array( $args['headers'] ) || ( $args['headers'] && wp_is_numeric_array( $args['headers'] ) ) )
+		) {
+			_doing_it_wrong(
+				__METHOD__,
+				esc_html__( 'The request headers must be an associative array.', 'wp-oop-plugin-lib' ),
+				''
+			);
+			unset( $args['headers'] );
+		}
+
 		$this->url     = $url;
 		$this->method  = $args['method'] ?? Request::GET;
 		$this->data    = $data;
-		$this->body    = ! $data && isset( $args['body'] ) && is_string( $args['body'] ) ? $args['body'] : '';
+		$this->body    = $args['body'] ?? '';
 		$this->headers = isset( $args['headers'] ) ? $this->sanitize_headers( $args['headers'] ) : array();
 
 		unset( $args['method'], $args['body'], $args['headers'] );
@@ -181,20 +225,45 @@ class Generic_Request implements Request {
 	/**
 	 * Adds data to the request.
 	 *
+	 * This is only possible if no hard-coded request body was provided for the request.
+	 *
 	 * @since n.e.x.t
 	 *
 	 * @param string $name  The name under which to send the data.
 	 * @param mixed  $value The value to send.
-	 *
-	 * @throws RuntimeException Thrown if data is added to a request that already has a body.
 	 */
 	public function add_data( string $name, $value ): void {
 		if ( $this->body ) {
-			throw new RuntimeException(
-				esc_html__( 'Data cannot be added to a request that already has a body.', 'wp-oop-plugin-lib' )
+			_doing_it_wrong(
+				__METHOD__,
+				esc_html__( 'Data cannot be added to a request that already has a body.', 'wp-oop-plugin-lib' ),
+				''
 			);
+			return;
 		}
 
 		$this->data[ $name ] = $value;
+	}
+
+	/**
+	 * Checks whether the given request method is valid.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param string $method The request method to check.
+	 * @return bool True if the request method is valid, false otherwise.
+	 */
+	private function is_valid_method( string $method ): bool {
+		return in_array(
+			$method,
+			array(
+				Request::DELETE,
+				Request::GET,
+				Request::PATCH,
+				Request::POST,
+				Request::PUT,
+			),
+			true
+		);
 	}
 }
