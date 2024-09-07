@@ -27,13 +27,13 @@ class Network_Env {
 	}
 
 	/**
-	 * Gets the network ID.
+	 * Returns the network ID.
 	 *
 	 * @since n.e.x.t
 	 *
 	 * @return int The network ID.
 	 */
-	public function get_id(): int {
+	public function id(): int {
 		return get_current_network_id();
 	}
 
@@ -81,6 +81,10 @@ class Network_Env {
 	 * @return string[] List of plugin basenames, relative to the plugins directory.
 	 */
 	public function get_active_plugins(): array {
+		if ( ! $this->is_multisite() ) {
+			return array();
+		}
+
 		$active_plugins = (array) get_site_option( 'active_sitewide_plugins', array() );
 		$active_plugins = array_keys( $active_plugins );
 		sort( $active_plugins );

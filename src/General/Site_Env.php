@@ -16,13 +16,13 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\General;
 class Site_Env {
 
 	/**
-	 * Gets the site ID.
+	 * Returns the site ID.
 	 *
 	 * @since n.e.x.t
 	 *
 	 * @return int The site ID.
 	 */
-	public function get_id(): int {
+	public function id(): int {
 		return get_current_blog_id();
 	}
 
@@ -35,7 +35,7 @@ class Site_Env {
 	 * @param string $field The site field to retrieve.
 	 * @return string The site field value.
 	 */
-	public function get_info( string $field ): string {
+	public function info( string $field ): string {
 		return (string) get_bloginfo( $field );
 	}
 
@@ -104,11 +104,14 @@ class Site_Env {
 	 * @return string[] List of theme directories, relative to the themes directory.
 	 */
 	public function get_active_themes(): array {
+		$parent_theme = get_template();
+		$child_theme  = get_stylesheet();
+
 		$themes = array();
-		if ( is_child_theme() ) {
-			$themes[] = get_stylesheet();
+		if ( $child_theme !== $parent_theme ) {
+			$themes[] = $child_theme;
 		}
-		$themes[] = get_template();
+		$themes[] = $parent_theme;
 		return $themes;
 	}
 }

@@ -96,4 +96,27 @@ class Current_User_Tests extends Test_Case {
 		$this->assertTrue( $this->current_user->verify_nonce( $nonce, 'another_action' ) );
 		$this->assertFalse( $this->current_user->verify_nonce( $nonce, 'yet_another_action' ) );
 	}
+
+	/**
+	 * @group ms-required
+	 */
+	public function test_is_super_admin_multisite() {
+		$this->assertFalse( $this->current_user->is_super_admin() );
+
+		wp_set_current_user( self::$user_ids['administrator'] );
+		$this->assertFalse( $this->current_user->is_super_admin() );
+
+		grant_super_admin( self::$user_ids['administrator'] );
+		$this->assertTrue( $this->current_user->is_super_admin() );
+	}
+
+	/**
+	 * @group ms-excluded
+	 */
+	public function test_is_super_admin_non_multisite() {
+		$this->assertFalse( $this->current_user->is_super_admin() );
+
+		wp_set_current_user( self::$user_ids['administrator'] );
+		$this->assertTrue( $this->current_user->is_super_admin() );
+	}
 }

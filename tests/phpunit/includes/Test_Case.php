@@ -215,6 +215,18 @@ abstract class Test_Case extends WP_UnitTestCase {
 		return $populated_args;
 	}
 
+	/**
+	 * Returns a closure that returns the given value.
+	 *
+	 * @param mixed $value Value that the closure should return.
+	 * @return callable Closure that returns the value.
+	 */
+	protected function get_return_value_callback( $value ): callable {
+		return function() use ( $value ) {
+			return $value;
+		};
+	}
+
 	private function get_callback_name( callable $callback ): string {
 		if ( is_string( $callback ) ) {
 			return $callback;
