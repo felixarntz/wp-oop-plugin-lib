@@ -127,7 +127,7 @@ class Network_Env_Tests extends Test_Case {
 			),
 			'empty'       => array(
 				'',
-				'http://' . WP_TESTS_DOMAIN . '/wp-admin',
+				'http://' . WP_TESTS_DOMAIN . '/wp-admin/',
 			),
 			'slash'       => array(
 				'/',
@@ -145,9 +145,9 @@ class Network_Env_Tests extends Test_Case {
 			'performance-lab/load.php' => true,
 			'plugin-check/plugin.php'  => true,
 		);
-		add_filter( 'site_option_active_sitewide_plugins', $this->get_return_value_callback( $plugin_list ) );
+		add_filter( 'pre_site_option_active_sitewide_plugins', $this->get_return_value_callback( $plugin_list ) );
 
-		$this->assertSame( array_keys( $plugin_list ), $this->site_env->get_active_plugins() );
+		$this->assertSame( array_keys( $plugin_list ), $this->network_env->get_active_plugins() );
 	}
 
 	/**
@@ -159,9 +159,9 @@ class Network_Env_Tests extends Test_Case {
 			'performance-lab/load.php' => true,
 			'plugin-check/plugin.php'  => true,
 		);
-		add_filter( 'site_option_active_sitewide_plugins', $this->get_return_value_callback( $plugin_list ) );
+		add_filter( 'pre_site_option_active_sitewide_plugins', $this->get_return_value_callback( $plugin_list ) );
 
 		// Despite the above filter, this should return an empty array because it's not a multisite.
-		$this->assertSame( array(), $this->site_env->get_active_plugins() );
+		$this->assertSame( array(), $this->network_env->get_active_plugins() );
 	}
 }

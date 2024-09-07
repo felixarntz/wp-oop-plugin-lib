@@ -105,7 +105,7 @@ class Site_Env_Tests extends Test_Case {
 			),
 			'empty'       => array(
 				'',
-				'http://' . WP_TESTS_DOMAIN . '/wp-admin',
+				'http://' . WP_TESTS_DOMAIN . '/wp-admin/',
 			),
 			'slash'       => array(
 				'/',
@@ -120,7 +120,7 @@ class Site_Env_Tests extends Test_Case {
 			'performance-lab/load.php',
 			'plugin-check/plugin.php',
 		);
-		add_filter( 'option_active_plugins', $this->get_return_value_callback( $plugin_list ) );
+		add_filter( 'pre_option_active_plugins', $this->get_return_value_callback( $plugin_list ) );
 
 		$this->assertSame( $plugin_list, $this->site_env->get_active_plugins() );
 	}
@@ -134,10 +134,10 @@ class Site_Env_Tests extends Test_Case {
 			'performance-lab/load.php',
 			'plugin-check/plugin.php',
 		);
-		add_filter( 'option_active_plugins', $this->get_return_value_callback( $plugin_list ) );
+		add_filter( 'pre_option_active_plugins', $this->get_return_value_callback( $plugin_list ) );
 
 		$network_plugins = array( 'performance-lab/load.php' => true );
-		add_filter( 'site_option_active_sitewide_plugins', $this->get_return_value_callback( $network_plugins ) );
+		add_filter( 'pre_site_option_active_sitewide_plugins', $this->get_return_value_callback( $network_plugins ) );
 
 		$this->assertSame(
 			array(
@@ -150,6 +150,7 @@ class Site_Env_Tests extends Test_Case {
 
 	public function test_get_active_themes() {
 		add_filter( 'template', $this->get_return_value_callback( 'twentytwentyfive' ) );
+		add_filter( 'stylesheet', $this->get_return_value_callback( 'twentytwentyfive' ) );
 		$this->assertSame( array( 'twentytwentyfive' ), $this->site_env->get_active_themes() );
 	}
 
