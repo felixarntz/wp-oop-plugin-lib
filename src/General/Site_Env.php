@@ -91,7 +91,7 @@ class Site_Env {
 		if ( ! $network_env->is_multisite() ) {
 			return $active_plugins;
 		}
-		return array_diff( $active_plugins, $network_env->get_active_plugins() );
+		return array_values( array_diff( $active_plugins, $network_env->get_active_plugins() ) );
 	}
 
 	/**
