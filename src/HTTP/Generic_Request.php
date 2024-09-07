@@ -85,21 +85,6 @@ class Generic_Request implements Request {
 	 *                                   parameter is empty, and only as a string. Default empty array.
 	 */
 	public function __construct( string $url, array $data = array(), array $args = array() ) {
-		if ( isset( $args['method'] ) && ! $this->is_valid_method( $args['method'] ) ) {
-			_doing_it_wrong(
-				__METHOD__,
-				esc_html(
-					sprintf(
-						/* translators: %s: invalid method string */
-						__( 'The value %s is not a valid HTTP request method.', 'wp-oop-plugin-lib' ),
-						(string) $args['method']
-					)
-				),
-				''
-			);
-			unset( $args['method'] );
-		}
-
 		if ( $data && isset( $args['body'] ) && $args['body'] ) {
 			_doing_it_wrong(
 				__METHOD__,
@@ -109,26 +94,8 @@ class Generic_Request implements Request {
 			);
 			unset( $args['body'] );
 		}
-		if ( isset( $args['body'] ) && ! is_string( $args['body'] ) ) {
-			_doing_it_wrong(
-				__METHOD__,
-				esc_html__( 'The request body must be a string.', 'wp-oop-plugin-lib' ),
-				''
-			);
-			unset( $args['body'] );
-		}
 
-		if (
-			isset( $args['headers'] ) &&
-			( ! is_array( $args['headers'] ) || ( $args['headers'] && wp_is_numeric_array( $args['headers'] ) ) )
-		) {
-			_doing_it_wrong(
-				__METHOD__,
-				esc_html__( 'The request headers must be an associative array.', 'wp-oop-plugin-lib' ),
-				''
-			);
-			unset( $args['headers'] );
-		}
+		$args = $this->sanitize_args( $args, __METHOD__ );
 
 		$this->url     = $url;
 		$this->method  = $args['method'] ?? Request::GET;
@@ -243,6 +210,57 @@ class Generic_Request implements Request {
 		}
 
 		$this->data[ $name ] = $value;
+	}
+
+	/**
+	 * Sanitizes the provided arguments.
+	 *
+	 * For any invalid arguments, PHP warnings may be triggered, and they will be stripped.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param array<string, mixed> $args   Request arguments, including but not limited to options.
+	 * @param string               $method PHP class method to reference in potential PHP warnings.
+	 * @return array<string, mixed> The sanitized arguments.
+	 */
+	private function sanitize_args( array $args, string $method ): array {
+		if ( isset( $args['method'] ) && ! $this->is_valid_method( $args['method'] ) ) {
+			_doing_it_wrong(
+				esc_html( $method ),
+				esc_html(
+					sprintf(
+						/* translators: %s: invalid method string */
+						__( 'The value %s is not a valid HTTP request method.', 'wp-oop-plugin-lib' ),
+						(string) $args['method']
+					)
+				),
+				''
+			);
+			unset( $args['method'] );
+		}
+
+		if ( isset( $args['body'] ) && ! is_string( $args['body'] ) ) {
+			_doing_it_wrong(
+				esc_html( $method ),
+				esc_html__( 'The request body must be a string.', 'wp-oop-plugin-lib' ),
+				''
+			);
+			unset( $args['body'] );
+		}
+
+		if (
+			isset( $args['headers'] ) &&
+			( ! is_array( $args['headers'] ) || ( $args['headers'] && wp_is_numeric_array( $args['headers'] ) ) )
+		) {
+			_doing_it_wrong(
+				esc_html( $method ),
+				esc_html__( 'The request headers must be an associative array.', 'wp-oop-plugin-lib' ),
+				''
+			);
+			unset( $args['headers'] );
+		}
+
+		return $args;
 	}
 
 	/**
