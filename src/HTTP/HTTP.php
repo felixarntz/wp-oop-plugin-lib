@@ -114,29 +114,21 @@ class HTTP {
 			}
 		}
 
-		// Prepare arguments for the Requests::request_multiple() method.
 		$requests_args = array();
+		$responses     = array();
 		foreach ( $requests as $key => $request ) {
-			$headers = $request->get_headers();
-			$data    = $request->get_data();
-			if ( ! $data ) {
-				$data = $request->get_body();
+			// Assemble the options with WordPress defaults included.
+			$request_args = $this->build_request_args( $request );
+
+			// Allow short-circuiting requests, just like in WP_Http::request().
+			$pre_response = $this->run_wp_pre_http_request_filter( $request_args );
+			if ( null !== $pre_response ) {
+				$responses[ $key ] = $pre_response;
+				continue;
 			}
 
-			$request_args = array(
-				'url'     => $request->get_url(),
-				'type'    => $request->get_method(),
-				'options' => wp_parse_args( $request->get_options(), $this->default_options ),
-			);
-			if ( $headers ) {
-				$request_args['headers'] = $headers;
-			}
-			if ( $data ) {
-				$request_args['data'] = $data;
-			}
-
-			// Include the defaults from WP_Http::request(), since the Requests library does not include them.
-			$request_args['options'] = $this->prepare_options(
+			// Prepare the options for usage with the Requests library.
+			$request_args['options'] = $this->prepare_options_for_requests(
 				$request_args['options'],
 				$request_args['url'],
 				$request_args['type']
@@ -144,6 +136,14 @@ class HTTP {
 
 			$requests_args[ $key ] = $request_args;
 		}
+
+		// If all requests were handled by the response pre filter, we don't actually need to send any requests.
+		if ( count( $requests_args ) === 0 ) {
+			return $responses;
+		}
+
+		$successful = $responses; // Any pre-filter responses are by definition success responses.
+		$failed     = array();
 
 		// Similar to WP_Http::request(), avoid issues where mbstring.func_overload is enabled.
 		mbstring_binary_safe_encoding();
@@ -153,8 +153,6 @@ class HTTP {
 		// See above.
 		reset_mbstring_encoding();
 
-		$successful = array();
-		$failed     = array();
 		foreach ( $responses as $key => $response ) {
 			if ( $response instanceof \WpOrg\Requests\Exception ) {
 				$failed[ $key ] = new Request_Exception( $response->getMessage() );
@@ -182,6 +180,74 @@ class HTTP {
 	}
 
 	/**
+	 * Assembles the request arguments for the given request, to pass to the Requests library.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param Request $request The request to send.
+	 * @return array<string, mixed> Request arguments.
+	 */
+	private function build_request_args( Request $request ): array {
+		$headers = $request->get_headers();
+		$data    = $request->get_data();
+		if ( ! $data ) {
+			$data = $request->get_body();
+		}
+
+		$request_args = array(
+			'url'     => $request->get_url(),
+			'type'    => $request->get_method(),
+			'options' => wp_parse_args( $request->get_options(), $this->default_options ),
+		);
+		if ( $headers ) {
+			$request_args['headers'] = $headers;
+		}
+		if ( $data ) {
+			$request_args['data'] = $data;
+		}
+
+		// Include the defaults from WP_Http::request(), since the Requests library does not include them.
+		$request_args['options'] = $this->merge_wp_default_options(
+			$request_args['options'],
+			$request_args['url'],
+			$request_args['type']
+		);
+		return $request_args;
+	}
+
+	/**
+	 * Runs the WordPress 'pre_http_request' filter to allow short-circuiting requests.
+	 *
+	 * When used in a multi request, the filter will be run for every request. For any request where it returns a value
+	 * other than `false`, the request will not be actually sent and instead the data from the filter is used to create
+	 * the response. If all requests within a multi request receive their response data in that way, no request is sent
+	 * at all.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param array<string, mixed> $request_args Request arguments.
+	 * @return Response|null Response object based on the 'pre_http_request' filter data, or null if not filtered.
+	 */
+	private function run_wp_pre_http_request_filter( array $request_args ) {
+		$parsed_args            = $request_args['options'];
+		$parsed_args['method']  = $request_args['type'];
+		$parsed_args['headers'] = $request_args['headers'] ?? array();
+		$parsed_args['cookies'] = $request_args['options']['cookies'] ?? array();
+		$parsed_args['body']    = $request_args['data'] ?? null;
+
+		// Allow short-circuiting requests, just like in WP_Http::request().
+		$pre = apply_filters( 'pre_http_request', false, $parsed_args, $request_args['url'] );
+		if ( false !== $pre ) {
+			return $this->create_response(
+				$pre['response']['code'] ?? 200,
+				$pre['body'] ?? '',
+				$pre['headers'] ?? array()
+			);
+		}
+		return null;
+	}
+
+	/**
 	 * Creates a response object based on the response data.
 	 *
 	 * @since n.e.x.t
@@ -206,11 +272,11 @@ class HTTP {
 	}
 
 	/**
-	 * Prepares the options for a request directly via the Requests library, including WordPress defaults.
+	 * Populates the given options array with defaults.
 	 *
 	 * WordPress's API only allows making a single request at a time, while the Requests library allows making multiple
 	 * requests. However, the Requests library does not include the WordPress defaults for requests, such as the default
-	 * timeout. This method prepares the options for a request to include these defaults.
+	 * timeout. This method ensures that they include these defaults.
 	 *
 	 * Most of the code in this method is similar to code in WP_Http::request() in WordPress core.
 	 *
@@ -221,7 +287,7 @@ class HTTP {
 	 * @param string               $method  The request method, relevant to determine some defaults.
 	 * @return array<string, mixed> The prepared options, including WordPress defaults.
 	 */
-	private function prepare_options( array $options, string $url, string $method ): array {
+	private function merge_wp_default_options( array $options, string $url, string $method ): array {
 		$wp_user_agent = 'WordPress/' . get_bloginfo( 'version' ) . '; ' . get_bloginfo( 'url' );
 
 		$defaults = array(
@@ -243,8 +309,26 @@ class HTTP {
 			$defaults['filename'] = get_temp_dir() . basename( $url );
 		}
 
-		$options = wp_parse_args( $options, $defaults );
+		return wp_parse_args( $options, $defaults );
+	}
 
+	/**
+	 * Prepares the options for a request directly via the Requests library.
+	 *
+	 * WordPress's API only allows making a single request at a time, while the Requests library allows making multiple
+	 * requests. However, the Requests library uses different argument names, so this method prepares the WordPress
+	 * options for usage with the Requests library.
+	 *
+	 * Most of the code in this method is similar to code in WP_Http::request() in WordPress core.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param array<string, mixed> $options The options to prepare.
+	 * @param string               $url     The request URL, only relevant as context for various filters.
+	 * @param string               $method  The request method, relevant to determine some defaults.
+	 * @return array<string, mixed> The prepared options.
+	 */
+	private function prepare_options_for_requests( array $options, string $url, string $method ): array {
 		// Migrate WordPress options to Requests options.
 		$options = $this->migrate_wp_options_to_requests_options( $options );
 
