@@ -52,7 +52,7 @@ class Network_Env_Tests extends Test_Case {
 			),
 			'empty'       => array(
 				'',
-				'http://' . WP_TESTS_DOMAIN . '/', // In multisite, there's a trailing slash by default.
+				'http://' . WP_TESTS_DOMAIN,
 			),
 			'slash'       => array(
 				'/',
@@ -77,7 +77,7 @@ class Network_Env_Tests extends Test_Case {
 			),
 			'empty'       => array(
 				'',
-				'http://' . WP_TESTS_DOMAIN . '/', // In multisite, there's a trailing slash by default.
+				'http://' . WP_TESTS_DOMAIN,
 			),
 			'slash'       => array(
 				'/',

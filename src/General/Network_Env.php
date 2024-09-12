@@ -46,7 +46,17 @@ class Network_Env {
 	 * @return string The site URL.
 	 */
 	public function url( string $relative_path = '/' ): string {
-		return network_home_url( $relative_path );
+		$url = network_home_url( $relative_path );
+
+		/*
+		 * In Multisite, network_home_url() returns a URL with a trailing slash, even if the path is empty.
+		 * This is inconsistent with home_url(), so we fix that here.
+		 */
+		if ( '' === $relative_path ) {
+			$url = untrailingslashit( $url );
+		}
+
+		return $url;
 	}
 
 	/**
@@ -58,7 +68,17 @@ class Network_Env {
 	 * @return string The WordPress URL.
 	 */
 	public function wp_url( string $relative_path = '/' ): string {
-		return network_site_url( $relative_path );
+		$url = network_site_url( $relative_path );
+
+		/*
+		 * In Multisite, network_site_url() returns a URL with a trailing slash, even if the path is empty.
+		 * This is inconsistent with site_url(), so we fix that here.
+		 */
+		if ( '' === $relative_path ) {
+			$url = untrailingslashit( $url );
+		}
+
+		return $url;
 	}
 
 	/**
