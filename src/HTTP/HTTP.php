@@ -44,6 +44,11 @@ class HTTP {
 	 *                                              array.
 	 */
 	public function __construct( array $default_options = array() ) {
+		// Prior to WordPress 6.2, this class had a different name.
+		if ( ! class_exists( CaseInsensitiveDictionary::class ) ) {
+			class_alias( 'Requests_Utility_CaseInsensitiveDictionary', CaseInsensitiveDictionary::class );
+		}
+
 		// Remove potentially conflicting entries that are not actually options.
 		unset( $default_options['method'], $default_options['headers'], $default_options['body'] );
 

@@ -52,6 +52,11 @@ class Generic_Response implements Response {
 	 * @param array<string, string> $headers The headers received with the response.
 	 */
 	public function __construct( int $status, string $body, array $headers ) {
+		// Prior to WordPress 6.2, this class had a different name.
+		if ( ! class_exists( CaseInsensitiveDictionary::class ) ) {
+			class_alias( 'Requests_Utility_CaseInsensitiveDictionary', CaseInsensitiveDictionary::class );
+		}
+
 		$this->status  = $status;
 		$this->body    = $body;
 		$this->headers = new CaseInsensitiveDictionary( $headers );
