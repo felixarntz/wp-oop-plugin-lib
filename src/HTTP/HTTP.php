@@ -196,7 +196,7 @@ class HTTP {
 	private function create_response( int $status, string $body, array $headers ): Response {
 		if (
 			isset( $headers['content-type'] )
-				&& in_array( 'application/json', array_map( 'trim', explode( ';', $headers['content-type'] ) ) )
+			&& in_array( 'application/json', array_map( 'trim', explode( ';', $headers['content-type'] ) ), true )
 		) {
 			return new JSON_Response( $status, $body, $headers );
 		}
