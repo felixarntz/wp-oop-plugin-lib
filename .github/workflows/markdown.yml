@@ -8,13 +8,13 @@ on:
       - main
     paths:
       - '.github/workflows/markdown.yml'
-      - '**.php'
+      - '**.md'
   pull_request:
     branches:
       - main
     paths:
       - '.github/workflows/markdown.yml'
-      - '**.php'
+      - '**.md'
     types:
       - opened
       - reopened
