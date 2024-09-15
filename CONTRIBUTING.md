@@ -4,7 +4,7 @@ Thank you for your interest in contributing to this library! At this point, it i
 
 Just two general guidelines:
 * All contributors are expected to follow the [WordPress Code of Conduct](https://make.wordpress.org/handbook/community-code-of-conduct/).
-* All contributors who submit a pull request are agreeing to release their contribution under the [GPLv2+ license](https://github.com/WordPress/performance/blob/trunk/LICENSE).
+* All contributors who submit a pull request are agreeing to release their contribution under the [GPLv2+ license](https://github.com/felixarntz/wp-oop-plugin-lib/blob/main/LICENSE).
 
 ## Providing feedback
 
