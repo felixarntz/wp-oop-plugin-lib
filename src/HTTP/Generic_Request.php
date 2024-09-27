@@ -213,6 +213,18 @@ class Generic_Request implements Request {
 	}
 
 	/**
+	 * Adds an option to the request.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param string $name  The option name.
+	 * @param mixed  $value The option value.
+	 */
+	public function add_option( string $name, $value ): void {
+		$this->options[ $name ] = $value;
+	}
+
+	/**
 	 * Sanitizes the provided arguments.
 	 *
 	 * For any invalid arguments, PHP warnings may be triggered, and they will be stripped.

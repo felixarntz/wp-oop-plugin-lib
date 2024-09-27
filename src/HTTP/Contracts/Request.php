@@ -101,4 +101,14 @@ interface Request {
 	 * @param mixed  $value The value to send.
 	 */
 	public function add_data( string $name, $value ): void;
+
+	/**
+	 * Adds an option to the request.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param string $name  The option name.
+	 * @param mixed  $value The option value.
+	 */
+	public function add_option( string $name, $value ): void;
 }
