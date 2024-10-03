@@ -251,7 +251,8 @@ abstract class Abstract_REST_Route implements REST_Route {
 	private function rest_exception_to_wp_error( REST_Exception $e ) {
 		return new WP_Error(
 			$e->get_error_code(),
-			$e->getMessage(),
+			// Decode escaped HTML entities from the exception.
+			html_entity_decode( $e->getMessage(), ENT_QUOTES, get_bloginfo( 'charset' ) ),
 			array( 'status' => $e->get_response_code() )
 		);
 	}
