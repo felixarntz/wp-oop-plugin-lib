@@ -2,7 +2,6 @@
 /**
  * Tests for Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pages\Admin_Page_Collection
  *
- * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 

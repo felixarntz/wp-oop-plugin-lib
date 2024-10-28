@@ -2,7 +2,6 @@
 /**
  * Tests for Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Post_Type_Registry
  *
- * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 

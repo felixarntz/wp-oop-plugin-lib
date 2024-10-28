@@ -2,7 +2,6 @@
 /**
  * Tests for Felix_Arntz\WP_OOP_Plugin_Lib\General\Current_User
  *
- * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 

@@ -2,7 +2,6 @@
 /**
  * Tests for Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Meta_Repository
  *
- * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
