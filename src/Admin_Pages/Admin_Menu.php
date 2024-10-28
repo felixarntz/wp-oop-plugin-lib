@@ -123,6 +123,17 @@ class Admin_Menu {
 	}
 
 	/**
+	 * Returns the slug of the admin menu.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @return string Admin menu slug.
+	 */
+	public function get_slug(): string {
+		return $this->menu_slug;
+	}
+
+	/**
 	 * Checks whether the menu is already present.
 	 *
 	 * @since n.e.x.t
