@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Privacy\Abstract_Personal_Data_Exporter
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Privacy\Contracts\Personal_Data_Exporter;
 /**
  * Base class representing a WordPress personal data exporter.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 abstract class Abstract_Personal_Data_Exporter implements Personal_Data_Exporter {
 
 	/**
 	 * Data exporter key.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $key;
@@ -28,7 +28,7 @@ abstract class Abstract_Personal_Data_Exporter implements Personal_Data_Exporter
 	/**
 	 * Data exporter name.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $name;
@@ -36,7 +36,7 @@ abstract class Abstract_Personal_Data_Exporter implements Personal_Data_Exporter
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 */
 	public function __construct() {
 		$this->key  = $this->key();
@@ -46,7 +46,7 @@ abstract class Abstract_Personal_Data_Exporter implements Personal_Data_Exporter
 	/**
 	 * Gets the key of the data exporter.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Data exporter key.
 	 */
@@ -57,7 +57,7 @@ abstract class Abstract_Personal_Data_Exporter implements Personal_Data_Exporter
 	/**
 	 * Gets the user-facing friendly name for the data exporter.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Data exporter name.
 	 */
@@ -68,7 +68,7 @@ abstract class Abstract_Personal_Data_Exporter implements Personal_Data_Exporter
 	/**
 	 * Gets the registration arguments for the data exporter.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Data exporter registration arguments.
 	 */
@@ -82,7 +82,7 @@ abstract class Abstract_Personal_Data_Exporter implements Personal_Data_Exporter
 	/**
 	 * Exports personal data for the given email address and page.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $email_address Email address to export personal data for.
 	 * @param int    $page          Optional. Page index. A higher value than 1 is only passed if the overall process
@@ -103,7 +103,7 @@ abstract class Abstract_Personal_Data_Exporter implements Personal_Data_Exporter
 	/**
 	 * Returns the key of the data exporter.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Data exporter key.
 	 */
@@ -112,7 +112,7 @@ abstract class Abstract_Personal_Data_Exporter implements Personal_Data_Exporter
 	/**
 	 * Returns the user-facing friendly name for the data exporter.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Data exporter name.
 	 */
@@ -121,7 +121,7 @@ abstract class Abstract_Personal_Data_Exporter implements Personal_Data_Exporter
 	/**
 	 * Processes a request to export personal data for the given email address and page.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Personal_Data_Export_Result $result        Result object to amend.
 	 * @param string                      $email_address Email address to export personal data for.

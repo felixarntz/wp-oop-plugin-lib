@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Comment_Query
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -15,14 +15,14 @@ use WP_Comment_Query;
 /**
  * Class for a query for WordPress comments.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Comment_Query implements Entity_Query {
 
 	/**
 	 * The underlying WordPress comment query object.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var WP_Comment_Query
 	 */
 	private $wp_obj;
@@ -30,7 +30,7 @@ class Comment_Query implements Entity_Query {
 	/**
 	 * Query arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, mixed>
 	 */
 	private $query_args;
@@ -38,7 +38,7 @@ class Comment_Query implements Entity_Query {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $query_args Query arguments. See {@see WP_Comment_Query::__construct()} for a list
 	 *                                         of supported arguments.
@@ -51,7 +51,7 @@ class Comment_Query implements Entity_Query {
 	/**
 	 * Runs the query to get comments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * f
 	 * @return Comment[] List of comment entities.
 	 */
@@ -68,7 +68,7 @@ class Comment_Query implements Entity_Query {
 	/**
 	 * Runs the query to get comment IDs.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int[] List of comment IDs.
 	 */
@@ -82,7 +82,7 @@ class Comment_Query implements Entity_Query {
 	/**
 	 * Runs the query to get the comment count.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int Comment count.
 	 */
@@ -98,7 +98,7 @@ class Comment_Query implements Entity_Query {
 	/**
 	 * Wraps a WordPress comment object into a corresponding entity instance.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param WP_Comment $comment WordPress comment object.
 	 * @return Comment Comment entity.

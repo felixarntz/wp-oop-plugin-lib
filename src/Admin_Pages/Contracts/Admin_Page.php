@@ -2,7 +2,7 @@
 /**
  * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pages\Contracts\Admin_Page
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -11,14 +11,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pages\Contracts;
 /**
  * Interface for an admin page.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 interface Admin_Page {
 
 	/**
 	 * Gets the admin page slug.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Admin page slug.
 	 */
@@ -27,7 +27,7 @@ interface Admin_Page {
 	/**
 	 * Gets the admin page title.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Admin page title.
 	 */
@@ -36,7 +36,7 @@ interface Admin_Page {
 	/**
 	 * Gets the admin page's required capability.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Admin page capability.
 	 */
@@ -45,14 +45,14 @@ interface Admin_Page {
 	/**
 	 * Initializes functionality for the admin page.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 */
 	public function load(): void;
 
 	/**
 	 * Renders the admin page.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 */
 	public function render(): void;
 }

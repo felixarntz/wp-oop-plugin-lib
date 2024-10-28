@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Database\Custom_Table
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -15,14 +15,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\With_Key;
 /**
  * Class representing a custom database table.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Custom_Table implements With_Key {
 
 	/**
 	 * The database table key.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $key;
@@ -30,7 +30,7 @@ class Custom_Table implements With_Key {
 	/**
 	 * The database table schema.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var Database_Table_Schema
 	 */
 	private $schema;
@@ -38,7 +38,7 @@ class Custom_Table implements With_Key {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string                $key    Database table key.
 	 * @param Database_Table_Schema $schema Database table schema.
@@ -51,7 +51,7 @@ class Custom_Table implements With_Key {
 	/**
 	 * Gets the database table key.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Database table key.
 	 */
@@ -62,7 +62,7 @@ class Custom_Table implements With_Key {
 	/**
 	 * Checks whether the database table exists in the database.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True if the database table exists, false otherwise.
 	 */
@@ -85,7 +85,7 @@ class Custom_Table implements With_Key {
 	/**
 	 * Creates the database table in the database.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @throws Database_Exception Thrown when database table creation fails.
 	 */
@@ -142,7 +142,7 @@ class Custom_Table implements With_Key {
 	/**
 	 * Drops/deletes the database table from the database.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @throws Database_Exception Thrown when database table deletion fails.
 	 */

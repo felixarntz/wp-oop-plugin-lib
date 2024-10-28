@@ -2,7 +2,7 @@
 /**
  * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\With_Type_Support
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,7 +13,7 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts;
  *
  * Any validation rule that does not support _any_ input value must implement this interface.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 interface With_Type_Support {
 
@@ -22,7 +22,7 @@ interface With_Type_Support {
 	 *
 	 * This method is mostly for internal use, e.g. to ensure that builders don't allow rules that are useless for them.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $type One of the type constants from the Types interface.
 	 * @return bool True if the given type is supported, false otherwise.

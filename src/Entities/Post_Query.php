@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Post_Query
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -15,14 +15,14 @@ use WP_Query;
 /**
  * Class for a query for WordPress posts.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Post_Query implements Entity_Query {
 
 	/**
 	 * The underlying WordPress post query object.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var WP_Query
 	 */
 	private $wp_obj;
@@ -30,7 +30,7 @@ class Post_Query implements Entity_Query {
 	/**
 	 * Query arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, mixed>
 	 */
 	private $query_args;
@@ -38,7 +38,7 @@ class Post_Query implements Entity_Query {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $query_args Query arguments. See {@see WP_Query::parse_query()} for a list of
 	 *                                         supported arguments.
@@ -51,7 +51,7 @@ class Post_Query implements Entity_Query {
 	/**
 	 * Runs the query to get posts.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return Post[] List of post entities.
 	 */
@@ -68,7 +68,7 @@ class Post_Query implements Entity_Query {
 	/**
 	 * Runs the query to get post IDs.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int[] List of post IDs.
 	 */
@@ -82,7 +82,7 @@ class Post_Query implements Entity_Query {
 	/**
 	 * Runs the query to get the post count.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int Post count.
 	 */
@@ -101,7 +101,7 @@ class Post_Query implements Entity_Query {
 	/**
 	 * Parses the given query arguments with better defaults.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $query_args Query arguments.
 	 * @return array<string, mixed> Query arguments parsed with defaults.
@@ -119,7 +119,7 @@ class Post_Query implements Entity_Query {
 	/**
 	 * Wraps a WordPress post object into a corresponding entity instance.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param WP_Post $post WordPress post object.
 	 * @return Post Post entity.

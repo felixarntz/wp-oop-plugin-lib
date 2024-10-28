@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Dependencies\Script_Module_Registry
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -11,14 +11,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Dependencies;
 /**
  * Class for a registry of script modules.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Script_Module_Registry extends Abstract_Dependency_Registry {
 
 	/**
 	 * Registers a script module with the given handle and arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string               $key  Script module handle.
 	 * @param array<string, mixed> $args {
@@ -57,7 +57,7 @@ class Script_Module_Registry extends Abstract_Dependency_Registry {
 	/**
 	 * Checks whether a script module with the given handle is registered.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Script module handle.
 	 * @return bool True if the script module is registered, false otherwise.
@@ -70,7 +70,7 @@ class Script_Module_Registry extends Abstract_Dependency_Registry {
 	/**
 	 * Gets the registered script module for the given handle from the registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Script module handle.
 	 * @return object|null The registered module definition, or `null` if not registered.
@@ -83,7 +83,7 @@ class Script_Module_Registry extends Abstract_Dependency_Registry {
 	/**
 	 * Gets all script modules from the registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, object> Associative array of handles and their module definitions, or empty array if
 	 *                               nothing is registered.
@@ -96,7 +96,7 @@ class Script_Module_Registry extends Abstract_Dependency_Registry {
 	/**
 	 * Enqueues the script module with the given handle.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Script module handle.
 	 */
@@ -111,7 +111,7 @@ class Script_Module_Registry extends Abstract_Dependency_Registry {
 	/**
 	 * Dequeues the script module with the given handle.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Script module handle.
 	 */
@@ -126,7 +126,7 @@ class Script_Module_Registry extends Abstract_Dependency_Registry {
 	/**
 	 * Checks whether the script module with the given handle is enqueued.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Script module handle.
 	 * @return bool True if the script module is enqueued, false otherwise.
@@ -141,7 +141,7 @@ class Script_Module_Registry extends Abstract_Dependency_Registry {
 	 *
 	 * The keys 'src' and 'deps' do not need to be included as they are universal defaults for any dependency type.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Script module registration defaults.
 	 */
@@ -156,7 +156,7 @@ class Script_Module_Registry extends Abstract_Dependency_Registry {
 	 *
 	 * It also triggers a PHP notice if the functionality is not supported.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $method         The method that was called. Used to trigger a PHP notice as applicable.
 	 * @param string $check_function Optional. The WordPress core function to check for. If none is provided, the

@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\General_Validation_Rule_Builder
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -16,14 +16,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Contracts\Validation_Rule;
  * This class is recommended for usage as a general-purpose validation rule builder that allows building any kind of
  * validation rule. It exposes the different type validation rule builders via methods.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class General_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 
 	/**
 	 * Adds a boolean validation rule.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param bool $strict Optional. True to enable strict mode, false to disable it. Default false.
 	 * @return Boolean_Validation_Rule_Builder Boolean validation rule builder instance, for chaining.
@@ -37,7 +37,7 @@ class General_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	/**
 	 * Adds a float validation rule.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param bool $strict Optional. True to enable strict mode, false to disable it. Default false.
 	 * @return Float_Validation_Rule_Builder Float validation rule builder instance, for chaining.
@@ -51,7 +51,7 @@ class General_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	/**
 	 * Adds an integer validation rule.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param bool $strict Optional. True to enable strict mode, false to disable it. Default false.
 	 * @return Integer_Validation_Rule_Builder Integer validation rule builder instance, for chaining.
@@ -65,7 +65,7 @@ class General_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	/**
 	 * Adds a string validation rule.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param bool $strict Optional. True to enable strict mode, false to disable it. Default false.
 	 * @return String_Validation_Rule_Builder String validation rule builder instance, for chaining.
@@ -79,7 +79,7 @@ class General_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	/**
 	 * Adds an array validation rule.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param bool $strict Optional. True to enable strict mode, false to disable it. Default false.
 	 * @return Array_Validation_Rule_Builder Array validation rule builder instance, for chaining.
@@ -93,7 +93,7 @@ class General_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	/**
 	 * Checks whether the given rule is allowed by the builder.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Validation_Rule $rule Rule to check.
 	 * @return bool True if the rule is allowed, false otherwise.

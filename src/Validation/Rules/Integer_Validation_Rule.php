@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Integer_Validation_Rule
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -16,7 +16,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Traits\Strict_Mode;
 /**
  * Class for a validation rule that ensures integer values.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Integer_Validation_Rule implements Validation_Rule, With_Strict {
 	use Strict_Mode;
@@ -24,7 +24,7 @@ class Integer_Validation_Rule implements Validation_Rule, With_Strict {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param bool $strict Optional. True to enable strict mode, false to disable it. Default false.
 	 *
@@ -39,7 +39,7 @@ class Integer_Validation_Rule implements Validation_Rule, With_Strict {
 	 *
 	 * Validation will be strict and throw an exception for any unmet requirements.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $value Value to validate.
 	 *
@@ -69,7 +69,7 @@ class Integer_Validation_Rule implements Validation_Rule, With_Strict {
 	 * This should be called before storing the value in the persistency layer (e.g. the database).
 	 * If the value does not satisfy validation requirements, it will be sanitized to a value that does, e.g. a default.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $value Value to sanitize.
 	 * @return mixed Sanitized value.

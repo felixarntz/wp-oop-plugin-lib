@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Term_Repository
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -16,14 +16,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Exception\Invalid_Entity_Data_Excepti
 /**
  * Class for a repository of WordPress terms.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Term_Repository implements Entity_Repository, Cache_Aware_Entity_Repository {
 
 	/**
 	 * Checks whether a term for the given ID exists in the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $id Term ID.
 	 * @return bool True if the term exists, false otherwise.
@@ -35,7 +35,7 @@ class Term_Repository implements Entity_Repository, Cache_Aware_Entity_Repositor
 	/**
 	 * Gets the term for a given ID from the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $id Term ID.
 	 * @return Term|null The term, or `null` if no value exists.
@@ -51,7 +51,7 @@ class Term_Repository implements Entity_Repository, Cache_Aware_Entity_Repositor
 	/**
 	 * Updates the term for a given ID in the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int                  $id   Term ID.
 	 * @param array<string, mixed> $data New data to set for the term. See {@see wp_update_term()} for a list of
@@ -91,7 +91,7 @@ class Term_Repository implements Entity_Repository, Cache_Aware_Entity_Repositor
 	/**
 	 * Adds a new term to the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $data Initial data to set for the term. Keys 'name' and 'taxonomy' are required. See
 	 *                                   {@see wp_insert_term()} for a list of supported arguments.
@@ -133,7 +133,7 @@ class Term_Repository implements Entity_Repository, Cache_Aware_Entity_Repositor
 	/**
 	 * Deletes the term for a given ID from the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $id Term ID.
 	 * @return bool True on success, false on failure.
@@ -154,7 +154,7 @@ class Term_Repository implements Entity_Repository, Cache_Aware_Entity_Repositor
 	/**
 	 * Returns a term query object for the given arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $query_args Query arguments.
 	 * @return Term_Query Query object.
@@ -168,7 +168,7 @@ class Term_Repository implements Entity_Repository, Cache_Aware_Entity_Repositor
 	 *
 	 * Does not update any meta caches.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int[] $ids Term IDs.
 	 * @return bool True on success, or false on failure.

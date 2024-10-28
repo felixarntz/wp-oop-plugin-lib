@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Options\Option_Container
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -17,14 +17,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Not_Found_Exception;
 /**
  * Class for an option container.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Option_Container implements Container, ArrayAccess {
 
 	/**
 	 * Options stored in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, callable>
 	 */
 	private $options = array();
@@ -32,7 +32,7 @@ class Option_Container implements Container, ArrayAccess {
 	/**
 	 * Option instances already created.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, Option>
 	 */
 	private $instances = array();
@@ -40,7 +40,7 @@ class Option_Container implements Container, ArrayAccess {
 	/**
 	 * Checks if an option for the given key exists in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Option key.
 	 * @return bool True if the option exists in the container, false otherwise.
@@ -52,7 +52,7 @@ class Option_Container implements Container, ArrayAccess {
 	/**
 	 * Gets the option for the given key from the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Option key.
 	 * @return Option Option for the given key.
@@ -95,7 +95,7 @@ class Option_Container implements Container, ArrayAccess {
 	/**
 	 * Sets the given option under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string   $key     Option key.
 	 * @param callable $creator Option creator closure.
@@ -108,7 +108,7 @@ class Option_Container implements Container, ArrayAccess {
 	/**
 	 * Sets an option using the given repository and arguments under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string               $key               Option key.
 	 * @param Key_Value_Repository $repository        Repository used for the option.
@@ -126,7 +126,7 @@ class Option_Container implements Container, ArrayAccess {
 	/**
 	 * Unsets the option under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Option key.
 	 */
@@ -137,7 +137,7 @@ class Option_Container implements Container, ArrayAccess {
 	/**
 	 * Gets all keys in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string[] List of keys.
 	 */
@@ -148,7 +148,7 @@ class Option_Container implements Container, ArrayAccess {
 	/**
 	 * Checks if an option for the given key exists in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key Option key.
 	 * @return bool True if the option exists in the container, false otherwise.
@@ -161,7 +161,7 @@ class Option_Container implements Container, ArrayAccess {
 	/**
 	 * Gets the option for the given key from the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key Option key.
 	 * @return Option Option for the given key.
@@ -174,7 +174,7 @@ class Option_Container implements Container, ArrayAccess {
 	/**
 	 * Sets the given option under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key   Option key.
 	 * @param mixed $value Option creator closure.
@@ -187,7 +187,7 @@ class Option_Container implements Container, ArrayAccess {
 	/**
 	 * Unsets the option under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key Option key.
 	 */

@@ -2,7 +2,7 @@
 /**
  * Interface Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Key_Value
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -11,14 +11,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts;
 /**
  * Interface for a key-value pair.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 interface Key_Value extends With_Key {
 
 	/**
 	 * Checks whether the item has a value set.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True if a value is set, false otherwise.
 	 */
@@ -27,7 +27,7 @@ interface Key_Value extends With_Key {
 	/**
 	 * Gets the value for the item.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return mixed Value for the item.
 	 */
@@ -36,7 +36,7 @@ interface Key_Value extends With_Key {
 	/**
 	 * Updates the value for the item.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $value New value to set for the item.
 	 * @return bool True on success, false on failure.
@@ -46,7 +46,7 @@ interface Key_Value extends With_Key {
 	/**
 	 * Deletes the data for the item.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True on success, false on failure.
 	 */

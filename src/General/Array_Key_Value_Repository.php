@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Array_Key_Value_Repository
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Key_Value_Repository;
 /**
  * Class for a repository that stores keys and values in an array.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Array_Key_Value_Repository implements Key_Value_Repository {
 
 	/**
 	 * The items in the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, mixed>
 	 */
 	private $items = array();
@@ -28,7 +28,7 @@ class Array_Key_Value_Repository implements Key_Value_Repository {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $initial_items Optional. Initial keys and values. Default empty array.
 	 */
@@ -39,7 +39,7 @@ class Array_Key_Value_Repository implements Key_Value_Repository {
 	/**
 	 * Checks whether a value for the given key exists in the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Item key.
 	 * @return bool True if a value for the key exists, false otherwise.
@@ -51,7 +51,7 @@ class Array_Key_Value_Repository implements Key_Value_Repository {
 	/**
 	 * Gets the value for a given key from the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key     Item key.
 	 * @param mixed  $default Optional. Value to return if no value exists for the key. Default null.
@@ -64,7 +64,7 @@ class Array_Key_Value_Repository implements Key_Value_Repository {
 	/**
 	 * Updates the value for a given key in the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key   Item key.
 	 * @param mixed  $value New value to set for the key.
@@ -78,7 +78,7 @@ class Array_Key_Value_Repository implements Key_Value_Repository {
 	/**
 	 * Deletes the data for a given key from the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Item key.
 	 * @return bool True on success, false on failure.

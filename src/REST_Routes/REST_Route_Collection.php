@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\REST_Route_Collection
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -17,14 +17,14 @@ use Traversable;
 /**
  * Class for a collection of REST routes.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class REST_Route_Collection implements Collection {
 
 	/**
 	 * REST routes stored in the collection.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var REST_Route[]
 	 */
 	private $routes = array();
@@ -32,7 +32,7 @@ class REST_Route_Collection implements Collection {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param REST_Route[] $routes List of REST route instances.
 	 *
@@ -52,7 +52,7 @@ class REST_Route_Collection implements Collection {
 	/**
 	 * Returns an iterator for the collection.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return ArrayIterator<int, REST_Route> Collection iterator.
 	 */
@@ -63,7 +63,7 @@ class REST_Route_Collection implements Collection {
 	/**
 	 * Returns the size of the collection.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int Collection size.
 	 */

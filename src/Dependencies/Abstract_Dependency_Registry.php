@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Dependencies\Abstract_Dependency_Registry
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Dependencies\Contracts\Dependency_Registry;
 /**
  * Base class for a registry of dependencies, including support for providing manifest files.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 abstract class Abstract_Dependency_Registry implements Dependency_Registry {
 
 	/**
 	 * Parses the given dependency arguments with relevant defaults.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $args Dependency registration arguments.
 	 * @return array<string, mixed> Parsed dependency registration arguments.
@@ -58,7 +58,7 @@ abstract class Abstract_Dependency_Registry implements Dependency_Registry {
 	 *
 	 * The keys 'src' and 'deps' do not need to be included as they are universal defaults for any dependency type.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Dependency registration defaults.
 	 */
@@ -67,7 +67,7 @@ abstract class Abstract_Dependency_Registry implements Dependency_Registry {
 	/**
 	 * Parses the given dependency arguments with arguments returned by the given manifest PHP file.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string               $manifest Full path of a PHP file which returns arguments for the dependency.
 	 * @param array<string, mixed> $args     Dependency registration arguments.

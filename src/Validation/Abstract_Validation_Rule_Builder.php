@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Abstract_Validation_Rule_Builder
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -20,14 +20,14 @@ use WP_Error;
  *
  * Validation rule builders provide a convenience layer to compose a single validation rule out of multiple rules.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 abstract class Abstract_Validation_Rule_Builder implements Validation_Rule_Builder {
 
 	/**
 	 * Validation rules set for this instance.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var Validation_Rule[]
 	 */
 	private $rules = array();
@@ -35,7 +35,7 @@ abstract class Abstract_Validation_Rule_Builder implements Validation_Rule_Build
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Validation_Rule[] $initial_rules Optional. Initial validation rules to use for the builder.
 	 */
@@ -49,7 +49,7 @@ abstract class Abstract_Validation_Rule_Builder implements Validation_Rule_Build
 	/**
 	 * Adds the given rule to the rules for the builder.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Validation_Rule $rule Rule to add.
 	 * @return Validation_Rule_Builder Builder instance for chaining.
@@ -74,7 +74,7 @@ abstract class Abstract_Validation_Rule_Builder implements Validation_Rule_Build
 	/**
 	 * Gets the combined validation rule consisting of all rules present in the builder.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return Validation_Rule Combined validation rule.
 	 */
@@ -85,7 +85,7 @@ abstract class Abstract_Validation_Rule_Builder implements Validation_Rule_Build
 	/**
 	 * Returns a WordPress option 'sanitize_callback' consisting of all rules present in the builder.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return callable Callback function to register as an option 'sanitize_callback'.
 	 */
@@ -100,7 +100,7 @@ abstract class Abstract_Validation_Rule_Builder implements Validation_Rule_Build
 	/**
 	 * Returns a WordPress REST API 'sanitize_callback' consisting of all rules present in the builder.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return callable Callback function to register as an REST API 'sanitize_callback'.
 	 */
@@ -112,7 +112,7 @@ abstract class Abstract_Validation_Rule_Builder implements Validation_Rule_Build
 	/**
 	 * Returns a WordPress REST API 'validate_callback' consisting of all rules present in the builder.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return callable Callback function to register as an REST API 'validate_callback'.
 	 */
@@ -141,7 +141,7 @@ abstract class Abstract_Validation_Rule_Builder implements Validation_Rule_Build
 	/**
 	 * Returns the array of validation rules in the builder.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return Validation_Rule[] Validation rules for the builder instance.
 	 */
@@ -152,7 +152,7 @@ abstract class Abstract_Validation_Rule_Builder implements Validation_Rule_Build
 	/**
 	 * Checks whether the given rule is allowed by the builder.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Validation_Rule $rule Rule to check.
 	 * @return bool True if the rule is allowed, false otherwise.

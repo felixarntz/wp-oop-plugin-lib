@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\Abstract_REST_Resource_Schema
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -19,14 +19,14 @@ use WP_REST_Server;
 /**
  * Base class representing a WordPress REST API resource schema.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 
 	/**
 	 * Namespace to use for all routes.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var REST_Namespace
 	 */
 	private $route_namespace;
@@ -34,7 +34,7 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 	/**
 	 * Internal resource schema definition.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, mixed>
 	 */
 	private $schema;
@@ -42,7 +42,7 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param REST_Namespace $route_namespace Namespace to use for all routes.
 	 */
@@ -54,7 +54,7 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 	/**
 	 * Prepares the given resource for a response, based on the request fields.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Entity          $entity  The entity to prepare.
 	 * @param WP_REST_Request $request Request object.
@@ -79,7 +79,7 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 	/**
 	 * Prepares the resources from the given query for a response, based on the request fields.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Entity_Query    $query   The entity query to prepare.
 	 * @param WP_REST_Request $request Request object.
@@ -139,7 +139,7 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 	/**
 	 * Gets the public schema definition for the resource.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Public resource schema definition.
 	 */
@@ -158,7 +158,7 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 	/**
 	 * Retrieves the arguments definition based on the resource schema.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $method Optional. HTTP method of the request. Default WP_REST_Server::CREATABLE.
 	 * @return array<string, mixed> Arguments definition.
@@ -189,7 +189,7 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 	 *
 	 * This is mostly a copy of {@see WP_REST_Controller::get_fields_for_response()}.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param WP_REST_Request $request Request object.
 	 * @return string[] Fields to be included in the response.
@@ -262,7 +262,7 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 	 *
 	 * This is mostly a copy of {@see WP_REST_Controller::get_context_param()}.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Context parameter details.
 	 */
@@ -301,7 +301,7 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 	/**
 	 * Determines whether the provided field should be included in the response.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string   $field  A field to test for inclusion in the response body.
 	 * @param string[] $fields An array of string fields supported by the endpoint.
@@ -314,7 +314,7 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 	/**
 	 * Gets the route URL for a given REST base, including the REST namespace.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $rest_base REST route base.
 	 * @return string Full REST route URL.
@@ -326,7 +326,7 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 	/**
 	 * Prepares the given resource for inclusion in a response, based on the given fields.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed    $entity The entity to prepare.
 	 * @param string[] $fields Fields to be included in the response.
@@ -337,7 +337,7 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 	/**
 	 * Prepares links for the given resource.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $entity The entity to prepare links for.
 	 * @return array<string, array<string, mixed>> Links for the given resource.
@@ -347,7 +347,7 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 	/**
 	 * Returns the full URL to the resource's collection route.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Full collection route URL.
 	 */
@@ -356,7 +356,7 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 	/**
 	 * Returns the internal resource schema definition.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Internal resource schema definition.
 	 */

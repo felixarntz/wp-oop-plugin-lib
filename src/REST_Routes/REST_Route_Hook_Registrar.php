@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\REST_Route_Hook_Registrar
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Hook_Registrar;
 /**
  * Class that adds the relevant hook to register WordPress REST routes.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class REST_Route_Hook_Registrar implements Hook_Registrar {
 
 	/**
 	 * WordPress REST route registry instance.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var REST_Route_Registry
 	 */
 	private $registry;
@@ -40,7 +40,7 @@ class REST_Route_Hook_Registrar implements Hook_Registrar {
 	 * The callback receives a registry instance as the sole parameter, allowing to call the
 	 * {@see REST_Route_Registry::register()} method.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param callable $register_callback Callback to register the REST routes.
 	 */

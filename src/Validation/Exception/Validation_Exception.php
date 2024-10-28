@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Exception\Validation_Exception
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,14 +14,14 @@ use WP_Error;
 /**
  * Exception class for when validation of a value fails.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Validation_Exception extends WP_Error_Exception {
 
 	/**
 	 * Creates a new validation exception based on error code, and error message.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $error_code Text based error code.
 	 * @param string $message    Error message.
@@ -36,7 +36,7 @@ class Validation_Exception extends WP_Error_Exception {
 	/**
 	 * Creates a new validation exception from the given WP_Error object.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param WP_Error $error WP_Error object.
 	 * @return Validation_Exception New exception instance.

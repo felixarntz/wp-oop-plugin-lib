@@ -2,7 +2,7 @@
 /**
  * Interface Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Registry
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -11,14 +11,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts;
 /**
  * Interface for a registry of items.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 interface Registry {
 
 	/**
 	 * Registers an item with the given key and arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string               $key  Item key.
 	 * @param array<string, mixed> $args Item registration arguments.
@@ -29,7 +29,7 @@ interface Registry {
 	/**
 	 * Checks whether an item with the given key is registered.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Item key.
 	 * @return bool True if the item is registered, false otherwise.
@@ -39,7 +39,7 @@ interface Registry {
 	/**
 	 * Gets the registered item for the given key from the registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Item key.
 	 * @return object|null The registered item definition, or `null` if not registered.
@@ -49,7 +49,7 @@ interface Registry {
 	/**
 	 * Gets all items from the registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Associative array of keys and their item definitions, or empty array if nothing is
 	 *                              registered.

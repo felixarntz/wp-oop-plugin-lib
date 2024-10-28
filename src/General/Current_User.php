@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Current_User
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,14 +14,14 @@ use WP_User;
 /**
  * Class representing the current user.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Current_User implements With_Capabilities {
 
 	/**
 	 * Gets the current user ID.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int The current user ID, or `0` if no user is signed in.
 	 */
@@ -32,7 +32,7 @@ class Current_User implements With_Capabilities {
 	/**
 	 * Gets the current user entity.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return WP_User The current user object. Will be a stub if no user is signed in.
 	 */
@@ -43,7 +43,7 @@ class Current_User implements With_Capabilities {
 	/**
 	 * Sets the current user to the one with the given ID.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $id User ID.
 	 */
@@ -54,7 +54,7 @@ class Current_User implements With_Capabilities {
 	/**
 	 * Checks whether current user is logged in.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True if the user is logged in, false otherwise.
 	 */
@@ -65,7 +65,7 @@ class Current_User implements With_Capabilities {
 	/**
 	 * Checks whether the current user has the given capability.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $cap     Capability name.
 	 * @param mixed  ...$args Optional further parameters, typically starting with an entity ID.
@@ -78,7 +78,7 @@ class Current_User implements With_Capabilities {
 	/**
 	 * Creates a cryptographic token tied to the given action and the current user session.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $action Action to add context to the nonce.
 	 * @return string The token.
@@ -90,7 +90,7 @@ class Current_User implements With_Capabilities {
 	/**
 	 * Verifies that the given security nonce is correct for the given action and the current user session.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $nonce  Nonce value to verify.
 	 * @param string $action Action context for the nonce.
@@ -105,7 +105,7 @@ class Current_User implements With_Capabilities {
 	 *
 	 * By default, super admins have access to all capabilities, unless explicitly denied to everyone.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True if the user is a super admin, false otherwise.
 	 */

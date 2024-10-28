@@ -2,7 +2,7 @@
 /**
  * Interface Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Collection
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -15,14 +15,14 @@ use Traversable;
 /**
  * Interface for a collection.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 interface Collection extends IteratorAggregate, Countable {
 
 	/**
 	 * Returns an iterator for the collection.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return Traversable Collection iterator.
 	 */
@@ -31,7 +31,7 @@ interface Collection extends IteratorAggregate, Countable {
 	/**
 	 * Returns the size of the collection.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int Collection size.
 	 */

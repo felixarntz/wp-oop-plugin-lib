@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Invalid_Type_Exception
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,7 +13,7 @@ use RuntimeException;
 /**
  * Exception class for when a value has an invalid type.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Invalid_Type_Exception extends RuntimeException {
 

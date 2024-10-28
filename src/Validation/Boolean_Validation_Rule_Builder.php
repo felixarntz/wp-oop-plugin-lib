@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Boolean_Validation_Rule_Builder
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -16,14 +16,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Boolean_Validation_Rule;
 /**
  * Class for a boolean validation rule builder.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Boolean_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Validation_Rule[] $initial_rules Optional. Initial validation rules to use for the builder.
 	 * @param bool              $strict        Optional. True to enable strict mode, false to disable it. Default
@@ -39,7 +39,7 @@ class Boolean_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	/**
 	 * Checks whether the given rule is allowed by the builder.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Validation_Rule $rule Rule to check.
 	 * @return bool True if the rule is allowed, false otherwise.

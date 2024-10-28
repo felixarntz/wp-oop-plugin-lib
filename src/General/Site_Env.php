@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Site_Env
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -11,14 +11,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\General;
 /**
  * Read-only class containing utilities for the site environment.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Site_Env {
 
 	/**
 	 * Returns the site ID.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int The site ID.
 	 */
@@ -29,7 +29,7 @@ class Site_Env {
 	/**
 	 * Returns information about the site.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @see get_bloginfo()
 	 *
 	 * @param string $field The site field to retrieve.
@@ -42,7 +42,7 @@ class Site_Env {
 	/**
 	 * Returns the site URL, i.e. relative to the home page.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $relative_path Optional. Relative path. Default '/'.
 	 * @return string The site URL.
@@ -54,7 +54,7 @@ class Site_Env {
 	/**
 	 * Returns the site's WordPress URL, in which WordPress core is installed.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $relative_path Optional. Relative path. Default '/'.
 	 * @return string The WordPress URL.
@@ -66,7 +66,7 @@ class Site_Env {
 	/**
 	 * Returns the site admin URL (typically the 'wp-admin' directory within the WordPress URL).
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $relative_path Optional. Relative path. Default '/'.
 	 * @return string The admin URL.
@@ -80,7 +80,7 @@ class Site_Env {
 	 *
 	 * Does not include network-activated plugins (relevant for multisite installations).
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string[] List of plugin basenames, relative to the plugins directory.
 	 */
@@ -99,7 +99,7 @@ class Site_Env {
 	 *
 	 * This is either just the active theme, or the active theme and the child theme if a child theme is active.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string[] List of theme directories, relative to the themes directory.
 	 */

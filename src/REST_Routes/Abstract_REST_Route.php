@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\Abstract_REST_Route
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -17,14 +17,14 @@ use WP_REST_Response;
 /**
  * Base class representing a WordPress REST API route.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 abstract class Abstract_REST_Route implements REST_Route {
 
 	/**
 	 * Route base.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $base;
@@ -32,7 +32,7 @@ abstract class Abstract_REST_Route implements REST_Route {
 	/**
 	 * Route methods, as a comma-separated string.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $methods;
@@ -40,7 +40,7 @@ abstract class Abstract_REST_Route implements REST_Route {
 	/**
 	 * Route arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, mixed>
 	 */
 	private $args;
@@ -48,7 +48,7 @@ abstract class Abstract_REST_Route implements REST_Route {
 	/**
 	 * Global route arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, mixed>
 	 */
 	private $global_args = array();
@@ -56,7 +56,7 @@ abstract class Abstract_REST_Route implements REST_Route {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 */
 	public function __construct() {
 		$this->base        = $this->base();
@@ -68,7 +68,7 @@ abstract class Abstract_REST_Route implements REST_Route {
 	/**
 	 * Gets the route base.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Route base.
 	 */
@@ -79,7 +79,7 @@ abstract class Abstract_REST_Route implements REST_Route {
 	/**
 	 * Gets the registration arguments for the route.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Route registration arguments.
 	 */
@@ -93,7 +93,7 @@ abstract class Abstract_REST_Route implements REST_Route {
 	/**
 	 * Gets the method specific route handler arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Route handler arguments.
 	 */
@@ -124,7 +124,7 @@ abstract class Abstract_REST_Route implements REST_Route {
 	/**
 	 * Gets the global route arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Global route arguments.
 	 */
@@ -135,7 +135,7 @@ abstract class Abstract_REST_Route implements REST_Route {
 	/**
 	 * Returns the query arguments 'number' and 'offset' from the given request's pagination arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param WP_REST_Request $request WordPress REST request object, including parameters.
 	 * @return array<string, mixed> Associative array with 'number' and 'offset' keys.
@@ -155,7 +155,7 @@ abstract class Abstract_REST_Route implements REST_Route {
 	 *
 	 * This is a partial copy of {@see WP_REST_Controller::get_collection_params()}.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Arguments definition.
 	 */
@@ -184,7 +184,7 @@ abstract class Abstract_REST_Route implements REST_Route {
 	/**
 	 * Returns the route base.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Route base.
 	 */
@@ -193,7 +193,7 @@ abstract class Abstract_REST_Route implements REST_Route {
 	/**
 	 * Returns the route methods, as a comma-separated string.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Route methods, as a comma-separated string.
 	 */
@@ -202,7 +202,7 @@ abstract class Abstract_REST_Route implements REST_Route {
 	/**
 	 * Checks the required permissions for the given request and throws an exception if they aren't met.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param WP_REST_Request $request WordPress REST request object, including parameters.
 	 *
@@ -213,7 +213,7 @@ abstract class Abstract_REST_Route implements REST_Route {
 	/**
 	 * Handles the given request and returns a response.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param WP_REST_Request $request WordPress REST request object, including parameters.
 	 * @return WP_REST_Response WordPress REST response object.
@@ -225,7 +225,7 @@ abstract class Abstract_REST_Route implements REST_Route {
 	/**
 	 * Returns the route specific arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Route arguments.
 	 */
@@ -234,7 +234,7 @@ abstract class Abstract_REST_Route implements REST_Route {
 	/**
 	 * Returns the global route arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Global route arguments.
 	 */
@@ -243,7 +243,7 @@ abstract class Abstract_REST_Route implements REST_Route {
 	/**
 	 * Returns a new WP_Error object for the given REST exception.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param REST_Exception $e REST exception.
 	 * @return WP_Error WordPress error object for the REST exception.

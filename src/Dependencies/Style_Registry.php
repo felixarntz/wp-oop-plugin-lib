@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Dependencies\Style_Registry
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,14 +14,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Dependencies\Contracts\With_Inline_Code;
 /**
  * Class for a registry of stylesheets.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Style_Registry extends Abstract_Dependency_Registry implements With_Inline_Code {
 
 	/**
 	 * Registers a stylesheet with the given handle and arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string               $key  Stylesheet handle.
 	 * @param array<string, mixed> $args {
@@ -76,7 +76,7 @@ class Style_Registry extends Abstract_Dependency_Registry implements With_Inline
 	/**
 	 * Checks whether a stylesheet with the given handle is registered.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Stylesheet handle.
 	 * @return bool True if the stylesheet is registered, false otherwise.
@@ -88,7 +88,7 @@ class Style_Registry extends Abstract_Dependency_Registry implements With_Inline
 	/**
 	 * Gets the registered stylesheet for the given handle from the registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Stylesheet handle.
 	 * @return _WP_Dependency|null The registered stylesheet definition, or `null` if not registered.
@@ -102,7 +102,7 @@ class Style_Registry extends Abstract_Dependency_Registry implements With_Inline
 	/**
 	 * Gets all stylesheets from the registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, _WP_Dependency> Associative array of handles and their stylesheet definitions, or empty
 	 *                                       array if nothing is registered.
@@ -114,7 +114,7 @@ class Style_Registry extends Abstract_Dependency_Registry implements With_Inline
 	/**
 	 * Enqueues the stylesheet with the given handle.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Stylesheet handle.
 	 */
@@ -125,7 +125,7 @@ class Style_Registry extends Abstract_Dependency_Registry implements With_Inline
 	/**
 	 * Dequeues the stylesheet with the given handle.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Stylesheet handle.
 	 */
@@ -136,7 +136,7 @@ class Style_Registry extends Abstract_Dependency_Registry implements With_Inline
 	/**
 	 * Checks whether the stylesheet with the given handle is enqueued.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Stylesheet handle.
 	 * @return bool True if the stylesheet is enqueued, false otherwise.
@@ -148,7 +148,7 @@ class Style_Registry extends Abstract_Dependency_Registry implements With_Inline
 	/**
 	 * Adds inline code to the stylesheet with the given handle.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key  Stylesheet handle.
 	 * @param string $code CSS code to inline after the stylesheet output.
@@ -163,7 +163,7 @@ class Style_Registry extends Abstract_Dependency_Registry implements With_Inline
 	 *
 	 * The keys 'src' and 'deps' do not need to be included as they are universal defaults for any dependency type.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Stylesheet registration defaults.
 	 */

@@ -2,7 +2,7 @@
 /**
  * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\Entity_Key_Value_Repository
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -11,14 +11,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts;
 /**
  * Interface for a repository for key-value pairs that are connected to an entity.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 interface Entity_Key_Value_Repository {
 
 	/**
 	 * Checks whether a value for the given entity and key exists in the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int    $entity_id Entity ID.
 	 * @param string $key       Item key.
@@ -31,7 +31,7 @@ interface Entity_Key_Value_Repository {
 	 *
 	 * Always returns a single value.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int    $entity_id Entity ID.
 	 * @param string $key       Item key.
@@ -43,7 +43,7 @@ interface Entity_Key_Value_Repository {
 	/**
 	 * Updates the value for a given entity and key in the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int    $entity_id Entity ID.
 	 * @param string $key       Item key.
@@ -55,7 +55,7 @@ interface Entity_Key_Value_Repository {
 	/**
 	 * Deletes the data for a given entity and key from the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int    $entity_id Entity ID.
 	 * @param string $key       Item key.

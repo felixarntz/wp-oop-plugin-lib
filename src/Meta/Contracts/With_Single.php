@@ -2,7 +2,7 @@
 /**
  * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\With_Single
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -12,14 +12,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts;
  * Interface for a key-value pair repository with support for differentiating between entries with a single value vs
  * with multiple values.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 interface With_Single {
 
 	/**
 	 * Gets the 'single' config for a given key in the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Item key.
 	 * @return bool Whether or not the item should be singleed.
@@ -29,7 +29,7 @@ interface With_Single {
 	/**
 	 * Sets the 'single' config for a given key in the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key      Item key.
 	 * @param bool   $single Item single config.

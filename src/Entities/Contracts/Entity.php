@@ -2,7 +2,7 @@
 /**
  * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts\Entity
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -11,14 +11,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts;
 /**
  * Interface for an entity.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 interface Entity {
 
 	/**
 	 * Gets the entity ID.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int The entity ID.
 	 */
@@ -27,7 +27,7 @@ interface Entity {
 	/**
 	 * Checks whether the entity is publicly accessible.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True if the entity is public, false otherwise.
 	 */
@@ -36,7 +36,7 @@ interface Entity {
 	/**
 	 * Gets the entity's primary URL.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Primary entity URL, or empty string if none.
 	 */
@@ -45,7 +45,7 @@ interface Entity {
 	/**
 	 * Gets the entity's edit URL, if the current user is able to edit it.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string URL to edit the entity, or empty string if unable to edit.
 	 */
@@ -54,7 +54,7 @@ interface Entity {
 	/**
 	 * Gets the value for the given field of the entity.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $field The field identifier.
 	 * @return mixed Value for the field, `null` if not set.

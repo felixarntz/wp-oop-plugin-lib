@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Meta_Registry
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Registry;
 /**
  * Class for a registry of WordPress metadata.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Meta_Registry implements Registry {
 
 	/**
 	 * Object type.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	protected $object_type;
@@ -28,7 +28,7 @@ class Meta_Registry implements Registry {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $object_type Object type.
 	 */
@@ -39,7 +39,7 @@ class Meta_Registry implements Registry {
 	/**
 	 * Registers a metadata item with the given key and arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string               $key  Meta key.
 	 * @param array<string, mixed> $args Meta key registration arguments.
@@ -52,7 +52,7 @@ class Meta_Registry implements Registry {
 	/**
 	 * Checks whether a metadata item with the given key is registered.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Meta key.
 	 * @return bool True if the metadata item is registered, false otherwise.
@@ -64,7 +64,7 @@ class Meta_Registry implements Registry {
 	/**
 	 * Gets the registered metadata item for the given key from the registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Meta key.
 	 * @return object|null The registered metadata definition, or `null` if not registered.
@@ -80,7 +80,7 @@ class Meta_Registry implements Registry {
 	/**
 	 * Gets all metadata items from the registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Associative array of keys and their metadata definitions, or empty array if nothing
 	 *                              is registered.

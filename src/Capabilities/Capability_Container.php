@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Capability_Container
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -17,14 +17,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Not_Found_Exception;
 /**
  * Class for a capability container.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Capability_Container implements Container, ArrayAccess {
 
 	/**
 	 * Capabilities stored in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, callable>
 	 */
 	private $capabilities = array();
@@ -32,7 +32,7 @@ class Capability_Container implements Container, ArrayAccess {
 	/**
 	 * Capability instances already created.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, Capability>
 	 */
 	private $instances = array();
@@ -40,7 +40,7 @@ class Capability_Container implements Container, ArrayAccess {
 	/**
 	 * Checks if a capability for the given key exists in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Capability key.
 	 * @return bool True if the capability exists in the container, false otherwise.
@@ -52,7 +52,7 @@ class Capability_Container implements Container, ArrayAccess {
 	/**
 	 * Gets the capability for the given key from the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Capability key.
 	 * @return Capability Capability for the given key.
@@ -95,7 +95,7 @@ class Capability_Container implements Container, ArrayAccess {
 	/**
 	 * Sets the given capability under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string   $key     Capability key.
 	 * @param callable $creator Capability creator closure.
@@ -108,7 +108,7 @@ class Capability_Container implements Container, ArrayAccess {
 	/**
 	 * Sets a capability using the given required capabilities under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string            $key           Capability key.
 	 * @param string[]|callable $required_caps Array with required base capabilities if this is a base capability,
@@ -130,7 +130,7 @@ class Capability_Container implements Container, ArrayAccess {
 	/**
 	 * Unsets the capability under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Capability key.
 	 */
@@ -141,7 +141,7 @@ class Capability_Container implements Container, ArrayAccess {
 	/**
 	 * Gets all keys in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string[] List of keys.
 	 */
@@ -152,7 +152,7 @@ class Capability_Container implements Container, ArrayAccess {
 	/**
 	 * Checks if a capability for the given key exists in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key Capability key.
 	 * @return bool True if the capability exists in the container, false otherwise.
@@ -165,7 +165,7 @@ class Capability_Container implements Container, ArrayAccess {
 	/**
 	 * Gets the capability for the given key from the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key Capability key.
 	 * @return Capability Capability for the given key.
@@ -178,7 +178,7 @@ class Capability_Container implements Container, ArrayAccess {
 	/**
 	 * Sets the given capability under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key   Capability key.
 	 * @param mixed $value Capability creator closure.
@@ -191,7 +191,7 @@ class Capability_Container implements Container, ArrayAccess {
 	/**
 	 * Unsets the capability under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key Capability key.
 	 */

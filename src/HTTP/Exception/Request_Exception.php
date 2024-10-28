@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\Exception\Request_Exception
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,7 +13,7 @@ use RuntimeException;
 /**
  * Exception class for when an HTTP request fails.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Request_Exception extends RuntimeException {
 

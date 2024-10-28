@@ -2,7 +2,7 @@
 /**
  * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts\Entity_Query
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -11,14 +11,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts;
 /**
  * Interface for a query for entities.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 interface Entity_Query {
 
 	/**
 	 * Runs the query to get entities.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return Entity[] List of entities.
 	 */
@@ -27,7 +27,7 @@ interface Entity_Query {
 	/**
 	 * Runs the query to get entity IDs.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int[] List of entity IDs.
 	 */
@@ -36,7 +36,7 @@ interface Entity_Query {
 	/**
 	 * Runs the query to get the entity count.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int Entity count.
 	 */

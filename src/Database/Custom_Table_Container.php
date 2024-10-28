@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Database\Custom_Table_Container
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -17,14 +17,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Not_Found_Exception;
 /**
  * Class for a custom database table container.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Custom_Table_Container implements Container, ArrayAccess {
 
 	/**
 	 * Custom tables stored in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, callable>
 	 */
 	private $tables = array();
@@ -32,7 +32,7 @@ class Custom_Table_Container implements Container, ArrayAccess {
 	/**
 	 * Custom table instances already created.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, Custom_Table>
 	 */
 	private $instances = array();
@@ -40,7 +40,7 @@ class Custom_Table_Container implements Container, ArrayAccess {
 	/**
 	 * Checks if a custom database table for the given key exists in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Custom table key.
 	 * @return bool True if the custom database table exists in the container, false otherwise.
@@ -52,7 +52,7 @@ class Custom_Table_Container implements Container, ArrayAccess {
 	/**
 	 * Gets the custom database table for the given key from the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Custom table key.
 	 * @return Custom_Table Custom table for the given key.
@@ -97,7 +97,7 @@ class Custom_Table_Container implements Container, ArrayAccess {
 	 *
 	 * This method will also register the table key in the `$wpdb` global database object.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string   $key     Custom table key.
 	 * @param callable $creator Custom table creator closure.
@@ -117,7 +117,7 @@ class Custom_Table_Container implements Container, ArrayAccess {
 	/**
 	 * Sets a custom database table using the given repository and arguments under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string                $key    Database table key.
 	 * @param Database_Table_Schema $schema Database table schema.
@@ -136,7 +136,7 @@ class Custom_Table_Container implements Container, ArrayAccess {
 	 *
 	 * This method will also unregister the table key in the `$wpdb` global database object.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Custom table key.
 	 */
@@ -155,7 +155,7 @@ class Custom_Table_Container implements Container, ArrayAccess {
 	/**
 	 * Gets all keys in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string[] List of keys.
 	 */
@@ -166,7 +166,7 @@ class Custom_Table_Container implements Container, ArrayAccess {
 	/**
 	 * Checks if a custom database table for the given key exists in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key Custom table key.
 	 * @return bool True if the custom database table exists in the container, false otherwise.
@@ -179,7 +179,7 @@ class Custom_Table_Container implements Container, ArrayAccess {
 	/**
 	 * Gets the custom database table for the given key from the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key Custom table key.
 	 * @return Custom_Table Custom table for the given key.
@@ -192,7 +192,7 @@ class Custom_Table_Container implements Container, ArrayAccess {
 	/**
 	 * Sets the given database table under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key   Custom table key.
 	 * @param mixed $value Custom table creator closure.
@@ -205,7 +205,7 @@ class Custom_Table_Container implements Container, ArrayAccess {
 	/**
 	 * Unsets the custom database table under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key Custom table key.
 	 */

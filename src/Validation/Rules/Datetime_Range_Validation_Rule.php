@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Datetime_Range_Validation_Rule
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -18,7 +18,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Traits\Type_Support;
 /**
  * Class for a validation rule that ensures values fall within a date-time or date range.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Datetime_Range_Validation_Rule implements Validation_Rule, With_Type_Support {
 	use Cast_Value_By_Type;
@@ -27,7 +27,7 @@ class Datetime_Range_Validation_Rule implements Validation_Rule, With_Type_Suppo
 	/**
 	 * Minimum date-time or date allowed.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $min_datetime;
@@ -35,7 +35,7 @@ class Datetime_Range_Validation_Rule implements Validation_Rule, With_Type_Suppo
 	/**
 	 * Maximum date-time or date allowed.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $max_datetime;
@@ -43,7 +43,7 @@ class Datetime_Range_Validation_Rule implements Validation_Rule, With_Type_Suppo
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $min_datetime Minimum date-time or date allowed.
 	 * @param string $max_datetime Optional. Maximum date-time or date allowed. Default no limit.
@@ -60,7 +60,7 @@ class Datetime_Range_Validation_Rule implements Validation_Rule, With_Type_Suppo
 	 *
 	 * Validation will be strict and throw an exception for any unmet requirements.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $value Value to validate.
 	 *
@@ -100,7 +100,7 @@ class Datetime_Range_Validation_Rule implements Validation_Rule, With_Type_Suppo
 	 * This should be called before storing the value in the persistency layer (e.g. the database).
 	 * If the value does not satisfy validation requirements, it will be sanitized to a value that does, e.g. a default.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $value Value to sanitize.
 	 * @return mixed Sanitized value.
@@ -144,7 +144,7 @@ class Datetime_Range_Validation_Rule implements Validation_Rule, With_Type_Suppo
 	/**
 	 * Gets the supported types for the validation rule.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int One or more of the type constants from the Types interface, combined with a bitwise OR.
 	 */
@@ -155,7 +155,7 @@ class Datetime_Range_Validation_Rule implements Validation_Rule, With_Type_Suppo
 	/**
 	 * Checks whether the given string is a date string (as opposed to a date-time string).
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $value Date or date-time string.
 	 * @return bool True if a date string, false otherwise.

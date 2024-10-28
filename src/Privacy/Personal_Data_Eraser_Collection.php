@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Privacy\Personal_Data_Eraser_Collection
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -17,14 +17,14 @@ use Traversable;
 /**
  * Class for a collection of personal data erasers.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Personal_Data_Eraser_Collection implements Collection {
 
 	/**
 	 * Personal data erasers stored in the collection.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var Personal_Data_Eraser[]
 	 */
 	private $erasers = array();
@@ -32,7 +32,7 @@ class Personal_Data_Eraser_Collection implements Collection {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Personal_Data_Eraser[] $erasers List of personal data eraser instances.
 	 *
@@ -52,7 +52,7 @@ class Personal_Data_Eraser_Collection implements Collection {
 	/**
 	 * Returns an iterator for the collection.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return ArrayIterator<int, Personal_Data_Eraser> Collection iterator.
 	 */
@@ -63,7 +63,7 @@ class Personal_Data_Eraser_Collection implements Collection {
 	/**
 	 * Returns the size of the collection.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int Collection size.
 	 */

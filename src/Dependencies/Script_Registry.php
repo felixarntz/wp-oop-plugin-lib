@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Dependencies\Script_Registry
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,14 +14,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Dependencies\Contracts\With_Inline_Code;
 /**
  * Class for a registry of scripts.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Script_Registry extends Abstract_Dependency_Registry implements With_Inline_Code {
 
 	/**
 	 * Registers a script with the given handle and arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string               $key  Script handle.
 	 * @param array<string, mixed> $args {
@@ -70,7 +70,7 @@ class Script_Registry extends Abstract_Dependency_Registry implements With_Inlin
 	/**
 	 * Checks whether a script with the given handle is registered.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Script handle.
 	 * @return bool True if the script is registered, false otherwise.
@@ -82,7 +82,7 @@ class Script_Registry extends Abstract_Dependency_Registry implements With_Inlin
 	/**
 	 * Gets the registered script for the given handle from the registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Script handle.
 	 * @return _WP_Dependency|null The registered script definition, or `null` if not registered.
@@ -96,7 +96,7 @@ class Script_Registry extends Abstract_Dependency_Registry implements With_Inlin
 	/**
 	 * Gets all scripts from the registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, _WP_Dependency> Associative array of handles and their script definitions, or empty array
 	 *                                       if nothing is registered.
@@ -108,7 +108,7 @@ class Script_Registry extends Abstract_Dependency_Registry implements With_Inlin
 	/**
 	 * Enqueues the script with the given handle.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Script handle.
 	 */
@@ -119,7 +119,7 @@ class Script_Registry extends Abstract_Dependency_Registry implements With_Inlin
 	/**
 	 * Dequeues the script with the given handle.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Script handle.
 	 */
@@ -130,7 +130,7 @@ class Script_Registry extends Abstract_Dependency_Registry implements With_Inlin
 	/**
 	 * Checks whether the script with the given handle is enqueued.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Script handle.
 	 * @return bool True if the script is enqueued, false otherwise.
@@ -142,7 +142,7 @@ class Script_Registry extends Abstract_Dependency_Registry implements With_Inlin
 	/**
 	 * Adds inline code to the script with the given handle.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key  Script handle.
 	 * @param string $code JavaScript code to inline after the script output.
@@ -157,7 +157,7 @@ class Script_Registry extends Abstract_Dependency_Registry implements With_Inlin
 	 *
 	 * The keys 'src' and 'deps' do not need to be included as they are universal defaults for any dependency type.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Script registration defaults.
 	 */

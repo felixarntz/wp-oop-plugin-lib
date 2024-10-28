@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Array_Validation_Rule_Builder
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -20,14 +20,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Unique_Items_Validation_Rule;
 /**
  * Class for an array validation rule builder.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Array_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Validation_Rule[] $initial_rules Optional. Initial validation rules to use for the builder.
 	 * @param bool              $strict        Optional. True to enable strict mode, false to disable it. Default
@@ -43,7 +43,7 @@ class Array_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	/**
 	 * Adds an array item validation rule.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Validation_Rule $item_validation_rule Validation rule to validate all array items with.
 	 * @return Validation_Rule_Builder Builder instance for chaining.
@@ -57,7 +57,7 @@ class Array_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	/**
 	 * Adds an array item count range validation rule.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $min_count Optional. Minimum count allowed. Default 0 (no limit).
 	 * @param int $max_count Optional. Maximum count allowed. Default 0 (no limit).
@@ -70,7 +70,7 @@ class Array_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	/**
 	 * Adds a unique array items validation rule.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return Validation_Rule_Builder Builder instance for chaining.
 	 */
@@ -81,7 +81,7 @@ class Array_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	/**
 	 * Checks whether the given rule is allowed by the builder.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Validation_Rule $rule Rule to check.
 	 * @return bool True if the rule is allowed, false otherwise.

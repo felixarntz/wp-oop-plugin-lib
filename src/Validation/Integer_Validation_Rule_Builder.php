@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Integer_Validation_Rule_Builder
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -21,14 +21,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Regexp_Validation_Rule;
 /**
  * Class for an integer validation rule builder.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Integer_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Validation_Rule[] $initial_rules Optional. Initial validation rules to use for the builder.
 	 * @param bool              $strict        Optional. True to enable strict mode, false to disable it. Default
@@ -44,7 +44,7 @@ class Integer_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	/**
 	 * Adds a regular expression validation rule.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $regexp Regular expression to match.
 	 * @return Validation_Rule_Builder Builder instance for chaining.
@@ -56,7 +56,7 @@ class Integer_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	/**
 	 * Adds a date-time or date range validation rule.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $min_datetime Minimum date-time or date allowed.
 	 * @param string $max_datetime Optional. Maximum date-time or date allowed. Default no limit.
@@ -69,7 +69,7 @@ class Integer_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	/**
 	 * Adds a numeric range validation rule.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int|float $min Minimum value allowed.
 	 * @param int|float $max Optional. Maximum value allowed. Default no limit.
@@ -82,7 +82,7 @@ class Integer_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	/**
 	 * Adds an enum validation rule.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed[] $allowed_values List of values to allow.
 	 * @param bool    $strict         Optional. True to enable strict mode, false to disable it. Default false.
@@ -97,7 +97,7 @@ class Integer_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	/**
 	 * Checks whether the given rule is allowed by the builder.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Validation_Rule $rule Rule to check.
 	 * @return bool True if the rule is allowed, false otherwise.

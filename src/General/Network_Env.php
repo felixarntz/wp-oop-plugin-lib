@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Network_Env
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -11,14 +11,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\General;
 /**
  * Read-only class containing utilities for the network environment.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Network_Env {
 
 	/**
 	 * Checks whether this WordPress installation is a multisite installation.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True if a multisite installation, false otherwise.
 	 */
@@ -29,7 +29,7 @@ class Network_Env {
 	/**
 	 * Returns the network ID.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int The network ID.
 	 */
@@ -40,7 +40,7 @@ class Network_Env {
 	/**
 	 * Returns the network URL, i.e. relative to the home page.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $relative_path Optional. Relative path. Default '/'.
 	 * @return string The site URL.
@@ -62,7 +62,7 @@ class Network_Env {
 	/**
 	 * Returns the network's WordPress URL, in which WordPress core is installed.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $relative_path Optional. Relative path. Default '/'.
 	 * @return string The WordPress URL.
@@ -84,7 +84,7 @@ class Network_Env {
 	/**
 	 * Returns the network admin URL (typically the 'wp-admin/network' directory within the WordPress URL).
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $relative_path Optional. Relative path. Default '/'.
 	 * @return string The admin URL.
@@ -96,7 +96,7 @@ class Network_Env {
 	/**
 	 * Returns the active plugins for the network.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string[] List of plugin basenames, relative to the plugins directory.
 	 */

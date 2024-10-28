@@ -2,7 +2,7 @@
 /**
  * Trait Felix_Arntz\WP_OOP_Plugin_Lib\General\Traits\Cast_Value_By_Type
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -11,14 +11,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\General\Traits;
 /**
  * Trait with a function to cast a value by a type.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 trait Cast_Value_By_Type {
 
 	/**
 	 * Casts the given value into the given type identifier.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed  $value Value to cast.
 	 * @param string $type  Type identifier. Supported values are 'bool', 'int', 'float', 'string', 'array', and

@@ -2,7 +2,7 @@
 /**
  * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Options\Contracts\With_Autoload_Config
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -11,14 +11,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Options\Contracts;
 /**
  * Interface for a key-value pair repository with autoload support.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 interface With_Autoload_Config {
 
 	/**
 	 * Gets the autoload config for a given key in the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Item key.
 	 * @return bool|null Whether or not the item should be autoloaded, or null if not specified.
@@ -28,7 +28,7 @@ interface With_Autoload_Config {
 	/**
 	 * Sets the autoload config for a given key in the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key      Item key.
 	 * @param bool   $autoload Item autoload config.

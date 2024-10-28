@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Comment
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,14 +14,14 @@ use WP_Comment;
 /**
  * Class representing a WordPress comment.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Comment implements Entity {
 
 	/**
 	 * The underlying WordPress comment object.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var WP_Comment
 	 */
 	private $wp_obj;
@@ -29,7 +29,7 @@ class Comment implements Entity {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param WP_Comment $comment The underlying WordPress comment object.
 	 */
@@ -40,7 +40,7 @@ class Comment implements Entity {
 	/**
 	 * Gets the comment ID.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int The comment ID.
 	 */
@@ -51,7 +51,7 @@ class Comment implements Entity {
 	/**
 	 * Checks whether the comment is publicly accessible.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True if the comment is public, false otherwise.
 	 */
@@ -63,7 +63,7 @@ class Comment implements Entity {
 	/**
 	 * Gets the comment's primary URL.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Comment link, or empty string if none.
 	 */
@@ -74,7 +74,7 @@ class Comment implements Entity {
 	/**
 	 * Gets the comment's edit URL, if the current user is able to edit it.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string URL to edit the comment, or empty string if unable to edit.
 	 */
@@ -96,7 +96,7 @@ class Comment implements Entity {
 	/**
 	 * Gets the value for the given field of the comment.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $field The field identifier.
 	 * @return mixed Value for the field, `null` if not set.

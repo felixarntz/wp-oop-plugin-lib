@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Meta_Hook_Registrar
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Hook_Registrar;
 /**
  * Class that adds the relevant hook to register WordPress metadata.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Meta_Hook_Registrar implements Hook_Registrar {
 
 	/**
 	 * WordPress metadata registry instance.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var Meta_Registry
 	 */
 	private $registry;
@@ -40,7 +40,7 @@ class Meta_Hook_Registrar implements Hook_Registrar {
 	 * The callback receives a registry instance as the sole parameter, allowing to call the
 	 * {@see Meta_Registry::register()} method.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param callable $register_callback Callback to register the metadata.
 	 */

@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Taxonomy_Registry
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,14 +14,14 @@ use WP_Taxonomy;
 /**
  * Class for a registry of WordPress taxonomies.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Taxonomy_Registry implements Registry {
 
 	/**
 	 * Registers a taxonomy with the given key and arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string               $key  Taxonomy key.
 	 * @param array<string, mixed> $args Taxonomy registration arguments.
@@ -44,7 +44,7 @@ class Taxonomy_Registry implements Registry {
 	/**
 	 * Checks whether a taxonomy with the given key is registered.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Taxonomy key.
 	 * @return bool True if the taxonomy is registered, false otherwise.
@@ -56,7 +56,7 @@ class Taxonomy_Registry implements Registry {
 	/**
 	 * Gets the registered taxonomy for the given key from the registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Taxonomy key.
 	 * @return WP_Taxonomy|null The registered taxonomy definition, or `null` if not registered.
@@ -72,7 +72,7 @@ class Taxonomy_Registry implements Registry {
 	/**
 	 * Gets all taxonomies from the registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, WP_Taxonomy> Associative array of keys and their taxonomy definitions, or empty array if
 	 *                                    nothing is registered.

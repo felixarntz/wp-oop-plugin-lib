@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Aggregate_Validation_Rule
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -15,14 +15,14 @@ use InvalidArgumentException;
 /**
  * Class for a validation rule that consists of several underlying validation rules.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Aggregate_Validation_Rule implements Validation_Rule {
 
 	/**
 	 * Underlying validation rules.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var Validation_Rule[]
 	 */
 	private $rules = array();
@@ -30,7 +30,7 @@ class Aggregate_Validation_Rule implements Validation_Rule {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Validation_Rule[] $rules Underlying validation rules.
 	 *
@@ -52,7 +52,7 @@ class Aggregate_Validation_Rule implements Validation_Rule {
 	 *
 	 * Validation will be strict and throw an exception for any unmet requirements.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $value Value to validate.
 	 *
@@ -70,7 +70,7 @@ class Aggregate_Validation_Rule implements Validation_Rule {
 	 * This should be called before storing the value in the persistency layer (e.g. the database).
 	 * If the value does not satisfy validation requirements, it will be sanitized to a value that does, e.g. a default.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $value Value to sanitize.
 	 * @return mixed Sanitized value.

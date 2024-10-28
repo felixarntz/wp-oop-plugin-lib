@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Post
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,14 +14,14 @@ use WP_Post;
 /**
  * Class representing a WordPress post.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Post implements Entity {
 
 	/**
 	 * The underlying WordPress post object.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var WP_Post
 	 */
 	private $wp_obj;
@@ -29,7 +29,7 @@ class Post implements Entity {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param WP_Post $post The underlying WordPress post object.
 	 */
@@ -40,7 +40,7 @@ class Post implements Entity {
 	/**
 	 * Gets the post ID.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int The post ID.
 	 */
@@ -51,7 +51,7 @@ class Post implements Entity {
 	/**
 	 * Checks whether the post is publicly accessible.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True if the post is public, false otherwise.
 	 */
@@ -62,7 +62,7 @@ class Post implements Entity {
 	/**
 	 * Gets the post's primary URL.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Post permalink, or empty string if none.
 	 */
@@ -73,7 +73,7 @@ class Post implements Entity {
 	/**
 	 * Gets the post's edit URL, if the current user is able to edit it.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string URL to edit the post, or empty string if unable to edit.
 	 */
@@ -84,7 +84,7 @@ class Post implements Entity {
 	/**
 	 * Gets the value for the given field of the post.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $field The field identifier.
 	 * @return mixed Value for the field, `null` if not set.

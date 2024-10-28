@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\REST_Namespace
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -11,14 +11,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes;
 /**
  * Class representing a WordPress REST API namespace.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class REST_Namespace {
 
 	/**
 	 * REST namespace, without leading or trailing slash.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $rest_namespace;
@@ -26,7 +26,7 @@ class REST_Namespace {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $rest_namespace REST namespace.
 	 */
@@ -37,7 +37,7 @@ class REST_Namespace {
 	/**
 	 * Returns the REST namespace as a string.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string REST namespace, without leading or trailing slash.
 	 */
@@ -48,7 +48,7 @@ class REST_Namespace {
 	/**
 	 * Gets the full route for a given REST base, prefixed with the REST namespace.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $rest_base REST route base.
 	 * @return string Full REST route prefixed with the namespace.
@@ -60,7 +60,7 @@ class REST_Namespace {
 	/**
 	 * Gets the route URL for a given REST base, including the REST namespace.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $rest_base REST route base.
 	 * @return string Full REST route URL.

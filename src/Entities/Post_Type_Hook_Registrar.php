@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Post_Type_Hook_Registrar
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Hook_Registrar;
 /**
  * Class that adds the relevant hook to register WordPress post types.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Post_Type_Hook_Registrar implements Hook_Registrar {
 
 	/**
 	 * WordPress post type registry instance.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var Post_Type_Registry|null
 	 */
 	private $registry;
@@ -41,7 +41,7 @@ class Post_Type_Hook_Registrar implements Hook_Registrar {
 	 * The callback receives a registry instance as the sole parameter, allowing to call the
 	 * {@see Post_Type_Registry::register()} method.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param callable $register_callback Callback to register the post types.
 	 */

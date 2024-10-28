@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\HTTP
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -22,7 +22,7 @@ use WpOrg\Requests\Utility\CaseInsensitiveDictionary;
 /**
  * Class for sending HTTP requests and processing responses.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class HTTP {
 	use Sanitize_Headers;
@@ -30,7 +30,7 @@ class HTTP {
 	/**
 	 * Default options to use for all requests.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, mixed>
 	 */
 	private $default_options;
@@ -38,7 +38,7 @@ class HTTP {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $default_options Optional. Default options to use for all requests. Default empty
 	 *                                              array.
@@ -58,7 +58,7 @@ class HTTP {
 	/**
 	 * Sends an HTTP request and returns the response.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Request $request The request to send.
 	 * @return Response The response received.
@@ -100,7 +100,7 @@ class HTTP {
 	/**
 	 * Sends multiple HTTP requests and returns the responses.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string|int, Request> $requests The requests to send.
 	 * @return array<string|int, Response> The responses received.
@@ -187,7 +187,7 @@ class HTTP {
 	/**
 	 * Assembles the request arguments for the given request, to pass to the Requests library.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Request $request The request to send.
 	 * @return array<string, mixed> Request arguments.
@@ -228,7 +228,7 @@ class HTTP {
 	 * the response. If all requests within a multi request receive their response data in that way, no request is sent
 	 * at all.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $request_args Request arguments.
 	 * @return Response|null Response object based on the 'pre_http_request' filter data, or null if not filtered.
@@ -257,7 +257,7 @@ class HTTP {
 	 *
 	 * @see https://www.rfc-editor.org/rfc/rfc1341.html#page-7
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int                   $status  The HTTP status code received with the response.
 	 * @param string                $body    The body received with the response.
@@ -284,7 +284,7 @@ class HTTP {
 	 *
 	 * Most of the code in this method is similar to code in WP_Http::request() in WordPress core.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $options The options to prepare.
 	 * @param string               $url     The request URL, only relevant as context for various filters.
@@ -325,7 +325,7 @@ class HTTP {
 	 *
 	 * Most of the code in this method is similar to code in WP_Http::request() in WordPress core.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $options The options to prepare.
 	 * @param string               $url     The request URL, only relevant as context for various filters.
@@ -363,7 +363,7 @@ class HTTP {
 	/**
 	 * Migrates WordPress options to Requests options.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $options The options to migrate.
 	 * @return array<string, mixed> The migrated options.

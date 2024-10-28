@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Mutable_Input
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,14 +14,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\General;
  * It is recommended to use the regular Input class for most input handling, while this class is useful for e.g. unit
  * tests where you want to mock input values.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Mutable_Input extends Input {
 
 	/**
 	 * Gets a specific external variable by name and optionally filters it.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @link https://php.net/manual/en/function.filter-input.php
 	 *

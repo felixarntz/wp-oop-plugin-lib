@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Meta_Container
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -17,14 +17,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\Entity_Key_Value_Repository;
 /**
  * Class for a meta container.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Meta_Container implements Container, ArrayAccess {
 
 	/**
 	 * Meta keys stored in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, callable>
 	 */
 	private $meta_keys = array();
@@ -32,7 +32,7 @@ class Meta_Container implements Container, ArrayAccess {
 	/**
 	 * Meta key instances already created.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, Meta_Key>
 	 */
 	private $instances = array();
@@ -40,7 +40,7 @@ class Meta_Container implements Container, ArrayAccess {
 	/**
 	 * Checks if a meta key for the given key exists in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Meta key.
 	 * @return bool True if the meta key exists in the container, false otherwise.
@@ -52,7 +52,7 @@ class Meta_Container implements Container, ArrayAccess {
 	/**
 	 * Gets the meta key for the given key from the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Meta key.
 	 * @return Meta_Key Meta key for the given key.
@@ -95,7 +95,7 @@ class Meta_Container implements Container, ArrayAccess {
 	/**
 	 * Sets the given meta key under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string   $key     Meta key.
 	 * @param callable $creator Meta key creator closure.
@@ -108,7 +108,7 @@ class Meta_Container implements Container, ArrayAccess {
 	/**
 	 * Sets a meta key using the given repository and arguments under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string                      $key               Meta key.
 	 * @param Entity_Key_Value_Repository $repository        Repository used for the meta key.
@@ -127,7 +127,7 @@ class Meta_Container implements Container, ArrayAccess {
 	/**
 	 * Unsets the meta key under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Meta key.
 	 */
@@ -138,7 +138,7 @@ class Meta_Container implements Container, ArrayAccess {
 	/**
 	 * Gets all keys in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string[] List of keys.
 	 */
@@ -149,7 +149,7 @@ class Meta_Container implements Container, ArrayAccess {
 	/**
 	 * Checks if a meta key for the given key exists in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key Meta key.
 	 * @return bool True if the meta key exists in the container, false otherwise.
@@ -162,7 +162,7 @@ class Meta_Container implements Container, ArrayAccess {
 	/**
 	 * Gets the meta key for the given key from the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key Meta key.
 	 * @return Meta_Key Meta key for the given key.
@@ -175,7 +175,7 @@ class Meta_Container implements Container, ArrayAccess {
 	/**
 	 * Sets the given meta key under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key   Meta key.
 	 * @param mixed $value Meta key creator closure.
@@ -188,7 +188,7 @@ class Meta_Container implements Container, ArrayAccess {
 	/**
 	 * Unsets the meta key under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key Meta key.
 	 */
@@ -200,7 +200,7 @@ class Meta_Container implements Container, ArrayAccess {
 	/**
 	 * Creates an instance similar to this container, but scoped to the given entity.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $entity_id Entity ID.
 	 * @return Entity_Aware_Meta_Container New container scoped to the object.

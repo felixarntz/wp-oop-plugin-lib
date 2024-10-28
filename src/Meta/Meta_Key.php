@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Meta_Key
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -16,7 +16,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\With_Single;
 /**
  * Class representing a WordPress meta key.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Meta_Key extends Abstract_Entity_Key_Value implements With_Registration_Args {
 	use Cast_Value_By_Type;
@@ -24,7 +24,7 @@ class Meta_Key extends Abstract_Entity_Key_Value implements With_Registration_Ar
 	/**
 	 * Meta key registration arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, mixed>
 	 */
 	protected $registration_args;
@@ -32,7 +32,7 @@ class Meta_Key extends Abstract_Entity_Key_Value implements With_Registration_Ar
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Entity_Key_Value_Repository $repository        Repository used for the meta key.
 	 * @param string                      $key               Meta key.
@@ -59,7 +59,7 @@ class Meta_Key extends Abstract_Entity_Key_Value implements With_Registration_Ar
 	/**
 	 * Checks whether the meta key has a value set for the given entity ID.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $entity_id Entity ID.
 	 * @return bool True if a value is set, false otherwise.
@@ -71,7 +71,7 @@ class Meta_Key extends Abstract_Entity_Key_Value implements With_Registration_Ar
 	/**
 	 * Gets the value for the meta key for the given entity ID.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $entity_id Entity ID.
 	 * @return mixed Value for the meta key.
@@ -108,7 +108,7 @@ class Meta_Key extends Abstract_Entity_Key_Value implements With_Registration_Ar
 	/**
 	 * Updates the value for the meta key for the given entity ID.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int   $entity_id Entity ID.
 	 * @param mixed $value     New value to set for the meta key.
@@ -121,7 +121,7 @@ class Meta_Key extends Abstract_Entity_Key_Value implements With_Registration_Ar
 	/**
 	 * Deletes the data for the meta key for the given entity ID.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $entity_id Entity ID.
 	 * @return bool True on success, false on failure.
@@ -133,7 +133,7 @@ class Meta_Key extends Abstract_Entity_Key_Value implements With_Registration_Ar
 	/**
 	 * Gets the meta key.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Meta key.
 	 */
@@ -144,7 +144,7 @@ class Meta_Key extends Abstract_Entity_Key_Value implements With_Registration_Ar
 	/**
 	 * Gets the registration arguments for the meta key.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Meta key registration arguments.
 	 */

@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Plugin_Env
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -11,14 +11,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\General;
 /**
  * Read-only class containing utilities for the plugin environment.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Plugin_Env {
 
 	/**
 	 * Absolute path of the plugin main file.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $main_file;
@@ -26,7 +26,7 @@ class Plugin_Env {
 	/**
 	 * Current plugin version number.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $version;
@@ -34,7 +34,7 @@ class Plugin_Env {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $main_file Absolute path to the plugin main file.
 	 * @param string $version   Current plugin version number.
@@ -47,7 +47,7 @@ class Plugin_Env {
 	/**
 	 * Returns the absolute path to the plugin main file.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Absolute path to the plugin main file.
 	 */
@@ -58,7 +58,7 @@ class Plugin_Env {
 	/**
 	 * Returns the current plugin version number.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Current plugin version number.
 	 */
@@ -69,7 +69,7 @@ class Plugin_Env {
 	/**
 	 * Returns the plugin basename.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Plugin basename.
 	 */
@@ -80,7 +80,7 @@ class Plugin_Env {
 	/**
 	 * Returns the absolute path for a relative path to the plugin directory.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $relative_path Optional. Relative path. Default '/'.
 	 * @return string Absolute path.
@@ -92,7 +92,7 @@ class Plugin_Env {
 	/**
 	 * Returns the full URL for a path relative to the plugin directory.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $relative_path Optional. Relative path. Default '/'.
 	 * @return string Full URL.

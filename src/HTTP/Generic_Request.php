@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\Generic_Request
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,7 +14,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\Traits\Sanitize_Headers;
 /**
  * Class for a generic HTTP request to another URL.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Generic_Request implements Request {
 	use Sanitize_Headers;
@@ -22,7 +22,7 @@ class Generic_Request implements Request {
 	/**
 	 * The URL to which the request should be sent.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $url;
@@ -30,7 +30,7 @@ class Generic_Request implements Request {
 	/**
 	 * The HTTP method to be used for the request.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $method;
@@ -41,7 +41,7 @@ class Generic_Request implements Request {
 	 * This is alternative to the body property, and should be used if the data will be sent as form data (e.g. for a
 	 * POST request) or as query parameters (e.g. for a GET request).
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, mixed>
 	 */
 	private $data;
@@ -52,7 +52,7 @@ class Generic_Request implements Request {
 	 * This is alternative to the data property and should only be used if the data is not suitable for form data or
 	 * query parameters.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $body;
@@ -60,7 +60,7 @@ class Generic_Request implements Request {
 	/**
 	 * The headers to be sent with the request.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, string>
 	 */
 	private $headers;
@@ -68,7 +68,7 @@ class Generic_Request implements Request {
 	/**
 	 * Additional options for the request.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, mixed>
 	 */
 	private $options;
@@ -76,7 +76,7 @@ class Generic_Request implements Request {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string               $url  The URL to which the request should be sent.
 	 * @param array<string, mixed> $data Optional. The data to be sent with the request. Default empty array.
@@ -110,7 +110,7 @@ class Generic_Request implements Request {
 	/**
 	 * Retrieves the URL to which the request should be sent.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string The request URL.
 	 */
@@ -121,7 +121,7 @@ class Generic_Request implements Request {
 	/**
 	 * Retrieves the HTTP method to be used for the request.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string The HTTP method for the request.
 	 */
@@ -132,7 +132,7 @@ class Generic_Request implements Request {
 	/**
 	 * Retrieves the data to be sent with the request.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> The request data, or an empty array. If the request method is not GET or HEAD, in
 	 *                              case of an empty array the request body should be used instead.
@@ -146,7 +146,7 @@ class Generic_Request implements Request {
 	 *
 	 * A request may have either data or a body, but not both.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string The request body, or an empty string. Only relevant if the request method is not GET or HEAD. In
 	 *                case of an empty string, the request data should be used instead.
@@ -158,7 +158,7 @@ class Generic_Request implements Request {
 	/**
 	 * Retrieves the headers to be sent with the request.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, string> The request headers.
 	 */
@@ -169,7 +169,7 @@ class Generic_Request implements Request {
 	/**
 	 * Retrieves the options to be used for sending the request.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> The request options.
 	 */
@@ -180,7 +180,7 @@ class Generic_Request implements Request {
 	/**
 	 * Adds a header to the request.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $name  The header name.
 	 * @param string $value The header value.
@@ -194,7 +194,7 @@ class Generic_Request implements Request {
 	 *
 	 * This is only possible if no hard-coded request body was provided for the request.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $name  The name under which to send the data.
 	 * @param mixed  $value The value to send.
@@ -215,7 +215,7 @@ class Generic_Request implements Request {
 	/**
 	 * Adds an option to the request.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $name  The option name.
 	 * @param mixed  $value The option value.
@@ -229,7 +229,7 @@ class Generic_Request implements Request {
 	 *
 	 * For any invalid arguments, PHP warnings may be triggered, and they will be stripped.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $args   Request arguments, including but not limited to options.
 	 * @param string               $method PHP class method to reference in potential PHP warnings.
@@ -278,7 +278,7 @@ class Generic_Request implements Request {
 	/**
 	 * Checks whether the given request method is valid.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $method The request method to check.
 	 * @return bool True if the request method is valid, false otherwise.

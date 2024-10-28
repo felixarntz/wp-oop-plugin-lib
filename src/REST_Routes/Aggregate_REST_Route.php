@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\Aggregate_REST_Route
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,14 +14,14 @@ use InvalidArgumentException;
 /**
  * Class representing a WordPress REST API route supporting multiple route handlers.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Aggregate_REST_Route implements REST_Route {
 
 	/**
 	 * Route base.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $base;
@@ -29,7 +29,7 @@ class Aggregate_REST_Route implements REST_Route {
 	/**
 	 * Route handlers.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var REST_Route[]
 	 */
 	private $route_handlers;
@@ -37,7 +37,7 @@ class Aggregate_REST_Route implements REST_Route {
 	/**
 	 * Global route arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, mixed>
 	 */
 	private $global_args = array();
@@ -45,7 +45,7 @@ class Aggregate_REST_Route implements REST_Route {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param REST_Route[] $route_handlers One or more {@see REST_Route} handler objects.
 	 *
@@ -87,7 +87,7 @@ class Aggregate_REST_Route implements REST_Route {
 	/**
 	 * Gets the route base.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Route base.
 	 */
@@ -98,7 +98,7 @@ class Aggregate_REST_Route implements REST_Route {
 	/**
 	 * Gets the registration arguments for the route.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Route registration arguments.
 	 */
@@ -117,7 +117,7 @@ class Aggregate_REST_Route implements REST_Route {
 	/**
 	 * Gets the method specific route handler arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Route handler arguments.
 	 */
@@ -129,7 +129,7 @@ class Aggregate_REST_Route implements REST_Route {
 	/**
 	 * Gets the global route arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Global route arguments.
 	 */

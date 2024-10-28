@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Options\Option_Registry
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Registry;
 /**
  * Class for a registry of WordPress options.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Option_Registry implements Registry {
 
 	/**
 	 * Default option group to use.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $default_group;
@@ -28,7 +28,7 @@ class Option_Registry implements Registry {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $default_group Default option group to use.
 	 */
@@ -42,7 +42,7 @@ class Option_Registry implements Registry {
 	 * If the arguments include a 'group' key, that value will be used as the option group as used by WordPress core.
 	 * Otherwise, the default group will be used.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string               $key  Option key.
 	 * @param array<string, mixed> $args Option registration arguments.
@@ -59,7 +59,7 @@ class Option_Registry implements Registry {
 	/**
 	 * Checks whether an option with the given key is registered.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Option key.
 	 * @return bool True if the option is registered, false otherwise.
@@ -72,7 +72,7 @@ class Option_Registry implements Registry {
 	/**
 	 * Gets the registered option for the given key from the registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Option key.
 	 * @return object|null The registered option definition, or `null` if not registered.
@@ -85,7 +85,7 @@ class Option_Registry implements Registry {
 	/**
 	 * Gets all options from the registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Associative array of keys and their option definitions, or empty array if nothing
 	 *                              is registered.

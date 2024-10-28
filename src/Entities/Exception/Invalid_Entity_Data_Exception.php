@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Exception\Invalid_Entity_Data_Exception
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,7 +13,7 @@ use RuntimeException;
 /**
  * Exception class for when data for an entity is invalid.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Invalid_Entity_Data_Exception extends RuntimeException {
 

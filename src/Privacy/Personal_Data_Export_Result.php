@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Privacy\Personal_Data_Export_Result
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Arrayable;
 /**
  * Class representing a result from a personal data export operation.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 final class Personal_Data_Export_Result implements Arrayable {
 
 	/**
 	 * Result data.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, mixed>
 	 */
 	private $data;
@@ -28,7 +28,7 @@ final class Personal_Data_Export_Result implements Arrayable {
 	/**
 	 * Group information.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, array<string, string>>
 	 */
 	private $group_info;
@@ -36,7 +36,7 @@ final class Personal_Data_Export_Result implements Arrayable {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 */
 	public function __construct() {
 		$this->data       = array(
@@ -52,7 +52,7 @@ final class Personal_Data_Export_Result implements Arrayable {
 	 * This method does not actually add any data to the result, but defines metadata for a group which can then be
 	 * referenced within the results.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $group_id          Unique group identifier.
 	 * @param string $group_label       Label for the group.
@@ -69,7 +69,7 @@ final class Personal_Data_Export_Result implements Arrayable {
 	/**
 	 * Adds an export data entry for a group and item.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $group_id Group identifier.
 	 * @param string $item_id  Unique item identifier within the group.
@@ -92,7 +92,7 @@ final class Personal_Data_Export_Result implements Arrayable {
 	/**
 	 * Adds export data entries for a group and item.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string                  $group_id Unique group identifier.
 	 * @param string                  $item_id  Unique item identifier within the group.
@@ -119,7 +119,7 @@ final class Personal_Data_Export_Result implements Arrayable {
 	/**
 	 * Sets whether the eraser is finished.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param bool $done Whether the eraser is finished.
 	 */
@@ -130,7 +130,7 @@ final class Personal_Data_Export_Result implements Arrayable {
 	/**
 	 * Returns the array representation.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Array representation.
 	 */

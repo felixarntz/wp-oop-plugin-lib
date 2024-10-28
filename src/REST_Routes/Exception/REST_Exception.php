@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\Exception\REST_Exception
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,14 +14,14 @@ use WP_Error;
 /**
  * Exception class for when a REST route error occurs.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class REST_Exception extends WP_Error_Exception {
 
 	/**
 	 * HTTP response code.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var int
 	 */
 	private $response_code = 500;
@@ -29,7 +29,7 @@ class REST_Exception extends WP_Error_Exception {
 	/**
 	 * Gets the HTTP response code.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int HTTP response code.
 	 */
@@ -40,7 +40,7 @@ class REST_Exception extends WP_Error_Exception {
 	/**
 	 * Sets the HTTP response code.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $response_code HTTP response code.
 	 */
@@ -54,7 +54,7 @@ class REST_Exception extends WP_Error_Exception {
 	/**
 	 * Creates a new REST exception based on error code, error message, and a HTTP Response code.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $error_code    REST error code.
 	 * @param string $message       Error message.
@@ -71,7 +71,7 @@ class REST_Exception extends WP_Error_Exception {
 	/**
 	 * Creates a new REST exception from the given WP_Error object.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param WP_Error $error WP_Error object.
 	 * @return REST_Exception New exception instance.

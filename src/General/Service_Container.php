@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Service_Container
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -16,14 +16,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Not_Found_Exception;
 /**
  * Class for a service container.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Service_Container implements Container, ArrayAccess {
 
 	/**
 	 * Services stored in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, callable>
 	 */
 	private $services = array();
@@ -31,7 +31,7 @@ class Service_Container implements Container, ArrayAccess {
 	/**
 	 * Service instances already created.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, object>
 	 */
 	private $instances = array();
@@ -41,7 +41,7 @@ class Service_Container implements Container, ArrayAccess {
 	 *
 	 * These callbacks are attached to a specific service and called whenever that service is resolved.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, callable[]>
 	 */
 	private $listener_callbacks = array();
@@ -49,7 +49,7 @@ class Service_Container implements Container, ArrayAccess {
 	/**
 	 * Checks if a service for the given key exists in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Service key.
 	 * @return bool True if the service exists in the container, false otherwise.
@@ -61,7 +61,7 @@ class Service_Container implements Container, ArrayAccess {
 	/**
 	 * Gets the service for the given key from the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Service key.
 	 * @return object Service for the given key.
@@ -87,7 +87,7 @@ class Service_Container implements Container, ArrayAccess {
 	/**
 	 * Sets the given service under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string   $key     Service key.
 	 * @param callable $creator Service creator closure.
@@ -99,7 +99,7 @@ class Service_Container implements Container, ArrayAccess {
 	/**
 	 * Unsets the service under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Service key.
 	 */
@@ -110,7 +110,7 @@ class Service_Container implements Container, ArrayAccess {
 	/**
 	 * Gets all keys in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string[] List of keys.
 	 */
@@ -125,7 +125,7 @@ class Service_Container implements Container, ArrayAccess {
 	 * subsequent change. The callback will receive the latest service instance and a reference to the container as
 	 * parameters.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string  $key      Service key.
 	 * @param Closure $callback Listener callback.
@@ -141,7 +141,7 @@ class Service_Container implements Container, ArrayAccess {
 	/**
 	 * Checks if a service for the given key exists in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Service key.
 	 * @return bool True if the service exists in the container, false otherwise.
@@ -154,7 +154,7 @@ class Service_Container implements Container, ArrayAccess {
 	/**
 	 * Gets the service for the given key from the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Service key.
 	 * @return mixed Service for the given key.
@@ -167,7 +167,7 @@ class Service_Container implements Container, ArrayAccess {
 	/**
 	 * Sets the given service under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key   Service key.
 	 * @param mixed  $value Service creator closure.
@@ -180,7 +180,7 @@ class Service_Container implements Container, ArrayAccess {
 	/**
 	 * Unsets the service under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Service key.
 	 */
@@ -192,7 +192,7 @@ class Service_Container implements Container, ArrayAccess {
 	/**
 	 * Binds the given service creator closure under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string  $key             Service key.
 	 * @param Closure $service_creator Service creator closure.
@@ -217,7 +217,7 @@ class Service_Container implements Container, ArrayAccess {
 	 *
 	 * If the service was already resolved, it will simply return the existing instance.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Service key.
 	 * @return object Service resolved for the given key.
@@ -236,7 +236,7 @@ class Service_Container implements Container, ArrayAccess {
 	/**
 	 * Checks whether the service under the given key has been bound.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Service key.
 	 * @return bool True if the service has been bound, false otherwise.
@@ -248,7 +248,7 @@ class Service_Container implements Container, ArrayAccess {
 	/**
 	 * Checks whether the service under the given key has already been resolved.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Service key.
 	 * @return bool True if the service has been resolved, false otherwise.
@@ -262,7 +262,7 @@ class Service_Container implements Container, ArrayAccess {
 	 *
 	 * This method can be used to force the {@see Service_Container::resolve()} method to re-resolve.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Service key.
 	 */
@@ -273,7 +273,7 @@ class Service_Container implements Container, ArrayAccess {
 	/**
 	 * Fires all listener callbacks under the given key, if any are set.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Service key.
 	 */

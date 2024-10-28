@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Base_Capability
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,7 +13,7 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities;
  *
  * A base capability can be granted to a user role, or based on other base capabilities.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Base_Capability extends Abstract_Capability {
 
@@ -22,7 +22,7 @@ class Base_Capability extends Abstract_Capability {
 	 *
 	 * If empty list, it means this base capability must be granted directly on individual user roles.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string[]
 	 */
 	private $required_caps;
@@ -30,7 +30,7 @@ class Base_Capability extends Abstract_Capability {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string   $key           Capability key.
 	 * @param string[] $required_caps Optional. Required base capabilities needed to grant this capability. An empty
@@ -52,7 +52,7 @@ class Base_Capability extends Abstract_Capability {
 	 * If the capability should instead be granted on a specific user role, an empty array can be provided to skip
 	 * granting the capability based on any built-in capabilities.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string[] $required_caps Required base capabilities needed to grant this capability. An empty array means
 	 *                                this base capability must be granted directly on individual user roles. Default
@@ -67,7 +67,7 @@ class Base_Capability extends Abstract_Capability {
 	 *
 	 * An empty array means the base capability should be granted directly on individual user roles.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string[] Required capabilities needed to grant this capability, or empty array to indicate that this
 	 *                  base capability must be granted directly on individual user roles.

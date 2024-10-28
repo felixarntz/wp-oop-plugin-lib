@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Post_Repository
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -17,14 +17,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Exception\Invalid_Entity_Data_Excepti
 /**
  * Class for a repository of WordPress posts.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Post_Repository implements Entity_Repository, Cache_Aware_Entity_Repository, Trash_Aware_Entity_Repository {
 
 	/**
 	 * Checks whether a post for the given ID exists in the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $id Post ID.
 	 * @return bool True if the post exists, false otherwise.
@@ -36,7 +36,7 @@ class Post_Repository implements Entity_Repository, Cache_Aware_Entity_Repositor
 	/**
 	 * Gets the post for a given ID from the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $id Post ID.
 	 * @return Post|null The post, or `null` if no value exists.
@@ -52,7 +52,7 @@ class Post_Repository implements Entity_Repository, Cache_Aware_Entity_Repositor
 	/**
 	 * Updates the post for a given ID in the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int                  $id   Post ID.
 	 * @param array<string, mixed> $data New data to set for the post. See {@see wp_update_post()} for a list of
@@ -79,7 +79,7 @@ class Post_Repository implements Entity_Repository, Cache_Aware_Entity_Repositor
 	/**
 	 * Adds a new post to the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $data Initial data to set for the post. See {@see wp_insert_post()} for a list of
 	 *                                   supported arguments.
@@ -103,7 +103,7 @@ class Post_Repository implements Entity_Repository, Cache_Aware_Entity_Repositor
 	/**
 	 * Deletes the post for a given ID from the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $id Post ID.
 	 * @return bool True on success, false on failure.
@@ -115,7 +115,7 @@ class Post_Repository implements Entity_Repository, Cache_Aware_Entity_Repositor
 	/**
 	 * Returns a post query object for the given arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $query_args Query arguments.
 	 * @return Post_Query Query object.
@@ -129,7 +129,7 @@ class Post_Repository implements Entity_Repository, Cache_Aware_Entity_Repositor
 	 *
 	 * Does not update any meta caches.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int[] $ids Post IDs.
 	 * @return bool True on success, or false on failure.
@@ -142,7 +142,7 @@ class Post_Repository implements Entity_Repository, Cache_Aware_Entity_Repositor
 	/**
 	 * Moves the post for a given ID to the trash.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $id Post ID.
 	 * @return bool True on success, false on failure.
@@ -154,7 +154,7 @@ class Post_Repository implements Entity_Repository, Cache_Aware_Entity_Repositor
 	/**
 	 * Moves the post for a given ID out of the trash.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $id Post ID.
 	 * @return bool True on success, false on failure.
@@ -166,7 +166,7 @@ class Post_Repository implements Entity_Repository, Cache_Aware_Entity_Repositor
 	/**
 	 * Checks whether the post for a given ID is in the trash.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $id Post ID.
 	 * @return bool True if the post is in the trash, false otherwise.

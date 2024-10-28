@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Entity_Aware_Meta_Container
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -16,14 +16,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\With_Entity_ID;
 /**
  * Class for a meta container scoped to a specific entity.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Entity_Aware_Meta_Container implements Container_Readonly, ArrayAccess, With_Entity_ID {
 
 	/**
 	 * The original meta container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var Meta_Container
 	 */
 	private $wrapped_container;
@@ -31,7 +31,7 @@ class Entity_Aware_Meta_Container implements Container_Readonly, ArrayAccess, Wi
 	/**
 	 * ID of the entity to scope this instance to.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var int
 	 */
 	private $entity_id;
@@ -39,7 +39,7 @@ class Entity_Aware_Meta_Container implements Container_Readonly, ArrayAccess, Wi
 	/**
 	 * Item instances already created.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, Entity_Aware_Meta_Key>
 	 */
 	private $instances = array();
@@ -47,7 +47,7 @@ class Entity_Aware_Meta_Container implements Container_Readonly, ArrayAccess, Wi
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Meta_Container $wrapped_container Underlying entity aware instance that this scoped instance
 	 *                                          should inherit from.
@@ -61,7 +61,7 @@ class Entity_Aware_Meta_Container implements Container_Readonly, ArrayAccess, Wi
 	/**
 	 * Checks if a meta key for the given key exists in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Meta key.
 	 * @return bool True if the meta key exists in the container, false otherwise.
@@ -73,7 +73,7 @@ class Entity_Aware_Meta_Container implements Container_Readonly, ArrayAccess, Wi
 	/**
 	 * Gets the meta key for the given key from the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Meta key.
 	 * @return Entity_Aware_Meta_Key Meta key for the given key.
@@ -106,7 +106,7 @@ class Entity_Aware_Meta_Container implements Container_Readonly, ArrayAccess, Wi
 	/**
 	 * Gets all keys in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string[] List of keys.
 	 */
@@ -117,7 +117,7 @@ class Entity_Aware_Meta_Container implements Container_Readonly, ArrayAccess, Wi
 	/**
 	 * Checks if a meta key for the given key exists in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key Meta key.
 	 * @return bool True if the meta key exists in the container, false otherwise.
@@ -130,7 +130,7 @@ class Entity_Aware_Meta_Container implements Container_Readonly, ArrayAccess, Wi
 	/**
 	 * Gets the meta key for the given key from the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key Meta key.
 	 * @return mixed Meta key for the given key.
@@ -143,7 +143,7 @@ class Entity_Aware_Meta_Container implements Container_Readonly, ArrayAccess, Wi
 	/**
 	 * Sets the given meta key under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key   Meta key.
 	 * @param mixed $value Item creator closure.
@@ -156,7 +156,7 @@ class Entity_Aware_Meta_Container implements Container_Readonly, ArrayAccess, Wi
 	/**
 	 * Unsets the meta key under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key Meta key.
 	 */
@@ -168,7 +168,7 @@ class Entity_Aware_Meta_Container implements Container_Readonly, ArrayAccess, Wi
 	/**
 	 * Gets the entity ID.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int The entity ID.
 	 */

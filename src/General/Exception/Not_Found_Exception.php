@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Not_Found_Exception
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,7 +13,7 @@ use RuntimeException;
 /**
  * Exception class for when a value for a key is not found.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Not_Found_Exception extends RuntimeException {
 

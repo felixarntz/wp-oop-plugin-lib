@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\REST_Routes\REST_Route_Registry
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Registry;
 /**
  * Class for a registry of WordPress REST routes within a given namespace.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class REST_Route_Registry implements Registry {
 
 	/**
 	 * Namespace to use for all routes.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var REST_Namespace
 	 */
 	private $route_namespace;
@@ -28,7 +28,7 @@ class REST_Route_Registry implements Registry {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param REST_Namespace $route_namespace Namespace to use for all routes.
 	 */
@@ -41,7 +41,7 @@ class REST_Route_Registry implements Registry {
 	 *
 	 * The "key" should be the REST route's REST base, which will be prefixed with the route namespace.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string               $key  REST route base.
 	 * @param array<string, mixed> $args REST route registration arguments.
@@ -54,7 +54,7 @@ class REST_Route_Registry implements Registry {
 	/**
 	 * Checks whether a REST route with the given key is registered.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key REST route base.
 	 * @return bool True if the REST route is registered, false otherwise.
@@ -69,7 +69,7 @@ class REST_Route_Registry implements Registry {
 	/**
 	 * Gets the registered REST route for the given key from the registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key REST route base.
 	 * @return object|null The registered REST route definition, or `null` if not registered.
@@ -87,7 +87,7 @@ class REST_Route_Registry implements Registry {
 	/**
 	 * Gets all REST routes in the namespace from the registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, object> Associative array of keys and their REST route definitions, or empty array if
 	 *                               nothing is registered.

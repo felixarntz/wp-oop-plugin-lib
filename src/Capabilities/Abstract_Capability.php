@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Abstract_Capability
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Contracts\Capability;
 /**
  * Base class representing a WordPress capability.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 abstract class Abstract_Capability implements Capability {
 
 	/**
 	 * Capability key.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $key;
@@ -28,7 +28,7 @@ abstract class Abstract_Capability implements Capability {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Capability key.
 	 */
@@ -39,7 +39,7 @@ abstract class Abstract_Capability implements Capability {
 	/**
 	 * Gets the capability key / slug.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Capability key.
 	 */

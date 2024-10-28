@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Entity_Aware_Meta_Key
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,14 +14,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\With_Entity_ID;
 /**
  * Wrapper representing a WordPress meta key scoped to a specific entity.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Entity_Aware_Meta_Key implements With_Entity_ID, Key_Value {
 
 	/**
 	 * Underlying, general entity aware instance.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var Meta_Key
 	 */
 	private $wrapped_meta;
@@ -29,7 +29,7 @@ class Entity_Aware_Meta_Key implements With_Entity_ID, Key_Value {
 	/**
 	 * ID of the entity to scope this instance to.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var int
 	 */
 	private $entity_id;
@@ -37,7 +37,7 @@ class Entity_Aware_Meta_Key implements With_Entity_ID, Key_Value {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Meta_Key $wrapped_meta Underlying entity aware instance that this scoped instance
 	 *                               should inherit from.
@@ -51,7 +51,7 @@ class Entity_Aware_Meta_Key implements With_Entity_ID, Key_Value {
 	/**
 	 * Checks whether the item has a value set.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True if a value is set, false otherwise.
 	 */
@@ -62,7 +62,7 @@ class Entity_Aware_Meta_Key implements With_Entity_ID, Key_Value {
 	/**
 	 * Gets the value for the item.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return mixed Value for the item.
 	 */
@@ -73,7 +73,7 @@ class Entity_Aware_Meta_Key implements With_Entity_ID, Key_Value {
 	/**
 	 * Updates the value for the item.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $value New value to set for the item.
 	 * @return bool True on success, false on failure.
@@ -85,7 +85,7 @@ class Entity_Aware_Meta_Key implements With_Entity_ID, Key_Value {
 	/**
 	 * Deletes the data for the item.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True on success, false on failure.
 	 */
@@ -96,7 +96,7 @@ class Entity_Aware_Meta_Key implements With_Entity_ID, Key_Value {
 	/**
 	 * Gets the key of the item.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Option key.
 	 */
@@ -107,7 +107,7 @@ class Entity_Aware_Meta_Key implements With_Entity_ID, Key_Value {
 	/**
 	 * Gets the entity ID.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int The entity ID.
 	 */

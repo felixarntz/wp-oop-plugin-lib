@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Capability_Controller
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -16,14 +16,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Not_Found_Exception;
  * This is useful for allowing to customize how capabilities are granted, e.g. by triggering a WordPress action hook
  * and passing an instance of the class to it.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Capability_Controller {
 
 	/**
 	 * Capability container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var Capability_Container
 	 */
 	private $container;
@@ -31,7 +31,7 @@ class Capability_Controller {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Capability_Container $container Container with the capabilities that this controller instance should be
 	 *                                        able to control.
@@ -50,7 +50,7 @@ class Capability_Controller {
 	 * If the capability should instead be granted on a specific user role, an empty array can be provided to skip
 	 * granting the capability based on any built-in capabilities.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string   $cap           Base capability to grant. Must be part of the plugin capabilities in this
 	 *                                controller.
@@ -78,7 +78,7 @@ class Capability_Controller {
 	/**
 	 * Grants the given meta capability dynamically depending on a callback function.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string   $cap          Meta capability to grant. Must be part of the plugin capabilities in this
 	 *                               controller.

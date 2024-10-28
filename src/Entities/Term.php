@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Term
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,14 +14,14 @@ use WP_Term;
 /**
  * Class representing a WordPress term.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Term implements Entity {
 
 	/**
 	 * The underlying WordPress term object.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var WP_Term
 	 */
 	private $wp_obj;
@@ -29,7 +29,7 @@ class Term implements Entity {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param WP_Term $term The underlying WordPress term object.
 	 */
@@ -40,7 +40,7 @@ class Term implements Entity {
 	/**
 	 * Gets the term ID.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int The term ID.
 	 */
@@ -51,7 +51,7 @@ class Term implements Entity {
 	/**
 	 * Checks whether the term is publicly accessible.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True if the term is public, false otherwise.
 	 */
@@ -62,7 +62,7 @@ class Term implements Entity {
 	/**
 	 * Gets the term's primary URL.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Term link, or empty string if none.
 	 */
@@ -77,7 +77,7 @@ class Term implements Entity {
 	/**
 	 * Gets the term's edit URL, if the current user is able to edit it.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string URL to edit the term, or empty string if unable to edit.
 	 */
@@ -99,7 +99,7 @@ class Term implements Entity {
 	/**
 	 * Gets the value for the given field of the term.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $field The field identifier.
 	 * @return mixed Value for the field, `null` if not set.

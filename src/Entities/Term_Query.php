@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Term_Query
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -15,14 +15,14 @@ use WP_Term_Query;
 /**
  * Class for a query for WordPress terms.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Term_Query implements Entity_Query {
 
 	/**
 	 * The underlying WordPress term query object.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var WP_Term_Query
 	 */
 	private $wp_obj;
@@ -30,7 +30,7 @@ class Term_Query implements Entity_Query {
 	/**
 	 * Query arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, mixed>
 	 */
 	private $query_args;
@@ -38,7 +38,7 @@ class Term_Query implements Entity_Query {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $query_args Query arguments. See {@see WP_Term_Query::__construct()} for a list of
 	 *                                         supported arguments.
@@ -51,7 +51,7 @@ class Term_Query implements Entity_Query {
 	/**
 	 * Runs the query to get terms.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * f
 	 * @return Term[] List of term entities.
 	 */
@@ -68,7 +68,7 @@ class Term_Query implements Entity_Query {
 	/**
 	 * Runs the query to get term IDs.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int[] List of term IDs.
 	 */
@@ -82,7 +82,7 @@ class Term_Query implements Entity_Query {
 	/**
 	 * Runs the query to get the term count.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int Term count.
 	 */
@@ -98,7 +98,7 @@ class Term_Query implements Entity_Query {
 	/**
 	 * Wraps a WordPress term object into a corresponding entity instance.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param WP_Term $term WordPress term object.
 	 * @return Term Term entity.

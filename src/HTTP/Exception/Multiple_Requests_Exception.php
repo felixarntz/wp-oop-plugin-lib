@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\Exception\Multiple_Requests_Exception
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\Contracts\Response;
 /**
  * Exception class for when one or more HTTP requests of multiple requests sent together fail.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Multiple_Requests_Exception extends Request_Exception {
 
 	/**
 	 * The exceptions for the requests that failed.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string|int, Request_Exception>
 	 */
 	private $request_exceptions;
@@ -28,7 +28,7 @@ class Multiple_Requests_Exception extends Request_Exception {
 	/**
 	 * The responses for the requests that succeeded.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string|int, Response>
 	 */
 	private $successful_responses;
@@ -36,7 +36,7 @@ class Multiple_Requests_Exception extends Request_Exception {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string|int, Request_Exception> $request_exceptions   The exceptions for the requests that failed.
 	 * @param array<string|int, Response>          $successful_responses Optional. The responses for the requests that
@@ -68,7 +68,7 @@ class Multiple_Requests_Exception extends Request_Exception {
 	/**
 	 * Checks whether any of the requests succeeded.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True if any of the requests succeeded, false otherwise.
 	 */
@@ -79,7 +79,7 @@ class Multiple_Requests_Exception extends Request_Exception {
 	/**
 	 * Checks whether a specific request failed.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string|int $key The key of the request.
 	 * @return bool True if the request failed, false otherwise.
@@ -91,7 +91,7 @@ class Multiple_Requests_Exception extends Request_Exception {
 	/**
 	 * Checks whether a specific request succeeded.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string|int $key The key of the request.
 	 * @return bool True if the request succeeded, false otherwise.
@@ -105,7 +105,7 @@ class Multiple_Requests_Exception extends Request_Exception {
 	 *
 	 * Before calling this method, you should check whether the request failed using the has_failed() method.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string|int $key The key of the request.
 	 * @return Request_Exception The exception for the request that failed.
@@ -119,7 +119,7 @@ class Multiple_Requests_Exception extends Request_Exception {
 	 *
 	 * Before calling this method, you should check whether the request succeeded using the has_succeeded() method.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string|int $key The key of the request.
 	 * @return Response The response for the request that succeeded.
@@ -131,7 +131,7 @@ class Multiple_Requests_Exception extends Request_Exception {
 	/**
 	 * Retrieves the exceptions for the requests that failed.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string|int, Request_Exception> The exceptions for the requests that failed.
 	 */
@@ -142,7 +142,7 @@ class Multiple_Requests_Exception extends Request_Exception {
 	/**
 	 * Retrieves the responses for the requests that succeeded.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string|int, Response> The responses for the requests that succeeded.
 	 */

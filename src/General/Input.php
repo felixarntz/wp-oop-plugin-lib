@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Input
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -11,7 +11,7 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\General;
 /**
  * Read-only class for filtering input, effectively for access of immutable input data.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Input {
 
@@ -20,7 +20,7 @@ class Input {
 	 *
 	 * For use as fallback only.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<int, array<string, mixed>>
 	 */
 	private $fallback_map;
@@ -28,7 +28,7 @@ class Input {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 */
 	public function __construct() {
 		// Fallback map for environments where filter_input may not work with ENV or SERVER types.
@@ -41,7 +41,7 @@ class Input {
 	/**
 	 * Gets a specific external variable by name and optionally filters it.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @link https://php.net/manual/en/function.filter-input.php
 	 *

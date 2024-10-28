@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Options\Option
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -17,7 +17,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Options\Contracts\With_Autoload_Config;
 /**
  * Class representing a WordPress option.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Option extends Generic_Key_Value implements With_Registration_Args {
 	use Cast_Value_By_Type;
@@ -25,7 +25,7 @@ class Option extends Generic_Key_Value implements With_Registration_Args {
 	/**
 	 * Option registration arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, mixed>
 	 */
 	protected $registration_args;
@@ -33,7 +33,7 @@ class Option extends Generic_Key_Value implements With_Registration_Args {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Key_Value_Repository $repository        Repository used for the option.
 	 * @param string               $key               Option key.
@@ -59,7 +59,7 @@ class Option extends Generic_Key_Value implements With_Registration_Args {
 	/**
 	 * Checks whether the option has a value set.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True if a value is set, false otherwise.
 	 */
@@ -70,7 +70,7 @@ class Option extends Generic_Key_Value implements With_Registration_Args {
 	/**
 	 * Gets the value for the option.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return mixed Value for the option.
 	 */
@@ -87,7 +87,7 @@ class Option extends Generic_Key_Value implements With_Registration_Args {
 	/**
 	 * Updates the value for the option.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $value New value to set for the option.
 	 * @return bool True on success, false on failure.
@@ -99,7 +99,7 @@ class Option extends Generic_Key_Value implements With_Registration_Args {
 	/**
 	 * Deletes the data for the option.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True on success, false on failure.
 	 */
@@ -110,7 +110,7 @@ class Option extends Generic_Key_Value implements With_Registration_Args {
 	/**
 	 * Gets the key of the option.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Option key.
 	 */
@@ -121,7 +121,7 @@ class Option extends Generic_Key_Value implements With_Registration_Args {
 	/**
 	 * Gets the registration arguments for the option.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Option registration arguments.
 	 */

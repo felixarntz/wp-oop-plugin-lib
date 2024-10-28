@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\JSON_Request
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -11,14 +11,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\HTTP;
 /**
  * Class for an HTTP request that sends JSON to another URL.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class JSON_Request extends Generic_Request {
 
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string               $url  The URL to which the request should be sent.
 	 * @param array<string, mixed> $data Optional. The data to be sent with the request. Default empty array.
@@ -54,7 +54,7 @@ class JSON_Request extends Generic_Request {
 	/**
 	 * Retrieves the data to be sent with the request.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> The request data, or an empty array. If the request method is not GET or HEAD, in
 	 *                              case of an empty array the request body should be used instead.
@@ -69,7 +69,7 @@ class JSON_Request extends Generic_Request {
 	 *
 	 * A request may have either data or a body, but not both.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string The request body, or an empty string. Only relevant if the request method is not GET or HEAD. In
 	 *                case of an empty string, the request data should be used instead.

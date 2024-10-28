@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Privacy\Personal_Data_Erasure_Result
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Arrayable;
 /**
  * Class representing a result from a personal data erasure operation.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 final class Personal_Data_Erasure_Result implements Arrayable {
 
 	/**
 	 * Result data.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, mixed>
 	 */
 	private $data;
@@ -28,7 +28,7 @@ final class Personal_Data_Erasure_Result implements Arrayable {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 */
 	public function __construct() {
 		$this->data = array(
@@ -42,7 +42,7 @@ final class Personal_Data_Erasure_Result implements Arrayable {
 	/**
 	 * Sets whether items were actually removed.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param bool $items_removed Whether items were actually removed.
 	 */
@@ -53,7 +53,7 @@ final class Personal_Data_Erasure_Result implements Arrayable {
 	/**
 	 * Sets whether items were retained.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param bool $items_retained Whether items were retained.
 	 */
@@ -64,7 +64,7 @@ final class Personal_Data_Erasure_Result implements Arrayable {
 	/**
 	 * Adds a message, e.g. a notice about the operation.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $message Message to add.
 	 */
@@ -75,7 +75,7 @@ final class Personal_Data_Erasure_Result implements Arrayable {
 	/**
 	 * Sets whether the eraser is finished.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param bool $done Whether the eraser is finished.
 	 */
@@ -86,7 +86,7 @@ final class Personal_Data_Erasure_Result implements Arrayable {
 	/**
 	 * Returns the array representation.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Array representation.
 	 */

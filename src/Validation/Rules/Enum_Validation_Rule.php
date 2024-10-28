@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Enum_Validation_Rule
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -20,7 +20,7 @@ use InvalidArgumentException;
 /**
  * Class for a validation rule that ensures values match a value from a specific set of values.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Enum_Validation_Rule implements Validation_Rule, With_Type_Support {
 	use Cast_Value_By_Type;
@@ -30,7 +30,7 @@ class Enum_Validation_Rule implements Validation_Rule, With_Type_Support {
 	/**
 	 * Allowed values.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var mixed[]
 	 */
 	private $allowed_values;
@@ -38,7 +38,7 @@ class Enum_Validation_Rule implements Validation_Rule, With_Type_Support {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed[] $allowed_values List of values to allow.
 	 * @param bool    $strict         Optional. True to enable strict mode, false to disable it. Default false.
@@ -62,7 +62,7 @@ class Enum_Validation_Rule implements Validation_Rule, With_Type_Support {
 	 *
 	 * Validation will be strict and throw an exception for any unmet requirements.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $value Value to validate.
 	 *
@@ -106,7 +106,7 @@ class Enum_Validation_Rule implements Validation_Rule, With_Type_Support {
 	 * This should be called before storing the value in the persistency layer (e.g. the database).
 	 * If the value does not satisfy validation requirements, it will be sanitized to a value that does, e.g. a default.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $value Value to sanitize.
 	 * @return mixed Sanitized value.
@@ -130,7 +130,7 @@ class Enum_Validation_Rule implements Validation_Rule, With_Type_Support {
 	/**
 	 * Checks whether the given value has a match in the allowed values, using strict comparison.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $value Value to check.
 	 * @return bool True if value has a match, false otherwise.
@@ -147,7 +147,7 @@ class Enum_Validation_Rule implements Validation_Rule, With_Type_Support {
 	/**
 	 * Checks whether the given value has a match in the allowed values, using loose comparison.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $value Value to check.
 	 * @return bool True if value has a match, false otherwise.
@@ -164,7 +164,7 @@ class Enum_Validation_Rule implements Validation_Rule, With_Type_Support {
 	/**
 	 * Gets the supported types for the validation rule.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int One or more of the type constants from the Types interface, combined with a bitwise OR.
 	 */

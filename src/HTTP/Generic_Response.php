@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\Generic_Response
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,14 +14,14 @@ use WpOrg\Requests\Utility\CaseInsensitiveDictionary;
 /**
  * Class for a generic HTTP response from another URL.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Generic_Response implements Response {
 
 	/**
 	 * The HTTP status code received with the response.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var int
 	 */
 	private $status;
@@ -29,7 +29,7 @@ class Generic_Response implements Response {
 	/**
 	 * The body received with the response.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $body;
@@ -37,7 +37,7 @@ class Generic_Response implements Response {
 	/**
 	 * The headers received with the response.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var CaseInsensitiveDictionary
 	 */
 	private $headers;
@@ -45,7 +45,7 @@ class Generic_Response implements Response {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int                   $status  The HTTP status code received with the response.
 	 * @param string                $body    The body received with the response.
@@ -65,7 +65,7 @@ class Generic_Response implements Response {
 	/**
 	 * Retrieves the HTTP status code received with the response.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int The 3-digit HTTP status code.
 	 */
@@ -76,7 +76,7 @@ class Generic_Response implements Response {
 	/**
 	 * Retrieves the data received with the response.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> The response data, or an empty array if it could not automatically be decoded. In
 	 *                              this case, the raw response body should be used.
@@ -89,7 +89,7 @@ class Generic_Response implements Response {
 	/**
 	 * Retrieves the body received with the response.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string The raw response body. If response data could be automatically decoded, this should be empty, and
 	 *                the response data should be used instead.
@@ -101,7 +101,7 @@ class Generic_Response implements Response {
 	/**
 	 * Retrieves the headers received with the response.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, string> The response headers.
 	 */
@@ -112,7 +112,7 @@ class Generic_Response implements Response {
 	/**
 	 * Retrieves a specific header received with the response.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $name The name of the header to retrieve.
 	 * @return string The value of the header, or an empty string if the header was not found.

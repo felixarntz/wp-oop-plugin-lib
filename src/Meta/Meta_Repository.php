@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Meta_Repository
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,14 +14,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Contracts\With_Single;
 /**
  * Class for a repository of WordPress metadata.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Meta_Repository implements Entity_Key_Value_Repository, With_Single {
 
 	/**
 	 * Object type.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	protected $object_type;
@@ -29,7 +29,7 @@ class Meta_Repository implements Entity_Key_Value_Repository, With_Single {
 	/**
 	 * Single config as $key => $single pairs.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, bool>
 	 */
 	private $single_config = array();
@@ -37,7 +37,7 @@ class Meta_Repository implements Entity_Key_Value_Repository, With_Single {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $object_type Object type.
 	 */
@@ -48,7 +48,7 @@ class Meta_Repository implements Entity_Key_Value_Repository, With_Single {
 	/**
 	 * Checks whether a value for the given entity and meta key exists in the database.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int    $entity_id Entity ID.
 	 * @param string $key       Meta key.
@@ -63,7 +63,7 @@ class Meta_Repository implements Entity_Key_Value_Repository, With_Single {
 	 *
 	 * Always returns a single value.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int    $entity_id Entity ID.
 	 * @param string $key       Meta key.
@@ -88,7 +88,7 @@ class Meta_Repository implements Entity_Key_Value_Repository, With_Single {
 	/**
 	 * Updates the value for a given entity and meta key in the database.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int    $entity_id Entity ID.
 	 * @param string $key       Meta key.
@@ -117,7 +117,7 @@ class Meta_Repository implements Entity_Key_Value_Repository, With_Single {
 	/**
 	 * Deletes the data for a given entity and meta key from the database.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int    $entity_id Entity ID.
 	 * @param string $key       Meta key.
@@ -130,7 +130,7 @@ class Meta_Repository implements Entity_Key_Value_Repository, With_Single {
 	/**
 	 * Deletes all data for the given entity from the database.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $entity_id Entity ID.
 	 * @return bool True on success, false on failure.
@@ -158,7 +158,7 @@ class Meta_Repository implements Entity_Key_Value_Repository, With_Single {
 	/**
 	 * Updates the metadata caches for the given entity IDs.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int[] $entity_ids Entity IDs.
 	 * @return bool True on success, or false on failure.
@@ -170,7 +170,7 @@ class Meta_Repository implements Entity_Key_Value_Repository, With_Single {
 	/**
 	 * Gets the 'single' config for a given key in the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Item key.
 	 * @return bool Whether or not the item has a single value.
@@ -183,7 +183,7 @@ class Meta_Repository implements Entity_Key_Value_Repository, With_Single {
 	/**
 	 * Sets the 'single' config for a given key in the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key    Item key.
 	 * @param bool   $single Item 'single' config.

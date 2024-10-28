@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Comment_Repository
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -17,14 +17,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Exception\Invalid_Entity_Data_Excepti
 /**
  * Class for a repository of WordPress comments.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Comment_Repository implements Entity_Repository, Cache_Aware_Entity_Repository, Trash_Aware_Entity_Repository {
 
 	/**
 	 * Checks whether a comment for the given ID exists in the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $id Comment ID.
 	 * @return bool True if the comment exists, false otherwise.
@@ -36,7 +36,7 @@ class Comment_Repository implements Entity_Repository, Cache_Aware_Entity_Reposi
 	/**
 	 * Gets the comment for a given ID from the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $id Comment ID.
 	 * @return Comment|null The comment, or `null` if no value exists.
@@ -52,7 +52,7 @@ class Comment_Repository implements Entity_Repository, Cache_Aware_Entity_Reposi
 	/**
 	 * Updates the comment for a given ID in the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int                  $id   Comment ID.
 	 * @param array<string, mixed> $data New data to set for the comment. See {@see wp_update_comment()} for a list of
@@ -79,7 +79,7 @@ class Comment_Repository implements Entity_Repository, Cache_Aware_Entity_Reposi
 	/**
 	 * Adds a new comment to the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $data Initial data to set for the comment. See {@see wp_insert_comment()} for a list
 	 *                                   of supported arguments.
@@ -102,7 +102,7 @@ class Comment_Repository implements Entity_Repository, Cache_Aware_Entity_Reposi
 	/**
 	 * Deletes the comment for a given ID from the repository.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $id Comment ID.
 	 * @return bool True on success, false on failure.
@@ -114,7 +114,7 @@ class Comment_Repository implements Entity_Repository, Cache_Aware_Entity_Reposi
 	/**
 	 * Returns a comment query object for the given arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $query_args Query arguments.
 	 * @return Comment_Query Query object.
@@ -128,7 +128,7 @@ class Comment_Repository implements Entity_Repository, Cache_Aware_Entity_Reposi
 	 *
 	 * Does not update any meta caches.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int[] $ids Comment IDs.
 	 * @return bool True on success, or false on failure.
@@ -141,7 +141,7 @@ class Comment_Repository implements Entity_Repository, Cache_Aware_Entity_Reposi
 	/**
 	 * Moves the comment for a given ID to the trash.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $id Comment ID.
 	 * @return bool True on success, false on failure.
@@ -153,7 +153,7 @@ class Comment_Repository implements Entity_Repository, Cache_Aware_Entity_Reposi
 	/**
 	 * Moves the comment for a given ID out of the trash.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $id Comment ID.
 	 * @return bool True on success, false on failure.
@@ -165,7 +165,7 @@ class Comment_Repository implements Entity_Repository, Cache_Aware_Entity_Reposi
 	/**
 	 * Checks whether the comment for a given ID is in the trash.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $id Comment ID.
 	 * @return bool True if the comment is in the trash, false otherwise.

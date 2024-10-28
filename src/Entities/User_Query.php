@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Entities\User_Query
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -15,14 +15,14 @@ use WP_User_Query;
 /**
  * Class for a query for WordPress users.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class User_Query implements Entity_Query {
 
 	/**
 	 * The underlying WordPress user query object.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var WP_User_Query
 	 */
 	private $wp_obj;
@@ -30,7 +30,7 @@ class User_Query implements Entity_Query {
 	/**
 	 * Query arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, mixed>
 	 */
 	private $query_args;
@@ -38,7 +38,7 @@ class User_Query implements Entity_Query {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $query_args Query arguments. See {@see WP_User_Query::prepare_query()} for a list of
 	 *                                         supported arguments.
@@ -51,7 +51,7 @@ class User_Query implements Entity_Query {
 	/**
 	 * Runs the query to get users.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return User[] List of user entities.
 	 */
@@ -70,7 +70,7 @@ class User_Query implements Entity_Query {
 	/**
 	 * Runs the query to get user IDs.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int[] List of user IDs.
 	 */
@@ -86,7 +86,7 @@ class User_Query implements Entity_Query {
 	/**
 	 * Runs the query to get the user count.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int User count.
 	 */
@@ -104,7 +104,7 @@ class User_Query implements Entity_Query {
 	/**
 	 * Parses the given query arguments with better defaults.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $query_args Query arguments.
 	 * @return array<string, mixed> Query arguments parsed with defaults.
@@ -122,7 +122,7 @@ class User_Query implements Entity_Query {
 	/**
 	 * Wraps a WordPress user object into a corresponding entity instance.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param WP_User $user WordPress user object.
 	 * @return User User entity.

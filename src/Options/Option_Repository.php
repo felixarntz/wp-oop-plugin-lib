@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Options\Option_Repository
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,14 +14,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Options\Contracts\With_Autoload_Config;
 /**
  * Class for a repository of WordPress options.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Option_Repository implements Key_Value_Repository, With_Autoload_Config {
 
 	/**
 	 * Autoload config as $key => $autoload pairs.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, bool>
 	 */
 	private $autoload_config = array();
@@ -29,7 +29,7 @@ class Option_Repository implements Key_Value_Repository, With_Autoload_Config {
 	/**
 	 * Checks whether a value for the given option exists in the database.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Option key.
 	 * @return bool True if a value for the option exists, false otherwise.
@@ -42,7 +42,7 @@ class Option_Repository implements Key_Value_Repository, With_Autoload_Config {
 	/**
 	 * Gets the value for a given option from the database.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key     Option key.
 	 * @param mixed  $default Optional. Value to return if no value exists for the option. Default null.
@@ -55,7 +55,7 @@ class Option_Repository implements Key_Value_Repository, With_Autoload_Config {
 	/**
 	 * Updates the value for a given option in the database.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key   Option key.
 	 * @param mixed  $value New value to set for the option.
@@ -87,7 +87,7 @@ class Option_Repository implements Key_Value_Repository, With_Autoload_Config {
 	/**
 	 * Deletes the data for a given option from the database.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Option key.
 	 * @return bool True on success, false on failure.
@@ -99,7 +99,7 @@ class Option_Repository implements Key_Value_Repository, With_Autoload_Config {
 	/**
 	 * Gets the autoload config for a given option in the database.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Option key.
 	 * @return bool|null Whether or not the item should be autoloaded, or null if not specified.
@@ -112,7 +112,7 @@ class Option_Repository implements Key_Value_Repository, With_Autoload_Config {
 	/**
 	 * Sets the autoload config for a given option in the database.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key      Option key.
 	 * @param bool   $autoload Option autoload config.

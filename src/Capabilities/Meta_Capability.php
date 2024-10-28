@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Meta_Capability
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities;
  *
  * A meta capability is a capability that is mapped to one or more base capabilities based on dynamic logic.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Meta_Capability extends Abstract_Capability {
 
 	/**
 	 * Callback function to determine the required base capabilities needed to grant this meta capability.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var callable
 	 */
 	private $map_callback;
@@ -28,7 +28,7 @@ class Meta_Capability extends Abstract_Capability {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string   $key          Capability key.
 	 * @param callable $map_callback Optional. Callback function to determine the required base capabilities needed to
@@ -46,7 +46,7 @@ class Meta_Capability extends Abstract_Capability {
 	/**
 	 * Sets the callback function to determine the required base capabilities needed to grant this meta capability.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param callable $map_callback Callback function to determine the required base capabilities needed to grant this
 	 *                               meta capability. The function receives the user ID and any additional parameters
@@ -59,7 +59,7 @@ class Meta_Capability extends Abstract_Capability {
 	/**
 	 * Gets the callback function to determine the required base capabilities needed to grant this meta capability.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return callable Callback function to determine the required base capabilities needed to grant this meta
 	 *                  capability. The function receives the user ID and any additional parameters passed alongside

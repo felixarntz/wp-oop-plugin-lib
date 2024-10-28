@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Privacy\Abstract_Personal_Data_Eraser
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Privacy\Contracts\Personal_Data_Eraser;
 /**
  * Base class representing a WordPress personal data eraser.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 abstract class Abstract_Personal_Data_Eraser implements Personal_Data_Eraser {
 
 	/**
 	 * Data eraser key.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $key;
@@ -28,7 +28,7 @@ abstract class Abstract_Personal_Data_Eraser implements Personal_Data_Eraser {
 	/**
 	 * Data eraser name.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $name;
@@ -36,7 +36,7 @@ abstract class Abstract_Personal_Data_Eraser implements Personal_Data_Eraser {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 */
 	public function __construct() {
 		$this->key  = $this->key();
@@ -46,7 +46,7 @@ abstract class Abstract_Personal_Data_Eraser implements Personal_Data_Eraser {
 	/**
 	 * Gets the key of the data eraser.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Data eraser key.
 	 */
@@ -57,7 +57,7 @@ abstract class Abstract_Personal_Data_Eraser implements Personal_Data_Eraser {
 	/**
 	 * Gets the user-facing friendly name for the data eraser.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Data eraser name.
 	 */
@@ -68,7 +68,7 @@ abstract class Abstract_Personal_Data_Eraser implements Personal_Data_Eraser {
 	/**
 	 * Gets the registration arguments for the data eraser.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Data eraser registration arguments.
 	 */
@@ -82,7 +82,7 @@ abstract class Abstract_Personal_Data_Eraser implements Personal_Data_Eraser {
 	/**
 	 * Erases personal data for the given email address and page.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $email_address Email address to erase personal data for.
 	 * @param int    $page          Optional. Page index. A higher value than 1 is only passed if the overall process
@@ -105,7 +105,7 @@ abstract class Abstract_Personal_Data_Eraser implements Personal_Data_Eraser {
 	/**
 	 * Returns the key of the data eraser.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Data eraser key.
 	 */
@@ -114,7 +114,7 @@ abstract class Abstract_Personal_Data_Eraser implements Personal_Data_Eraser {
 	/**
 	 * Returns the user-facing friendly name for the data eraser.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Data eraser name.
 	 */
@@ -123,7 +123,7 @@ abstract class Abstract_Personal_Data_Eraser implements Personal_Data_Eraser {
 	/**
 	 * Processes a request to erase personal data for the given email address and page.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Personal_Data_Erasure_Result $result        Result object to amend.
 	 * @param string                       $email_address Email address to erase personal data for.

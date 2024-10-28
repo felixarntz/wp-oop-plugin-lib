@@ -2,7 +2,7 @@
 /**
  * Trait Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Traits\Type_Support
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -11,7 +11,7 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Traits;
 /**
  * Trait that implements the With_Type_Support interface, limiting a validation rule to support specific input types.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 trait Type_Support {
 
@@ -20,7 +20,7 @@ trait Type_Support {
 	 *
 	 * This is any of the type constants from the Types interface, combined with a bitwise OR.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var int|null
 	 */
 	private $supported_types;
@@ -30,7 +30,7 @@ trait Type_Support {
 	 *
 	 * This method is mostly for internal use, e.g. to ensure that builders don't allow rules that are useless for them.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $type One of the type constants from the Types interface.
 	 * @return bool True if the given type is supported, false otherwise.
@@ -46,7 +46,7 @@ trait Type_Support {
 	/**
 	 * Gets the supported types for the validation rule.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int One or more of the type constants from the Types interface, combined with a bitwise OR.
 	 */

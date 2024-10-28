@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Entities\User
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -15,14 +15,14 @@ use WP_User;
 /**
  * Class representing a WordPress user.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class User implements Entity, With_Capabilities {
 
 	/**
 	 * The underlying WordPress user object.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var WP_User
 	 */
 	private $wp_obj;
@@ -30,7 +30,7 @@ class User implements Entity, With_Capabilities {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param WP_User $user The underlying WordPress user object.
 	 */
@@ -41,7 +41,7 @@ class User implements Entity, With_Capabilities {
 	/**
 	 * Gets the user ID.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int The user ID.
 	 */
@@ -52,7 +52,7 @@ class User implements Entity, With_Capabilities {
 	/**
 	 * Checks whether the user is publicly accessible.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True if the user is public, false otherwise.
 	 */
@@ -63,7 +63,7 @@ class User implements Entity, With_Capabilities {
 	/**
 	 * Gets the user's primary URL.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string URL to the user's posts, or empty string if none.
 	 */
@@ -74,7 +74,7 @@ class User implements Entity, With_Capabilities {
 	/**
 	 * Gets the user's edit URL, if the current user is able to edit them.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string URL to edit the user, or empty string if unable to edit.
 	 */
@@ -85,7 +85,7 @@ class User implements Entity, With_Capabilities {
 	/**
 	 * Gets the value for the given field of the user.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $field The field identifier.
 	 * @return mixed Value for the field, `null` if not set.
@@ -97,7 +97,7 @@ class User implements Entity, With_Capabilities {
 	/**
 	 * Checks whether the user has the given capability.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $cap     Capability name.
 	 * @param mixed  ...$args Optional further parameters, typically starting with an entity ID.

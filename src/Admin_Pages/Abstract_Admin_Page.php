@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pages\Abstract_Admin_Page
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pages\Contracts\Admin_Page;
 /**
  * Base class representing a WordPress admin page.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 abstract class Abstract_Admin_Page implements Admin_Page {
 
 	/**
 	 * Admin page slug.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $slug;
@@ -28,7 +28,7 @@ abstract class Abstract_Admin_Page implements Admin_Page {
 	/**
 	 * Admin page title.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $title;
@@ -36,7 +36,7 @@ abstract class Abstract_Admin_Page implements Admin_Page {
 	/**
 	 * Admin page capability.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $capability;
@@ -44,7 +44,7 @@ abstract class Abstract_Admin_Page implements Admin_Page {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 */
 	public function __construct() {
 		$this->slug       = $this->slug();
@@ -55,7 +55,7 @@ abstract class Abstract_Admin_Page implements Admin_Page {
 	/**
 	 * Gets the admin page slug.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Admin page slug.
 	 */
@@ -66,7 +66,7 @@ abstract class Abstract_Admin_Page implements Admin_Page {
 	/**
 	 * Gets the admin page title.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Admin page title.
 	 */
@@ -77,7 +77,7 @@ abstract class Abstract_Admin_Page implements Admin_Page {
 	/**
 	 * Gets the admin page's required capability.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Admin page capability.
 	 */
@@ -88,21 +88,21 @@ abstract class Abstract_Admin_Page implements Admin_Page {
 	/**
 	 * Initializes functionality for the admin page.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 */
 	abstract public function load(): void;
 
 	/**
 	 * Renders the admin page.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 */
 	abstract public function render(): void;
 
 	/**
 	 * Returns the admin page slug.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Admin page slug.
 	 */
@@ -111,7 +111,7 @@ abstract class Abstract_Admin_Page implements Admin_Page {
 	/**
 	 * Returns the admin page title.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Admin page title.
 	 */
@@ -120,7 +120,7 @@ abstract class Abstract_Admin_Page implements Admin_Page {
 	/**
 	 * Returns the admin page's required capability.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Admin page capability.
 	 */

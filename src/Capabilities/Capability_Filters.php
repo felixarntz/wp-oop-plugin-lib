@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Capabilities\Capability_Filters
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\With_Hooks;
 /**
  * Class that adds filters to dynamically grant base capabilities and meta capabilities.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Capability_Filters implements With_Hooks {
 
 	/**
 	 * Capability container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var Capability_Container
 	 */
 	private $container;
@@ -44,7 +44,7 @@ class Capability_Filters implements With_Hooks {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Capability_Container $container Container with the capabilities that filters should be added for.
 	 */
@@ -55,7 +55,7 @@ class Capability_Filters implements With_Hooks {
 	/**
 	 * Adds relevant WordPress hooks.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 */
 	public function add_hooks(): void {
 		add_filter( 'user_has_cap', array( $this, 'filter_user_has_cap' ) );
@@ -65,7 +65,7 @@ class Capability_Filters implements With_Hooks {
 	/**
 	 * Gets the map of dynamic capabilities and which base capabilities they should map to.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, string[]> Map of `$cap => $required_caps` pairs.
 	 */
@@ -92,7 +92,7 @@ class Capability_Filters implements With_Hooks {
 	/**
 	 * Gets the map of meta capabilities and their map callbacks.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, callable> Map of `$cap => $map_callback` pairs.
 	 */
@@ -116,7 +116,7 @@ class Capability_Filters implements With_Hooks {
 	 *
 	 * This should be used as a callback for the {@see 'user_has_cap'} filter.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, bool> $allcaps Array of key/value pairs where keys represent a capability name and boolean
 	 *                                     values represent whether the user has that capability.
@@ -147,7 +147,7 @@ class Capability_Filters implements With_Hooks {
 	 *
 	 * This should be used as a callback for the {@see 'map_meta_cap'} filter.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string[] $caps    Primitive capabilities required of the user.
 	 * @param string   $cap     Capability being checked.

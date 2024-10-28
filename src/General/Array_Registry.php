@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Array_Registry
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -18,14 +18,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Registry;
  * This can be used to provide a consistent registration API around data structures which in WordPress can only be
  * added via filters.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Array_Registry implements Registry, Arrayable, ArrayAccess {
 
 	/**
 	 * The registered items.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var array<string, object>
 	 */
 	private $items = array();
@@ -33,7 +33,7 @@ class Array_Registry implements Registry, Arrayable, ArrayAccess {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param array<string, array<string, mixed>> $initial_items Optional. Initial array of registered items. Default
 	 *                                                           empty array.
@@ -50,7 +50,7 @@ class Array_Registry implements Registry, Arrayable, ArrayAccess {
 	/**
 	 * Registers an item with the given key and arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string               $key  Item key.
 	 * @param array<string, mixed> $args Item registration arguments.
@@ -64,7 +64,7 @@ class Array_Registry implements Registry, Arrayable, ArrayAccess {
 	/**
 	 * Checks whether an item with the given key is registered.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Item key.
 	 * @return bool True if the item is registered, false otherwise.
@@ -76,7 +76,7 @@ class Array_Registry implements Registry, Arrayable, ArrayAccess {
 	/**
 	 * Gets the registered item for the given key from the registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Item key.
 	 * @return object|null The registered item definition, or `null` if not registered.
@@ -91,7 +91,7 @@ class Array_Registry implements Registry, Arrayable, ArrayAccess {
 	/**
 	 * Gets all items from the registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, object> Associative array of keys and their item definitions, or empty array if nothing is
 	 *                              registered. This is effectively the array representation of the registry.
@@ -103,7 +103,7 @@ class Array_Registry implements Registry, Arrayable, ArrayAccess {
 	/**
 	 * Returns the array representation of the registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return array<string, mixed> Array representation.
 	 */
@@ -114,7 +114,7 @@ class Array_Registry implements Registry, Arrayable, ArrayAccess {
 	/**
 	 * Checks if an item for the given key is registered.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key Item key.
 	 * @return bool True if the item is registered, false otherwise.
@@ -127,7 +127,7 @@ class Array_Registry implements Registry, Arrayable, ArrayAccess {
 	/**
 	 * Gets the item for the given key from the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key Item key.
 	 * @return object|null The registered item definition, or `null` if not registered.
@@ -140,7 +140,7 @@ class Array_Registry implements Registry, Arrayable, ArrayAccess {
 	/**
 	 * Registers an item with the given key and arguments.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string               $key  Item key.
 	 * @param array<string, mixed> $args Item registration arguments.
@@ -153,7 +153,7 @@ class Array_Registry implements Registry, Arrayable, ArrayAccess {
 	/**
 	 * Magic unset method. Does nothing at this time, as , registries do not allow unregistering items.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $key Item key.
 	 */

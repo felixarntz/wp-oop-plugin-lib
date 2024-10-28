@@ -2,7 +2,7 @@
 /**
  * Interface Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Container
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -11,14 +11,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts;
 /**
  * Interface for a container with read and write access.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 interface Container extends Container_Readonly {
 
 	/**
 	 * Sets the given entry under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string   $key     Key.
 	 * @param callable $creator Entry creator closure.
@@ -28,7 +28,7 @@ interface Container extends Container_Readonly {
 	/**
 	 * Unsets the entry under the given key in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Key.
 	 */

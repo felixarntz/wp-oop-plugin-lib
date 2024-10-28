@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Generic_Key_Value
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -16,14 +16,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Key_Value_Repository;
  *
  * Should typically not be used directly, but rather through a more specific class extending it.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Generic_Key_Value implements Key_Value {
 
 	/**
 	 * Repository used for the item.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var Key_Value_Repository
 	 */
 	protected $repository;
@@ -31,7 +31,7 @@ class Generic_Key_Value implements Key_Value {
 	/**
 	 * Item key.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	protected $key;
@@ -39,7 +39,7 @@ class Generic_Key_Value implements Key_Value {
 	/**
 	 * Item default value.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var mixed
 	 */
 	protected $default_value;
@@ -47,7 +47,7 @@ class Generic_Key_Value implements Key_Value {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Key_Value_Repository $repository    Repository used for the item.
 	 * @param string               $key           Item key.
@@ -63,7 +63,7 @@ class Generic_Key_Value implements Key_Value {
 	/**
 	 * Checks whether the item has a value set.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True if a value is set, false otherwise.
 	 */
@@ -74,7 +74,7 @@ class Generic_Key_Value implements Key_Value {
 	/**
 	 * Gets the value for the item.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return mixed Value for the item.
 	 */
@@ -90,7 +90,7 @@ class Generic_Key_Value implements Key_Value {
 	/**
 	 * Updates the value for the item.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $value New value to set for the item.
 	 * @return bool True on success, false on failure.
@@ -102,7 +102,7 @@ class Generic_Key_Value implements Key_Value {
 	/**
 	 * Deletes the data for the item.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True on success, false on failure.
 	 */
@@ -113,7 +113,7 @@ class Generic_Key_Value implements Key_Value {
 	/**
 	 * Gets the key of the item.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Item key.
 	 */

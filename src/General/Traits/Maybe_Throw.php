@@ -2,7 +2,7 @@
 /**
  * Trait Felix_Arntz\WP_OOP_Plugin_Lib\General\Traits\Maybe_Throw
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Exception;
 /**
  * Trait with a function to cast a value by a type.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 trait Maybe_Throw {
 
 	/**
 	 * Calls a callback function that may throw exceptions, and catches exceptions unless `WP_DEBUG` is enabled.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param callable $callback      Callback function.
 	 * @param mixed[]  $callback_args Parameters to pass to the callback function.
@@ -45,7 +45,7 @@ trait Maybe_Throw {
 	/**
 	 * Calls a callback function that may return a `WP_Error`, and throws an exception only if `WP_DEBUG` is enabled.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param callable $callback      Callback function.
 	 * @param mixed[]  $callback_args Parameters to pass to the callback function.

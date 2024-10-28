@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\WP_Error_Exception
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,14 +14,14 @@ use WP_Error;
 /**
  * Exception class equivalent to a WP_Error object.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class WP_Error_Exception extends RuntimeException {
 
 	/**
 	 * Text based error code.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var string
 	 */
 	private $error_code = '';
@@ -29,7 +29,7 @@ class WP_Error_Exception extends RuntimeException {
 	/**
 	 * Gets the text based error code.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Text based error code.
 	 */
@@ -49,7 +49,7 @@ class WP_Error_Exception extends RuntimeException {
 	/**
 	 * Sets the text based error code.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $error_code Text based error code.
 	 */
@@ -60,7 +60,7 @@ class WP_Error_Exception extends RuntimeException {
 	/**
 	 * Creates a new WP_Error exception based on error code, and error message.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $error_code Text based error code.
 	 * @param string $message    Error message.
@@ -75,7 +75,7 @@ class WP_Error_Exception extends RuntimeException {
 	/**
 	 * Creates a new WP_Error exception from the given WP_Error object.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param WP_Error $error WP_Error object.
 	 * @return WP_Error_Exception New exception instance.

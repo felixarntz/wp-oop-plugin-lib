@@ -2,7 +2,7 @@
 /**
  * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Privacy\Contracts\Personal_Data_Eraser
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,14 +14,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\With_Registration_Args;
 /**
  * Interface for a WordPress personal data eraser.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 interface Personal_Data_Eraser extends With_Key, With_Registration_Args {
 
 	/**
 	 * Gets the user-facing friendly name for the data eraser.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string Data eraser name.
 	 */
@@ -30,7 +30,7 @@ interface Personal_Data_Eraser extends With_Key, With_Registration_Args {
 	/**
 	 * Erases personal data for the given email address and page.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $email_address Email address to erase personal data for.
 	 * @param int    $page          Optional. Page index. A higher value than 1 is only passed if the overall process

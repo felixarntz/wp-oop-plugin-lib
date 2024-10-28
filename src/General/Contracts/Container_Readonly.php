@@ -2,7 +2,7 @@
 /**
  * Interface Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Container_Readonly
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Exception\Not_Found_Exception;
 /**
  * Interface for a container with readonly access.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 interface Container_Readonly {
 
 	/**
 	 * Checks if an entry for the given key exists in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Key.
 	 * @return bool True if the entry exists in the container, false otherwise.
@@ -30,7 +30,7 @@ interface Container_Readonly {
 	/**
 	 * Gets the entry for the given key from the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $key Key.
 	 * @return mixed Entry for the given key.
@@ -42,7 +42,7 @@ interface Container_Readonly {
 	/**
 	 * Gets all keys in the container.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return string[] List of keys.
 	 */

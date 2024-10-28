@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Installation\Abstract_Installer
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -17,7 +17,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Options\Option;
 /**
  * Base class for a plugin installer (and uninstaller).
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 abstract class Abstract_Installer implements Installer {
 	use Maybe_Throw;
@@ -25,7 +25,7 @@ abstract class Abstract_Installer implements Installer {
 	/**
 	 * The plugin environment.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var Plugin_Env
 	 */
 	private $plugin_env;
@@ -33,7 +33,7 @@ abstract class Abstract_Installer implements Installer {
 	/**
 	 * Option to capture the installed version.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var Option
 	 */
 	private $version_option;
@@ -41,7 +41,7 @@ abstract class Abstract_Installer implements Installer {
 	/**
 	 * Option to capture whether to delete data on uninstall.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var Option
 	 */
 	private $delete_data_option;
@@ -49,7 +49,7 @@ abstract class Abstract_Installer implements Installer {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Plugin_Env $plugin_env         The plugin environment.
 	 * @param Option     $version_option     Option to capture the installed version.
@@ -64,7 +64,7 @@ abstract class Abstract_Installer implements Installer {
 	/**
 	 * Installs or upgrades data for the plugin as necessary.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True on success, false on failure.
 	 */
@@ -100,7 +100,7 @@ abstract class Abstract_Installer implements Installer {
 	/**
 	 * Checks whether data for the plugin data is installed.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True if the plugin data is installed, false otherwise.
 	 */
@@ -113,7 +113,7 @@ abstract class Abstract_Installer implements Installer {
 	 *
 	 * On a multisite network, this will attempt to uninstall the data for all relevant sites.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True on success, false on failure.
 	 */
@@ -161,7 +161,7 @@ abstract class Abstract_Installer implements Installer {
 	/**
 	 * Installs or upgrades data for the plugin as necessary, for a single site.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True on success, false on failure.
 	 */
@@ -183,7 +183,7 @@ abstract class Abstract_Installer implements Installer {
 	/**
 	 * Uninstalls data for the plugin as necessary, for a single site.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return bool True on success, false on failure.
 	 */
@@ -206,7 +206,7 @@ abstract class Abstract_Installer implements Installer {
 	/**
 	 * Installs the full data for the plugin.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @throws Exception Thrown when installing fails.
 	 */
@@ -215,7 +215,7 @@ abstract class Abstract_Installer implements Installer {
 	/**
 	 * Upgrades data for the plugin based on an old version used.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string $old_version Old version number that is currently installed on the site.
 	 *
@@ -228,7 +228,7 @@ abstract class Abstract_Installer implements Installer {
 	 *
 	 * If this method is called, the administrator has explicitly opted in to deleting all plugin data.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @throws Exception Thrown when uninstalling fails.
 	 */

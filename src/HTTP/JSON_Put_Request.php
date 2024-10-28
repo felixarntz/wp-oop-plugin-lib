@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\JSON_Put_Request
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\Contracts\Request;
 /**
  * Class for a HTTP PUT request that sends JSON to another URL.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class JSON_Put_Request extends JSON_Request {
 
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param string               $url  The URL to which the request should be sent.
 	 * @param array<string, mixed> $data Optional. The data to be sent with the request. Default empty array.

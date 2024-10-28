@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Rules\Item_Count_Range_Validation_Rule
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -17,7 +17,7 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Validation\Traits\Type_Support;
 /**
  * Class for a validation rule that ensures non-scalar values include a specific number of items.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Item_Count_Range_Validation_Rule implements Validation_Rule, With_Type_Support {
 	use Type_Support;
@@ -25,7 +25,7 @@ class Item_Count_Range_Validation_Rule implements Validation_Rule, With_Type_Sup
 	/**
 	 * Minimum item count allowed.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var int
 	 */
 	private $min_count;
@@ -33,7 +33,7 @@ class Item_Count_Range_Validation_Rule implements Validation_Rule, With_Type_Sup
 	/**
 	 * Maximum item count allowed.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var int
 	 */
 	private $max_count;
@@ -41,7 +41,7 @@ class Item_Count_Range_Validation_Rule implements Validation_Rule, With_Type_Sup
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param int $min_count Optional. Minimum count allowed. Default 0 (no limit).
 	 * @param int $max_count Optional. Maximum count allowed. Default 0 (no limit).
@@ -56,7 +56,7 @@ class Item_Count_Range_Validation_Rule implements Validation_Rule, With_Type_Sup
 	 *
 	 * Validation will be strict and throw an exception for any unmet requirements.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $value Value to validate.
 	 *
@@ -110,7 +110,7 @@ class Item_Count_Range_Validation_Rule implements Validation_Rule, With_Type_Sup
 	 * This should be called before storing the value in the persistency layer (e.g. the database).
 	 * If the value does not satisfy validation requirements, it will be sanitized to a value that does, e.g. a default.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param mixed $value Value to sanitize.
 	 * @return mixed Sanitized value.
@@ -136,7 +136,7 @@ class Item_Count_Range_Validation_Rule implements Validation_Rule, With_Type_Sup
 	/**
 	 * Gets the supported types for the validation rule.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int One or more of the type constants from the Types interface, combined with a bitwise OR.
 	 */

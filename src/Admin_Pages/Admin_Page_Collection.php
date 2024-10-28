@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pages\Admin_Page_Collection
  *
- * @since n.e.x.t
+ * @since 0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -17,14 +17,14 @@ use Traversable;
 /**
  * Class for a collection of admin pages.
  *
- * @since n.e.x.t
+ * @since 0.1.0
  */
 class Admin_Page_Collection implements Collection {
 
 	/**
 	 * Admin pages stored in the collection.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 * @var Admin_Page[]
 	 */
 	private $admin_pages = array();
@@ -32,7 +32,7 @@ class Admin_Page_Collection implements Collection {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @param Admin_Page[] $admin_pages List of admin page instances.
 	 *
@@ -52,7 +52,7 @@ class Admin_Page_Collection implements Collection {
 	/**
 	 * Returns an iterator for the collection.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return ArrayIterator<int, Admin_Page> Collection iterator.
 	 */
@@ -63,7 +63,7 @@ class Admin_Page_Collection implements Collection {
 	/**
 	 * Returns the size of the collection.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.1.0
 	 *
 	 * @return int Collection size.
 	 */
