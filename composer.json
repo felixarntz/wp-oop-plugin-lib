@@ -14,6 +14,7 @@
     "php": ">=7.2"
   },
   "require-dev": {
+    "roots/wordpress": "^6.0",
     "wp-phpunit/wp-phpunit": "^6.2",
     "yoast/phpunit-polyfills": "^1.0"
   },
@@ -26,6 +27,14 @@
     "psr-4": {
       "Felix_Arntz\\WP_OOP_Plugin_Lib\\PHPUnit\\Includes\\": "tests/phpunit/includes"
     }
+  },
+  "config": {
+    "allow-plugins": {
+      "roots/wordpress-core-installer": true
+    }
+  },
+  "extra": {
+    "wordpress-install-dir": "vendor_wordpress/"
   },
   "scripts": {
     "format": [

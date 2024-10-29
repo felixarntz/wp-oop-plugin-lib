@@ -29,6 +29,7 @@ build
 
 node_modules/
 vendor/
+vendor_wordpress/
 
 ############
 ## OSes
