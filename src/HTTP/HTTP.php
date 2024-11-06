@@ -192,7 +192,7 @@ class HTTP {
 	 * @param Request $request The request to send.
 	 * @return array<string, mixed> Request arguments.
 	 */
-	private function build_request_args( Request $request ): array {
+	protected function build_request_args( Request $request ): array {
 		$headers = $request->get_headers();
 		$data    = $request->get_data();
 		if ( ! $data ) {
