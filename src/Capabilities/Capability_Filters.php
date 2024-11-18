@@ -149,13 +149,13 @@ class Capability_Filters implements With_Hooks {
 	 *
 	 * @since 0.1.0
 	 *
-	 * @param string[] $caps    Primitive capabilities required of the user.
-	 * @param string   $cap     Capability being checked.
-	 * @param int      $user_id User ID.
-	 * @param mixed[]  $args    Additional arguments passed alongside the capability check.
+	 * @param string[]   $caps    Primitive capabilities required of the user.
+	 * @param string     $cap     Capability being checked.
+	 * @param int|string $user_id User ID.
+	 * @param mixed[]    $args    Additional arguments passed alongside the capability check.
 	 * @return string[] Filtered $caps, potentially altered by the relevant map callback.
 	 */
-	public function filter_map_meta_cap( array $caps, string $cap, int $user_id, array $args ): array {
+	public function filter_map_meta_cap( array $caps, string $cap, int|string $user_id, array $args ): array {
 		if ( null === $this->meta_map_callbacks_map ) {
 			$this->meta_map_callbacks_map = $this->get_meta_map_callbacks_map();
 		}
