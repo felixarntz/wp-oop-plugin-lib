@@ -25,9 +25,9 @@ class Validation_Exception extends WP_Error_Exception {
 	 *
 	 * @param string $error_code Text based error code.
 	 * @param string $message    Error message.
-	 * @return Validation_Exception New exception instance.
+	 * @return WP_Error_Exception New exception instance.
 	 */
-	public static function create( string $error_code, string $message ): Validation_Exception {
+	public static function create( string $error_code, string $message ): WP_Error_Exception {
 		$instance = new self( $message );
 		$instance->set_error_code( $error_code );
 		return $instance;
@@ -39,9 +39,9 @@ class Validation_Exception extends WP_Error_Exception {
 	 * @since 0.1.0
 	 *
 	 * @param WP_Error $error WP_Error object.
-	 * @return Validation_Exception New exception instance.
+	 * @return WP_Error_Exception New exception instance.
 	 */
-	public static function from_wp_error( WP_Error $error ): Validation_Exception {
+	public static function from_wp_error( WP_Error $error ): WP_Error_Exception {
 		return self::create( $error->get_error_code(), $error->get_error_message() );
 	}
 }
