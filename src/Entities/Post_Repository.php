@@ -46,7 +46,7 @@ class Post_Repository implements Entity_Repository, Cache_Aware_Entity_Repositor
 		if ( ! $post ) {
 			return null;
 		}
-		return new Post( $post );
+		return Post::convert( $post );
 	}
 
 	/**
@@ -54,17 +54,13 @@ class Post_Repository implements Entity_Repository, Cache_Aware_Entity_Repositor
 	 *
 	 * @since 0.1.0
 	 *
-	 * @param int                  $id   Post ID.
-	 * @param array<string, mixed> $data New data to set for the post. See {@see wp_update_post()} for a list of
-	 *                                   supported arguments.
+	 * @param Post $post Post with new data to update
 	 * @return bool True on success, false on failure.
 	 *
 	 * @throws Invalid_Entity_Data_Exception Thrown when updating the post fails and `WP_DEBUG` is enabled.
 	 */
-	public function update( int $id, array $data ): bool {
-		$data['ID'] = $id;
-
-		$result = wp_update_post( $data, true );
+	public function update( Post $post ): bool {
+		$result = wp_update_post( $post->serialize(), true );
 
 		if ( is_wp_error( $result ) ) {
 			if ( WP_DEBUG ) {
