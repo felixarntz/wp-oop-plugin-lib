@@ -5,6 +5,7 @@ parameters:
 		- build-cs/phpstan-bootstrap.php
 	ignoreErrors:
 		- identifier: missingType.generics
+		- identifier: requireOnce.fileNotFound
 	level: 6
 	paths:
 		- src/
