@@ -2,7 +2,7 @@
 /**
  * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pointers\Contracts\Admin_Pointer
  *
- * @since n.e.x.t
+ * @since 0.2.0
  * @package wp-oop-plugin-lib
  */
 
@@ -11,14 +11,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pointers\Contracts;
 /**
  * Interface for a WP Admin pointer.
  *
- * @since n.e.x.t
+ * @since 0.2.0
  */
 interface Admin_Pointer {
 
 	/**
 	 * Gets the admin pointer slug.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @return string Admin pointer slug.
 	 */
@@ -29,7 +29,7 @@ interface Admin_Pointer {
 	 *
 	 * This can be used to check whether the link should be displayed to the current user or not.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @return string Required capability.
 	 */
@@ -38,7 +38,7 @@ interface Admin_Pointer {
 	/**
 	 * Renders the admin pointer content HTML.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 */
 	public function render(): void;
 
@@ -48,7 +48,7 @@ interface Admin_Pointer {
 	 * The method should not check whether anything related to the current user, such as whether they have the required
 	 * capability or whether they have already dismissed the pointer. This is handled separately.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @param string $hook_suffix The current admin screen hook suffix.
 	 * @return bool True if the pointer is active, false otherwise.
@@ -58,7 +58,7 @@ interface Admin_Pointer {
 	/**
 	 * Gets the selector for the target element the pointer should be attached to.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @return string Pointer target selector.
 	 */

@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pointers\Abstract_Admin_Page_Link_Pointer
  *
- * @since n.e.x.t
+ * @since 0.2.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,14 +14,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pointers\Contracts\Admin_Pointer;
 /**
  * Base class representing a WP Admin Pointer that links to an admin page.
  *
- * @since n.e.x.t
+ * @since 0.2.0
  */
 abstract class Abstract_Admin_Page_Link_Pointer implements Admin_Pointer {
 
 	/**
 	 * Admin page link.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 * @var Admin_Page_Link
 	 */
 	protected $admin_page_link;
@@ -29,7 +29,7 @@ abstract class Abstract_Admin_Page_Link_Pointer implements Admin_Pointer {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @param Admin_Page_Link $admin_page_link Admin page link.
 	 */
@@ -40,7 +40,7 @@ abstract class Abstract_Admin_Page_Link_Pointer implements Admin_Pointer {
 	/**
 	 * Gets the admin pointer slug.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @return string Admin pointer slug.
 	 */
@@ -53,7 +53,7 @@ abstract class Abstract_Admin_Page_Link_Pointer implements Admin_Pointer {
 	 *
 	 * This can be used to check whether the link should be displayed to the current user or not.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @return string Required capability.
 	 */
@@ -64,7 +64,7 @@ abstract class Abstract_Admin_Page_Link_Pointer implements Admin_Pointer {
 	/**
 	 * Renders the admin pointer content HTML.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 */
 	abstract public function render(): void;
 
@@ -74,7 +74,7 @@ abstract class Abstract_Admin_Page_Link_Pointer implements Admin_Pointer {
 	 * The method should not check whether anything related to the current user, such as whether they have the required
 	 * capability or whether they have already dismissed the pointer. This is handled separately.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @param string $hook_suffix The current admin screen hook suffix.
 	 * @return bool True if the pointer is active, false otherwise.
@@ -86,7 +86,7 @@ abstract class Abstract_Admin_Page_Link_Pointer implements Admin_Pointer {
 	/**
 	 * Gets the selector for the target element the pointer should be attached to.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @return string Pointer target selector.
 	 */

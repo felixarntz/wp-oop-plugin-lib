@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Links\Admin_Page_Link
  *
- * @since n.e.x.t
+ * @since 0.2.0
  * @package wp-oop-plugin-lib
  */
 
@@ -16,14 +16,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Site_Env;
 /**
  * Class representing a link to a WordPress admin page.
  *
- * @since n.e.x.t
+ * @since 0.2.0
  */
 class Admin_Page_Link implements Admin_Link {
 
 	/**
 	 * WordPress admin menu containing the page.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 * @var Admin_Menu
 	 */
 	private $admin_menu;
@@ -31,7 +31,7 @@ class Admin_Page_Link implements Admin_Link {
 	/**
 	 * The admin page.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 * @var Admin_Page
 	 */
 	private $admin_page;
@@ -39,7 +39,7 @@ class Admin_Page_Link implements Admin_Link {
 	/**
 	 * Site environment.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 * @var Site_Env
 	 */
 	private $site_env;
@@ -47,7 +47,7 @@ class Admin_Page_Link implements Admin_Link {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @param Admin_Menu $admin_menu ordPress admin menu.
 	 * @param Admin_Page $admin_page The admin page.
@@ -62,7 +62,7 @@ class Admin_Page_Link implements Admin_Link {
 	/**
 	 * Gets the admin link slug.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @return string Admin link slug.
 	 */
@@ -75,7 +75,7 @@ class Admin_Page_Link implements Admin_Link {
 	 *
 	 * This can be used to check whether the link should be displayed to the current user or not.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @return string Required capability.
 	 */
@@ -86,7 +86,7 @@ class Admin_Page_Link implements Admin_Link {
 	/**
 	 * Gets the admin link URL.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @return string The admin link URL.
 	 */
@@ -108,7 +108,7 @@ class Admin_Page_Link implements Admin_Link {
 	/**
 	 * Gets the admin link label.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @return string The admin link label.
 	 */

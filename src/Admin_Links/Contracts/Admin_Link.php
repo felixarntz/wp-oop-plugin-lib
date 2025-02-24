@@ -2,7 +2,7 @@
 /**
  * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Links\Contracts\Admin_Link
  *
- * @since n.e.x.t
+ * @since 0.2.0
  * @package wp-oop-plugin-lib
  */
 
@@ -11,14 +11,14 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Links\Contracts;
 /**
  * Interface for a WP Admin link.
  *
- * @since n.e.x.t
+ * @since 0.2.0
  */
 interface Admin_Link {
 
 	/**
 	 * Gets the admin link slug.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @return string Admin link slug.
 	 */
@@ -29,7 +29,7 @@ interface Admin_Link {
 	 *
 	 * This can be used to check whether the link should be displayed to the current user or not.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @return string Required capability.
 	 */
@@ -38,7 +38,7 @@ interface Admin_Link {
 	/**
 	 * Gets the admin link URL.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @return string The admin link URL.
 	 */
@@ -47,7 +47,7 @@ interface Admin_Link {
 	/**
 	 * Gets the admin link label.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @return string The admin link label.
 	 */

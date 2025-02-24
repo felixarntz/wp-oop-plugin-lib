@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pointers\Dismissed_Admin_Pointers
  *
- * @since n.e.x.t
+ * @since 0.2.0
  * @package wp-oop-plugin-lib
  */
 
@@ -14,14 +14,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Meta_Repository;
 /**
  * Class for managing dismissed admin pointers.
  *
- * @since n.e.x.t
+ * @since 0.2.0
  */
 class Dismissed_Admin_Pointers {
 
 	/**
 	 * User ID.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 * @var int
 	 */
 	private $user_id;
@@ -29,7 +29,7 @@ class Dismissed_Admin_Pointers {
 	/**
 	 * Meta key.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 * @var Meta_Key
 	 */
 	private $meta_key;
@@ -37,7 +37,7 @@ class Dismissed_Admin_Pointers {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @param int             $user_id         User ID.
 	 * @param Meta_Repository $meta_repository User meta repository.
@@ -57,7 +57,7 @@ class Dismissed_Admin_Pointers {
 	/**
 	 * Checks whether an admin pointer is dismissed for the user.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @param string $pointer_slug Admin pointer slug.
 	 * @return bool True if the admin pointer is dismissed, false otherwise.
@@ -69,7 +69,7 @@ class Dismissed_Admin_Pointers {
 	/**
 	 * Dismisses an admin pointer for the user.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @param string $pointer_slug Admin pointer slug.
 	 */
@@ -86,7 +86,7 @@ class Dismissed_Admin_Pointers {
 	/**
 	 * Un-dismisses an admin pointer for the user.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @param string $pointer_slug Admin pointer slug.
 	 */
@@ -104,7 +104,7 @@ class Dismissed_Admin_Pointers {
 	/**
 	 * Gets the dismissed admin pointers.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @return string[] Dismissed admin pointers.
 	 */
@@ -115,7 +115,7 @@ class Dismissed_Admin_Pointers {
 	/**
 	 * Sets the dismissed admin pointers.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @param string[] $dismissed_pointers Dismissed admin pointers.
 	 */

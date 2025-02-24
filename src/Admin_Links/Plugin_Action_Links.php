@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Links\Plugin_Action_Links
  *
- * @since n.e.x.t
+ * @since 0.2.0
  * @package wp-oop-plugin-lib
  */
 
@@ -13,14 +13,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\General\Current_User;
 /**
  * Class for displaying a collection of links as plugin action links.
  *
- * @since n.e.x.t
+ * @since 0.2.0
  */
 class Plugin_Action_Links {
 
 	/**
 	 * Admin link collection.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 * @var Admin_Link_Collection
 	 */
 	private $admin_link_collection;
@@ -28,7 +28,7 @@ class Plugin_Action_Links {
 	/**
 	 * Current user object.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 * @var Current_User
 	 */
 	private $current_user;
@@ -36,7 +36,7 @@ class Plugin_Action_Links {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @param Admin_Link_Collection $admin_link_collection Admin link collection.
 	 * @param Current_User          $current_user          Current user object.
@@ -51,7 +51,7 @@ class Plugin_Action_Links {
 	 *
 	 * Only links that the current user has the required capability for will be included.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @return string[] HTML `a` tags, keyed by their slug.
 	 */

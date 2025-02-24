@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pointers\Admin_Pointer_Collection
  *
- * @since n.e.x.t
+ * @since 0.2.0
  * @package wp-oop-plugin-lib
  */
 
@@ -17,14 +17,14 @@ use Traversable;
 /**
  * Class for a collection of admin pointers.
  *
- * @since n.e.x.t
+ * @since 0.2.0
  */
 class Admin_Pointer_Collection implements Collection {
 
 	/**
 	 * Admin pointers stored in the collection.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 * @var Admin_Pointer[]
 	 */
 	private $admin_links = array();
@@ -32,7 +32,7 @@ class Admin_Pointer_Collection implements Collection {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @param Admin_Pointer[] $admin_links List of admin pointer instances.
 	 *
@@ -52,7 +52,7 @@ class Admin_Pointer_Collection implements Collection {
 	/**
 	 * Returns an iterator for the collection.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @return ArrayIterator<int, Admin_Pointer> Collection iterator.
 	 */
@@ -63,7 +63,7 @@ class Admin_Pointer_Collection implements Collection {
 	/**
 	 * Returns the size of the collection.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @return int Collection size.
 	 */

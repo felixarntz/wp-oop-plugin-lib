@@ -2,7 +2,7 @@
 /**
  * Class Felix_Arntz\WP_OOP_Plugin_Lib\Admin_Pointers\Admin_Pointer_Loader
  *
- * @since n.e.x.t
+ * @since 0.2.0
  * @package wp-oop-plugin-lib
  */
 
@@ -16,14 +16,14 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\Meta\Meta_Repository;
 /**
  * Class for loading admin pointers.
  *
- * @since n.e.x.t
+ * @since 0.2.0
  */
 class Admin_Pointer_Loader {
 
 	/**
 	 * Admin pointer collection.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 * @var Admin_Pointer_Collection
 	 */
 	private $admin_pointer_collection;
@@ -31,7 +31,7 @@ class Admin_Pointer_Loader {
 	/**
 	 * Script registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 * @var Script_Registry
 	 */
 	private $script_registry;
@@ -39,7 +39,7 @@ class Admin_Pointer_Loader {
 	/**
 	 * Style registry.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 * @var Style_Registry
 	 */
 	private $style_registry;
@@ -47,7 +47,7 @@ class Admin_Pointer_Loader {
 	/**
 	 * Dismissed admin pointers.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 * @var Dismissed_Admin_Pointers
 	 */
 	private $dismissed_pointers;
@@ -55,7 +55,7 @@ class Admin_Pointer_Loader {
 	/**
 	 * Current user object.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 * @var Current_User
 	 */
 	private $current_user;
@@ -63,7 +63,7 @@ class Admin_Pointer_Loader {
 	/**
 	 * Constructor.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @param Admin_Pointer_Collection $admin_pointer_collection Admin pointer collection.
 	 * @param Script_Registry          $script_registry          Script registry.
@@ -94,7 +94,7 @@ class Admin_Pointer_Loader {
 	 * In case of any relevant pointers, the 'wp-pointer' script will be enqueued, with inline scripts added for each
 	 * pointer.
 	 *
-	 * @since n.e.x.t
+	 * @since 0.2.0
 	 *
 	 * @param string $hook_suffix The current admin screen hook suffix.
 	 */
