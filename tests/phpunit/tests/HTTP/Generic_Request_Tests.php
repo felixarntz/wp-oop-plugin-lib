@@ -24,7 +24,7 @@ class Generic_Request_Tests extends Test_Case {
 		$this->assertSame( $expected, $request->get_url() );
 	}
 
-	public function data_get_url(): array {
+	public static function data_get_url(): array {
 		return array(
 			'plain and simple'    => array(
 				'https://wordpress.org',
@@ -52,7 +52,7 @@ class Generic_Request_Tests extends Test_Case {
 		$this->assertSame( $expected, $request->get_method() );
 	}
 
-	public function data_get_method(): array {
+	public static function data_get_method(): array {
 		return array(
 			'default' => array(
 				array(),
@@ -104,7 +104,7 @@ class Generic_Request_Tests extends Test_Case {
 		$this->assertSame( $expected_body, $request->get_body() );
 	}
 
-	public function data_get_data_and_body(): array {
+	public static function data_get_data_and_body(): array {
 		return array(
 			'with data'    => array(
 				array( 'key' => 'value' ),
@@ -162,7 +162,7 @@ class Generic_Request_Tests extends Test_Case {
 		$this->assertSame( $expected, $request->get_headers() );
 	}
 
-	public function data_get_headers(): array {
+	public static function data_get_headers(): array {
 		return array(
 			'plain and simple'  => array(
 				array(
@@ -224,7 +224,7 @@ class Generic_Request_Tests extends Test_Case {
 		$this->assertSame( $expected, $request->get_options() );
 	}
 
-	public function data_get_options(): array {
+	public static function data_get_options(): array {
 		return array(
 			'plain and simple' => array(
 				array(

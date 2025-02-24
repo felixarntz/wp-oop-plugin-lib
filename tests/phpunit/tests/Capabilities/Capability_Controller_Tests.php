@@ -67,7 +67,7 @@ class Capability_Controller_Tests extends Test_Case {
 		$this->assertSame( $required_caps, $this->container->get( $cap )->get_required_caps() );
 	}
 
-	public function data_grant_cap_for_base_caps() {
+	public static function data_grant_cap_for_base_caps() {
 		return array(
 			'add required caps'              => array(
 				'without_required_caps',
@@ -120,7 +120,7 @@ class Capability_Controller_Tests extends Test_Case {
 		$this->assertSame( $expected_caps, $cap_map_callback() );
 	}
 
-	public function data_set_meta_map_callback() {
+	public static function data_set_meta_map_callback() {
 		return array(
 			'update map callback'              => array(
 				'meta_cap',

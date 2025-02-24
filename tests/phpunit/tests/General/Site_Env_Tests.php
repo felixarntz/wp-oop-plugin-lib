@@ -34,7 +34,7 @@ class Site_Env_Tests extends Test_Case {
 		$this->assertSame( $expected, $this->site_env->info( $field ) );
 	}
 
-	public function data_info(): array {
+	public static function data_info(): array {
 		return array(
 			'name' => array( 'name', WP_TESTS_TITLE ),
 			'url'  => array( 'url', 'http://' . WP_TESTS_DOMAIN ),
@@ -48,7 +48,7 @@ class Site_Env_Tests extends Test_Case {
 		$this->assertSame( $expected, $this->site_env->url( $url ) );
 	}
 
-	public function data_url() {
+	public static function data_url() {
 		return array(
 			'custom page' => array(
 				'custom-page/',
@@ -72,7 +72,7 @@ class Site_Env_Tests extends Test_Case {
 		$this->assertSame( $expected, $this->site_env->wp_url( $url ) );
 	}
 
-	public function data_wp_url() {
+	public static function data_wp_url() {
 		return array(
 			'wp-includes' => array(
 				'wp-includes/post.php',
@@ -96,7 +96,7 @@ class Site_Env_Tests extends Test_Case {
 		$this->assertSame( $expected, $this->site_env->admin_url( $url ) );
 	}
 
-	public function data_admin_url() {
+	public static function data_admin_url() {
 		return array(
 			'plugins.php' => array(
 				'plugins.php',

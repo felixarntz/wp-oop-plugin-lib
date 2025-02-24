@@ -45,7 +45,7 @@ class Plugin_Env_Tests extends Test_Case {
 		$this->assertSame( $expected, $this->plugin_env->path( $path ) );
 	}
 
-	public function data_path() {
+	public static function data_path() {
 		return array(
 			'file'      => array(
 				'a-file.php',
@@ -73,7 +73,7 @@ class Plugin_Env_Tests extends Test_Case {
 		$this->assertSame( $expected, $this->plugin_env->url( $url ) );
 	}
 
-	public function data_url() {
+	public static function data_url() {
 		return array(
 			'file'      => array(
 				'a-file.php',

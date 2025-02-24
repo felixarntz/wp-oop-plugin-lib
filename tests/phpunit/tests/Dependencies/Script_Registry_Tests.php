@@ -49,7 +49,7 @@ class Script_Registry_Tests extends Test_Case {
 		}
 	}
 
-	public function data_register() {
+	public static function data_register() {
 		return array(
 			'basic script'           => array(
 				'basic_script',

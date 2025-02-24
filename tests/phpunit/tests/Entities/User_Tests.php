@@ -78,7 +78,7 @@ class User_Tests extends Test_Case {
 		$this->assertSame( $expected_value, $this->user->get_field_value( $field ) );
 	}
 
-	public function data_get_field_value() {
+	public static function data_get_field_value() {
 		return array(
 			'invalid'        => array(
 				'some_field',

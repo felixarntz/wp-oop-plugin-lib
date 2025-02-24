@@ -43,7 +43,7 @@ class Network_Env_Tests extends Test_Case {
 		$this->assertSame( $expected, $this->network_env->url( $url ) );
 	}
 
-	public function data_url() {
+	public static function data_url() {
 		return array(
 			'custom page' => array(
 				'custom-page/',
@@ -68,7 +68,7 @@ class Network_Env_Tests extends Test_Case {
 		$this->assertSame( $expected, $this->network_env->wp_url( $url ) );
 	}
 
-	public function data_wp_url() {
+	public static function data_wp_url() {
 		return array(
 			'wp-includes' => array(
 				'wp-includes/post.php',
@@ -93,7 +93,7 @@ class Network_Env_Tests extends Test_Case {
 		$this->assertSame( $expected, $this->network_env->admin_url( $url ) );
 	}
 
-	public function data_admin_url() {
+	public static function data_admin_url() {
 		return array(
 			'plugins.php' => array(
 				'plugins.php',
@@ -118,7 +118,7 @@ class Network_Env_Tests extends Test_Case {
 		$this->assertSame( $expected, $this->network_env->admin_url( $url ) );
 	}
 
-	public function data_admin_url_non_multisite() {
+	public static function data_admin_url_non_multisite() {
 		return array(
 			'plugins.php' => array(
 				'plugins.php',

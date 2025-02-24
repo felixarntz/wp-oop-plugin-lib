@@ -86,7 +86,7 @@ class Service_Container_Tests extends Test_Case {
 		}
 	}
 
-	public function data_has() {
+	public static function data_has() {
 		return array(
 			'main_file'               => array(
 				'main_file',

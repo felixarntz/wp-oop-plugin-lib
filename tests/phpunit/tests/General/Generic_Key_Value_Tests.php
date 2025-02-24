@@ -42,7 +42,7 @@ class Generic_Key_Value_Tests extends Test_Case {
 		}
 	}
 
-	public function data_has_value() {
+	public static function data_has_value() {
 		return array(
 			'foo' => array( 'foo', true ),
 			'bar' => array( 'bar', true ),
@@ -59,7 +59,7 @@ class Generic_Key_Value_Tests extends Test_Case {
 		$this->assertSame( $expected, $key_value->get_value() );
 	}
 
-	public function data_get_value() {
+	public static function data_get_value() {
 		return array(
 			'foo'              => array( 'foo', null, 'hello' ),
 			'bar'              => array( 'bar', null, true ),
@@ -97,7 +97,7 @@ class Generic_Key_Value_Tests extends Test_Case {
 		$this->assertSame( $key, $key_value->get_key() );
 	}
 
-	public function data_get_key() {
+	public static function data_get_key() {
 		return array(
 			'foo' => array( 'foo' ),
 			'bar' => array( 'bar' ),

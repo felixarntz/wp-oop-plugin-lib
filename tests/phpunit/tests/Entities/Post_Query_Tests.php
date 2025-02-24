@@ -100,7 +100,7 @@ class Post_Query_Tests extends Test_Case {
 		$this->assertSame( $expected_ids, $query->get_ids() );
 	}
 
-	public function data_queries() {
+	public static function data_queries() {
 		return array(
 			'query for post'           => array(
 				array(

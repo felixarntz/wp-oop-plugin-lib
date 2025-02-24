@@ -23,7 +23,7 @@ class Generic_Response_Tests extends Test_Case {
 		$this->assertSame( $expected, $response->get_status() );
 	}
 
-	public function data_get_status(): array {
+	public static function data_get_status(): array {
 		return array(
 			'plain and simple' => array(
 				200,
@@ -49,7 +49,7 @@ class Generic_Response_Tests extends Test_Case {
 		$this->assertSame( $expected_body, $response->get_body() );
 	}
 
-	public function data_get_data_and_body(): array {
+	public static function data_get_data_and_body(): array {
 		return array(
 			'plain and simple' => array(
 				'key=value',
@@ -72,7 +72,7 @@ class Generic_Response_Tests extends Test_Case {
 		$this->assertSame( $expected, $response->get_headers() );
 	}
 
-	public function data_get_headers(): array {
+	public static function data_get_headers(): array {
 		return array(
 			'plain and simple'  => array(
 				array(
@@ -120,7 +120,7 @@ class Generic_Response_Tests extends Test_Case {
 		}
 	}
 
-	public function data_get_header(): array {
+	public static function data_get_header(): array {
 		return array(
 			'plain and simple'  => array(
 				array(

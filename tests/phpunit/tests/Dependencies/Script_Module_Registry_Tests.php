@@ -50,7 +50,7 @@ class Script_Module_Registry_Tests extends Test_Case {
 		}
 	}
 
-	public function data_register() {
+	public static function data_register() {
 		return array(
 			'basic script module'           => array(
 				'basic_script',

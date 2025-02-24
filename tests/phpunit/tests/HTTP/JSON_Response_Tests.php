@@ -23,7 +23,7 @@ class JSON_Response_Tests extends Test_Case {
 		$this->assertSame( $expected_data, $response->get_data() );
 	}
 
-	public function data_get_data(): array {
+	public static function data_get_data(): array {
 		return array(
 			'plain and simple' => array(
 				'{"key":"value"}',

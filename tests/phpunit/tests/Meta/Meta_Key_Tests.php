@@ -73,7 +73,7 @@ class Meta_Key_Tests extends Test_Case {
 		$this->assertSame( $expected_value, $meta_key->get_value( self::$post_id ) );
 	}
 
-	public function data_get_value() {
+	public static function data_get_value() {
 		return array(
 			'no_type'          => array(
 				array(
@@ -210,7 +210,7 @@ class Meta_Key_Tests extends Test_Case {
 		}
 	}
 
-	public function data_update_value() {
+	public static function data_update_value() {
 		return array(
 			'regular'         => array(
 				array(

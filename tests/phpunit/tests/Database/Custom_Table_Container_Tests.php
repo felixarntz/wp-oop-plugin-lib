@@ -57,7 +57,7 @@ class Custom_Table_Container_Tests extends Test_Case {
 		}
 	}
 
-	public function data_has() {
+	public static function data_has() {
 		return array(
 			'non existent table'                 => array( 'non_existent_table', false ),
 			'existing table using invalid class' => array( 'invalid_type_table', true ),
@@ -77,7 +77,7 @@ class Custom_Table_Container_Tests extends Test_Case {
 		$this->assertSame( $table, $result->get_key() );
 	}
 
-	public function data_get() {
+	public static function data_get() {
 		return array(
 			'non existent table'                 => array( 'non_existent_table', Not_Found_Exception::class ),
 			'existing table using invalid class' => array( 'invalid_type_table', Invalid_Type_Exception::class ),

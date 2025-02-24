@@ -57,7 +57,7 @@ class Capability_Container_Tests extends Test_Case {
 		}
 	}
 
-	public function data_has() {
+	public static function data_has() {
 		return array(
 			'non existent cap'                 => array( 'non_existent_cap', false ),
 			'existing cap using invalid class' => array( 'invalid_type_cap', true ),
@@ -78,7 +78,7 @@ class Capability_Container_Tests extends Test_Case {
 		$this->assertSame( $cap, $result->get_key() );
 	}
 
-	public function data_get() {
+	public static function data_get() {
 		return array(
 			'non existent cap'                 => array( 'non_existent_cap', Not_Found_Exception::class ),
 			'existing cap using invalid class' => array( 'invalid_type_cap', Invalid_Type_Exception::class ),
@@ -103,7 +103,7 @@ class Capability_Container_Tests extends Test_Case {
 		}
 	}
 
-	public function data_set() {
+	public static function data_set() {
 		return array(
 			'new cap to set'                     => array(
 				'new_cap',
@@ -147,7 +147,7 @@ class Capability_Container_Tests extends Test_Case {
 		}
 	}
 
-	public function data_set_by_args() {
+	public static function data_set_by_args() {
 		return array(
 			'new cap to set'                     => array(
 				'new_cap',
@@ -186,7 +186,7 @@ class Capability_Container_Tests extends Test_Case {
 		$this->container->get( $cap );
 	}
 
-	public function data_unset() {
+	public static function data_unset() {
 		return array(
 			'non existent cap to unset'       => array( 'non_existent_cap', false ),
 			'existing demo base cap to unset' => array( 'demo_base_cap', true ),

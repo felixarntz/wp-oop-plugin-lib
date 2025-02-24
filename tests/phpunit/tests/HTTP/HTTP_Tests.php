@@ -95,7 +95,7 @@ class HTTP_Tests extends Test_Case {
 		$this->assertSameSetsWithIndex( $expected, $relevant_args );
 	}
 
-	public function data_options() {
+	public static function data_options() {
 		return array(
 			'defaults'              => array(
 				array(),
@@ -276,7 +276,7 @@ class HTTP_Tests extends Test_Case {
 		$this->assertSame( $expected->get_headers(), $responses['my-request']->get_headers(), 'Unexpected response headers.' );
 	}
 
-	public function data_request(): array {
+	public static function data_request(): array {
 		return array(
 			'regular GET'   => array(
 				new Get_Request( 'https://example.com/' ),
