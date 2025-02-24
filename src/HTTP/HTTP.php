@@ -143,20 +143,21 @@ class HTTP {
 		}
 
 		// If all requests were handled by the response pre filter, we don't actually need to send any requests.
-		if ( count( $requests_args ) === 0 ) {
-			return $responses;
+		if ( count( $requests_args ) > 0 ) {
+			// Similar to WP_Http::request(), avoid issues where mbstring.func_overload is enabled.
+			mbstring_binary_safe_encoding();
+
+			$responses = array_merge(
+				$responses,
+				Requests::request_multiple( $requests_args )
+			);
+
+			// See above.
+			reset_mbstring_encoding();
 		}
 
-		$successful = $responses; // Any pre-filter responses are by definition success responses.
+		$successful = array();
 		$failed     = array();
-
-		// Similar to WP_Http::request(), avoid issues where mbstring.func_overload is enabled.
-		mbstring_binary_safe_encoding();
-
-		$responses = Requests::request_multiple( $requests_args );
-
-		// See above.
-		reset_mbstring_encoding();
 
 		foreach ( $responses as $key => $response ) {
 			if ( $response instanceof \WpOrg\Requests\Exception ) {
@@ -223,6 +224,8 @@ class HTTP {
 	/**
 	 * Runs the WordPress 'pre_http_request' filter to allow short-circuiting requests.
 	 *
+	 * This is only used for multi requests, as single requests are handled by WP_Http::request() directly.
+	 *
 	 * When used in a multi request, the filter will be run for every request. For any request where it returns a value
 	 * other than `false`, the request will not be actually sent and instead the data from the filter is used to create
 	 * the response. If all requests within a multi request receive their response data in that way, no request is sent
@@ -231,7 +234,9 @@ class HTTP {
 	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $request_args Request arguments.
-	 * @return Response|null Response object based on the 'pre_http_request' filter data, or null if not filtered.
+	 * @return \WpOrg\Requests\Response|\WpOrg\Requests\Exception|null Response object or exception based on the
+	 *                                                                 'pre_http_request' filter data, or null if not
+	 *                                                                 filtered.
 	 */
 	private function run_wp_pre_http_request_filter( array $request_args ) {
 		$parsed_args            = $request_args['options'];
@@ -243,11 +248,22 @@ class HTTP {
 		// Allow short-circuiting requests, just like in WP_Http::request().
 		$pre = apply_filters( 'pre_http_request', false, $parsed_args, $request_args['url'] );
 		if ( false !== $pre ) {
-			return $this->create_response(
-				$pre['response']['code'] ?? 200,
-				$pre['body'] ?? '',
-				$pre['headers'] ?? array()
-			);
+			if ( is_wp_error( $pre ) ) {
+				return new \WpOrg\Requests\Exception( $pre->get_error_message(), 'pre_http_request' );
+			}
+			$response = new \WpOrg\Requests\Response();
+			if ( $pre['response']['code'] ) {
+				$response->status_code = $pre['response']['code'];
+			}
+			if ( $pre['body'] ) {
+				$response->body = $pre['body'];
+			}
+			if ( $pre['headers'] ) {
+				foreach ( $pre['headers'] as $header_name => $header_value ) {
+					$response->headers[ $header_name ] = $header_value;
+				}
+			}
+			return $response;
 		}
 		return null;
 	}
@@ -298,6 +314,8 @@ class HTTP {
 			'timeout'             => apply_filters( 'http_request_timeout', 5, $url ),
 			'redirection'         => apply_filters( 'http_request_redirection_count', 5, $url ),
 			'user-agent'          => apply_filters( 'http_headers_useragent', $wp_user_agent, $url ),
+			'reject_unsafe_urls'  => apply_filters( 'http_request_reject_unsafe_urls', false, $url ),
+			'blocking'            => true,
 			'sslverify'           => true,
 			'sslcertificates'     => ABSPATH . WPINC . '/certificates/ca-bundle.crt',
 			'stream'              => false,
