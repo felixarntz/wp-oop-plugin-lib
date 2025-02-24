@@ -91,7 +91,7 @@ abstract class Abstract_Admin_Page_Link_Pointer implements Admin_Pointer {
 	 * @return string Pointer target selector.
 	 */
 	public function get_target_selector(): string {
-		if ( preg_match( '/([a-z0-9-]+\.php)?page=/', $this->admin_page_link->get_url(), $matches ) ) {
+		if ( preg_match( '/([a-z0-9-]+\.php)\?page=/', $this->admin_page_link->get_url(), $matches ) ) {
 			$admin_file = $matches[1];
 		} else {
 			$admin_file = 'admin.php';
