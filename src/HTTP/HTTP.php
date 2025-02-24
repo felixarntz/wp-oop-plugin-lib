@@ -15,8 +15,10 @@ use Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\Exception\Request_Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\Traits\Sanitize_Headers;
 use InvalidArgumentException;
 use WP_HTTP_Proxy;
-use WpOrg\Requests\Proxy\Http as Requests_HTTP_Proxy;
+use WpOrg\Requests\Exception as Requests_Exception;
+use WpOrg\Requests\Proxy\Http as Requests_Proxy_HTTP;
 use WpOrg\Requests\Requests;
+use WpOrg\Requests\Response as Requests_Response;
 use WpOrg\Requests\Utility\CaseInsensitiveDictionary;
 
 /**
@@ -44,7 +46,16 @@ class HTTP {
 	 *                                              array.
 	 */
 	public function __construct( array $default_options = array() ) {
-		// Prior to WordPress 6.2, this class had a different name.
+		// Prior to WordPress 6.2, the Requests library was not using namespaces.
+		if ( ! class_exists( Requests_Exception::class ) ) {
+			class_alias( 'Requests_Exception', Requests_Exception::class );
+		}
+		if ( ! class_exists( Requests_Proxy_HTTP::class ) ) {
+			class_alias( 'Requests_Proxy_HTTP', Requests_Proxy_HTTP::class );
+		}
+		if ( ! class_exists( Requests_Response::class ) ) {
+			class_alias( 'Requests_Response', Requests_Response::class );
+		}
 		if ( ! class_exists( CaseInsensitiveDictionary::class ) ) {
 			class_alias( 'Requests_Utility_CaseInsensitiveDictionary', CaseInsensitiveDictionary::class );
 		}
@@ -160,7 +171,7 @@ class HTTP {
 		$failed     = array();
 
 		foreach ( $responses as $key => $response ) {
-			if ( $response instanceof \WpOrg\Requests\Exception ) {
+			if ( $response instanceof Requests_Exception ) {
 				$failed[ $key ] = new Request_Exception( $response->getMessage() );
 				continue;
 			}
@@ -234,9 +245,8 @@ class HTTP {
 	 * @since 0.1.0
 	 *
 	 * @param array<string, mixed> $request_args Request arguments.
-	 * @return \WpOrg\Requests\Response|\WpOrg\Requests\Exception|null Response object or exception based on the
-	 *                                                                 'pre_http_request' filter data, or null if not
-	 *                                                                 filtered.
+	 * @return Requests_Response|Requests_Exception|null Response object or exception based on the 'pre_http_request'
+	 *                                                   filter data, or null if not filtered.
 	 */
 	private function run_wp_pre_http_request_filter( array $request_args ) {
 		$parsed_args            = $request_args['options'];
@@ -249,9 +259,9 @@ class HTTP {
 		$pre = apply_filters( 'pre_http_request', false, $parsed_args, $request_args['url'] );
 		if ( false !== $pre ) {
 			if ( is_wp_error( $pre ) ) {
-				return new \WpOrg\Requests\Exception( $pre->get_error_message(), 'pre_http_request' );
+				return new Requests_Exception( $pre->get_error_message(), 'pre_http_request' );
 			}
-			$response = new \WpOrg\Requests\Response();
+			$response = new Requests_Response();
 			if ( $pre['response']['code'] ) {
 				$response->status_code = $pre['response']['code'];
 			}
@@ -366,7 +376,7 @@ class HTTP {
 		// Add proxy settings if necessary, similar to WordPress core.
 		$proxy = new WP_HTTP_Proxy();
 		if ( $proxy->is_enabled() && $proxy->send_through_proxy( $url ) ) {
-			$options['proxy'] = new Requests_HTTP_Proxy( $proxy->host() . ':' . $proxy->port() );
+			$options['proxy'] = new Requests_Proxy_HTTP( $proxy->host() . ':' . $proxy->port() );
 
 			if ( $proxy->use_authentication() ) {
 				$options['proxy']->use_authentication = true;
