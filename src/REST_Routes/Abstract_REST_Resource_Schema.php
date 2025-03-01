@@ -113,7 +113,7 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 
 		$base_url = add_query_arg(
 			urlencode_deep( $request->get_query_params() ),
-			$this->get_collection_route_url()
+			$this->get_collection_route_url( $request->get_params() )
 		);
 
 		if ( $page > 1 ) {
@@ -349,9 +349,10 @@ abstract class Abstract_REST_Resource_Schema implements REST_Resource_Schema {
 	 *
 	 * @since 0.1.0
 	 *
+	 * @param array<string, mixed> $params Optional. Current request parameters. Default empty array.
 	 * @return string Full collection route URL.
 	 */
-	abstract protected function get_collection_route_url(): string;
+	abstract protected function get_collection_route_url( array $params = array() ): string;
 
 	/**
 	 * Returns the internal resource schema definition.
