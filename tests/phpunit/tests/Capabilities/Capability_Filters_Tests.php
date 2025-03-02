@@ -100,12 +100,27 @@ class Capability_Filters_Tests extends Test_Case {
 	}
 
 	public function test_filter_user_has_cap() {
-		add_filter( 'user_has_cap', array( $this->filters, 'filter_user_has_cap' ) );
+		add_filter( 'user_has_cap', array( $this->filters, 'filter_user_has_cap' ), 10, 2 );
 
 		$this->assertTrue( current_user_can( 'with_one_required_cap' ) );
 		$this->assertTrue( current_user_can( 'with_multiple_required_caps' ) );
 		$this->assertFalse( current_user_can( 'without_required_caps' ) );
 		$this->assertFalse( current_user_can( 'meta_cap' ) ); // This does not work because the 'map_meta_cap' filter is not applied.
+	}
+
+	public function test_filter_user_has_cap_method_invokations() {
+		$filters_mock = $this->getMockBuilder( Capability_Filters::class )
+			->setConstructorArgs( array( $this->container ) )
+			->setMethods( array( 'get_required_base_caps_map' ) )
+			->getMock();
+
+		// The helper should only be called when any of the given capabilities are included in the container.
+		$filters_mock->expects( $this->exactly( 3 ) )->method( 'get_required_base_caps_map' );
+		$filters_mock->filter_user_has_cap( array(), array( 'with_one_required_cap' ) );
+		$filters_mock->filter_user_has_cap( array(), array( 'with_one_required_cap', 'with_multiple_required_caps' ) );
+		$filters_mock->filter_user_has_cap( array(), array( 'without_required_caps' ) );
+		$filters_mock->filter_user_has_cap( array(), array( 'manage_options' ) );
+		$filters_mock->filter_user_has_cap( array(), array() );
 	}
 
 	public function test_filter_map_meta_cap() {
@@ -131,5 +146,18 @@ class Capability_Filters_Tests extends Test_Case {
 
 		$this->assertTrue( current_user_can( 'meta_cap_with_args', 42 ) );
 		$this->assertFalse( current_user_can( 'meta_cap_with_args', 41 ) );
+	}
+
+	public function test_filter_map_meta_cap_method_invokations() {
+		$filters_mock = $this->getMockBuilder( Capability_Filters::class )
+			->setConstructorArgs( array( $this->container ) )
+			->setMethods( array( 'get_meta_map_callbacks_map' ) )
+			->getMock();
+
+		// The helper should only be called when any of the given capabilities are included in the container.
+		$filters_mock->expects( $this->exactly( 1 ) )->method( 'get_meta_map_callbacks_map' );
+		$filters_mock->filter_map_meta_cap( array(), 'meta_cap', 1, array() );
+		$filters_mock->filter_map_meta_cap( array(), 'edit_post', 1, array() );
+		$filters_mock->filter_map_meta_cap( array(), 'edit_term', 1, array() );
 	}
 }

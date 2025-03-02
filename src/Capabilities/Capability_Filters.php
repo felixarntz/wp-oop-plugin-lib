@@ -26,22 +26,6 @@ class Capability_Filters implements With_Hooks {
 	private $container;
 
 	/**
-	 * Map of `$cap => $required_caps` pairs, stored here to avoid recalculation on every filter call.
-	 *
-	 * @since n.e.xt
-	 * @var array<string, string[]>|null
-	 */
-	private $required_base_caps_map;
-
-	/**
-	 * Map of `$cap => $map_callback` pairs, stored here to avoid recalculation on every filter call.
-	 *
-	 * @since n.e.xt
-	 * @var array<string, callable>|null
-	 */
-	private $meta_map_callbacks_map;
-
-	/**
 	 * Constructor.
 	 *
 	 * @since 0.1.0
@@ -58,7 +42,7 @@ class Capability_Filters implements With_Hooks {
 	 * @since 0.1.0
 	 */
 	public function add_hooks(): void {
-		add_filter( 'user_has_cap', array( $this, 'filter_user_has_cap' ) );
+		add_filter( 'user_has_cap', array( $this, 'filter_user_has_cap' ), 10, 2 );
 		add_filter( 'map_meta_cap', array( $this, 'filter_map_meta_cap' ), 10, 4 );
 	}
 
@@ -120,14 +104,24 @@ class Capability_Filters implements With_Hooks {
 	 *
 	 * @param array<string, bool> $allcaps Array of key/value pairs where keys represent a capability name and boolean
 	 *                                     values represent whether the user has that capability.
+	 * @param string[]            $caps    Required primitive capabilities for the requested capability.
 	 * @return array<string, bool> Filtered $allcaps, including dynamically granted custom capabilities.
 	 */
-	public function filter_user_has_cap( array $allcaps ): array {
-		if ( null === $this->required_base_caps_map ) {
-			$this->required_base_caps_map = $this->get_required_base_caps_map();
+	public function filter_user_has_cap( array $allcaps, array $caps ): array {
+		// Bail early if not checking for any of the relevant capabilities.
+		$relevant_caps = array_filter(
+			$caps,
+			function ( string $cap ) {
+				return $this->container->has( $cap );
+			}
+		);
+		if ( count( $relevant_caps ) === 0 ) {
+			return $allcaps;
 		}
 
-		foreach ( $this->required_base_caps_map as $cap => $required_caps ) {
+		$required_base_caps_map = $this->get_required_base_caps_map();
+
+		foreach ( $required_base_caps_map as $cap => $required_caps ) {
 			$grant = true;
 			foreach ( $required_caps as $required_cap ) {
 				if ( ! isset( $allcaps[ $required_cap ] ) || ! $allcaps[ $required_cap ] ) {
@@ -156,15 +150,18 @@ class Capability_Filters implements With_Hooks {
 	 * @return string[] Filtered $caps, potentially altered by the relevant map callback.
 	 */
 	public function filter_map_meta_cap( array $caps, string $cap, int $user_id, array $args ): array {
-		if ( null === $this->meta_map_callbacks_map ) {
-			$this->meta_map_callbacks_map = $this->get_meta_map_callbacks_map();
-		}
-
-		if ( ! isset( $this->meta_map_callbacks_map[ $cap ] ) ) {
+		// Bail early if not checking for any of the relevant capabilities.
+		if ( ! $this->container->has( $cap ) ) {
 			return $caps;
 		}
 
-		$map_callback  = $this->meta_map_callbacks_map[ $cap ];
+		$meta_map_callbacks_map = $this->get_meta_map_callbacks_map();
+
+		if ( ! isset( $meta_map_callbacks_map[ $cap ] ) ) {
+			return $caps;
+		}
+
+		$map_callback  = $meta_map_callbacks_map[ $cap ];
 		$required_caps = $map_callback( $user_id, ...$args );
 		if ( ! is_array( $required_caps ) || ! $required_caps ) { // Prevent invalid return values.
 			return $caps;
