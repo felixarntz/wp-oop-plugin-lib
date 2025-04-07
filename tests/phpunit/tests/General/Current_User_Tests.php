@@ -10,7 +10,6 @@ namespace Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Tests\General;
 use Felix_Arntz\WP_OOP_Plugin_Lib\General\Current_User;
 use Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Includes\Test_Case;
 use WP_UnitTest_Factory;
-use WP_User;
 
 /**
  * @group general
