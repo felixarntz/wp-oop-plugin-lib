@@ -48,17 +48,6 @@ class Current_User_Tests extends Test_Case {
 		$this->assertSame( self::$user_ids['administrator'], $this->current_user->get_id() );
 	}
 
-	public function test_get() {
-		$user = $this->current_user->get();
-		$this->assertInstanceOf( WP_User::class, $user );
-		$this->assertFalse( $user->exists() );
-
-		wp_set_current_user( self::$user_ids['administrator'] );
-		$user = $this->current_user->get();
-		$this->assertInstanceOf( WP_User::class, $user );
-		$this->assertSame( self::$user_ids['administrator'], $user->ID );
-	}
-
 	public function test_set() {
 		$this->current_user->set( self::$user_ids['author'] );
 		$this->assertSame( self::$user_ids['author'], get_current_user_id() );

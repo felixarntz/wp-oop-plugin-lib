@@ -9,7 +9,6 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\General;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\With_Capabilities;
-use WP_User;
 
 /**
  * Class representing the current user.
@@ -27,17 +26,6 @@ class Current_User implements With_Capabilities {
 	 */
 	public function get_id(): int {
 		return get_current_user_id();
-	}
-
-	/**
-	 * Gets the current user entity.
-	 *
-	 * @since 0.1.0
-	 *
-	 * @return WP_User The current user object. Will be a stub if no user is signed in.
-	 */
-	public function get(): WP_User {
-		return wp_get_current_user();
 	}
 
 	/**
