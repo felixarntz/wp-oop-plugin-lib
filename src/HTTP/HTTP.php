@@ -9,6 +9,7 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\HTTP;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\Contracts\Request;
+use Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\Contracts\Request_Handler;
 use Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\Contracts\Response;
 use Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\Exception\Multiple_Requests_Exception;
 use Felix_Arntz\WP_OOP_Plugin_Lib\HTTP\Exception\Request_Exception;
@@ -26,7 +27,7 @@ use WpOrg\Requests\Utility\CaseInsensitiveDictionary;
  *
  * @since 0.1.0
  */
-class HTTP {
+class HTTP implements Request_Handler {
 	use Sanitize_Headers;
 
 	/**
@@ -110,6 +111,11 @@ class HTTP {
 
 	/**
 	 * Sends multiple HTTP requests and returns the responses.
+	 *
+	 * The returned responses are in the same order / use the same keys as the requests.
+	 *
+	 * If any of the requests fail, a Multiple_Requests_Exception will be thrown. The exception will contain the
+	 * responses of the requests that succeeded, and the exceptions of the requests that failed.
 	 *
 	 * @since 0.1.0
 	 *
