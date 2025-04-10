@@ -20,36 +20,36 @@ interface Entity {
 	 *
 	 * @since 0.1.0
 	 *
-	 * @return int The entity ID.
+	 * @return int|null The entity ID.
 	 */
-	public function get_id(): int;
+	public function get_id(): ?int;
 
 	/**
 	 * Checks whether the entity is publicly accessible.
 	 *
 	 * @since 0.1.0
 	 *
-	 * @return bool True if the entity is public, false otherwise.
+	 * @return bool|null True if the entity is public, false otherwise.
 	 */
-	public function is_public(): bool;
+	public function is_public(): ?bool;
 
 	/**
 	 * Gets the entity's primary URL.
 	 *
 	 * @since 0.1.0
 	 *
-	 * @return string Primary entity URL, or empty string if none.
+	 * @return string|null Primary entity URL, or empty string if none.
 	 */
-	public function get_url(): string;
+	public function get_url(): ?string;
 
 	/**
 	 * Gets the entity's edit URL, if the current user is able to edit it.
 	 *
 	 * @since 0.1.0
 	 *
-	 * @return string URL to edit the entity, or empty string if unable to edit.
+	 * @return string|null URL to edit the entity, or empty string if unable to edit.
 	 */
-	public function get_edit_url(): string;
+	public function get_edit_url(): ?string;
 
 	/**
 	 * Gets the value for the given field of the entity.
@@ -60,4 +60,11 @@ interface Entity {
 	 * @return mixed Value for the field, `null` if not set.
 	 */
 	public function get_field_value( string $field );
+
+	/**
+	 * Serializes entity to insert it data in save/update functions.
+	 *
+	 * @return string[]
+	 */
+	public function serialize(): array;
 }
