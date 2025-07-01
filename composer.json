@@ -24,29 +24,19 @@
     }
   },
   "scripts": {
-    "format": [
+    "post-install-cmd": [
+      "composer --working-dir=tools/php/lint install",
+      "composer --working-dir=tools/php/test install"
+    ],
+    "post-update-cmd": [
       "composer --working-dir=tools/php/lint update",
-      "tools/php/lint/vendor/bin/phpcbf --standard=phpcs.xml.dist"
+      "composer --working-dir=tools/php/test update"
     ],
-    "lint": [
-      "composer --working-dir=tools/php/lint update",
-      "tools/php/lint/vendor/bin/phpcs --standard=phpcs.xml.dist"
-    ],
-    "phpmd": [
-      "composer --working-dir=tools/php/lint update",
-      "tools/php/lint/vendor/bin/phpmd . text phpmd.xml"
-    ],
-    "phpstan": [
-      "composer --working-dir=tools/php/lint update",
-      "tools/php/lint/vendor/bin/phpstan analyse --memory-limit=2048M"
-    ],
-    "test": [
-        "composer --working-dir=tools/php/test update",
-        "tools/php/test/vendor/bin/phpunit -c phpunit.xml.dist --verbose"
-    ],
-    "test-multisite": [
-        "composer --working-dir=tools/php/test update",
-        "WP_MULTISITE=1 tools/php/test/vendor/bin/phpunit -c phpunit.xml.dist --exclude-group=ms-excluded --verbose"
-    ]
+    "format": "tools/php/lint/vendor/bin/phpcbf --standard=phpcs.xml.dist",
+    "lint": "tools/php/lint/vendor/bin/phpcs --standard=phpcs.xml.dist",
+    "phpmd": "tools/php/lint/vendor/bin/phpmd . text phpmd.xml",
+    "phpstan": "tools/php/lint/vendor/bin/phpstan analyse --memory-limit=2048M",
+    "test": "tools/php/test/vendor/bin/phpunit -c phpunit.xml.dist --verbose",
+    "test-multisite": "tools/php/test/vendor/bin/phpunit -c tests/phpunit/multisite.xml --verbose"
   }
 }

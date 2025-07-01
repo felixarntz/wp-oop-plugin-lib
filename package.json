@@ -3,13 +3,13 @@
   "license": "GPL-2.0-or-later",
   "repository": "git+https://github.com/felixarntz/wp-oop-plugin-lib.git",
   "devDependencies": {
-    "@wordpress/env": "^9.9.0"
+    "@wordpress/env": "^10.22.0"
   },
   "scripts": {
     "format-php": "wp-env run cli --env-cwd=wp-content/plugins/$(basename $(pwd)) composer format",
     "lint-php": "wp-env run cli --env-cwd=wp-content/plugins/$(basename $(pwd)) composer lint",
-    "test-php": "wp-env run tests-cli --env-cwd=wp-content/plugins/$(basename $(pwd)) composer test",
-    "test-php-multisite": "wp-env run tests-cli --env-cwd=wp-content/plugins/$(basename $(pwd)) composer test-multisite",
+    "test-php": "wp-env run tests-cli --env-cwd=wp-content/plugins/$(basename $(pwd)) tools/php/test/vendor/bin/phpunit -c phpunit.xml.dist --verbose",
+    "test-php-multisite": "wp-env run tests-cli --env-cwd=wp-content/plugins/$(basename $(pwd)) tools/php/test/vendor/bin/phpunit -c tests/phpunit/multisite.xml --verbose",
     "wp-env": "wp-env"
   }
 }

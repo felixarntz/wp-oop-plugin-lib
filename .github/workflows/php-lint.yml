@@ -51,6 +51,9 @@ jobs:
       - name: Validate Composer configuration
         run: composer validate
 
+      - name: Install Composer dependencies
+        run: composer install
+
       - name: PHP Lint
         run: composer lint
 
