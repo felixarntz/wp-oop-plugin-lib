@@ -2,7 +2,7 @@ includes:
 	- phar://phpstan.phar/conf/bleedingEdge.neon
 parameters:
 	bootstrapFiles:
-		- build-cs/phpstan-bootstrap.php
+		- tools/php/lint/phpstan-bootstrap.php
 	ignoreErrors:
 		- identifier: missingType.generics
 		- identifier: requireOnce.fileNotFound

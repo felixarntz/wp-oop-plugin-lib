@@ -13,10 +13,6 @@
   "require": {
     "php": ">=7.2"
   },
-  "require-dev": {
-    "wp-phpunit/wp-phpunit": "^6.2",
-    "yoast/phpunit-polyfills": "^1.0"
-  },
   "autoload": {
     "psr-4": {
       "Felix_Arntz\\WP_OOP_Plugin_Lib\\": "src/"
@@ -29,22 +25,28 @@
   },
   "scripts": {
     "format": [
-      "composer --working-dir=build-cs install",
-      "build-cs/vendor/bin/phpcbf --standard=phpcs.xml.dist"
+      "composer --working-dir=tools/php/lint update",
+      "tools/php/lint/vendor/bin/phpcbf --standard=phpcs.xml.dist"
     ],
     "lint": [
-      "composer --working-dir=build-cs install",
-      "build-cs/vendor/bin/phpcs --standard=phpcs.xml.dist"
+      "composer --working-dir=tools/php/lint update",
+      "tools/php/lint/vendor/bin/phpcs --standard=phpcs.xml.dist"
     ],
     "phpmd": [
-      "composer --working-dir=build-cs install",
-      "build-cs/vendor/bin/phpmd . text phpmd.xml"
+      "composer --working-dir=tools/php/lint update",
+      "tools/php/lint/vendor/bin/phpmd . text phpmd.xml"
     ],
     "phpstan": [
-      "composer --working-dir=build-cs install",
-      "build-cs/vendor/bin/phpstan analyse --memory-limit=2048M"
+      "composer --working-dir=tools/php/lint update",
+      "tools/php/lint/vendor/bin/phpstan analyse --memory-limit=2048M"
     ],
-    "test": "phpunit -c phpunit.xml.dist --verbose",
-    "test-multisite": "WP_MULTISITE=1 phpunit -c tests/phpunit/multisite.xml --verbose"
+    "test": [
+        "composer --working-dir=tools/php/test update",
+        "tools/php/test/vendor/bin/phpunit -c phpunit.xml.dist --verbose"
+    ],
+    "test-multisite": [
+        "composer --working-dir=tools/php/test update",
+        "WP_MULTISITE=1 tools/php/test/vendor/bin/phpunit -c phpunit.xml.dist --exclude-group=ms-excluded --verbose"
+    ]
   }
 }
