@@ -89,7 +89,7 @@ jobs:
           php-version: ${{ matrix.php }}
 
       - name: Install Composer dependencies
-        run: composer install
+        run: composer update
 
       - name: Setup Node.js (.nvmrc)
         uses: actions/setup-node@v4
