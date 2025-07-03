@@ -7,6 +7,8 @@
 
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\PHPUnit\Tests\Installation;
 
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Network_Env;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Network_Runner;
 use Felix_Arntz\WP_OOP_Plugin_Lib\General\Plugin_Env;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Options\Option;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Options\Option_Repository;
@@ -71,6 +73,9 @@ class Abstract_Installer_Tests extends Test_Case {
 					'autoload' => false,
 				)
 			)
+		);
+		$this->installer->set_network_runner(
+			new Network_Runner( new Network_Env() )
 		);
 	}
 

@@ -9,6 +9,8 @@
 namespace Felix_Arntz\WP_OOP_Plugin_Lib\Installation;
 
 use Exception;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Network_Env;
+use Felix_Arntz\WP_OOP_Plugin_Lib\General\Network_Runner;
 use Felix_Arntz\WP_OOP_Plugin_Lib\General\Plugin_Env;
 use Felix_Arntz\WP_OOP_Plugin_Lib\General\Traits\Maybe_Throw;
 use Felix_Arntz\WP_OOP_Plugin_Lib\Installation\Contracts\Installer;
@@ -47,6 +49,14 @@ abstract class Abstract_Installer implements Installer {
 	private $delete_data_option;
 
 	/**
+	 * Network runner instance.
+	 *
+	 * @since n.e.x.t
+	 * @var Network_Runner
+	 */
+	private $network_runner;
+
+	/**
 	 * Constructor.
 	 *
 	 * @since 0.1.0
@@ -62,13 +72,26 @@ abstract class Abstract_Installer implements Installer {
 	}
 
 	/**
+	 * Sets the network runner instance to use.
+	 *
+	 * This is optional. If no instance is set but it is needed, it will be instantiated.
+	 *
+	 * @since n.e.x.t
+	 *
+	 * @param Network_Runner $network_runner Network runner instance.
+	 */
+	final public function set_network_runner( Network_Runner $network_runner ): void {
+		$this->network_runner = $network_runner;
+	}
+
+	/**
 	 * Installs or upgrades data for the plugin as necessary.
 	 *
 	 * @since 0.1.0
 	 *
 	 * @return bool True on success, false on failure.
 	 */
-	public function install(): bool {
+	final public function install(): bool {
 		$success = $this->install_single();
 		if ( ! $success ) {
 			return false;
@@ -104,7 +127,7 @@ abstract class Abstract_Installer implements Installer {
 	 *
 	 * @return bool True if the plugin data is installed, false otherwise.
 	 */
-	public function is_installed(): bool {
+	final public function is_installed(): bool {
 		return (bool) $this->version_option->get_value();
 	}
 
@@ -117,10 +140,15 @@ abstract class Abstract_Installer implements Installer {
 	 *
 	 * @return bool True on success, false on failure.
 	 */
-	public function uninstall(): bool {
+	final public function uninstall(): bool {
 		// If not using multisite, simply uninstall the data for the single site.
 		if ( ! is_multisite() ) {
 			return $this->uninstall_single();
+		}
+
+		// Instantiate network runner if no instance was set yet.
+		if ( ! $this->network_runner ) {
+			$this->network_runner = new Network_Runner( new Network_Env() );
 		}
 
 		/*
@@ -129,33 +157,28 @@ abstract class Abstract_Installer implements Installer {
 		 * A maximum of 20 sites is set in an attempt to avoid timeouts. Reliably uninstalling a plugin in a large
 		 * WordPress multisite is unfortunately not possible.
 		 */
-		$site_ids = get_sites(
+		$callback = function () {
+			if ( ! $this->uninstall_single() ) {
+				return false;
+			}
+
+			/*
+			 * Delete the site metadata only if uninstallation was actually performed.
+			 * This is indicated by the version option no longer being present.
+			 */
+			if ( ! $this->version_option->get_value() ) {
+				// TODO: Use a meta repository for this.
+				delete_site_meta( get_current_blog_id(), $this->version_option->get_key() );
+			}
+			return true;
+		};
+		return $this->network_runner->run_for_sites(
+			$callback,
 			array(
-				'fields'   => 'ids',
 				'number'   => 20,
 				'meta_key' => $this->version_option->get_key(),
 			)
 		);
-
-		// Iterate through the site and uninstall the data for each one.
-		$success_ids = array();
-		foreach ( $site_ids as $site_id ) {
-			switch_to_blog( $site_id );
-			if ( $this->uninstall_single() ) {
-				/*
-				 * Delete the site metadata only if uninstallation was actually performed.
-				 * This is indicated by the version option no longer being present.
-				 */
-				if ( ! $this->version_option->get_value() ) {
-					// TODO: Use a meta repository for this.
-					delete_site_meta( $site_id, $this->version_option->get_key() );
-				}
-				$success_ids[] = $site_id;
-			}
-			restore_current_blog();
-		}
-
-		return count( $site_ids ) === count( $success_ids );
 	}
 
 	/**
