@@ -108,7 +108,15 @@ class Array_Registry implements Registry, Arrayable, ArrayAccess {
 	 * @return array<string, mixed> Array representation.
 	 */
 	public function to_array(): array {
-		return $this->get_all_registered();
+		return array_map(
+			static function ( $item ) {
+				if ( $item instanceof Arrayable ) {
+					return $item->to_array();
+				}
+				return (array) $item;
+			},
+			$this->items
+		);
 	}
 
 	/**

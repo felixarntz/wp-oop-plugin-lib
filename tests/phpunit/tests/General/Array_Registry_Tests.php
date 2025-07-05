@@ -104,7 +104,29 @@ class Array_Registry_Tests extends Test_Case {
 	}
 
 	public function test_to_array() {
-		$this->assertSame( $this->registry->get_all_registered(), $this->registry->to_array() );
+		$items = $this->registry->to_array();
+		$this->assertIsArray( $items );
+		$this->assertCount( 2, $items );
+		$this->assertArrayHasKey( 'foo', $items );
+		$this->assertArrayHasKey( 'bar', $items );
+		$this->assertIsArray( $items['foo'] );
+		$this->assertIsArray( $items['bar'] );
+		$this->assertSame(
+			array(
+				'arg1'  => 'val1',
+				'arg2'  => 'val2',
+				'force' => true,
+			),
+			$items['foo']
+		);
+		$this->assertSame(
+			array(
+				'arg1'  => 'val3',
+				'arg2'  => 'val4',
+				'force' => false,
+			),
+			$items['bar']
+		);
 	}
 
 	public function test_offsetExists() {
