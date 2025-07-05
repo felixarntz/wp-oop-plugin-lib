@@ -125,6 +125,6 @@ class Post_Query implements Entity_Query {
 	 * @return Post Post entity.
 	 */
 	private function wrap_post( WP_Post $post ): Post {
-		return new Post( $post );
+		return Post::convert( $post );
 	}
 }
