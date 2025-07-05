@@ -1,12 +1,12 @@
 <?php
 /**
- * Class Felix_Arntz\WP_OOP_Plugin_Lib\Block_Pattern\Block_Pattern_Registry
+ * Class Felix_Arntz\WP_OOP_Plugin_Lib\Block_Patterns\Block_Pattern_Registry
  *
  * @since n.e.x.t
  * @package wp-oop-plugin-lib
  */
 
-namespace Felix_Arntz\WP_OOP_Plugin_Lib\Block_Pattern;
+namespace Felix_Arntz\WP_OOP_Plugin_Lib\Block_Patterns;
 
 use Felix_Arntz\WP_OOP_Plugin_Lib\General\Contracts\Registry;
 use WP_Block_Patterns_Registry;
