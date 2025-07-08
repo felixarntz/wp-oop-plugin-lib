@@ -58,11 +58,11 @@ class Integer_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 *
 	 * @since 0.1.0
 	 *
-	 * @param string $min_datetime Minimum date-time or date allowed.
-	 * @param string $max_datetime Optional. Maximum date-time or date allowed. Default no limit.
+	 * @param string  $min_datetime Minimum date-time or date allowed.
+	 * @param ?string $max_datetime Optional. Maximum date-time or date allowed. Default no limit.
 	 * @return Validation_Rule_Builder Builder instance for chaining.
 	 */
-	public function with_datetime_range( string $min_datetime, string $max_datetime = null ): Validation_Rule_Builder {
+	public function with_datetime_range( string $min_datetime, ?string $max_datetime = null ): Validation_Rule_Builder {
 		return $this->with_rule( new Datetime_Range_Validation_Rule( $min_datetime, $max_datetime ) );
 	}
 
@@ -71,8 +71,8 @@ class Integer_Validation_Rule_Builder extends Abstract_Validation_Rule_Builder {
 	 *
 	 * @since 0.1.0
 	 *
-	 * @param int|float $min Minimum value allowed.
-	 * @param int|float $max Optional. Maximum value allowed. Default no limit.
+	 * @param int|float      $min Minimum value allowed.
+	 * @param int|float|null $max Optional. Maximum value allowed. Default no limit.
 	 * @return Validation_Rule_Builder Builder instance for chaining.
 	 */
 	public function with_numeric_range( $min, $max = null ): Validation_Rule_Builder {

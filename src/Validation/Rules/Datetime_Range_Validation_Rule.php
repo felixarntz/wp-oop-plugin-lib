@@ -45,8 +45,8 @@ class Datetime_Range_Validation_Rule implements Validation_Rule, With_Type_Suppo
 	 *
 	 * @since 0.1.0
 	 *
-	 * @param string $min_datetime Minimum date-time or date allowed.
-	 * @param string $max_datetime Optional. Maximum date-time or date allowed. Default no limit.
+	 * @param string  $min_datetime Minimum date-time or date allowed.
+	 * @param ?string $max_datetime Optional. Maximum date-time or date allowed. Default no limit.
 	 */
 	public function __construct( $min_datetime, $max_datetime = null ) {
 		$this->min_datetime = (string) $min_datetime;

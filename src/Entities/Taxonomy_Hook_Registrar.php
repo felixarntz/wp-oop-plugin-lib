@@ -28,10 +28,10 @@ class Taxonomy_Hook_Registrar implements Hook_Registrar {
 	/**
 	 * Constructor.
 	 *
-	 * @param Taxonomy_Registry|null $registry Optional. WordPress taxonomy registry instance. By default, a new
-	 *                                         instance will be created.
+	 * @param ?Taxonomy_Registry $registry Optional. WordPress taxonomy registry instance. By default, a new instance
+	 *                                     will be created.
 	 */
-	public function __construct( Taxonomy_Registry $registry = null ) {
+	public function __construct( ?Taxonomy_Registry $registry = null ) {
 		$this->registry = $registry;
 	}
 

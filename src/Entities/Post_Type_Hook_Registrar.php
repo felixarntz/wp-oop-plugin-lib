@@ -28,10 +28,10 @@ class Post_Type_Hook_Registrar implements Hook_Registrar {
 	/**
 	 * Constructor.
 	 *
-	 * @param Post_Type_Registry|null $registry Optional. WordPress post type registry instance. By default, a new
-	 *                                          instance will be created.
+	 * @param ?Post_Type_Registry $registry Optional. WordPress post type registry instance. By default, a new instance
+	 *                                      will be created.
 	 */
-	public function __construct( Post_Type_Registry $registry = null ) {
+	public function __construct( ?Post_Type_Registry $registry = null ) {
 		$this->registry = $registry;
 	}
 

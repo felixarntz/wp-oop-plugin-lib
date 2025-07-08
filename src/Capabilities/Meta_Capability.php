@@ -30,13 +30,13 @@ class Meta_Capability extends Abstract_Capability {
 	 *
 	 * @since 0.1.0
 	 *
-	 * @param string   $key          Capability key.
-	 * @param callable $map_callback Optional. Callback function to determine the required base capabilities needed to
-	 *                               grant this meta capability. function receives the user ID and any additional
-	 *                               parameters passed alongside the capability check and must return an array. Default
-	 *                               null.
+	 * @param string    $key          Capability key.
+	 * @param ?callable $map_callback Optional. Callback function to determine the required base capabilities needed to
+	 *                                grant this meta capability. function receives the user ID and any additional
+	 *                                parameters passed alongside the capability check and must return an array.
+	 *                                Default null.
 	 */
-	public function __construct( string $key, callable $map_callback = null ) {
+	public function __construct( string $key, ?callable $map_callback = null ) {
 		parent::__construct( $key );
 		$this->map_callback = $map_callback ?? function () {
 			return array();

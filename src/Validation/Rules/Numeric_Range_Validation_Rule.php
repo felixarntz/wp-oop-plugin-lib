@@ -45,8 +45,8 @@ class Numeric_Range_Validation_Rule implements Validation_Rule, With_Type_Suppor
 	 *
 	 * @since 0.1.0
 	 *
-	 * @param int|float $min Minimum value allowed.
-	 * @param int|float $max Optional. Maximum value allowed. Default no limit.
+	 * @param int|float      $min Minimum value allowed.
+	 * @param int|float|null $max Optional. Maximum value allowed. Default no limit.
 	 */
 	public function __construct( $min, $max = null ) {
 		$this->min = is_int( $min ) ? $min : (float) $min;
