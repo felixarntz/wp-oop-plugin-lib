@@ -2,7 +2,7 @@
 /**
  * Interface Felix_Arntz\WP_OOP_Plugin_Lib\Entities\Contracts\Entity_Repository
  *
- * @since 0.1.0
+ * @since   0.1.0
  * @package wp-oop-plugin-lib
  */
 
@@ -40,11 +40,10 @@ interface Entity_Repository {
 	 *
 	 * @since 0.1.0
 	 *
-	 * @param int                  $id   Entity ID.
-	 * @param array<string, mixed> $data New data to set for the entity.
+	 * @param Entity $entity Entity with new data to update
 	 * @return bool True on success, false on failure.
 	 */
-	public function update( int $id, array $data ): bool;
+	public function update( Entity $entity ): bool;
 
 	/**
 	 * Adds a new entity to the repository.
