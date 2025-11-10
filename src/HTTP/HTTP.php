@@ -262,6 +262,7 @@ class HTTP implements Request_Handler {
 		$parsed_args['body']    = $request_args['data'] ?? null;
 
 		// Allow short-circuiting requests, just like in WP_Http::request().
+		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 		$pre = apply_filters( 'pre_http_request', false, $parsed_args, $request_args['url'] );
 		if ( false !== $pre ) {
 			if ( is_wp_error( $pre ) ) {
@@ -326,6 +327,7 @@ class HTTP implements Request_Handler {
 	private function merge_wp_default_options( array $options, string $url, string $method ): array {
 		$wp_user_agent = 'WordPress/' . get_bloginfo( 'version' ) . '; ' . get_bloginfo( 'url' );
 
+		// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 		$defaults = array(
 			'timeout'             => apply_filters( 'http_request_timeout', 5, $url ),
 			'redirection'         => apply_filters( 'http_request_redirection_count', 5, $url ),
@@ -339,6 +341,7 @@ class HTTP implements Request_Handler {
 			'limit_response_size' => null,
 		);
 
+		// phpcs:enable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 		if ( 'HEAD' === $method ) {
 			$defaults['redirection'] = 0;
 		}
@@ -377,6 +380,7 @@ class HTTP implements Request_Handler {
 		if ( 'HEAD' !== $method && 'GET' !== $method ) {
 			$options['data_format'] = 'body';
 		}
+		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 		$options['verify'] = apply_filters( 'https_ssl_verify', $options['verify'], $url );
 
 		// Add proxy settings if necessary, similar to WordPress core.
